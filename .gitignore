@@ -1,0 +1,10 @@
+Inventario/bin/**
+Inventario/obj/**
+InventarioBusiness/bin/**
+InventarioBusiness/obj/**
+InventarioItem/bin/**
+InventarioItem/obj/**
+InventarioDao/bin/**
+InventarioDao/obj/**
+Idioma/bin/**
+Idioma/obj/**
