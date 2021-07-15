@@ -1,0 +1,174 @@
+﻿.txtFactura {
+    text-align: right;
+}
+
+.Logo {
+    position: absolute;
+    margin-top:15px;
+}
+
+body {
+ font-family: "Trebuchet MS", "Helvetica", "Arial",  "Verdana", "sans-serif";
+ /*font-size: 100%;*/
+}
+
+.td {
+    border:hidden;
+}
+
+.table {
+    /*border: 1px solid #1D70B7;*/
+}
+
+.tr {
+    background-color: #1D70B7;
+}
+
+h1 {
+  font-family: Helvetica;
+  font-weight: 100;
+}
+
+.nav {
+    padding-top: 10px;
+    padding-bottom:0px !important;
+}
+.nav li {
+    padding-left:0px;
+}
+
+    .nav li a {
+        /*background: #1D70B7;
+    color: white !important;*/
+        padding: 4px 2px !important;
+    }
+.nav ul li a {
+    background-color: white;
+    color: #1D70B7 !important;
+    padding: 4px 2px !important;
+}
+.navbar-brand {
+    padding-top:5px !important;
+    padding-bottom:3px !important;
+}
+.dropdown:hover {
+    background-color: #1D70B7 !important;
+}
+.TituloEmpresa {
+    position: relative;
+    top: 5px;
+}
+.caret {
+    color:white !important;
+    margin-right:5px !important;
+}
+/*.nav {
+	margin: 0px;
+	padding: 10px;
+	list-style: none;
+    background-color:white;
+}
+
+.nav li {
+	float: left;
+	position: relative;
+}
+
+.nav li a {
+	background: #1D70B7;
+    color: #ffffff;
+	display: block;
+	padding: 7px 8px;
+	text-decoration: none;
+	border-top: 1px solid #ffffff;
+}
+
+.nav li a:hover {
+	color: #70b52b;
+}
+
+
+.nav ul {
+	display: none;
+	position: absolute;
+	margin-left: 10px;
+	list-style: none;
+	padding: 0px;
+}
+
+.nav ul li {
+	width: 220px;
+	float: left;
+    z-index: 100;
+}
+
+.nav ul a {
+	display: block;
+	height: auto;
+	padding: 7px 8px;
+	color: #ffffff;
+	text-decoration: none;
+	border-bottom: 1px solid;
+	text-decoration: none;
+	border-bottom: 1px solid #ffffff;
+}
+
+.nav ul li a:hover {
+	color: 	#8CC739;
+}*/
+.divMenu {
+    width: 20%;
+}
+
+/* Style the list (Nuevo Tab)*/
+ul.tab {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+/* Float the list items side by side */
+ul.tab li {float: left;}
+
+/* Style the links inside the list items */
+ul.tab li a {
+    display: inline-block;
+    color: black;
+    text-align: center;
+    padding: 4px 6px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of links on hover */
+ul.tab li a:hover {background-color: #ddd;}
+
+/* Create an active/current tablink class */
+ul.tab li a:focus, .active {background-color: #ccc;}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: none;
+    border-top: none;
+    text-align:left;
+}
+
+div.tr {
+    padding: 5px;
+    text-align: center;
+    font-size: large;
+    margin-top: 10px;
+}
+
+.table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: none;
+}

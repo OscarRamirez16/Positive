@@ -1,0 +1,145 @@
+body {
+    font-family: "Trebuchet MS", "Helvetica", "Arial",  "Verdana", "sans-serif";
+    font-size: 70%; 
+    background:#ffffff;
+}
+
+.Box {
+    width:200px;
+    background:#fff;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:10pt;
+    height:25px;
+    /*width:250px;*/
+    -moz-border-radius:8px;
+    -webkit-border-radius:8px;
+    padding-left: 2px;
+}
+
+.BoxValorGrilla {
+    width:100px;
+    background:#fff;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:10pt;
+    height:25px;
+    -moz-border-radius:8px;
+    -webkit-border-radius:8px;
+    padding-left: 2px;
+    text-align:right;
+}
+
+.BoxValor {
+    width:200px;
+    background:#fff;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:10pt;
+    height:25px;
+    /*width:250px;*/
+    -moz-border-radius:8px;
+    -webkit-border-radius:8px;
+    padding-left: 2px;
+    text-align:right;
+}
+
+.Button {
+    width:100px;
+    height:25px;
+    -moz-border-radius:8px;
+    -webkit-border-radius:8px;
+    /*padding-right: 1px;
+    padding-left: 1px;
+    margin-right: 80px;
+    margin-left: 50px;*/
+}
+
+.DropDownListIdioma {
+    background:#fff;
+    font-family:Verdana;
+    font-size:10pt;
+    height:25px;
+    width:200px;
+    -moz-border-radius:8px;
+    -webkit-border-radius:8px;
+}
+
+.DropDownListGrilla {
+    background:#fff;
+    font-family:Verdana;
+    font-size:10pt;
+    height:25px;
+    width:100px;
+    -moz-border-radius:8px;
+    -webkit-border-radius:8px;
+}
+
+.DropDownList {
+    background:#fff;
+    font-family:Verdana;
+    font-size:10pt;
+    height:25px;
+    width:200px;
+    -moz-border-radius:8px;
+    -webkit-border-radius:8px;
+}
+
+.Tr {
+    height:35px;
+}
+ 
+.contenedor{
+    width: 90%;
+    margin: auto;
+    background-image: url("/Images/boton.png");
+    color: bisque;
+    padding: 20px 15px 50px 50px;
+    border-radius: 10px;
+    box-shadow: 0 10px 10px 0px rgba(0, 0, 0, 0.8);
+}
+ 
+.contenedor .titulo{
+    font-size: 3.5ex;
+    font-weight: bold;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+ 
+#pestanas {
+    float: top;
+    font-size: 3ex;
+    font-weight: bold;
+}
+ 
+#pestanas ul{
+    margin-left: -40px;  
+    color: #ffffff;  
+}
+ 
+#pestanas li{
+    list-style-type: none;
+    float: left;
+    text-align: center;
+    margin: 0px 2px -2px -0px;
+    background: darkgrey;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border: 2px solid bisque;
+    border-bottom: dimgray;
+    padding: 0px 20px 0px 20px;
+    color: #ffffff;
+}
+ 
+#pestanas a:link{
+    text-decoration: none;
+    color: bisque;
+}
+ 
+#contenidopestanas{
+    clear: both;  
+    background: dimgray;
+    padding: 20px 0px 20px 20px;
+    border-radius: 5px;
+    border-top-left-radius: 0px;
+    border: 2px solid bisque;
+    width: 90%;
+    color:#ffffff;
+}

@@ -1,0 +1,61 @@
+D:\Empresa HQS-S\Positive\Positive\positive\Idioma\bin\Release\Idioma.dll
+D:\Empresa HQS-S\Positive\Positive\positive\Idioma\bin\Release\Idioma.pdb
+D:\Empresa HQS-S\Positive\Positive\positive\Idioma\obj\Release\Idioma.dll
+D:\Empresa HQS-S\Positive\Positive\positive\Idioma\obj\Release\Idioma.pdb
+D:\Empresa HQS-S\Positive\positive actualizacion precios\Idioma\bin\Release\Idioma.dll
+D:\Empresa HQS-S\Positive\positive actualizacion precios\Idioma\bin\Release\Idioma.pdb
+D:\Empresa HQS-S\Positive\positive actualizacion precios\Idioma\obj\Release\Idioma.dll
+D:\Empresa HQS-S\Positive\positive actualizacion precios\Idioma\obj\Release\Idioma.pdb
+D:\HQS-Software\Positive\Positive actualizacion precios\Idioma\bin\Release\Idioma.dll
+D:\HQS-Software\Positive\Positive actualizacion precios\Idioma\bin\Release\Idioma.pdb
+D:\HQS-Software\Positive\Positive actualizacion precios\Idioma\obj\Release\Idioma.csprojResolveAssemblyReference.cache
+D:\HQS-Software\Positive\Positive actualizacion precios\Idioma\obj\Release\Idioma.dll
+D:\HQS-Software\Positive\Positive actualizacion precios\Idioma\obj\Release\Idioma.pdb
+D:\HQS-Software\Positive\Positive con producción\Idioma\bin\Release\Idioma.dll
+D:\HQS-Software\Positive\Positive con producción\Idioma\bin\Release\Idioma.pdb
+D:\HQS-Software\Positive\Positive con producción\Idioma\obj\Release\Idioma.csprojResolveAssemblyReference.cache
+D:\HQS-Software\Positive\Positive con producción\Idioma\obj\Release\Idioma.dll
+D:\HQS-Software\Positive\Positive con producción\Idioma\obj\Release\Idioma.pdb
+D:\Empresa HQS-S\Positive\Positive con producción 20160910\Idioma\bin\Release\Idioma.dll
+D:\Empresa HQS-S\Positive\Positive con producción 20160910\Idioma\bin\Release\Idioma.pdb
+D:\Empresa HQS-S\Positive\Positive con producción 20160910\Idioma\obj\Release\Idioma.csprojResolveAssemblyReference.cache
+D:\Empresa HQS-S\Positive\Positive con producción 20160910\Idioma\obj\Release\Idioma.dll
+D:\Empresa HQS-S\Positive\Positive con producción 20160910\Idioma\obj\Release\Idioma.pdb
+E:\Software\Positive20161031\Idioma\bin\Release\Idioma.dll
+E:\Software\Positive20161031\Idioma\bin\Release\Idioma.pdb
+E:\Software\Positive20161031\Idioma\obj\Release\Idioma.csprojResolveAssemblyReference.cache
+E:\Software\Positive20161031\Idioma\obj\Release\Idioma.dll
+E:\Software\Positive20161031\Idioma\obj\Release\Idioma.pdb
+F:\Positive20170309\Idioma\bin\Release\Idioma.dll
+F:\Positive20170309\Idioma\bin\Release\Idioma.pdb
+F:\Positive20170309\Idioma\obj\Release\Idioma.csprojResolveAssemblyReference.cache
+F:\Positive20170309\Idioma\obj\Release\Idioma.dll
+F:\Positive20170309\Idioma\obj\Release\Idioma.pdb
+F:\Positive20181222\Idioma\bin\Release\Idioma.dll
+F:\Positive20181222\Idioma\bin\Release\Idioma.pdb
+F:\Positive20181222\Idioma\bin\Release\Microsoft.ReportViewer.Common.dll
+F:\Positive20181222\Idioma\bin\Release\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+F:\Positive20181222\Idioma\bin\Release\Microsoft.ReportViewer.WebForms.DLL
+F:\Positive20181222\Idioma\obj\Release\Idioma.csprojResolveAssemblyReference.cache
+F:\Positive20181222\Idioma\obj\Release\Idioma.dll
+F:\Positive20181222\Idioma\obj\Release\Idioma.pdb
+C:\Archivos Oscar\Positive\Positive20190715\Idioma\bin\Release\Idioma.dll
+C:\Archivos Oscar\Positive\Positive20190715\Idioma\bin\Release\Idioma.pdb
+C:\Archivos Oscar\Positive\Positive20190715\Idioma\bin\Release\Microsoft.ReportViewer.Common.dll
+C:\Archivos Oscar\Positive\Positive20190715\Idioma\bin\Release\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\Archivos Oscar\Positive\Positive20190715\Idioma\bin\Release\Microsoft.ReportViewer.WebForms.DLL
+C:\Archivos Oscar\Positive\Positive20190715\Idioma\obj\Release\Idioma.csproj.CoreCompileInputs.cache
+C:\Archivos Oscar\Positive\Positive20190715\Idioma\obj\Release\Idioma.csproj.CopyComplete
+C:\Archivos Oscar\Positive\Positive20190715\Idioma\obj\Release\Idioma.dll
+C:\Archivos Oscar\Positive\Positive20190715\Idioma\obj\Release\Idioma.pdb
+C:\Archivos Oscar\Positive\Positive20190715\Idioma\obj\Release\Idioma.csprojAssemblyReference.cache
+C:\Archivos Oscar\HQS-Software\Positive20190715\Idioma\bin\Release\Idioma.dll
+C:\Archivos Oscar\HQS-Software\Positive20190715\Idioma\bin\Release\Idioma.pdb
+C:\Archivos Oscar\HQS-Software\Positive20190715\Idioma\bin\Release\Microsoft.ReportViewer.Common.dll
+C:\Archivos Oscar\HQS-Software\Positive20190715\Idioma\bin\Release\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\Archivos Oscar\HQS-Software\Positive20190715\Idioma\bin\Release\Microsoft.ReportViewer.WebForms.DLL
+C:\Archivos Oscar\HQS-Software\Positive20190715\Idioma\obj\Release\Idioma.csprojAssemblyReference.cache
+C:\Archivos Oscar\HQS-Software\Positive20190715\Idioma\obj\Release\Idioma.csproj.CoreCompileInputs.cache
+C:\Archivos Oscar\HQS-Software\Positive20190715\Idioma\obj\Release\Idioma.csproj.CopyComplete
+C:\Archivos Oscar\HQS-Software\Positive20190715\Idioma\obj\Release\Idioma.dll
+C:\Archivos Oscar\HQS-Software\Positive20190715\Idioma\obj\Release\Idioma.pdb

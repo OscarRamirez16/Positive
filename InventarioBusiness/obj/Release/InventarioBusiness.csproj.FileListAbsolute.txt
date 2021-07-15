@@ -1,0 +1,205 @@
+D:\Empresa HQS-S\Positive\Positive\positive\InventarioBusiness\bin\Release\InventarioBusiness.dll
+D:\Empresa HQS-S\Positive\Positive\positive\InventarioBusiness\bin\Release\InventarioBusiness.pdb
+D:\Empresa HQS-S\Positive\Positive\positive\InventarioBusiness\bin\Release\InventarioDao.dll
+D:\Empresa HQS-S\Positive\Positive\positive\InventarioBusiness\bin\Release\InventarioItem.dll
+D:\Empresa HQS-S\Positive\Positive\positive\InventarioBusiness\bin\Release\InventarioDao.pdb
+D:\Empresa HQS-S\Positive\Positive\positive\InventarioBusiness\bin\Release\InventarioItem.pdb
+D:\Empresa HQS-S\Positive\Positive\positive\InventarioBusiness\obj\Release\InventarioBusiness.csprojResolveAssemblyReference.cache
+D:\Empresa HQS-S\Positive\Positive\positive\InventarioBusiness\obj\Release\InventarioBusiness.dll
+D:\Empresa HQS-S\Positive\Positive\positive\InventarioBusiness\obj\Release\InventarioBusiness.pdb
+D:\Empresa HQS-S\Positive\positive actualizacion precios\InventarioBusiness\bin\Release\InventarioBusiness.dll
+D:\Empresa HQS-S\Positive\positive actualizacion precios\InventarioBusiness\bin\Release\InventarioBusiness.pdb
+D:\Empresa HQS-S\Positive\positive actualizacion precios\InventarioBusiness\bin\Release\InventarioDao.dll
+D:\Empresa HQS-S\Positive\positive actualizacion precios\InventarioBusiness\bin\Release\InventarioItem.dll
+D:\Empresa HQS-S\Positive\positive actualizacion precios\InventarioBusiness\bin\Release\InventarioDao.pdb
+D:\Empresa HQS-S\Positive\positive actualizacion precios\InventarioBusiness\bin\Release\InventarioItem.pdb
+D:\Empresa HQS-S\Positive\positive actualizacion precios\InventarioBusiness\obj\Release\InventarioBusiness.csprojResolveAssemblyReference.cache
+D:\Empresa HQS-S\Positive\positive actualizacion precios\InventarioBusiness\obj\Release\InventarioBusiness.dll
+D:\Empresa HQS-S\Positive\positive actualizacion precios\InventarioBusiness\obj\Release\InventarioBusiness.pdb
+D:\HQS-Software\Positive\Positive actualizacion precios\InventarioBusiness\bin\Release\InventarioBusiness.dll
+D:\HQS-Software\Positive\Positive actualizacion precios\InventarioBusiness\bin\Release\InventarioBusiness.pdb
+D:\HQS-Software\Positive\Positive actualizacion precios\InventarioBusiness\bin\Release\InventarioDao.dll
+D:\HQS-Software\Positive\Positive actualizacion precios\InventarioBusiness\bin\Release\InventarioItem.dll
+D:\HQS-Software\Positive\Positive actualizacion precios\InventarioBusiness\bin\Release\InventarioDao.pdb
+D:\HQS-Software\Positive\Positive actualizacion precios\InventarioBusiness\bin\Release\InventarioItem.pdb
+D:\HQS-Software\Positive\Positive actualizacion precios\InventarioBusiness\obj\Release\InventarioBusiness.csprojResolveAssemblyReference.cache
+D:\HQS-Software\Positive\Positive actualizacion precios\InventarioBusiness\obj\Release\InventarioBusiness.dll
+D:\HQS-Software\Positive\Positive actualizacion precios\InventarioBusiness\obj\Release\InventarioBusiness.pdb
+D:\HQS-Software\Positive\Positive con producción\InventarioBusiness\bin\Release\InventarioBusiness.dll
+D:\HQS-Software\Positive\Positive con producción\InventarioBusiness\bin\Release\InventarioBusiness.pdb
+D:\HQS-Software\Positive\Positive con producción\InventarioBusiness\bin\Release\InventarioDao.dll
+D:\HQS-Software\Positive\Positive con producción\InventarioBusiness\bin\Release\InventarioItem.dll
+D:\HQS-Software\Positive\Positive con producción\InventarioBusiness\bin\Release\InventarioDao.pdb
+D:\HQS-Software\Positive\Positive con producción\InventarioBusiness\bin\Release\InventarioItem.pdb
+D:\HQS-Software\Positive\Positive con producción\InventarioBusiness\obj\Release\InventarioBusiness.csprojResolveAssemblyReference.cache
+D:\HQS-Software\Positive\Positive con producción\InventarioBusiness\obj\Release\InventarioBusiness.dll
+D:\HQS-Software\Positive\Positive con producción\InventarioBusiness\obj\Release\InventarioBusiness.pdb
+D:\Empresa HQS-S\Positive\Positive con producción 20160910\InventarioBusiness\bin\Release\InventarioBusiness.dll
+D:\Empresa HQS-S\Positive\Positive con producción 20160910\InventarioBusiness\bin\Release\InventarioBusiness.pdb
+D:\Empresa HQS-S\Positive\Positive con producción 20160910\InventarioBusiness\bin\Release\InventarioDao.dll
+D:\Empresa HQS-S\Positive\Positive con producción 20160910\InventarioBusiness\bin\Release\InventarioItem.dll
+D:\Empresa HQS-S\Positive\Positive con producción 20160910\InventarioBusiness\bin\Release\InventarioDao.pdb
+D:\Empresa HQS-S\Positive\Positive con producción 20160910\InventarioBusiness\bin\Release\InventarioItem.pdb
+D:\Empresa HQS-S\Positive\Positive con producción 20160910\InventarioBusiness\obj\Release\InventarioBusiness.csprojResolveAssemblyReference.cache
+D:\Empresa HQS-S\Positive\Positive con producción 20160910\InventarioBusiness\obj\Release\InventarioBusiness.dll
+D:\Empresa HQS-S\Positive\Positive con producción 20160910\InventarioBusiness\obj\Release\InventarioBusiness.pdb
+E:\Software\Positive20161031\InventarioBusiness\bin\Release\InventarioBusiness.dll
+E:\Software\Positive20161031\InventarioBusiness\bin\Release\InventarioBusiness.pdb
+E:\Software\Positive20161031\InventarioBusiness\bin\Release\InventarioDao.dll
+E:\Software\Positive20161031\InventarioBusiness\bin\Release\InventarioItem.dll
+E:\Software\Positive20161031\InventarioBusiness\bin\Release\InventarioDao.pdb
+E:\Software\Positive20161031\InventarioBusiness\bin\Release\InventarioItem.pdb
+E:\Software\Positive20161031\InventarioBusiness\obj\Release\InventarioBusiness.csprojResolveAssemblyReference.cache
+E:\Software\Positive20161031\InventarioBusiness\obj\Release\InventarioBusiness.dll
+E:\Software\Positive20161031\InventarioBusiness\obj\Release\InventarioBusiness.pdb
+F:\Positive20170309\InventarioBusiness\bin\Release\InventarioBusiness.dll
+F:\Positive20170309\InventarioBusiness\bin\Release\InventarioBusiness.pdb
+F:\Positive20170309\InventarioBusiness\bin\Release\InventarioDao.dll
+F:\Positive20170309\InventarioBusiness\bin\Release\InventarioItem.dll
+F:\Positive20170309\InventarioBusiness\bin\Release\InventarioDao.pdb
+F:\Positive20170309\InventarioBusiness\bin\Release\InventarioItem.pdb
+F:\Positive20170309\InventarioBusiness\obj\Release\InventarioBusiness.csprojResolveAssemblyReference.cache
+F:\Positive20170309\InventarioBusiness\obj\Release\InventarioBusiness.dll
+F:\Positive20170309\InventarioBusiness\obj\Release\InventarioBusiness.pdb
+G:\Positive20170309\InventarioBusiness\bin\Release\InventarioBusiness.dll
+G:\Positive20170309\InventarioBusiness\bin\Release\InventarioBusiness.pdb
+G:\Positive20170309\InventarioBusiness\bin\Release\InventarioDao.dll
+G:\Positive20170309\InventarioBusiness\bin\Release\InventarioItem.dll
+G:\Positive20170309\InventarioBusiness\bin\Release\InventarioDao.pdb
+G:\Positive20170309\InventarioBusiness\bin\Release\InventarioItem.pdb
+G:\Positive20170309\InventarioBusiness\obj\Release\InventarioBusiness.csprojResolveAssemblyReference.cache
+G:\Positive20170309\InventarioBusiness\obj\Release\InventarioBusiness.dll
+G:\Positive20170309\InventarioBusiness\obj\Release\InventarioBusiness.pdb
+F:\Positive20170312\InventarioBusiness\bin\Release\InventarioBusiness.dll
+F:\Positive20170312\InventarioBusiness\bin\Release\InventarioBusiness.pdb
+F:\Positive20170312\InventarioBusiness\bin\Release\InventarioDao.dll
+F:\Positive20170312\InventarioBusiness\bin\Release\InventarioItem.dll
+F:\Positive20170312\InventarioBusiness\bin\Release\InventarioDao.pdb
+F:\Positive20170312\InventarioBusiness\bin\Release\InventarioItem.pdb
+F:\Positive20170312\InventarioBusiness\obj\Release\InventarioBusiness.csprojResolveAssemblyReference.cache
+F:\Positive20170312\InventarioBusiness\obj\Release\InventarioBusiness.dll
+F:\Positive20170312\InventarioBusiness\obj\Release\InventarioBusiness.pdb
+F:\Positive20181222\InventarioBusiness\bin\Release\InventarioBusiness.dll
+F:\Positive20181222\InventarioBusiness\bin\Release\InventarioBusiness.pdb
+F:\Positive20181222\InventarioBusiness\bin\Release\InventarioDao.dll
+F:\Positive20181222\InventarioBusiness\bin\Release\InventarioItem.dll
+F:\Positive20181222\InventarioBusiness\bin\Release\Microsoft.ReportViewer.Common.dll
+F:\Positive20181222\InventarioBusiness\bin\Release\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+F:\Positive20181222\InventarioBusiness\bin\Release\Microsoft.ReportViewer.WebForms.DLL
+F:\Positive20181222\InventarioBusiness\bin\Release\InventarioDao.pdb
+F:\Positive20181222\InventarioBusiness\bin\Release\InventarioItem.pdb
+F:\Positive20181222\InventarioBusiness\obj\Release\InventarioBusiness.csprojResolveAssemblyReference.cache
+F:\Positive20181222\InventarioBusiness\obj\Release\InventarioBusiness.dll
+F:\Positive20181222\InventarioBusiness\obj\Release\InventarioBusiness.pdb
+C:\Archivos Oscar\Positive\Positive20190715\InventarioBusiness\bin\Release\InventarioBusiness.dll
+C:\Archivos Oscar\Positive\Positive20190715\InventarioBusiness\bin\Release\InventarioBusiness.pdb
+C:\Archivos Oscar\Positive\Positive20190715\InventarioBusiness\bin\Release\InventarioDao.dll
+C:\Archivos Oscar\Positive\Positive20190715\InventarioBusiness\bin\Release\InventarioItem.dll
+C:\Archivos Oscar\Positive\Positive20190715\InventarioBusiness\bin\Release\Microsoft.ReportViewer.Common.dll
+C:\Archivos Oscar\Positive\Positive20190715\InventarioBusiness\bin\Release\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\Archivos Oscar\Positive\Positive20190715\InventarioBusiness\bin\Release\Microsoft.ReportViewer.WebForms.DLL
+C:\Archivos Oscar\Positive\Positive20190715\InventarioBusiness\bin\Release\InventarioDao.pdb
+C:\Archivos Oscar\Positive\Positive20190715\InventarioBusiness\bin\Release\InventarioItem.pdb
+C:\Archivos Oscar\Positive\Positive20190715\InventarioBusiness\obj\Release\InventarioBusiness.csprojAssemblyReference.cache
+C:\Archivos Oscar\Positive\Positive20190715\InventarioBusiness\obj\Release\InventarioBusiness.csproj.CoreCompileInputs.cache
+C:\Archivos Oscar\Positive\Positive20190715\InventarioBusiness\obj\Release\InventarioBusiness.csproj.CopyComplete
+C:\Archivos Oscar\Positive\Positive20190715\InventarioBusiness\obj\Release\InventarioBusiness.dll
+C:\Archivos Oscar\Positive\Positive20190715\InventarioBusiness\obj\Release\InventarioBusiness.pdb
+C:\Archivos Oscar\HQS-Software\Positive20190715\InventarioBusiness\bin\Release\InventarioBusiness.dll
+C:\Archivos Oscar\HQS-Software\Positive20190715\InventarioBusiness\bin\Release\InventarioBusiness.pdb
+C:\Archivos Oscar\HQS-Software\Positive20190715\InventarioBusiness\bin\Release\InventarioDao.dll
+C:\Archivos Oscar\HQS-Software\Positive20190715\InventarioBusiness\bin\Release\InventarioItem.dll
+C:\Archivos Oscar\HQS-Software\Positive20190715\InventarioBusiness\bin\Release\Microsoft.ReportViewer.Common.dll
+C:\Archivos Oscar\HQS-Software\Positive20190715\InventarioBusiness\bin\Release\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\Archivos Oscar\HQS-Software\Positive20190715\InventarioBusiness\bin\Release\Microsoft.ReportViewer.WebForms.DLL
+C:\Archivos Oscar\HQS-Software\Positive20190715\InventarioBusiness\bin\Release\InventarioDao.pdb
+C:\Archivos Oscar\HQS-Software\Positive20190715\InventarioBusiness\bin\Release\InventarioItem.pdb
+C:\Archivos Oscar\HQS-Software\Positive20190715\InventarioBusiness\obj\Release\InventarioBusiness.csprojAssemblyReference.cache
+C:\Archivos Oscar\HQS-Software\Positive20190715\InventarioBusiness\obj\Release\InventarioBusiness.csproj.CoreCompileInputs.cache
+C:\Archivos Oscar\HQS-Software\Positive20190715\InventarioBusiness\obj\Release\InventarioBusiness.csproj.CopyComplete
+C:\Archivos Oscar\HQS-Software\Positive20190715\InventarioBusiness\obj\Release\InventarioBusiness.dll
+C:\Archivos Oscar\HQS-Software\Positive20190715\InventarioBusiness\obj\Release\InventarioBusiness.pdb
+C:\Users\orami\Downloads\20210421Positive\Positive\InventarioBusiness\bin\Release\InventarioBusiness.dll
+C:\Users\orami\Downloads\20210421Positive\Positive\InventarioBusiness\bin\Release\InventarioBusiness.pdb
+C:\Users\orami\Downloads\20210421Positive\Positive\InventarioBusiness\bin\Release\InventarioDao.dll
+C:\Users\orami\Downloads\20210421Positive\Positive\InventarioBusiness\bin\Release\InventarioItem.dll
+C:\Users\orami\Downloads\20210421Positive\Positive\InventarioBusiness\bin\Release\Microsoft.ReportViewer.Common.dll
+C:\Users\orami\Downloads\20210421Positive\Positive\InventarioBusiness\bin\Release\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\Users\orami\Downloads\20210421Positive\Positive\InventarioBusiness\bin\Release\Microsoft.ReportViewer.WebForms.DLL
+C:\Users\orami\Downloads\20210421Positive\Positive\InventarioBusiness\bin\Release\InventarioDao.pdb
+C:\Users\orami\Downloads\20210421Positive\Positive\InventarioBusiness\bin\Release\InventarioItem.pdb
+C:\Users\orami\Downloads\20210421Positive\Positive\InventarioBusiness\obj\Release\InventarioBusiness.csprojAssemblyReference.cache
+C:\Users\orami\Downloads\20210421Positive\Positive\InventarioBusiness\obj\Release\InventarioBusiness.csproj.CoreCompileInputs.cache
+C:\Users\orami\Downloads\20210421Positive\Positive\InventarioBusiness\obj\Release\InventarioBusiness.csproj.CopyComplete
+C:\Users\orami\Downloads\20210421Positive\Positive\InventarioBusiness\obj\Release\InventarioBusiness.dll
+C:\Users\orami\Downloads\20210421Positive\Positive\InventarioBusiness\obj\Release\InventarioBusiness.pdb
+C:\Users\orami\Downloads\20210522PositiveResponsive\20210421PositiveResponsive\Positive\InventarioBusiness\bin\Release\InventarioBusiness.dll
+C:\Users\orami\Downloads\20210522PositiveResponsive\20210421PositiveResponsive\Positive\InventarioBusiness\bin\Release\InventarioBusiness.pdb
+C:\Users\orami\Downloads\20210522PositiveResponsive\20210421PositiveResponsive\Positive\InventarioBusiness\bin\Release\InventarioDao.dll
+C:\Users\orami\Downloads\20210522PositiveResponsive\20210421PositiveResponsive\Positive\InventarioBusiness\bin\Release\InventarioItem.dll
+C:\Users\orami\Downloads\20210522PositiveResponsive\20210421PositiveResponsive\Positive\InventarioBusiness\bin\Release\Microsoft.ReportViewer.Common.dll
+C:\Users\orami\Downloads\20210522PositiveResponsive\20210421PositiveResponsive\Positive\InventarioBusiness\bin\Release\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\Users\orami\Downloads\20210522PositiveResponsive\20210421PositiveResponsive\Positive\InventarioBusiness\bin\Release\Microsoft.ReportViewer.WebForms.DLL
+C:\Users\orami\Downloads\20210522PositiveResponsive\20210421PositiveResponsive\Positive\InventarioBusiness\bin\Release\InventarioDao.pdb
+C:\Users\orami\Downloads\20210522PositiveResponsive\20210421PositiveResponsive\Positive\InventarioBusiness\bin\Release\InventarioItem.pdb
+C:\Users\orami\Downloads\20210522PositiveResponsive\20210421PositiveResponsive\Positive\InventarioBusiness\obj\Release\InventarioBusiness.csprojAssemblyReference.cache
+C:\Users\orami\Downloads\20210522PositiveResponsive\20210421PositiveResponsive\Positive\InventarioBusiness\obj\Release\InventarioBusiness.csproj.CoreCompileInputs.cache
+C:\Users\orami\Downloads\20210522PositiveResponsive\20210421PositiveResponsive\Positive\InventarioBusiness\obj\Release\InventarioBusiness.csproj.CopyComplete
+C:\Users\orami\Downloads\20210522PositiveResponsive\20210421PositiveResponsive\Positive\InventarioBusiness\obj\Release\InventarioBusiness.dll
+C:\Users\orami\Downloads\20210522PositiveResponsive\20210421PositiveResponsive\Positive\InventarioBusiness\obj\Release\InventarioBusiness.pdb
+C:\Users\orami\Downloads\20210522PositiveResponsive\20210421PositiveResponsive\InventarioBusiness\bin\Release\InventarioBusiness.dll
+C:\Users\orami\Downloads\20210522PositiveResponsive\20210421PositiveResponsive\InventarioBusiness\bin\Release\InventarioBusiness.pdb
+C:\Users\orami\Downloads\20210522PositiveResponsive\20210421PositiveResponsive\InventarioBusiness\bin\Release\InventarioDao.dll
+C:\Users\orami\Downloads\20210522PositiveResponsive\20210421PositiveResponsive\InventarioBusiness\bin\Release\InventarioItem.dll
+C:\Users\orami\Downloads\20210522PositiveResponsive\20210421PositiveResponsive\InventarioBusiness\bin\Release\Microsoft.ReportViewer.Common.dll
+C:\Users\orami\Downloads\20210522PositiveResponsive\20210421PositiveResponsive\InventarioBusiness\bin\Release\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\Users\orami\Downloads\20210522PositiveResponsive\20210421PositiveResponsive\InventarioBusiness\bin\Release\Microsoft.ReportViewer.WebForms.DLL
+C:\Users\orami\Downloads\20210522PositiveResponsive\20210421PositiveResponsive\InventarioBusiness\bin\Release\InventarioDao.pdb
+C:\Users\orami\Downloads\20210522PositiveResponsive\20210421PositiveResponsive\InventarioBusiness\bin\Release\InventarioItem.pdb
+C:\Users\orami\Downloads\20210522PositiveResponsive\20210421PositiveResponsive\InventarioBusiness\obj\Release\InventarioBusiness.csprojAssemblyReference.cache
+C:\Users\orami\Downloads\20210522PositiveResponsive\20210421PositiveResponsive\InventarioBusiness\obj\Release\InventarioBusiness.csproj.CoreCompileInputs.cache
+C:\Users\orami\Downloads\20210522PositiveResponsive\20210421PositiveResponsive\InventarioBusiness\obj\Release\InventarioBusiness.csproj.CopyComplete
+C:\Users\orami\Downloads\20210522PositiveResponsive\20210421PositiveResponsive\InventarioBusiness\obj\Release\InventarioBusiness.dll
+C:\Users\orami\Downloads\20210522PositiveResponsive\20210421PositiveResponsive\InventarioBusiness\obj\Release\InventarioBusiness.pdb
+C:\Users\orami\Downloads\20210530PositiveResponsive\20210421PositiveResponsive\InventarioBusiness\bin\Release\InventarioBusiness.dll
+C:\Users\orami\Downloads\20210530PositiveResponsive\20210421PositiveResponsive\InventarioBusiness\bin\Release\InventarioBusiness.pdb
+C:\Users\orami\Downloads\20210530PositiveResponsive\20210421PositiveResponsive\InventarioBusiness\bin\Release\InventarioDao.dll
+C:\Users\orami\Downloads\20210530PositiveResponsive\20210421PositiveResponsive\InventarioBusiness\bin\Release\InventarioItem.dll
+C:\Users\orami\Downloads\20210530PositiveResponsive\20210421PositiveResponsive\InventarioBusiness\bin\Release\Microsoft.ReportViewer.Common.dll
+C:\Users\orami\Downloads\20210530PositiveResponsive\20210421PositiveResponsive\InventarioBusiness\bin\Release\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\Users\orami\Downloads\20210530PositiveResponsive\20210421PositiveResponsive\InventarioBusiness\bin\Release\Microsoft.ReportViewer.WebForms.DLL
+C:\Users\orami\Downloads\20210530PositiveResponsive\20210421PositiveResponsive\InventarioBusiness\bin\Release\InventarioDao.pdb
+C:\Users\orami\Downloads\20210530PositiveResponsive\20210421PositiveResponsive\InventarioBusiness\bin\Release\InventarioItem.pdb
+C:\Users\orami\Downloads\20210530PositiveResponsive\20210421PositiveResponsive\InventarioBusiness\obj\Release\InventarioBusiness.csprojAssemblyReference.cache
+C:\Users\orami\Downloads\20210530PositiveResponsive\20210421PositiveResponsive\InventarioBusiness\obj\Release\InventarioBusiness.csproj.CoreCompileInputs.cache
+C:\Users\orami\Downloads\20210530PositiveResponsive\20210421PositiveResponsive\InventarioBusiness\obj\Release\InventarioBusiness.csproj.CopyComplete
+C:\Users\orami\Downloads\20210530PositiveResponsive\20210421PositiveResponsive\InventarioBusiness\obj\Release\InventarioBusiness.dll
+C:\Users\orami\Downloads\20210530PositiveResponsive\20210421PositiveResponsive\InventarioBusiness\obj\Release\InventarioBusiness.pdb
+C:\Users\orami\Downloads\20210611PositiveResponsive\InventarioBusiness\bin\Release\InventarioBusiness.dll
+C:\Users\orami\Downloads\20210611PositiveResponsive\InventarioBusiness\bin\Release\InventarioBusiness.pdb
+C:\Users\orami\Downloads\20210611PositiveResponsive\InventarioBusiness\bin\Release\InventarioDao.dll
+C:\Users\orami\Downloads\20210611PositiveResponsive\InventarioBusiness\bin\Release\InventarioItem.dll
+C:\Users\orami\Downloads\20210611PositiveResponsive\InventarioBusiness\bin\Release\Microsoft.ReportViewer.Common.dll
+C:\Users\orami\Downloads\20210611PositiveResponsive\InventarioBusiness\bin\Release\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\Users\orami\Downloads\20210611PositiveResponsive\InventarioBusiness\bin\Release\Microsoft.ReportViewer.WebForms.DLL
+C:\Users\orami\Downloads\20210611PositiveResponsive\InventarioBusiness\bin\Release\InventarioDao.pdb
+C:\Users\orami\Downloads\20210611PositiveResponsive\InventarioBusiness\bin\Release\InventarioItem.pdb
+C:\Users\orami\Downloads\20210611PositiveResponsive\InventarioBusiness\obj\Release\InventarioBusiness.csprojAssemblyReference.cache
+C:\Users\orami\Downloads\20210611PositiveResponsive\InventarioBusiness\obj\Release\InventarioBusiness.csproj.CoreCompileInputs.cache
+C:\Users\orami\Downloads\20210611PositiveResponsive\InventarioBusiness\obj\Release\InventarioBusiness.csproj.CopyComplete
+C:\Users\orami\Downloads\20210611PositiveResponsive\InventarioBusiness\obj\Release\InventarioBusiness.dll
+C:\Users\orami\Downloads\20210611PositiveResponsive\InventarioBusiness\obj\Release\InventarioBusiness.pdb
+C:\Users\orami\Downloads\20210621PositiveResponsive\InventarioBusiness\bin\Release\InventarioBusiness.dll
+C:\Users\orami\Downloads\20210621PositiveResponsive\InventarioBusiness\bin\Release\InventarioBusiness.pdb
+C:\Users\orami\Downloads\20210621PositiveResponsive\InventarioBusiness\bin\Release\InventarioDao.dll
+C:\Users\orami\Downloads\20210621PositiveResponsive\InventarioBusiness\bin\Release\InventarioItem.dll
+C:\Users\orami\Downloads\20210621PositiveResponsive\InventarioBusiness\bin\Release\Microsoft.ReportViewer.Common.dll
+C:\Users\orami\Downloads\20210621PositiveResponsive\InventarioBusiness\bin\Release\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\Users\orami\Downloads\20210621PositiveResponsive\InventarioBusiness\bin\Release\Microsoft.ReportViewer.WebForms.DLL
+C:\Users\orami\Downloads\20210621PositiveResponsive\InventarioBusiness\bin\Release\InventarioDao.pdb
+C:\Users\orami\Downloads\20210621PositiveResponsive\InventarioBusiness\bin\Release\InventarioItem.pdb
+C:\Users\orami\Downloads\20210621PositiveResponsive\InventarioBusiness\obj\Release\InventarioBusiness.csprojAssemblyReference.cache
+C:\Users\orami\Downloads\20210621PositiveResponsive\InventarioBusiness\obj\Release\InventarioBusiness.csproj.CoreCompileInputs.cache
+C:\Users\orami\Downloads\20210621PositiveResponsive\InventarioBusiness\obj\Release\InventarioBusiness.csproj.CopyComplete
+C:\Users\orami\Downloads\20210621PositiveResponsive\InventarioBusiness\obj\Release\InventarioBusiness.dll
+C:\Users\orami\Downloads\20210621PositiveResponsive\InventarioBusiness\obj\Release\InventarioBusiness.pdb

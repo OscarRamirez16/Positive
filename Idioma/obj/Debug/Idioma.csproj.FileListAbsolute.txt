@@ -1,0 +1,190 @@
+D:\Empresa HQS-S\Positive\Positive\positive\Idioma\bin\Debug\Idioma.dll
+D:\Empresa HQS-S\Positive\Positive\positive\Idioma\bin\Debug\Idioma.pdb
+D:\Empresa HQS-S\Positive\Positive\positive\Idioma\obj\Debug\Idioma.dll
+D:\Empresa HQS-S\Positive\Positive\positive\Idioma\obj\Debug\Idioma.pdb
+D:\Empresa HQS-S\Positive\positive actualizacion precios\Idioma\bin\Debug\Idioma.dll
+D:\Empresa HQS-S\Positive\positive actualizacion precios\Idioma\bin\Debug\Idioma.pdb
+D:\Empresa HQS-S\Positive\positive actualizacion precios\Idioma\obj\Debug\Idioma.dll
+D:\Empresa HQS-S\Positive\positive actualizacion precios\Idioma\obj\Debug\Idioma.pdb
+D:\HQS-Software\Positive\Positive actualizacion precios\Idioma\bin\Debug\Idioma.dll
+D:\HQS-Software\Positive\Positive actualizacion precios\Idioma\bin\Debug\Idioma.pdb
+D:\HQS-Software\Positive\Positive actualizacion precios\Idioma\obj\Debug\Idioma.dll
+D:\HQS-Software\Positive\Positive actualizacion precios\Idioma\obj\Debug\Idioma.pdb
+D:\HQS-Software\Positive\Positive actualizacion precios\Idioma\obj\Debug\Idioma.csprojResolveAssemblyReference.cache
+D:\HQS-Software\Positive\Positive con producción\Idioma\bin\Debug\Idioma.dll
+D:\HQS-Software\Positive\Positive con producción\Idioma\bin\Debug\Idioma.pdb
+D:\HQS-Software\Positive\Positive con producción\Idioma\obj\Debug\Idioma.csprojResolveAssemblyReference.cache
+D:\HQS-Software\Positive\Positive con producción\Idioma\obj\Debug\Idioma.dll
+D:\HQS-Software\Positive\Positive con producción\Idioma\obj\Debug\Idioma.pdb
+D:\Positive con producción\Idioma\bin\Debug\Idioma.dll
+D:\Positive con producción\Idioma\bin\Debug\Idioma.pdb
+D:\Positive con producción\Idioma\obj\Debug\Idioma.dll
+D:\Positive con producción\Idioma\obj\Debug\Idioma.pdb
+D:\Positive con producción\Idioma\obj\Debug\Idioma.csprojResolveAssemblyReference.cache
+E:\Software\Positive20161031\Idioma\bin\Debug\Idioma.dll
+E:\Software\Positive20161031\Idioma\bin\Debug\Idioma.pdb
+E:\Software\Positive20161031\Idioma\obj\Debug\Idioma.csprojResolveAssemblyReference.cache
+E:\Software\Positive20161031\Idioma\obj\Debug\Idioma.dll
+E:\Software\Positive20161031\Idioma\obj\Debug\Idioma.pdb
+E:\Software\Positive20170215\Idioma\bin\Debug\Idioma.dll
+E:\Software\Positive20170215\Idioma\bin\Debug\Idioma.pdb
+E:\Software\Positive20170215\Idioma\obj\Debug\Idioma.csprojResolveAssemblyReference.cache
+E:\Software\Positive20170215\Idioma\obj\Debug\Idioma.dll
+E:\Software\Positive20170215\Idioma\obj\Debug\Idioma.pdb
+E:\Software\Positive20170420\Idioma\bin\Debug\Idioma.dll
+E:\Software\Positive20170420\Idioma\bin\Debug\Idioma.pdb
+E:\Software\Positive20170420\Idioma\obj\Debug\Idioma.csprojResolveAssemblyReference.cache
+E:\Software\Positive20170420\Idioma\obj\Debug\Idioma.dll
+E:\Software\Positive20170420\Idioma\obj\Debug\Idioma.pdb
+F:\Positive20170612\Idioma\bin\Debug\Idioma.dll
+F:\Positive20170612\Idioma\bin\Debug\Idioma.pdb
+F:\Positive20170612\Idioma\obj\Debug\Idioma.csprojResolveAssemblyReference.cache
+F:\Positive20170612\Idioma\obj\Debug\Idioma.dll
+F:\Positive20170612\Idioma\obj\Debug\Idioma.pdb
+F:\Positive20170612\Idioma\bin\Debug\Microsoft.ReportViewer.Common.dll
+F:\Positive20170612\Idioma\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+F:\Positive20170612\Idioma\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
+F:\Positive20170612\Idioma\bin\Debug\Microsoft.SqlServer.Types.dll
+F:\Positive20170612\Idioma\bin\Debug\es\Microsoft.SqlServer.Types.resources.dll
+F:\Positive20170808\Idioma\bin\Debug\Idioma.dll
+F:\Positive20170808\Idioma\bin\Debug\Idioma.pdb
+F:\Positive20170808\Idioma\bin\Debug\Microsoft.ReportViewer.Common.dll
+F:\Positive20170808\Idioma\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+F:\Positive20170808\Idioma\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
+F:\Positive20170808\Idioma\bin\Debug\Microsoft.SqlServer.Types.dll
+F:\Positive20170808\Idioma\bin\Debug\es\Microsoft.SqlServer.Types.resources.dll
+F:\Positive20170808\Idioma\obj\Debug\Idioma.csprojResolveAssemblyReference.cache
+F:\Positive20170808\Idioma\obj\Debug\Idioma.dll
+F:\Positive20170808\Idioma\obj\Debug\Idioma.pdb
+C:\Users\Oscar Ramirez\Desktop\Positive20171122\Positive20171122\Idioma\bin\Debug\Idioma.dll
+C:\Users\Oscar Ramirez\Desktop\Positive20171122\Positive20171122\Idioma\bin\Debug\Idioma.pdb
+C:\Users\Oscar Ramirez\Desktop\Positive20171122\Positive20171122\Idioma\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\Users\Oscar Ramirez\Desktop\Positive20171122\Positive20171122\Idioma\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\Users\Oscar Ramirez\Desktop\Positive20171122\Positive20171122\Idioma\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
+C:\Users\Oscar Ramirez\Desktop\Positive20171122\Positive20171122\Idioma\obj\Debug\Idioma.csprojResolveAssemblyReference.cache
+C:\Users\Oscar Ramirez\Desktop\Positive20171122\Positive20171122\Idioma\obj\Debug\Idioma.dll
+C:\Users\Oscar Ramirez\Desktop\Positive20171122\Positive20171122\Idioma\obj\Debug\Idioma.pdb
+D:\Aplicaciones\Positive20171122\Positive20171122\Idioma\bin\Debug\Idioma.dll
+D:\Aplicaciones\Positive20171122\Positive20171122\Idioma\bin\Debug\Idioma.pdb
+D:\Aplicaciones\Positive20171122\Positive20171122\Idioma\bin\Debug\Microsoft.ReportViewer.Common.dll
+D:\Aplicaciones\Positive20171122\Positive20171122\Idioma\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+D:\Aplicaciones\Positive20171122\Positive20171122\Idioma\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
+D:\Aplicaciones\Positive20171122\Positive20171122\Idioma\obj\Debug\Idioma.csprojResolveAssemblyReference.cache
+D:\Aplicaciones\Positive20171122\Positive20171122\Idioma\obj\Debug\Idioma.dll
+D:\Aplicaciones\Positive20171122\Positive20171122\Idioma\obj\Debug\Idioma.pdb
+F:\Positive20180125\Positive20180125\Idioma\bin\Debug\Idioma.dll
+F:\Positive20180125\Positive20180125\Idioma\bin\Debug\Idioma.pdb
+F:\Positive20180125\Positive20180125\Idioma\bin\Debug\Microsoft.ReportViewer.Common.dll
+F:\Positive20180125\Positive20180125\Idioma\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+F:\Positive20180125\Positive20180125\Idioma\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
+F:\Positive20180125\Positive20180125\Idioma\obj\Debug\Idioma.csprojResolveAssemblyReference.cache
+F:\Positive20180125\Positive20180125\Idioma\obj\Debug\Idioma.dll
+F:\Positive20180125\Positive20180125\Idioma\obj\Debug\Idioma.pdb
+D:\Positive20180125\Positive20180125\Idioma\bin\Debug\Idioma.dll
+D:\Positive20180125\Positive20180125\Idioma\bin\Debug\Idioma.pdb
+D:\Positive20180125\Positive20180125\Idioma\bin\Debug\Microsoft.ReportViewer.Common.dll
+D:\Positive20180125\Positive20180125\Idioma\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+D:\Positive20180125\Positive20180125\Idioma\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
+D:\Positive20180125\Positive20180125\Idioma\obj\Debug\Idioma.csprojResolveAssemblyReference.cache
+D:\Positive20180125\Positive20180125\Idioma\obj\Debug\Idioma.dll
+D:\Positive20180125\Positive20180125\Idioma\obj\Debug\Idioma.pdb
+G:\Positive20180125\Positive20180125\Idioma\bin\Debug\Idioma.dll
+G:\Positive20180125\Positive20180125\Idioma\bin\Debug\Idioma.pdb
+G:\Positive20180125\Positive20180125\Idioma\bin\Debug\Microsoft.ReportViewer.Common.dll
+G:\Positive20180125\Positive20180125\Idioma\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+G:\Positive20180125\Positive20180125\Idioma\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
+G:\Positive20180125\Positive20180125\Idioma\obj\Debug\Idioma.csprojResolveAssemblyReference.cache
+G:\Positive20180125\Positive20180125\Idioma\obj\Debug\Idioma.dll
+G:\Positive20180125\Positive20180125\Idioma\obj\Debug\Idioma.pdb
+G:\Positive20180908\Positive20180125\Idioma\bin\Debug\Idioma.dll
+G:\Positive20180908\Positive20180125\Idioma\bin\Debug\Idioma.pdb
+G:\Positive20180908\Positive20180125\Idioma\bin\Debug\Microsoft.ReportViewer.Common.dll
+G:\Positive20180908\Positive20180125\Idioma\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+G:\Positive20180908\Positive20180125\Idioma\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
+G:\Positive20180908\Positive20180125\Idioma\obj\Debug\Idioma.csprojResolveAssemblyReference.cache
+G:\Positive20180908\Positive20180125\Idioma\obj\Debug\Idioma.dll
+G:\Positive20180908\Positive20180125\Idioma\obj\Debug\Idioma.pdb
+E:\Software\Positive20180922\Idioma\bin\Debug\Idioma.dll
+E:\Software\Positive20180922\Idioma\bin\Debug\Idioma.pdb
+E:\Software\Positive20180922\Idioma\bin\Debug\Microsoft.ReportViewer.Common.dll
+E:\Software\Positive20180922\Idioma\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+E:\Software\Positive20180922\Idioma\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
+E:\Software\Positive20180922\Idioma\obj\Debug\Idioma.csprojResolveAssemblyReference.cache
+E:\Software\Positive20180922\Idioma\obj\Debug\Idioma.csproj.CoreCompileInputs.cache
+E:\Software\Positive20180922\Idioma\obj\Debug\Idioma.dll
+E:\Software\Positive20180922\Idioma\obj\Debug\Idioma.pdb
+G:\Positive20180922\Idioma\bin\Debug\Idioma.dll
+G:\Positive20180922\Idioma\bin\Debug\Idioma.pdb
+G:\Positive20180922\Idioma\bin\Debug\Microsoft.ReportViewer.Common.dll
+G:\Positive20180922\Idioma\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+G:\Positive20180922\Idioma\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
+G:\Positive20180922\Idioma\obj\Debug\Idioma.csprojResolveAssemblyReference.cache
+G:\Positive20180922\Idioma\obj\Debug\Idioma.dll
+G:\Positive20180922\Idioma\obj\Debug\Idioma.pdb
+G:\Positive20181222\Idioma\bin\Debug\Idioma.dll
+G:\Positive20181222\Idioma\bin\Debug\Idioma.pdb
+G:\Positive20181222\Idioma\bin\Debug\Microsoft.ReportViewer.Common.dll
+G:\Positive20181222\Idioma\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+G:\Positive20181222\Idioma\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
+G:\Positive20181222\Idioma\obj\Debug\Idioma.csprojResolveAssemblyReference.cache
+G:\Positive20181222\Idioma\obj\Debug\Idioma.dll
+G:\Positive20181222\Idioma\obj\Debug\Idioma.pdb
+D:\Positive20181222\Idioma\bin\Debug\Idioma.dll
+D:\Positive20181222\Idioma\bin\Debug\Idioma.pdb
+D:\Positive20181222\Idioma\bin\Debug\Microsoft.ReportViewer.Common.dll
+D:\Positive20181222\Idioma\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+D:\Positive20181222\Idioma\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
+D:\Positive20181222\Idioma\obj\Debug\Idioma.csprojResolveAssemblyReference.cache
+D:\Positive20181222\Idioma\obj\Debug\Idioma.csproj.CoreCompileInputs.cache
+D:\Positive20181222\Idioma\obj\Debug\Idioma.dll
+D:\Positive20181222\Idioma\obj\Debug\Idioma.pdb
+F:\Positive20181222\Idioma\bin\Debug\Idioma.dll
+F:\Positive20181222\Idioma\bin\Debug\Idioma.pdb
+F:\Positive20181222\Idioma\bin\Debug\Microsoft.ReportViewer.Common.dll
+F:\Positive20181222\Idioma\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+F:\Positive20181222\Idioma\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
+F:\Positive20181222\Idioma\obj\Debug\Idioma.csprojResolveAssemblyReference.cache
+F:\Positive20181222\Idioma\obj\Debug\Idioma.dll
+F:\Positive20181222\Idioma\obj\Debug\Idioma.pdb
+D:\Oscar\Positive\Positive20190529\Idioma\bin\Debug\Idioma.dll
+D:\Oscar\Positive\Positive20190529\Idioma\bin\Debug\Idioma.pdb
+D:\Oscar\Positive\Positive20190529\Idioma\bin\Debug\Microsoft.ReportViewer.Common.dll
+D:\Oscar\Positive\Positive20190529\Idioma\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+D:\Oscar\Positive\Positive20190529\Idioma\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
+D:\Oscar\Positive\Positive20190529\Idioma\bin\Debug\Microsoft.SqlServer.Types.dll
+D:\Oscar\Positive\Positive20190529\Idioma\bin\Debug\es\Microsoft.SqlServer.Types.resources.dll
+D:\Oscar\Positive\Positive20190529\Idioma\obj\Debug\Idioma.csprojAssemblyReference.cache
+D:\Oscar\Positive\Positive20190529\Idioma\obj\Debug\Idioma.csproj.CoreCompileInputs.cache
+D:\Oscar\Positive\Positive20190529\Idioma\obj\Debug\Idioma.csproj.CopyComplete
+D:\Oscar\Positive\Positive20190529\Idioma\obj\Debug\Idioma.dll
+D:\Oscar\Positive\Positive20190529\Idioma\obj\Debug\Idioma.pdb
+D:\Oscar\Positive\Positive20190715\Idioma\bin\Debug\Idioma.dll
+D:\Oscar\Positive\Positive20190715\Idioma\bin\Debug\Idioma.pdb
+D:\Oscar\Positive\Positive20190715\Idioma\bin\Debug\Microsoft.ReportViewer.Common.dll
+D:\Oscar\Positive\Positive20190715\Idioma\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+D:\Oscar\Positive\Positive20190715\Idioma\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
+D:\Oscar\Positive\Positive20190715\Idioma\obj\Debug\Idioma.csprojAssemblyReference.cache
+D:\Oscar\Positive\Positive20190715\Idioma\obj\Debug\Idioma.csproj.CoreCompileInputs.cache
+D:\Oscar\Positive\Positive20190715\Idioma\obj\Debug\Idioma.csproj.CopyComplete
+D:\Oscar\Positive\Positive20190715\Idioma\obj\Debug\Idioma.dll
+D:\Oscar\Positive\Positive20190715\Idioma\obj\Debug\Idioma.pdb
+C:\Archivos Oscar\Positive\Positive20190715\Idioma\bin\Debug\Idioma.dll
+C:\Archivos Oscar\Positive\Positive20190715\Idioma\bin\Debug\Idioma.pdb
+C:\Archivos Oscar\Positive\Positive20190715\Idioma\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\Archivos Oscar\Positive\Positive20190715\Idioma\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\Archivos Oscar\Positive\Positive20190715\Idioma\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
+C:\Archivos Oscar\Positive\Positive20190715\Idioma\obj\Debug\Idioma.csproj.CoreCompileInputs.cache
+C:\Archivos Oscar\Positive\Positive20190715\Idioma\obj\Debug\Idioma.csproj.CopyComplete
+C:\Archivos Oscar\Positive\Positive20190715\Idioma\obj\Debug\Idioma.dll
+C:\Archivos Oscar\Positive\Positive20190715\Idioma\obj\Debug\Idioma.pdb
+C:\Archivos Oscar\Positive\Positive20190715\Idioma\obj\Debug\Idioma.csprojAssemblyReference.cache
+C:\Archivos Oscar\HQS-Software\Positive20190715\Idioma\bin\Debug\Idioma.dll
+C:\Archivos Oscar\HQS-Software\Positive20190715\Idioma\bin\Debug\Idioma.pdb
+C:\Archivos Oscar\HQS-Software\Positive20190715\Idioma\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\Archivos Oscar\HQS-Software\Positive20190715\Idioma\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\Archivos Oscar\HQS-Software\Positive20190715\Idioma\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
+C:\Archivos Oscar\HQS-Software\Positive20190715\Idioma\obj\Debug\Idioma.csprojAssemblyReference.cache
+C:\Archivos Oscar\HQS-Software\Positive20190715\Idioma\obj\Debug\Idioma.csproj.CoreCompileInputs.cache
+C:\Archivos Oscar\HQS-Software\Positive20190715\Idioma\obj\Debug\Idioma.csproj.CopyComplete
+C:\Archivos Oscar\HQS-Software\Positive20190715\Idioma\obj\Debug\Idioma.dll
+C:\Archivos Oscar\HQS-Software\Positive20190715\Idioma\obj\Debug\Idioma.pdb

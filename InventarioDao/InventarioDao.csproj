@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F7DCCA0B-7336-46C0-9C11-89B8B39436A1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>InventarioDao</RootNamespace>
+    <AssemblyName>InventarioDao</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.ProcessingObjectModel.DLL</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.WebForms.DLL</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="tblArticuloCodigoBarraDao.cs" />
+    <Compile Include="tblArticuloDao.cs" />
+    <Compile Include="tblArticulo_BodegaDao.cs" />
+    <Compile Include="tblBodegaDao.cs" />
+    <Compile Include="tblCajaDao.cs" />
+    <Compile Include="tblCampanaArticuloDao.cs" />
+    <Compile Include="tblCampanaClienteDao.cs" />
+    <Compile Include="tblCampanaDao.cs" />
+    <Compile Include="tblCiudadDao.cs" />
+    <Compile Include="tblConciliacionDao.cs" />
+    <Compile Include="tblCuadreCajaDao.cs" />
+    <Compile Include="tblCuentaCobroDao.cs" />
+    <Compile Include="tblDepartamentoDao.cs" />
+    <Compile Include="tblDetalleDocumentoDao.cs" />
+    <Compile Include="tblDocumentoDao.cs" />
+    <Compile Include="tblEmpresaDao.cs" />
+    <Compile Include="tblFormaPagoDao.cs" />
+    <Compile Include="tblGrupoClienteDao.cs" />
+    <Compile Include="tblLineaDao.cs" />
+    <Compile Include="tblListaMaterialesDao.cs" />
+    <Compile Include="tblListaMaterialesDetalleDao.cs" />
+    <Compile Include="tblListaPrecioDao.cs" />
+    <Compile Include="tblMovimientosDiariosDao.cs" />
+    <Compile Include="tblNumeracionFacturaVentaDao.cs" />
+    <Compile Include="tblOrdenFabricacionDao.cs" />
+    <Compile Include="tblPaginasDao.cs" />
+    <Compile Include="tblPagoDao.cs" />
+    <Compile Include="tblPagoDetalleDao.cs" />
+    <Compile Include="tblPaisDao.cs" />
+    <Compile Include="tblPreciosPorBodegaDao.cs" />
+    <Compile Include="tblRetencionDao.cs" />
+    <Compile Include="tblRolDao.cs" />
+    <Compile Include="tblRol_PaginaDao.cs" />
+    <Compile Include="tblTerceroDao.cs" />
+    <Compile Include="tblTipoDocumentoDao.cs" />
+    <Compile Include="tblTipoIdentificacionDao.cs" />
+    <Compile Include="tblTipoManejoPrecioDao.cs" />
+    <Compile Include="tblTipoPagoDao.cs" />
+    <Compile Include="tblTipoTarjetaCreditoDao.cs" />
+    <Compile Include="tblTrasladoMercanciaDao.cs" />
+    <Compile Include="tblUsuarioDao.cs" />
+    <Compile Include="tblUsuario_RolDao.cs" />
+    <Compile Include="tblVendedorDao.cs" />
+    <Compile Include="tblVentaRapidaDao.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\InventarioItem\InventarioItem.csproj">
+      <Project>{3180fff6-8cf8-44b4-a251-9a704c6086f8}</Project>
+      <Name>InventarioItem</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

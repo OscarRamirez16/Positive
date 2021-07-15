@@ -1,0 +1,110 @@
+body, nav, ul, li, a  {margin: 0; padding: 0;}
+body {font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+a {text-decoration: none;}
+.container {
+    width: 105%;
+    max-width: 900px;
+    margin: 10px auto 10px 0px;
+}
+.toggleMenu {
+    display:  none;
+    background: #014254;
+    padding: 10px 15px;
+    color: #fff;
+}
+.nav {
+    list-style: none;
+     *zoom: 1;
+     background:#009dc7;
+}
+.nav:before,
+.nav:after {
+    content: " "; 
+    display: table; 
+}
+.nav:after {
+    clear: both;
+}
+.nav ul {
+    list-style: none;
+    width: 9em;
+}
+.nav a {
+    padding: 10px 15px;
+    color:#ffffff;
+}
+.nav li {
+    position: relative;
+    color:#ffffff;
+}
+.nav > li {
+    float: left;
+    border-top: 1px solid #104336;
+    color:#ffffff;
+}
+.nav > li > .parent {
+    background-image: url("images/downArrow.png");
+    background-repeat: no-repeat;
+    background-position: right;
+}
+.nav > li > a {
+    display: block;
+    top: 1px;
+    left: 0px;
+    color:#ffffff;
+}
+.nav li  ul {
+    position: absolute;
+    left: -9999px;
+}
+.nav > li.hover > ul {
+    left: 0;
+}
+.nav li li.hover ul {
+    left: 100%;
+    top: 0;
+}
+.nav li li a {
+    display: block;
+    background: #009dc7;
+    position: relative;
+    z-index:100;
+    border-top: 1px solid #175e4c;
+    color:#ffffff;
+}
+.nav li ul li {
+
+    float:initial;
+}
+.nav li li li a {
+    background:#009dc7;
+    z-index:200;
+    border-top: 1px solid #1d7a62;
+    color:#ffffff;
+}
+
+@media screen and (max-width: 768px) {
+    .active {
+        display: block;
+        color:#ffffff;
+    }
+    .nav > li {
+        float: none;
+    }
+    .nav > li > .parent {
+        background-position: 95% 50%;
+    }
+    .nav li li .parent {
+        background-image: url("images/downArrow.png");
+        background-repeat: no-repeat;
+        background-position: 95% 50%;
+    }
+    .nav ul {
+        display: block;
+        width: 100%;
+    }
+   .nav > li.hover > ul , .nav li li.hover ul {
+        position: static;
+    }
+
+}

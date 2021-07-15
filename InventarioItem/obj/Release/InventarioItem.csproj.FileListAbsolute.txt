@@ -1,0 +1,88 @@
+D:\Empresa HQS-S\Positive\Positive\positive\InventarioItem\bin\Release\InventarioItem.dll
+D:\Empresa HQS-S\Positive\Positive\positive\InventarioItem\bin\Release\InventarioItem.pdb
+D:\Empresa HQS-S\Positive\Positive\positive\InventarioItem\obj\Release\InventarioItem.csprojResolveAssemblyReference.cache
+D:\Empresa HQS-S\Positive\Positive\positive\InventarioItem\obj\Release\InventarioItem.dll
+D:\Empresa HQS-S\Positive\Positive\positive\InventarioItem\obj\Release\InventarioItem.pdb
+D:\Empresa HQS-S\Positive\positive actualizacion precios\InventarioItem\bin\Release\InventarioItem.dll
+D:\Empresa HQS-S\Positive\positive actualizacion precios\InventarioItem\bin\Release\InventarioItem.pdb
+D:\Empresa HQS-S\Positive\positive actualizacion precios\InventarioItem\obj\Release\InventarioItem.csprojResolveAssemblyReference.cache
+D:\Empresa HQS-S\Positive\positive actualizacion precios\InventarioItem\obj\Release\InventarioItem.dll
+D:\Empresa HQS-S\Positive\positive actualizacion precios\InventarioItem\obj\Release\InventarioItem.pdb
+D:\HQS-Software\Positive\Positive actualizacion precios\InventarioItem\bin\Release\InventarioItem.dll
+D:\HQS-Software\Positive\Positive actualizacion precios\InventarioItem\bin\Release\InventarioItem.pdb
+D:\HQS-Software\Positive\Positive actualizacion precios\InventarioItem\obj\Release\InventarioItem.csprojResolveAssemblyReference.cache
+D:\HQS-Software\Positive\Positive actualizacion precios\InventarioItem\obj\Release\InventarioItem.dll
+D:\HQS-Software\Positive\Positive actualizacion precios\InventarioItem\obj\Release\InventarioItem.pdb
+D:\HQS-Software\Positive\Positive con producción\InventarioItem\bin\Release\InventarioItem.dll
+D:\HQS-Software\Positive\Positive con producción\InventarioItem\bin\Release\InventarioItem.pdb
+D:\HQS-Software\Positive\Positive con producción\InventarioItem\obj\Release\InventarioItem.csprojResolveAssemblyReference.cache
+D:\HQS-Software\Positive\Positive con producción\InventarioItem\obj\Release\InventarioItem.dll
+D:\HQS-Software\Positive\Positive con producción\InventarioItem\obj\Release\InventarioItem.pdb
+D:\Empresa HQS-S\Positive\Positive con producción 20160910\InventarioItem\bin\Release\InventarioItem.dll
+D:\Empresa HQS-S\Positive\Positive con producción 20160910\InventarioItem\bin\Release\InventarioItem.pdb
+D:\Empresa HQS-S\Positive\Positive con producción 20160910\InventarioItem\obj\Release\InventarioItem.csprojResolveAssemblyReference.cache
+D:\Empresa HQS-S\Positive\Positive con producción 20160910\InventarioItem\obj\Release\InventarioItem.dll
+D:\Empresa HQS-S\Positive\Positive con producción 20160910\InventarioItem\obj\Release\InventarioItem.pdb
+E:\Software\Positive20161031\InventarioItem\bin\Release\InventarioItem.dll
+E:\Software\Positive20161031\InventarioItem\bin\Release\InventarioItem.pdb
+E:\Software\Positive20161031\InventarioItem\obj\Release\InventarioItem.csprojResolveAssemblyReference.cache
+E:\Software\Positive20161031\InventarioItem\obj\Release\InventarioItem.dll
+E:\Software\Positive20161031\InventarioItem\obj\Release\InventarioItem.pdb
+F:\Positive20170309\InventarioItem\bin\Release\InventarioItem.dll
+F:\Positive20170309\InventarioItem\bin\Release\InventarioItem.pdb
+F:\Positive20170309\InventarioItem\obj\Release\InventarioItem.csprojResolveAssemblyReference.cache
+F:\Positive20170309\InventarioItem\obj\Release\InventarioItem.dll
+F:\Positive20170309\InventarioItem\obj\Release\InventarioItem.pdb
+F:\Positive20170312\InventarioItem\bin\Release\InventarioItem.dll
+F:\Positive20170312\InventarioItem\bin\Release\InventarioItem.pdb
+F:\Positive20170312\InventarioItem\obj\Release\InventarioItem.csprojResolveAssemblyReference.cache
+F:\Positive20170312\InventarioItem\obj\Release\InventarioItem.dll
+F:\Positive20170312\InventarioItem\obj\Release\InventarioItem.pdb
+F:\Positive20181222\InventarioItem\bin\Release\InventarioItem.dll
+F:\Positive20181222\InventarioItem\bin\Release\InventarioItem.pdb
+F:\Positive20181222\InventarioItem\bin\Release\Microsoft.ReportViewer.Common.dll
+F:\Positive20181222\InventarioItem\bin\Release\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+F:\Positive20181222\InventarioItem\bin\Release\Microsoft.ReportViewer.WebForms.DLL
+F:\Positive20181222\InventarioItem\obj\Release\InventarioItem.csprojResolveAssemblyReference.cache
+F:\Positive20181222\InventarioItem\obj\Release\InventarioItem.dll
+F:\Positive20181222\InventarioItem\obj\Release\InventarioItem.pdb
+C:\Archivos Oscar\Positive\Positive20190715\InventarioItem\bin\Release\InventarioItem.dll
+C:\Archivos Oscar\Positive\Positive20190715\InventarioItem\bin\Release\InventarioItem.pdb
+C:\Archivos Oscar\Positive\Positive20190715\InventarioItem\bin\Release\Microsoft.ReportViewer.Common.dll
+C:\Archivos Oscar\Positive\Positive20190715\InventarioItem\bin\Release\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\Archivos Oscar\Positive\Positive20190715\InventarioItem\bin\Release\Microsoft.ReportViewer.WebForms.DLL
+C:\Archivos Oscar\Positive\Positive20190715\InventarioItem\obj\Release\InventarioItem.csprojAssemblyReference.cache
+C:\Archivos Oscar\Positive\Positive20190715\InventarioItem\obj\Release\InventarioItem.csproj.CoreCompileInputs.cache
+C:\Archivos Oscar\Positive\Positive20190715\InventarioItem\obj\Release\InventarioItem.csproj.CopyComplete
+C:\Archivos Oscar\Positive\Positive20190715\InventarioItem\obj\Release\InventarioItem.dll
+C:\Archivos Oscar\Positive\Positive20190715\InventarioItem\obj\Release\InventarioItem.pdb
+C:\Archivos Oscar\HQS-Software\Positive20190715\InventarioItem\bin\Release\InventarioItem.dll
+C:\Archivos Oscar\HQS-Software\Positive20190715\InventarioItem\bin\Release\InventarioItem.pdb
+C:\Archivos Oscar\HQS-Software\Positive20190715\InventarioItem\bin\Release\Microsoft.ReportViewer.Common.dll
+C:\Archivos Oscar\HQS-Software\Positive20190715\InventarioItem\bin\Release\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\Archivos Oscar\HQS-Software\Positive20190715\InventarioItem\bin\Release\Microsoft.ReportViewer.WebForms.DLL
+C:\Archivos Oscar\HQS-Software\Positive20190715\InventarioItem\obj\Release\InventarioItem.csprojAssemblyReference.cache
+C:\Archivos Oscar\HQS-Software\Positive20190715\InventarioItem\obj\Release\InventarioItem.csproj.CoreCompileInputs.cache
+C:\Archivos Oscar\HQS-Software\Positive20190715\InventarioItem\obj\Release\InventarioItem.csproj.CopyComplete
+C:\Archivos Oscar\HQS-Software\Positive20190715\InventarioItem\obj\Release\InventarioItem.dll
+C:\Archivos Oscar\HQS-Software\Positive20190715\InventarioItem\obj\Release\InventarioItem.pdb
+C:\Users\orami\Downloads\20210530PositiveResponsive\20210421PositiveResponsive\InventarioItem\bin\Release\InventarioItem.dll
+C:\Users\orami\Downloads\20210530PositiveResponsive\20210421PositiveResponsive\InventarioItem\bin\Release\InventarioItem.pdb
+C:\Users\orami\Downloads\20210530PositiveResponsive\20210421PositiveResponsive\InventarioItem\bin\Release\Microsoft.ReportViewer.Common.dll
+C:\Users\orami\Downloads\20210530PositiveResponsive\20210421PositiveResponsive\InventarioItem\bin\Release\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\Users\orami\Downloads\20210530PositiveResponsive\20210421PositiveResponsive\InventarioItem\bin\Release\Microsoft.ReportViewer.WebForms.DLL
+C:\Users\orami\Downloads\20210530PositiveResponsive\20210421PositiveResponsive\InventarioItem\obj\Release\InventarioItem.csprojAssemblyReference.cache
+C:\Users\orami\Downloads\20210530PositiveResponsive\20210421PositiveResponsive\InventarioItem\obj\Release\InventarioItem.csproj.CoreCompileInputs.cache
+C:\Users\orami\Downloads\20210530PositiveResponsive\20210421PositiveResponsive\InventarioItem\obj\Release\InventarioItem.csproj.CopyComplete
+C:\Users\orami\Downloads\20210530PositiveResponsive\20210421PositiveResponsive\InventarioItem\obj\Release\InventarioItem.dll
+C:\Users\orami\Downloads\20210530PositiveResponsive\20210421PositiveResponsive\InventarioItem\obj\Release\InventarioItem.pdb
+C:\Users\orami\Downloads\20210621PositiveResponsive\InventarioItem\bin\Release\InventarioItem.dll
+C:\Users\orami\Downloads\20210621PositiveResponsive\InventarioItem\bin\Release\InventarioItem.pdb
+C:\Users\orami\Downloads\20210621PositiveResponsive\InventarioItem\bin\Release\Microsoft.ReportViewer.Common.dll
+C:\Users\orami\Downloads\20210621PositiveResponsive\InventarioItem\bin\Release\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\Users\orami\Downloads\20210621PositiveResponsive\InventarioItem\bin\Release\Microsoft.ReportViewer.WebForms.DLL
+C:\Users\orami\Downloads\20210621PositiveResponsive\InventarioItem\obj\Release\InventarioItem.csprojAssemblyReference.cache
+C:\Users\orami\Downloads\20210621PositiveResponsive\InventarioItem\obj\Release\InventarioItem.csproj.CoreCompileInputs.cache
+C:\Users\orami\Downloads\20210621PositiveResponsive\InventarioItem\obj\Release\InventarioItem.csproj.CopyComplete
+C:\Users\orami\Downloads\20210621PositiveResponsive\InventarioItem\obj\Release\InventarioItem.dll
+C:\Users\orami\Downloads\20210621PositiveResponsive\InventarioItem\obj\Release\InventarioItem.pdb
