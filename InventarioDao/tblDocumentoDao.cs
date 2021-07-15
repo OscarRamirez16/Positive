@@ -385,6 +385,7 @@ namespace InventarioDao
                 }
                 oSQL.Parameters.Add(new SqlParameter("@Propina", oDocItem.Propina));
                 oSQL.Parameters.Add(new SqlParameter("@Impoconsumo", oDocItem.Impoconsumo));
+                oSQL.Parameters.Add(new SqlParameter("@TotalRetenciones", oDocItem.TotalRetenciones));
                 string Valores = oSQL.ExecuteScalar().ToString();
                 oDocItem.idDocumento = long.Parse(Valores.Split(',')[0]);
                 oDocItem.NumeroDocumento = Valores.Split(',')[1];
@@ -426,6 +427,18 @@ namespace InventarioDao
                     oSQL1.Parameters.Add(new SqlParameter("@CostoPonderado", Detalle.CostoPonderado));
                     oSQL1.Parameters.Add(new SqlParameter("@PrecioVenta", Detalle.PrecioVenta));
                     Detalle.idDetalleDocumento = long.Parse(oSQL1.ExecuteScalar().ToString());
+                }
+                foreach (tblDocumentoRetencionItem Retencion in oDocItem.Retenciones)
+                {
+                    SqlCommand oSQL2 = new SqlCommand("spGuardarDocumentoRetencion", Conexion, oTran);
+                    oSQL2.CommandType = CommandType.StoredProcedure;
+                    oSQL2.Parameters.Add(new SqlParameter("@IdDocumento", oDocItem.idDocumento));
+                    oSQL2.Parameters.Add(new SqlParameter("@IdRetencion", Retencion.IdRetencion));
+                    oSQL2.Parameters.Add(new SqlParameter("@TipoDocumento", Retencion.TipoDocumento));
+                    oSQL2.Parameters.Add(new SqlParameter("@Porcentaje", Retencion.Porcentaje));
+                    oSQL2.Parameters.Add(new SqlParameter("@Base", Retencion.Base));
+                    oSQL2.Parameters.Add(new SqlParameter("@Valor", Retencion.Valor));
+                    oSQL2.ExecuteNonQuery();
                 }
                 oTran.Commit();
             }

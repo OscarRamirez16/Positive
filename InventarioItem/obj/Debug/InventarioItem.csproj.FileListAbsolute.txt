@@ -267,3 +267,13 @@ C:\Users\orami\Downloads\20210621PositiveResponsive\InventarioItem\obj\Debug\Inv
 C:\Users\orami\Downloads\20210621PositiveResponsive\InventarioItem\obj\Debug\InventarioItem.csproj.CopyComplete
 C:\Users\orami\Downloads\20210621PositiveResponsive\InventarioItem\obj\Debug\InventarioItem.dll
 C:\Users\orami\Downloads\20210621PositiveResponsive\InventarioItem\obj\Debug\InventarioItem.pdb
+C:\Users\orami\Downloads\20210713PositiveResponsive\InventarioItem\bin\Debug\InventarioItem.dll
+C:\Users\orami\Downloads\20210713PositiveResponsive\InventarioItem\bin\Debug\InventarioItem.pdb
+C:\Users\orami\Downloads\20210713PositiveResponsive\InventarioItem\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\Users\orami\Downloads\20210713PositiveResponsive\InventarioItem\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\Users\orami\Downloads\20210713PositiveResponsive\InventarioItem\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
+C:\Users\orami\Downloads\20210713PositiveResponsive\InventarioItem\obj\Debug\InventarioItem.csprojAssemblyReference.cache
+C:\Users\orami\Downloads\20210713PositiveResponsive\InventarioItem\obj\Debug\InventarioItem.csproj.CoreCompileInputs.cache
+C:\Users\orami\Downloads\20210713PositiveResponsive\InventarioItem\obj\Debug\InventarioItem.csproj.CopyComplete
+C:\Users\orami\Downloads\20210713PositiveResponsive\InventarioItem\obj\Debug\InventarioItem.dll
+C:\Users\orami\Downloads\20210713PositiveResponsive\InventarioItem\obj\Debug\InventarioItem.pdb

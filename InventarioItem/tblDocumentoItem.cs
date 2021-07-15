@@ -53,5 +53,7 @@ namespace InventarioItem
         public decimal Propina { get; set; }
         public string Resolucion { get; set; }
         public decimal Impoconsumo { get; set; }
+        public decimal TotalRetenciones { get; set; }
+        public List<tblDocumentoRetencionItem> Retenciones { get; set; }
     }
 }

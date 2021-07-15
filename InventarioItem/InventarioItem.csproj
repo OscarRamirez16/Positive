@@ -71,6 +71,7 @@
     <Compile Include="tblDetalleDocumentoItem.cs" />
     <Compile Include="tblDetallePagoItem.cs" />
     <Compile Include="tblDocumentoItem.cs" />
+    <Compile Include="tblDocumentoRetencionItem.cs" />
     <Compile Include="tblEmpresaItem.cs" />
     <Compile Include="tblFormaPagoItem.cs" />
     <Compile Include="tblGrupoClienteItem.cs" />

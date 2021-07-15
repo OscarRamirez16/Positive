@@ -138,7 +138,7 @@ namespace Inventario
                 }
                 txtDevuelta.Attributes.Add("readonly", "readonly");
                 txtAntesIVA.Attributes.Add("readonly", "readonly");
-                txtRetencion.Attributes.Add("readonly", "readonly");
+                txtTotalRetencion.Attributes.Add("readonly", "readonly");
                 txtTotalIVA.Attributes.Add("readonly", "readonly");
                 txtTotalFactura.Attributes.Add("readonly", "readonly");
                 txtTotalPago.Attributes.Add("readonly", "readonly");
@@ -267,7 +267,7 @@ namespace Inventario
                                     txtTotalDescuento.Text = decimal.Parse("0", NumberStyles.Currency).ToString(Util.ObtenerFormatoDecimal());
                                     txtPropina.Text = decimal.Parse("0", NumberStyles.Currency).ToString(Util.ObtenerFormatoDecimal());
                                     txtImpoconsumo.Text = decimal.Parse("0", NumberStyles.Currency).ToString(Util.ObtenerFormatoDecimal());
-                                    txtRetencion.Text = decimal.Parse("0", NumberStyles.Currency).ToString(Util.ObtenerFormatoDecimal());
+                                    txtTotalRetencion.Text = decimal.Parse("0", NumberStyles.Currency).ToString(Util.ObtenerFormatoDecimal());
                                     CargarFormasPagos();
                                     CargarTipoTarjetaCredito();
                                     CargarVendedores();
@@ -1179,7 +1179,7 @@ namespace Inventario
                 txtImpoconsumo.Text = decimal.Parse("0").ToString(Util.ObtenerFormatoDecimal());
                 txtPropina.Text = decimal.Parse("0").ToString(Util.ObtenerFormatoDecimal());
                 txtTotalFactura.Text = decimal.Parse("0").ToString(Util.ObtenerFormatoDecimal());
-                txtRetencion.Text = decimal.Parse("0").ToString(Util.ObtenerFormatoDecimal());
+                txtTotalRetencion.Text = decimal.Parse("0").ToString(Util.ObtenerFormatoDecimal());
                 foreach (DataGridItem Item in dgFactura.Items)
                 {
                     if (oUsuarioI.ManejaPrecioConIVA)
@@ -1234,8 +1234,8 @@ namespace Inventario
                         }
                     }
                 }
-                txtRetencion.Text = TotalRetenciones.ToString(Util.ObtenerFormatoDecimal());
-                txtTotalFactura.Text = Math.Round(((decimal.Parse(txtTotalFactura.Text, NumberStyles.Currency) + decimal.Parse(txtPropina.Text, NumberStyles.Currency) + decimal.Parse(txtImpoconsumo.Text, NumberStyles.Currency)) - decimal.Parse(txtRetencion.Text, NumberStyles.Currency)), 0).ToString(Util.ObtenerFormatoDecimal());
+                txtTotalRetencion.Text = TotalRetenciones.ToString(Util.ObtenerFormatoDecimal());
+                txtTotalFactura.Text = Math.Round(((decimal.Parse(txtTotalFactura.Text, NumberStyles.Currency) + decimal.Parse(txtPropina.Text, NumberStyles.Currency) + decimal.Parse(txtImpoconsumo.Text, NumberStyles.Currency)) - decimal.Parse(txtTotalRetencion.Text, NumberStyles.Currency)), 0).ToString(Util.ObtenerFormatoDecimal());
                 txtRestante.Text = txtTotalFactura.Text;
             }
             catch (Exception ex)
@@ -1542,6 +1542,7 @@ namespace Inventario
                         }
                         oDocItem.Impoconsumo = decimal.Parse(txtImpoconsumo.Text, NumberStyles.Currency);
                         oDocItem.Resolucion = hddResolucion.Value;
+                        oDocItem.TotalRetenciones = decimal.Parse(txtTotalRetencion.Text, NumberStyles.Currency);
                         short NumeroLinea = 1;
                         foreach (DataGridItem Item in dgFactura.Items)
                         {
@@ -1565,6 +1566,24 @@ namespace Inventario
                             oDetI.idBodega = long.Parse(Item.Cells[dgFacturaEnum.IdBodega.GetHashCode()].Text);
                             oListDet.Add(oDetI);
                             NumeroLinea++;
+                        }
+                        //Calculo de retenciones
+                        oDocItem.Retenciones = new List<tblDocumentoRetencionItem>();
+                        foreach (DataGridItem Row in dgRetenciones.Items)
+                        {
+                            if (((CheckBox)(Row.Cells[dgRetencionesEnum.Seleccionar.GetHashCode()].FindControl("chkSeleccionar"))).Checked == true)
+                            {
+                                if (oDocItem.TotalAntesIVA > decimal.Parse(Row.Cells[dgRetencionesEnum.Base.GetHashCode()].Text, NumberStyles.Currency))
+                                {
+                                    tblDocumentoRetencionItem Item = new tblDocumentoRetencionItem();
+                                    Item.IdRetencion = long.Parse(Row.Cells[dgRetencionesEnum.Id.GetHashCode()].Text);
+                                    Item.TipoDocumento = int.Parse(hddTipoDocumento.Value);
+                                    Item.Porcentaje = decimal.Parse(Row.Cells[dgRetencionesEnum.Porcentaje.GetHashCode()].Text, NumberStyles.Currency);
+                                    Item.Base = oDocItem.TotalAntesIVA;
+                                    Item.Valor = (oDocItem.TotalAntesIVA * (decimal.Parse(Row.Cells[dgRetencionesEnum.Porcentaje.GetHashCode()].Text, NumberStyles.Currency) / 100));
+                                    oDocItem.Retenciones.Add(Item);
+                                }
+                            }
                         }
                         //Cargar datos pagos
                         List<tblTipoPagoItem> oTipPagLis = new List<tblTipoPagoItem>();

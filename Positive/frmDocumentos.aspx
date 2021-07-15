@@ -243,7 +243,7 @@
                                         <td>Retenciones:</td>
                                         <td>
                                             <div class = "input-group">
-                                                <asp:TextBox ID="txtRetencion" runat="server" class="form-control BoxValor" ></asp:TextBox>
+                                                <asp:TextBox ID="txtTotalRetencion" runat="server" class="form-control BoxValor" ></asp:TextBox>
                                                 <span class = "input-group-addon"><img src="Images/Input/DolarAmarillo.png" title="Total Retenciones" /></span>
                                             </div>
                                         </td>
