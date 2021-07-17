@@ -684,3 +684,34 @@ C:\Users\orami\Downloads\20210713PositiveResponsive\InventarioBusiness\obj\Debug
 C:\Users\orami\Downloads\20210713PositiveResponsive\InventarioBusiness\obj\Debug\InventarioBusiness.csproj.CopyComplete
 C:\Users\orami\Downloads\20210713PositiveResponsive\InventarioBusiness\obj\Debug\InventarioBusiness.dll
 C:\Users\orami\Downloads\20210713PositiveResponsive\InventarioBusiness\obj\Debug\InventarioBusiness.pdb
+<<<<<<< HEAD
+=======
+D:\RepositorioGitHub\Positive-main\InventarioBusiness\bin\Debug\InventarioBusiness.dll
+D:\RepositorioGitHub\Positive-main\InventarioBusiness\bin\Debug\InventarioBusiness.pdb
+D:\RepositorioGitHub\Positive-main\InventarioBusiness\bin\Debug\InventarioDao.dll
+D:\RepositorioGitHub\Positive-main\InventarioBusiness\bin\Debug\InventarioItem.dll
+D:\RepositorioGitHub\Positive-main\InventarioBusiness\bin\Debug\Microsoft.ReportViewer.Common.dll
+D:\RepositorioGitHub\Positive-main\InventarioBusiness\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+D:\RepositorioGitHub\Positive-main\InventarioBusiness\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
+D:\RepositorioGitHub\Positive-main\InventarioBusiness\bin\Debug\InventarioDao.pdb
+D:\RepositorioGitHub\Positive-main\InventarioBusiness\bin\Debug\InventarioItem.pdb
+D:\RepositorioGitHub\Positive-main\InventarioBusiness\obj\Debug\InventarioBusiness.csproj.AssemblyReference.cache
+D:\RepositorioGitHub\Positive-main\InventarioBusiness\obj\Debug\InventarioBusiness.csproj.CoreCompileInputs.cache
+D:\RepositorioGitHub\Positive-main\InventarioBusiness\obj\Debug\InventarioBusiness.csproj.CopyComplete
+D:\RepositorioGitHub\Positive-main\InventarioBusiness\obj\Debug\InventarioBusiness.dll
+D:\RepositorioGitHub\Positive-main\InventarioBusiness\obj\Debug\InventarioBusiness.pdb
+D:\RepositorioGitHub\Positive\InventarioBusiness\bin\Debug\InventarioBusiness.dll
+D:\RepositorioGitHub\Positive\InventarioBusiness\bin\Debug\InventarioBusiness.pdb
+D:\RepositorioGitHub\Positive\InventarioBusiness\bin\Debug\InventarioDao.dll
+D:\RepositorioGitHub\Positive\InventarioBusiness\bin\Debug\InventarioItem.dll
+D:\RepositorioGitHub\Positive\InventarioBusiness\bin\Debug\Microsoft.ReportViewer.Common.dll
+D:\RepositorioGitHub\Positive\InventarioBusiness\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+D:\RepositorioGitHub\Positive\InventarioBusiness\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
+D:\RepositorioGitHub\Positive\InventarioBusiness\bin\Debug\InventarioDao.pdb
+D:\RepositorioGitHub\Positive\InventarioBusiness\bin\Debug\InventarioItem.pdb
+D:\RepositorioGitHub\Positive\InventarioBusiness\obj\Debug\InventarioBusiness.csproj.AssemblyReference.cache
+D:\RepositorioGitHub\Positive\InventarioBusiness\obj\Debug\InventarioBusiness.csproj.CoreCompileInputs.cache
+D:\RepositorioGitHub\Positive\InventarioBusiness\obj\Debug\InventarioBusiness.csproj.CopyComplete
+D:\RepositorioGitHub\Positive\InventarioBusiness\obj\Debug\InventarioBusiness.dll
+D:\RepositorioGitHub\Positive\InventarioBusiness\obj\Debug\InventarioBusiness.pdb
+>>>>>>> main

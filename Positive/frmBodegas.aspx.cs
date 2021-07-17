@@ -46,13 +46,28 @@ namespace Inventario
             }
             catch (Exception ex)
             {
+<<<<<<< HEAD
                 MostrarMensaje("Error", string.Format("No se pudo cargar la pagiona. {0}", ex.Message));
+=======
+                MostrarAlerta(0, "Error", ex.Message.Replace(Environment.NewLine, " "));
+>>>>>>> main
             }
         }
 
         protected void btnBuscar_Click(object sender, ImageClickEventArgs e)
         {
+<<<<<<< HEAD
             CargarBodegas();
+=======
+            try
+            {
+                CargarBodegas();
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+>>>>>>> main
         }
 
         private void CargarBodegas()
@@ -65,7 +80,11 @@ namespace Inventario
             }
             catch (Exception ex)
             {
+<<<<<<< HEAD
                 MostrarMensaje("Error", ex.Message);
+=======
+                MostrarAlerta(0, "Error", ex.Message);
+>>>>>>> main
             }
         }
 
@@ -90,7 +109,11 @@ namespace Inventario
             }
             catch(Exception ex)
             {
+<<<<<<< HEAD
                 MostrarMensaje("Error", ex.Message);
+=======
+                MostrarAlerta(0, "Error", ex.Message.Replace(Environment.NewLine, " "));
+>>>>>>> main
             }
         }
 
@@ -131,7 +154,11 @@ namespace Inventario
                         }
                         else
                         {
+<<<<<<< HEAD
                             MostrarMensaje("Error", "No se pudo crearla bodega.");
+=======
+                            MostrarAlerta(0, "Error", "No se pudo crearla bodega.");
+>>>>>>> main
                         }
                     }
                     else
@@ -146,12 +173,20 @@ namespace Inventario
                             }
                             else
                             {
+<<<<<<< HEAD
                                 MostrarMensaje("Error", "No se pudo actualizar la bodega.");
+=======
+                                MostrarAlerta(0, "Error", "No se pudo actualizar la bodega.");
+>>>>>>> main
                             }
                         }
                         else
                         {
+<<<<<<< HEAD
                             MostrarMensaje("Error", "El usuario no posee permisos para está operación.");
+=======
+                            MostrarAlerta(0, "Error", "El usuario no posee permisos para está operación.");
+>>>>>>> main
                         }
                     }
                 }
@@ -162,7 +197,11 @@ namespace Inventario
             }
             catch (Exception ex)
             {
+<<<<<<< HEAD
                 MostrarMensaje("Error", ex.Message);
+=======
+                MostrarAlerta(0, "Error", ex.Message.Replace(Environment.NewLine, " "));
+>>>>>>> main
             }
         }
 
@@ -185,9 +224,15 @@ namespace Inventario
                 bodega.Activo = chkActivo.Checked;
                 bodega.idEmpresa = oUsuarioI.idEmpresa;
             }
+<<<<<<< HEAD
             catch
             {
                 Response.Write("<script>alert('Error al cargar los datos de la bodega');</script>");
+=======
+            catch(Exception ex)
+            {
+                MostrarAlerta(0, "Error", ex.Message.Replace(Environment.NewLine, " "));
+>>>>>>> main
             }
         }
 

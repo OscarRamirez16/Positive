@@ -64,7 +64,11 @@ namespace Inventario
             }
             catch (Exception ex)
             {
+<<<<<<< HEAD
                 MostrarMensaje("Error", string.Format("No se pudo cargar la pagina. {0}", ex.Message));
+=======
+                MostrarAlerta(0, "Error", ex.Message.Replace(Environment.NewLine, " "));
+>>>>>>> main
             }
         }
 
@@ -136,7 +140,11 @@ namespace Inventario
             catch (Exception ex)
             {
                 string Error = ex.Message.Replace("'", "");
+<<<<<<< HEAD
                 MostrarMensaje("Error", Error);
+=======
+                MostrarAlerta(0, "Error", Error);
+>>>>>>> main
             }
         }
 
@@ -256,7 +264,11 @@ namespace Inventario
                         }
                         else
                         {
+<<<<<<< HEAD
                             MostrarMensaje("Error", "El Articulo no se pudo crear");
+=======
+                            MostrarAlerta(0,"Error", "El Articulo no se pudo crear");
+>>>>>>> main
                         }
                     }
                     else
@@ -271,12 +283,20 @@ namespace Inventario
                             }
                             else
                             {
+<<<<<<< HEAD
                                 MostrarMensaje("Error", "El Articulo no se pudo actualizar");
+=======
+                                MostrarAlerta(0, "Error", "El Articulo no se pudo actualizar");
+>>>>>>> main
                             }
                         }
                         else
                         {
+<<<<<<< HEAD
                             MostrarMensaje("Error", "El usuario no posee permisos para esta operación.");
+=======
+                            MostrarAlerta(0, "Error", "El usuario no posee permisos para esta operación.");
+>>>>>>> main
                         }
                     }
                 }
@@ -287,7 +307,11 @@ namespace Inventario
             }
             catch (Exception ex)
             {
+<<<<<<< HEAD
                 MostrarMensaje("Error", ex.Message);
+=======
+                MostrarAlerta(0, "Error", ex.Message.Replace(Environment.NewLine, " "));
+>>>>>>> main
             }
         }
 
@@ -332,7 +356,11 @@ namespace Inventario
             }
             catch (Exception ex)
             {
+<<<<<<< HEAD
                 MostrarMensaje("Error", string.Format("No se pudo realizar la operación. {0}", ex.Message));
+=======
+                MostrarAlerta(0, "Error", ex.Message.Replace(Environment.NewLine, " "));
+>>>>>>> main
             }
         }
 
@@ -373,7 +401,11 @@ namespace Inventario
             }
             catch(Exception ex)
             {
+<<<<<<< HEAD
                 MostrarMensaje("Error", ex.Message);
+=======
+                MostrarAlerta(0, "Error", ex.Message.Replace(Environment.NewLine, " "));
+>>>>>>> main
             }
         }
 
