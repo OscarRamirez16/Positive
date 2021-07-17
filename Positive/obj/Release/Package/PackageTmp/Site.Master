@@ -1,0 +1,326 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Positive.SiteMaster" %>
+<!DOCTYPE html>
+<html lang="es">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Positive"/>
+    <meta name="author" content="HQS Software"/>
+    <title>HQS - Positive</title>
+    <link href="~/Images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="Script/estilos.css" rel="stylesheet" />
+    <link href="Content/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="Content/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- MetisMenu CSS -->
+    <link href="Content/vendor/metisMenu/metisMenu.min.css" rel="stylesheet"/>
+    <link href="Styles/jquery-ui.css" rel="stylesheet" />
+    <link href="CSS/Positivo.css" rel="stylesheet" />
+    <link href="Styles/jquery.ptTimeSelect.css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link href="Content/dist/css/sb-admin-2.css" rel="stylesheet"/>
+
+    <!-- DataTables CSS -->
+    <link href="Content/vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
+
+    <!-- DataTables Responsive CSS -->
+    <link href="Content/vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="Content/dist/css/sb-admin-2.css" rel="stylesheet"/>
+
+    <!-- Custom Fonts -->
+    <link href="Content/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="Content/vendor/jquery-ui.css" rel="stylesheet" />
+    <script src="Scripts/jquery-1.10.2.min.js" type="text/javascript"></script>
+    <script src="Scripts/jquery-ui.js" type="text/javascript"></script>
+    <script src="Script/jquery.mask.js"></script>
+    <script src="Script/jquery.ptTimeSelect.js"></script>
+    <%--<script src="Content/vendor/jquery/jquery.min.js"></script>--%>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="Content/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="Script/swalert.js"></script>
+    <script src="Script/PositivoScript.js?version=5"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="Content/vendor/metisMenu/metisMenu.min.js"></script>
+
+    <!-- DataTables JavaScript -->
+    <script src="Content/vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="Content/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+    <script src="Content/vendor/datatables-responsive/dataTables.responsive.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="Content/dist/js/sb-admin-2.js"></script>
+    <%--<script src="Scripts/jquery-ui.js"></script>--%>
+    <script src="Content/vendor/datatables/js/dataTables.buttons.min.js"></script>
+    <script src="Content/vendor/datatables/js/buttons.html5.min.js"></script>
+    <style>
+        a {
+            color:#1D70B7;
+        }
+        a:hover,
+        a:focus {
+            color:#70B52D;
+        }
+    </style>
+    
+    <script>
+        var ctrlKeyDown;
+        $(document).ready(function () {
+            EstablecerMascaras();
+            $(document).on("keydown", keydown);
+            $(document).on("keyup", keyup);
+        });
+        function keydown(e) { 
+			if ((e.which || e.keyCode) == 116 || ((e.which || e.keyCode) == 82 && ctrlKeyDown)) {
+				// Pressing F5 or Ctrl+R
+				e.preventDefault();
+			} else if ((e.which || e.keyCode) == 17) {
+				// Pressing  only Ctrl
+				ctrlKeyDown = true;
+			}
+		};
+		function keyup(e){
+			// Key up Ctrl
+			if ((e.which || e.keyCode) == 17) 
+				ctrlKeyDown = false;
+		};
+    </script>
+</head>
+<body>
+    <form runat="server">
+        <div class="Mensaje"></div>
+        <div id="wrapper">
+            <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header" style="width:800px !important">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <a class="navbar-brand" href="frmMantenimientos.aspx"><img style="top:-8px;position:relative;height:64px" src="Images/bg.png" title="Positive"></a>
+                        </div>
+                        <div class="col-md-6">
+                        <b><asp:Label ID="lblNombreEmpresa" Font-Size="XX-Large" CssClass="TituloEmpresa" ForeColor="#1D70B7" runat="server"></asp:Label></b>
+                    </div>
+                    </div>
+            </div>
+            <!-- /.navbar-header -->
+
+            <ul class="nav navbar-top-links navbar-right">
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i> <span id="lblUsuario" runat="server"></span></a>
+                        </li>
+                        <li><a href="frmEmpresa.aspx"><i class="fa fa-cogs fa-fw"></i> Empresa</a>
+                        </li>
+                        <li><a href="frmCambiarContrasena.aspx"><i class="fa fa-eye fa-fw"></i> Cambiar contrase&ntilde;a</a>
+                        </li>
+                        <li><a href="frmRealizarPago.aspx"><i class="fa fa-money fa-fw"></i> Pagar mensualidad</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="frmLogOut.aspx"><i class="fa fa-sign-out fa-fw"></i> Cerrar sesi&oacuten</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+                <!-- /.navbar-top-links -->
+
+                <div class="navbar-default sidebar" role="navigation">
+                    <div class="sidebar-nav navbar-collapse">
+                        <ul class="nav" id="side-menu" style="padding-left: 5px;">
+                            <li class="sidebar-search">
+                                <div class="input-group custom-search-form">
+                                    <input type="text" id="textoPrincipal" onkeyup="if(event.keyCode == 13){BusquedaPrincipal();}" class="form-control" style="cursor:pointer;" placeholder="Buscar Articulo...">
+                                    <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button" onclick="BusquedaPrincipal();">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </span>
+                                </div>
+                                <!-- /input-group -->
+                            </li>
+                            <li>
+                                <a href="frmMantenimientos.aspx"><i class="fa fa-home fa-fw"></i> Inicio</a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-laptop fa-fw"></i> Ventas<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li><a href="frmDocumentos.aspx?opcionDocumento=1"><i class="fa fa-plus-circle fa-fw"></i> Factura de Venta</a></li>
+  				                    <li><a href="frmVerDocumentos.aspx?opcionDocumento=1"><i class="fa fa-search fa-fw"></i> Consultar Factura de Venta</a></li>
+                                    <li><a href="frmDocumentos.aspx?opcionDocumento=4"><i class="fa fa-plus-circle fa-fw"></i> Devoluci&oacuten</a></li>
+                                    <li><a href="frmVerDocumentos.aspx?opcionDocumento=4"><i class="fa fa-search fa-fw"></i> Consultar Devoluci&oacuten</a></li>
+                                    <li><a href="frmVentaRapida.aspx"><i class="fa fa-plus-circle fa-fw"></i> Venta Rapida</a></li>
+                                    <li><a href="frmDocumentos.aspx?opcionDocumento=8"><i class="fa fa-plus-circle fa-fw"></i> Remisi&oacuten</a></li>
+                                    <li><a href="frmVerDocumentos.aspx?opcionDocumento=8"><i class="fa fa-search fa-fw"></i>Consultar Remisi&oacuten</a></li>
+                                    <li><a href="frmVentaRapida.aspx?IdTipoDocumento=8"><i class="fa fa-plus-circle fa-fw"></i> Remisi&oacuten Rapida</a></li>
+                                    <li><a href="frmCuentaCobro.aspx"><i class="fa fa-plus-circle fa-fw"></i> Cuenta de Cobro</a></li>
+                                    <li><a href="frmVerDocumentos.aspx?opcionDocumento=10"><i class="fa fa-search fa-fw"></i> Consultar Cuenta de Cobro</a></li>
+                                    <li><a href="frmAnticipo.aspx"><i class="fa fa-plus-circle fa-fw"></i> Anticipo</a></li>
+                                    <li><a href="frmVerAnticipo.aspx"><i class="fa fa-search fa-fw"></i>Ver Anticipo</a></li>
+                                    <li><a href="frmConciliacion.aspx"><i class="fa fa-plus-circle fa-fw"></i>Conciliaci&oacuten</a></li>
+                                    <li><a href="frmVerConciliacion.aspx"><i class="fa fa-search fa-fw"></i>Ver Conciliaci&oacuten</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-calculator fa-fw"></i> Cajas<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li><a href="frmCrearEditarConsultarCaja.aspx"><i class="fa fa-plus-circle fa-fw"></i> Cajas</a></li>
+  				                    <li><a href="frmAbrirCaja.aspx"><i class="fa fa-plus-circle fa-fw"></i> Abrir Caja</a></li>
+                                    <li><a href="frmCerrarCaja.aspx"><i class="fa fa-plus-circle fa-fw"></i> Cerrar Caja</a></li>
+                                    <li><a href="frmRetiros.aspx"><i class="fa fa-plus-circle fa-fw"></i> Retiros</a></li>
+                                    <li><a href="frmIngresos.aspx"><i class="fa fa-plus-circle fa-fw"></i> Ingreso</a></li>
+                                </ul>
+                                <!-- /.nav-second-level -->
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-cubes fa-fw"></i> Inventario<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li><a href="frmCrearEditarConsultarArticulos.aspx"><i class="fa fa-plus-circle fa-fw"></i> Articulos</a></li>
+                                    <li><a href="frmBodegas.aspx"><i class="fa fa-plus-circle fa-fw"></i> Bodegas</a></li>
+                                    <li><a href="frmGrupoArticulos.aspx"><i class="fa fa-plus-circle fa-fw"></i> Grupo de Articulos</a></li>
+                                    <li><a href="frmCreacionMasivaArticulos.aspx"><i class="fa fa-plus-circle fa-fw"></i> Creaci&oacuten Masiva de Artículos</a></li>
+                                    <li><a href="frmArticuloActualizarMasivo.aspx"><i class="fa fa-plus-circle fa-fw"></i> Actualizaci&oacuten Masiva Artículos</a></li>
+                                    <li><a href="frmProduccion.aspx"><i class="fa fa-plus-circle fa-fw"></i> Producci&oacuten</a></li>
+                                    <li><a href="frmCampana.aspx"><i class="fa fa-plus-circle fa-fw"></i>Campañas</a></li>
+                                    <li><a href="frmDocumentos.aspx?opcionDocumento=5"><i class="fa fa-plus-circle fa-fw"></i> Entrada de Mercancía</a></li>
+                                    <li><a href="frmVerDocumentos.aspx?opcionDocumento=5"><i class="fa fa-search fa-fw"></i> Consultar Entrada de Mercancía</a></li>
+                                    <li><a href="frmDocumentos.aspx?opcionDocumento=6"><i class="fa fa-plus-circle fa-fw"></i> Salida de Mercancía</a></li>
+                                    <li><a href="frmVerDocumentos.aspx?opcionDocumento=6"><i class="fa fa-search fa-fw"></i> Consultar Salida de Mercancía</a></li>
+                                    <li><a href="frmEntradaMasivaMercancia.aspx"><i class="fa fa-plus-circle fa-fw"></i> Entrada/Salida de Mercancía Masiva</a></li>
+                                    <li><a href="frmListaPrecio.aspx"><i class="fa fa-plus-circle fa-fw"></i> Listas de Precio</a></li>
+                                    <li><a href="frmTrasladoMercancia.aspx"><i class="fa fa-plus-circle fa-fw"></i> Traslado de Mercancía</a></li>
+                                    <li><a href="frmListaMateriales.aspx?ArticuloCompuesto=1"><i class="fa fa-plus-circle fa-fw"></i> Artículo Compuesto</a></li>
+                                </ul>
+                                <!-- /.nav-second-level -->
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-star fa-fw"></i> Compras<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li><a href="frmDocumentos.aspx?opcionDocumento=2"><i class="fa fa-plus-circle fa-fw"></i> Factura de Compras</a></li>
+  				                    <li><a href="frmVerDocumentos.aspx?opcionDocumento=2"><i class="fa fa-search fa-fw"></i> Consulta Factura de Compras</a></li>
+                                    <li><a href="frmDocumentos.aspx?opcionDocumento=7"><i class="fa fa-plus-circle fa-fw"></i> Devoluci&oacuten</a></li>
+                                    <li><a href="frmVerDocumentos.aspx?opcionDocumento=7"><i class="fa fa-search fa-fw"></i> Consultar Devoluci&oacuten</a></li>
+                                </ul>
+                                <!-- /.nav-second-level -->
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-user fa-fw"></i> Socios de Negocios<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li><a href="frmCrearEditarTerceros.aspx"><i class="fa fa-plus-circle fa-fw"></i> Socios de Negocios</a></li>
+  				                    <li><a href="frmVerTerceros.aspx"><i class="fa fa-search fa-fw"></i> Consultar Socios de Negocios</a></li>
+                                    <li><a href="frmGrupoCliente.aspx"><i class="fa fa-plus-circle fa-fw"></i> Grupos de Socio de Negocios</a></li>
+                                    <li><a href="frmVendedor.aspx"><i class="fa fa-plus-circle fa-fw"></i> Vendedor</a></li>
+                                </ul>
+                                <!-- /.nav-second-level -->
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-pencil fa-fw"></i> Cotizaciones<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li><a href="frmDocumentos.aspx?opcionDocumento=3"><i class="fa fa-plus-circle fa-fw"></i> Cotizaci&oacuten</a></li>
+  				                    <li><a href="frmVerDocumentos.aspx?opcionDocumento=3"><i class="fa fa-search fa-fw"></i> Consultar Cotizaci&oacuten</a></li>
+                                    <li><a href="frmVentaRapida.aspx?IdTipoDocumento=3"><i class="fa fa-plus-circle fa-fw"></i> Cotizaci&oacuten Rapida</a></li>
+                                </ul>
+                                <!-- /.nav-second-level -->
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-calendar fa-fw"></i> Reportes<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li><a href="frmReporteMovimientosPorDocumento.aspx"><i class="fa fa-search fa-fw"></i> Movimientos por Documentos</a></li>
+                                    <li><a href="frmReporteDocumentosRangoFecha.aspx"><i class="fa fa-search fa-fw"></i> Documento Rango De Fechas</a></li>
+                                    <li><a href="frmReporteVentasDevolucionesPorFecha.aspx"><i class="fa fa-search fa-fw"></i> FV, FC y DV por rango de fechas</a></li>
+                                    <li><a href="frmReporteCreditos.aspx"><i class="fa fa-search fa-fw"></i> Documentos a Crédito</a></li>
+                                    <li><a href="frmReporteArticulosPorBodega.aspx"><i class="fa fa-search fa-fw"></i> Artículos Por Bodega</a></li>
+                                    <li><a href="frmReportePagosPorCliente.aspx"><i class="fa fa-search fa-fw"></i> Pagos Por Cliente</a></li>
+                                    <li><a href="frmReportePagosPorProveedor.aspx"><i class="fa fa-search fa-fw"></i> Pagos Por Proveedor</a></li>
+                                    <li><a href="frmReporteCuadreDiario.aspx"><i class="fa fa-search fa-fw"></i> Cuadre Diario</a></li>
+                                    <li><a href="frmReporteMovimientosDiarios.aspx"><i class="fa fa-search fa-fw"></i> Movimientos de Retiro e Ingreso</a></li>
+                                    <li><a href="frmReporteDocumentosPagos.aspx"><i class="fa fa-search fa-fw"></i> Documentos Vs Pagos</a></li>
+                                    <li><a href="frmReportePagosDocumentos.aspx"><i class="fa fa-search fa-fw"></i> Pagos Vs Documentos</a></li>
+                                    <li><a href="frmReporteMovimientosArticulos.aspx"><i class="fa fa-search fa-fw"></i> Movimientos de Artículos</a></li>
+                                    <li><a href="frmReporteAuditoriaStock.aspx"><i class="fa fa-search fa-fw"></i> Auditoria de Stock</a></li>
+                                    <li><a href="frmReporteHistorialMovimientosArticulo.aspx"><i class="fa fa-search fa-fw"></i> Historial Movimientos Artículo</a></li>
+                                    <li><a href="frmReporteFacturaCompra.aspx"><i class="fa fa-search fa-fw"></i> Facturas de Compras</a></li>
+                                    <li><a href="frmReporteCompras.aspx"><i class="fa fa-search fa-fw"></i> Reporte Informaci&oacuten Compras</a></li>
+                                </ul>
+                                <!-- /.nav-second-level -->
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-sliders fa-fw"></i> Administraci&oacuten<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li><a href="frmCuentasPorCobrarPagar.aspx?TipoPago=1"><i class="fa fa-plus-circle fa-fw"></i> Cuentas Por Cobrar</a></li>
+                                    <li><a href="frmCuentasPorCobrarPagar.aspx?TipoPago=2"><i class="fa fa-plus-circle fa-fw"></i> Cuentas Por Pagar</a></li>
+                                    <li><a href="frmCuentasPorCobrarPagar.aspx?TipoPago=10"><i class="fa fa-plus-circle fa-fw"></i> Cuentas Por Cobrar CC</a></li>
+                                    <li><a href="frmTipoTarjetaCredito.aspx"><i class="fa fa-plus-circle fa-fw"></i> Tipos de Tarjetas de Crédito</a></li>
+                                    <li><a href="frmCrearEditarConsultarVentaRapida.aspx"><i class="fa fa-plus-circle fa-fw"></i> Administraci&oacuten de Venta Rapida</a></li>
+                                    <li><a href="frmRetenciones.aspx"><i class="fa fa-plus-circle fa-fw"></i> Retenciones</a></li>
+                                </ul>
+                                <!-- /.nav-second-level -->
+                            </li>
+                            <li>
+                                <a href="frmCrearEditarRoles.aspx"><i class="fa fa-shield fa-fw"></i> Roles</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- /.sidebar-collapse -->
+                </div>
+                <!-- /.navbar-static-side -->
+            </nav>
+        </div>
+        <div id="page-wrapper">
+            <div class="row">
+                <br />
+                <div class="col-lg-12">
+                    <asp:ContentPlaceHolder ID="cphContenido" runat="server"></asp:ContentPlaceHolder>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <!-- Button trigger modal -->
+            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" id="btnModal" style="visibility:hidden">
+                Launch Demo Modal
+            </button>
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="myModalLabel"></h4>
+                        </div>
+                        <div class="modal-body" id="myModalBody">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+            </div>
+            <!-- /.modal -->
+        </div>
+        <div class="container body-content">
+            <hr />
+            <footer>
+                <p>&copy; <%: DateTime.Now.Year %> - Mi aplicaci&oacuten ASP.NET</p>
+            </footer>
+        </div>
+
+    </form>
+</body>
+</html>
