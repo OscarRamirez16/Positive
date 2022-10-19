@@ -1954,7 +1954,13 @@ function EstablecerAutoCompleteBodegaSimple(_ControlID, _Url, _hddID, idEmpresa,
         }
     });
 }
-function AdicionarVentaRapida(idVentaRapida, Articulo, Descripcion, Cantidad, ValorIVA, Precio, Stock, hddItemsID, Impoconsumo) {
+
+function FaturarVentaRapida(idVentaRapida, Articulo, Descripcion, Cantidad, ValorIVA, Precio, Stock, hddItemsID, Impoconsumo) {
+    AdicionarVentaRapida(idVentaRapida, Articulo, Descripcion, Cantidad, ValorIVA, Precio, Stock, hddItemsID, Impoconsumo);
+    $(".GuardarVentaRapida").click();
+}
+
+function AdicionarVentaRapida(idVentaRapida, Articulo, Descripcion, Cantidad, ValorIVA, Precio, Stock, hddItemsID, Impoconsumo, hideDelete) {
     var numDecimales = 2;
     if ((parseFloat($("#hdd" + idVentaRapida + "Stock").val()) - parseFloat(Cantidad)) >= 0) {
         var ValorIVATotal = parseFloat($("#tdValorIVA").html()) + parseFloat(ValorIVA);
@@ -1980,8 +1986,12 @@ function AdicionarVentaRapida(idVentaRapida, Articulo, Descripcion, Cantidad, Va
         else {
             $("#" + hddItemsID).val($("#" + hddItemsID).val() + "," + idVentaRapida);
         }
+        var deleteHTML = "<td></td>";
+        if (hideDelete == false || hideDelete == undefined || hideDelete == "") {
+            deleteHTML = "<td style=\"cursor:pointer;\" onclick=\"EliminarVentaRapida(" + idVentaRapida + ",this,'" + hddItemsID + "','" + ValorIVA + "','" + Precio + "','" + Cantidad + "','" + Impoconsumo + "');\"><img src='Images/Input/Eliminar.png' title='" + Descripcion + "'/></td>";
+        }
         $("#hdd" + idVentaRapida + "Stock").val(parseFloat($("#hdd" + idVentaRapida + "Stock").val()) - parseFloat(Cantidad));
-        var trVentaRapida = "<tr><td>" + Articulo + "</td><td>" + Descripcion + "</td><td>" + Cantidad + "</td><td style=\"text-align:right;\">" + Precio + "</td><td style=\"cursor:pointer;\" onclick=\"EliminarVentaRapida(" + idVentaRapida + ",this,'" + hddItemsID + "','" + ValorIVA + "','" + Precio + "','" + Cantidad + "','" + Impoconsumo + "');\"><img src='Images/Input/Eliminar.png' title='" + Descripcion + "'/></td></tr>"
+        var trVentaRapida = "<tr><td>" + Articulo + "</td><td>" + Descripcion + "</td><td>" + Cantidad + "</td><td style=\"text-align:right;\">" + Precio + "</td>" + deleteHTML + "</tr>"
         $(".FacturaRapidaBody").append(trVentaRapida);
     }
     else {
@@ -2061,7 +2071,16 @@ function ImprimirDocumentoVentaRapida(CuerpoImpresion) {
 
 function CargarVentaRapida(oldPage) {
     document.body.innerHTML = oldPage;
-    window.location.href = "frmVentaRapida.aspx";
+    var IdTipoDocumento = getParameterByName('IdTipoDocumento');
+    if (IdTipoDocumento == null || IdTipoDocumento == 1) {
+        window.location.href = "frmVentaRapida.aspx";
+    }
+    else if (IdTipoDocumento == 3) {
+        window.location.href = "frmVentaRapida.aspx?IdTipoDocumento=3";
+    }
+    else {
+        window.location.href = "frmVentaRapida.aspx?IdTipoDocumento=8";
+    }
 }
 
 function PintarTabla(ClientID) {
@@ -2111,4 +2130,13 @@ function BusquedaPrincipal() {
     if ($("#textoPrincipal").val() != "") {
         window.location.href = "frmCrearEditarConsultarArticulos.aspx?texto=" + $("#textoPrincipal").val();
     }
+}
+
+function getParameterByName(name, url = window.location.href) {
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }

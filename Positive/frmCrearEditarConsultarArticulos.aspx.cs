@@ -109,7 +109,7 @@ namespace Inventario
             }
             catch (Exception ex)
             {
-                MostrarMensaje("Error", string.Format("No se pudo cargar la pagina. {0}", ex.Message));
+                MostrarAlerta(0, "Error", ex.Message.Replace("'", "").Replace(Environment.NewLine, " "));
             }
         }
 
@@ -286,12 +286,12 @@ namespace Inventario
                                 oBodB.GuardarArticuloPorBodega(oArtBodI);
                             }
                         }
-                        MostrarMensaje("Artículo", "El Articulo se guardo con exito");
+                        MostrarAlerta(1, "Exito", "El Articulo se guardo con exito");
                         limpiarControles();
                     }
                     else
                     {
-                        MostrarMensaje("Error", "El Articulo no se pudo crear");
+                        MostrarAlerta(0, "Error", "El Articulo no se pudo crear");
                     }
                 }
                 else
@@ -316,23 +316,23 @@ namespace Inventario
                                     oBodB.GuardarArticuloPorBodega(oArtBodI);
                                 }
                             }
-                            MostrarMensaje("Artículo", "El Articulo se actualizo con exito");
+                            MostrarAlerta(1, "Exito", "El Articulo se actualizo con exito");
                             limpiarControles();
                         }
                         else
                         {
-                            MostrarMensaje("Error", "El Articulo no se pudo actualizar");
+                            MostrarAlerta(0, "Error", "El Articulo no se pudo actualizar");
                         }
                     }
                     else
                     {
-                        MostrarMensaje("Error", "El usuario no posee permisos para esta operación o no hay bodegas seleccionadas");
+                        MostrarAlerta(0, "Error", "El usuario no posee permisos para esta operación o no hay bodegas seleccionadas");
                     }
                 }
             }
             catch (Exception ex)
             {
-                MostrarMensaje("Error", string.Format("No se pudo guardar el articulo. {0}", ex.Message));
+                MostrarAlerta(0, "Error", ex.Message.Replace("'", "").Replace(Environment.NewLine, " "));
             }
         }
 
@@ -404,14 +404,15 @@ namespace Inventario
                     articulo.IdArticuloPadre = long.Parse(hddIdPadre.Value);
                     articulo.CantidadPadre = decimal.Parse(txtCantidadPadre.Text, NumberStyles.Currency);
                 }
-                //if (txtImpoconsumo.Text != "")
-                //{
-                //    articulo.Impoconsumo = decimal.Parse(txtImpoconsumo.Text, NumberStyles.Currency);
-                //}
+                articulo.Marca = txtMarca.Text.Trim();
+                if (txtPorcentajeComision.Text != "")
+                {
+                    articulo.PorcentajeComision = decimal.Parse(txtPorcentajeComision.Text, NumberStyles.Currency);
+                }
             }
             catch (Exception ex)
             {
-                MostrarMensaje("Error", string.Format("No se pudo realizar la operación. {0}", ex.Message));
+                MostrarAlerta(0, "Error", ex.Message.Replace("'", "").Replace(Environment.NewLine, " "));
             }
         }
 
@@ -444,7 +445,6 @@ namespace Inventario
             hddIdPadre.Value = "";
             txtPadre.Text = "";
             txtCantidadPadre.Text = "";
-            //txtImpoconsumo.Text = "";
         }
 
         protected void btnCancelar_Click(object sender, ImageClickEventArgs e)
@@ -535,24 +535,26 @@ namespace Inventario
                     txtPadre.Text = oArtI.NombrePadre;
                     hddIdPadre.Value = oArtI.IdArticuloPadre.ToString();
                     txtCantidadPadre.Text = oArtI.CantidadPadre.ToString();
-                    //txtImpoconsumo.Text = oArtI.Impoconsumo.ToString();
+                    txtMarca.Text = oArtI.Marca;
+                    txtPorcentajeComision.Text = oArtI.PorcentajeComision.ToString();
                     CargarBodegas();
                     if (!this.Page.ClientScript.IsClientScriptBlockRegistered("InicializarControlesBusqueda"))
                     {
                         string strScript = "$(document).ready(function(){";
                         strScript = string.Format("{0} seleccionarTab('contenido','0');", strScript);
+                        strScript = string.Format("{0} PintarTabla('cphContenido_dgBodegas');", strScript);
                         strScript = string.Format("{0}}});", strScript);
                         this.Page.ClientScript.RegisterClientScriptBlock(this.Page.GetType(), "InicializarControlesBusqueda", strScript, true);
                     }
                 }
                 else
                 {
-                    MostrarMensaje("Permisos", "El usuario no posee permisos para esta operación.");
+                    MostrarAlerta(0, "Permisos", "El usuario no posee permisos para esta operación.");
                 }
             }
             catch(Exception ex)
             {
-                MostrarMensaje("Error", string.Format("No se pudo editar el artículo. {0}", ex.Message));
+                MostrarAlerta(0, "Error", ex.Message.Replace("'", "").Replace(Environment.NewLine, " "));
             }
         }
 
@@ -591,7 +593,7 @@ namespace Inventario
             }
             catch (Exception ex)
             {
-                MostrarMensaje("Error", string.Format("No se pudo realizar la busqueda de los articulos. {0}", ex.Message));
+                MostrarAlerta(0, "Error", ex.Message.Replace("'", "").Replace(Environment.NewLine, " "));
             }
         }
 
@@ -603,7 +605,7 @@ namespace Inventario
             }
             catch (Exception ex)
             {
-                MostrarMensaje("Error", string.Format("No se pudo abrir la configuración de precios. {0}", ex.Message));
+                MostrarAlerta(0, "Error", ex.Message.Replace("'", "").Replace(Environment.NewLine, " "));
             }
         }
 
@@ -618,7 +620,7 @@ namespace Inventario
             }
             catch (Exception ex)
             {
-                MostrarMensaje("Error", string.Format("No se pudo abrir la configuración de código de barras. {0}", ex.Message));
+                MostrarAlerta(0, "Error", ex.Message.Replace("'", "").Replace(Environment.NewLine, " "));
             }
         }
 
@@ -702,7 +704,7 @@ namespace Inventario
             }
             catch (Exception ex)
             {
-                MostrarMensaje("Error", string.Format("No se pudo seleccionar la bodega. {0}", ex.Message));
+                MostrarAlerta(0, "Error", ex.Message.Replace("'", "").Replace(Environment.NewLine, " "));
             }
         }
 
@@ -724,7 +726,7 @@ namespace Inventario
             }
             catch(Exception ex)
             {
-                MostrarMensaje("Error", ex.Message);
+                MostrarAlerta(0, "Error", ex.Message.Replace("'", "").Replace(Environment.NewLine, " "));
                 if (!this.Page.ClientScript.IsClientScriptBlockRegistered("InicializarControlesBusqueda"))
                 {
                     string strScript = "$(document).ready(function(){";
@@ -742,6 +744,7 @@ namespace Inventario
                 if (chkEsArticuloFinal.Checked)
                 {
                     chkInventario.Checked = true;
+                    chkEsCompuesto.Checked = false;
                 }
                 if (!this.Page.ClientScript.IsClientScriptBlockRegistered("InicializarControlesBusqueda"))
                 {
@@ -753,7 +756,7 @@ namespace Inventario
             }
             catch (Exception ex)
             {
-                MostrarMensaje("Error", ex.Message);
+                MostrarAlerta(0, "Error", ex.Message.Replace("'", "").Replace(Environment.NewLine, " "));
                 if (!this.Page.ClientScript.IsClientScriptBlockRegistered("InicializarControlesBusqueda"))
                 {
                     string strScript = "$(document).ready(function(){";
@@ -773,6 +776,8 @@ namespace Inventario
                     txtPadre.Enabled = true;
                     txtCantidadPadre.Enabled = true;
                     chkInventario.Checked = false;
+                    chkEsCompuesto.Checked = false;
+                    chkEsArticuloFinal.Checked = false;
                 }
                 else
                 {
@@ -789,7 +794,7 @@ namespace Inventario
             }
             catch (Exception ex)
             {
-                MostrarMensaje("Error", ex.Message);
+                MostrarAlerta(0, "Error", ex.Message.Replace(Environment.NewLine, " "));
                 if (!this.Page.ClientScript.IsClientScriptBlockRegistered("InicializarControlesBusqueda"))
                 {
                     string strScript = "$(document).ready(function(){";
@@ -809,19 +814,22 @@ namespace Inventario
                     tblArticuloBusiness oArtB = new tblArticuloBusiness(CadenaConexion);
                     tblBodegaBusiness oBodB = new tblBodegaBusiness(CadenaConexion);
                     List<tblArticulo_BodegaItem> oListArtBod = new List<tblArticulo_BodegaItem>();
-                    oListArtBod = oBodB.ConsultarArticulosPorBodega(long.Parse(lblIdArticulo.Text));
-                    bool Validador = false;
-                    foreach(tblArticulo_BodegaItem Item in oListArtBod)
+                    if (!string.IsNullOrEmpty(lblIdArticulo.Text))
                     {
-                        if(Item.Cantidad > 0)
+                        oListArtBod = oBodB.ConsultarArticulosPorBodega(long.Parse(lblIdArticulo.Text));
+                        bool Validador = false;
+                        foreach (tblArticulo_BodegaItem Item in oListArtBod)
                         {
-                            Validador = true;
+                            if (Item.Cantidad > 0)
+                            {
+                                Validador = true;
+                            }
                         }
-                    }
-                    if (Validador)
-                    {
-                        MostrarMensaje("Error", "No se puede cambiar el atributo al artículo mientras tenga existencias en una bodega.");
-                        chkInventario.Checked = true;
+                        if (Validador)
+                        {
+                            MostrarAlerta(0, "Error", "No se puede cambiar el atributo al artículo mientras tenga existencias en una bodega.");
+                            chkInventario.Checked = true;
+                        }
                     }
                 }
                 if (!this.Page.ClientScript.IsClientScriptBlockRegistered("InicializarControlesBusqueda"))
@@ -834,7 +842,7 @@ namespace Inventario
             }
             catch(Exception ex)
             {
-                MostrarMensaje("Error", ex.Message.Replace("'",""));
+                MostrarAlerta(0, "Error", ex.Message.Replace("'", "").Replace(Environment.NewLine, " "));
             }
         }
     }

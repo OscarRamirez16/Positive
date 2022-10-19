@@ -13,7 +13,34 @@ namespace InventarioDao
         {
             Conexion = new SqlConnection(CadenaConexion);
         }
-
+        public List<tblCajaItem> ObtenerCajaProximaVencer(long IdEmpresa)
+        {
+            List<tblCajaItem> Lista = new List<tblCajaItem>();
+            SqlCommand oSQL = new SqlCommand("spObtenerCajaProximaVencer", Conexion);
+            oSQL.CommandType = System.Data.CommandType.StoredProcedure;
+            try
+            {
+                Conexion.Open();
+                oSQL.Parameters.Add(new SqlParameter("@IdEmpresa", IdEmpresa));
+                SqlDataReader reader = oSQL.ExecuteReader();
+                while (reader.Read())
+                {
+                    Lista.Add(ObtenerItem(reader));
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (Conexion.State == System.Data.ConnectionState.Open)
+                {
+                    Conexion.Close();
+                }
+            }
+            return Lista;
+        }
         public tblCajaItem ObtenerCaja(long Id)
         {
             tblCajaItem Item = new tblCajaItem();
@@ -114,6 +141,10 @@ namespace InventarioDao
             Item.ProximoValor = reader["ProximoValor"].ToString();
             Item.Resolucion = reader["Resolucion"].ToString();
             Item.Activo = bool.Parse(reader["Activo"].ToString());
+            if (reader["FechaVencimiento"].ToString() != "")
+            {
+                Item.FechaVencimiento = DateTime.Parse(reader["FechaVencimiento"].ToString());
+            }
             return Item;
         }
 
@@ -130,6 +161,14 @@ namespace InventarioDao
             oSQL.Parameters.Add(new SqlParameter("@ProximoValor", Item.ProximoValor));
             oSQL.Parameters.Add(new SqlParameter("@Resolucion", Item.Resolucion));
             oSQL.Parameters.Add(new SqlParameter("@Activo", Item.Activo));
+            if(Item.FechaVencimiento == DateTime.MinValue)
+            {
+                oSQL.Parameters.Add(new SqlParameter("@FechaVencimiento", DBNull.Value));
+            }
+            else
+            {
+                oSQL.Parameters.Add(new SqlParameter("@FechaVencimiento", Item.FechaVencimiento));
+            }
             try
             {
                 Conexion.Open();
@@ -162,6 +201,14 @@ namespace InventarioDao
             oSQL.Parameters.Add(new SqlParameter("@ProximoValor", Item.ProximoValor));
             oSQL.Parameters.Add(new SqlParameter("@Resolucion", Item.Resolucion));
             oSQL.Parameters.Add(new SqlParameter("@Activo", Item.Activo));
+            if (Item.FechaVencimiento == DateTime.MinValue)
+            {
+                oSQL.Parameters.Add(new SqlParameter("@FechaVencimiento", DBNull.Value));
+            }
+            else
+            {
+                oSQL.Parameters.Add(new SqlParameter("@FechaVencimiento", Item.FechaVencimiento));
+            }
             try
             {
                 Conexion.Open();

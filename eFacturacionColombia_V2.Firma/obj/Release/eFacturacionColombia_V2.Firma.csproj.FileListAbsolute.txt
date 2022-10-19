@@ -1,0 +1,12 @@
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\eFacturacionColombia_V2.Firma\obj\Release\eFacturacionColombia_V2.Firma.csproj.AssemblyReference.cache
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\eFacturacionColombia_V2.Firma\obj\Release\eFacturacionColombia_V2.Firma.csproj.CoreCompileInputs.cache
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\eFacturacionColombia_V2.Firma\bin\Release\eFacturacionColombia_V2.Firma.dll
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\eFacturacionColombia_V2.Firma\bin\Release\eFacturacionColombia_V2.Firma.pdb
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\eFacturacionColombia_V2.Firma\bin\Release\FirmaXadesNet.dll
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\eFacturacionColombia_V2.Firma\bin\Release\Microsoft.Xades.dll
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\eFacturacionColombia_V2.Firma\bin\Release\BouncyCastle.Crypto.dll
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\eFacturacionColombia_V2.Firma\bin\Release\FirmaXadesNet.pdb
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\eFacturacionColombia_V2.Firma\bin\Release\Microsoft.Xades.pdb
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\eFacturacionColombia_V2.Firma\obj\Release\eFacturacionColombia_V2.Firma.csproj.CopyComplete
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\eFacturacionColombia_V2.Firma\obj\Release\eFacturacionColombia_V2.Firma.dll
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\eFacturacionColombia_V2.Firma\obj\Release\eFacturacionColombia_V2.Firma.pdb

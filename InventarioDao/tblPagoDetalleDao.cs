@@ -144,7 +144,7 @@ namespace InventarioDao
         private bool Insertar(tblPagoDetalleItem Item, SqlConnection Con, SqlTransaction Tran, long TipoDocumento)
         {
             string SQL = "";
-            if (TipoDocumento == 1 || TipoDocumento == 10)
+            if (TipoDocumento == 1 || TipoDocumento == 10 || TipoDocumento == 11)
             {
                 SQL = "EXEC spInsertarPagoDetalle @idPago,@idDocumento,@valorAbono,@idTipoDocumento";
             }

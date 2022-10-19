@@ -71,7 +71,7 @@ namespace Inventario
             }
             catch (Exception ex)
             {
-                MostrarMensaje("Error", string.Format("No se pudo cargar la pagina. {0}", ex.Message));
+                MostrarAlerta(0, "Error", ex.Message.Replace("'", "").Replace(Environment.NewLine, " "));
             }
         }
 
@@ -191,7 +191,7 @@ namespace Inventario
                 {
                     if (rbEntrada.Checked == false && rbSalida.Checked == false)
                     {
-                        MostrarMensaje("Error", "Por favor seleccione la operación que desea realizar");
+                        MostrarAlerta(0, "Error", "Por favor seleccione la operación que desea realizar");
                     }
                     else
                     {
@@ -251,40 +251,47 @@ namespace Inventario
                                 string Error = oDocB.GuardarSoloDocumento(oDocI, oListDet);
                                 if (Error == "Exito")
                                 {
-                                    MostrarMensaje("Exito", "El documento se creó con exito.");
+                                    MostrarAlerta(1, "Exito", "El documento se creó con exito.");
                                     LimpiarControles();
                                 }
                                 else
                                 {
-                                    MostrarMensaje("Error", Error);
+                                    MostrarAlerta(0, "Error", Error);
                                 }
                             }
                             else
                             {
-                                MostrarMensaje("Error", "No hay artículos para realizar la operación.");
+                                MostrarAlerta(0, "Error", "No hay artículos para realizar la operación.");
                             }
                         }
                         else
                         {
-                            MostrarMensaje("Error", Errores);
+                            MostrarAlerta(0, "Error", Errores);
                         }
                     }
                 }
             }
             catch (Exception ex)
             {
-                MostrarMensaje("Error", string.Format("No se pudo realizar la operación. {0}", ex.Message));
+                MostrarAlerta(0, "Error", ex.Message.Replace("'", "").Replace(Environment.NewLine, " "));
             }
         }
 
         private void LimpiarControles()
         {
-            CargarDelimitadores();
-            OcultarControl(divBotones.ClientID);
-            OcultarControl(divGrilla.ClientID);
-            OcultarControl(divObservaciones.ClientID);
-            dgArticulosMasivo.DataSource = null;
-            dgArticulosMasivo.DataBind();
+            try
+            {
+                CargarDelimitadores();
+                OcultarControl(divBotones.ClientID);
+                OcultarControl(divGrilla.ClientID);
+                OcultarControl(divObservaciones.ClientID);
+                dgArticulosMasivo.DataSource = null;
+                dgArticulosMasivo.DataBind();
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
         }
 
         protected void btnCargar_Click(object sender, ImageClickEventArgs e)
@@ -299,7 +306,7 @@ namespace Inventario
                     string error = oABiz.LeerArticulosParaEntradaSalidaMasiva(fulArticulos.PostedFile.InputStream, Articulos, char.Parse(ddlDelimitador.SelectedValue), oUsuarioI.idEmpresa);
                     if (error != "")
                     {
-                        MostrarMensaje("Error", error);
+                        MostrarAlerta(0, "Error", error);
                     }
                     else
                     {
@@ -309,12 +316,12 @@ namespace Inventario
                 }
                 else
                 {
-                    Response.Write("<script>alert('No hay un archivo seleccionado');</script>");
+                    MostrarAlerta(0, "Error", "No hay un archivo seleccionado");
                 }
             }
             catch (Exception ex)
             {
-                MostrarMensaje("Error", string.Format("No se pudo realizar la operación. {0}", ex.Message));
+                MostrarAlerta(0, "Error", ex.Message.Replace("'", "").Replace(Environment.NewLine, " "));
             }
         }
     }

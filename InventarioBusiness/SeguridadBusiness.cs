@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using InventarioDao;
 using InventarioItem;
 
@@ -83,7 +80,9 @@ namespace InventarioBusiness
             VerAnticipos = 66,
             InformacionCompra = 67,
             PagoMensualidad = 68,
-            Retenciones = 69
+            Retenciones = 69,
+            ReporteComisionPorArticulo = 70,
+            ReporteCuentaCobro = 71
         }
 
         public SeguridadBusiness(string cadenaConexion)

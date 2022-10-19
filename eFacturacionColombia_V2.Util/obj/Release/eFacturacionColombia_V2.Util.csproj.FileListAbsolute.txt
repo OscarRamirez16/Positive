@@ -1,0 +1,6 @@
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\eFacturacionColombia_V2.Util\bin\Release\eFacturacionColombia_V2.Util.dll
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\eFacturacionColombia_V2.Util\bin\Release\eFacturacionColombia_V2.Util.pdb
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\eFacturacionColombia_V2.Util\obj\Release\eFacturacionColombia_V2.Util.csproj.AssemblyReference.cache
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\eFacturacionColombia_V2.Util\obj\Release\eFacturacionColombia_V2.Util.csproj.CoreCompileInputs.cache
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\eFacturacionColombia_V2.Util\obj\Release\eFacturacionColombia_V2.Util.dll
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\eFacturacionColombia_V2.Util\obj\Release\eFacturacionColombia_V2.Util.pdb

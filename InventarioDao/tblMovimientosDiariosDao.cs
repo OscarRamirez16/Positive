@@ -313,7 +313,15 @@ namespace InventarioDao
             try
             {
                 Conexion.Open();
-                oSQL.ExecuteNonQuery();
+                Item.idMovimiento = long.Parse(oSQL.ExecuteScalar().ToString());
+                if(Item.idMovimiento > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             catch(Exception ex)
             {
@@ -326,7 +334,6 @@ namespace InventarioDao
                     Conexion.Close();
                 }
             }
-            return true;
         }
 
         private bool Actualizar(tblMovimientosDiariosItem Item)

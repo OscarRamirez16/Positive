@@ -188,3 +188,41 @@ C:\Archivos Oscar\HQS-Software\Positive20190715\Idioma\obj\Debug\Idioma.csproj.C
 C:\Archivos Oscar\HQS-Software\Positive20190715\Idioma\obj\Debug\Idioma.csproj.CopyComplete
 C:\Archivos Oscar\HQS-Software\Positive20190715\Idioma\obj\Debug\Idioma.dll
 C:\Archivos Oscar\HQS-Software\Positive20190715\Idioma\obj\Debug\Idioma.pdb
+D:\Software\PositiveNew\20210904PositiveResponsive\Positive\Idioma\bin\Debug\Idioma.dll
+D:\Software\PositiveNew\20210904PositiveResponsive\Positive\Idioma\bin\Debug\Idioma.pdb
+D:\Software\PositiveNew\20210904PositiveResponsive\Positive\Idioma\bin\Debug\Microsoft.ReportViewer.Common.dll
+D:\Software\PositiveNew\20210904PositiveResponsive\Positive\Idioma\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+D:\Software\PositiveNew\20210904PositiveResponsive\Positive\Idioma\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
+D:\Software\PositiveNew\20210904PositiveResponsive\Positive\Idioma\obj\Debug\Idioma.csprojAssemblyReference.cache
+D:\Software\PositiveNew\20210904PositiveResponsive\Positive\Idioma\obj\Debug\Idioma.csproj.CoreCompileInputs.cache
+D:\Software\PositiveNew\20210904PositiveResponsive\Positive\Idioma\obj\Debug\Idioma.csproj.CopyComplete
+D:\Software\PositiveNew\20210904PositiveResponsive\Positive\Idioma\obj\Debug\Idioma.dll
+D:\Software\PositiveNew\20210904PositiveResponsive\Positive\Idioma\obj\Debug\Idioma.pdb
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\Idioma\bin\Debug\Idioma.dll
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\Idioma\bin\Debug\Idioma.pdb
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\Idioma\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\Idioma\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\Idioma\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\Idioma\obj\Debug\Idioma.csproj.AssemblyReference.cache
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\Idioma\obj\Debug\Idioma.csproj.CoreCompileInputs.cache
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\Idioma\obj\Debug\Idioma.csproj.CopyComplete
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\Idioma\obj\Debug\Idioma.dll
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\Idioma\obj\Debug\Idioma.pdb
+C:\Archivos Oscar\HQS-Software\PositiveResponsive\Positive\Idioma\bin\Debug\Idioma.dll
+C:\Archivos Oscar\HQS-Software\PositiveResponsive\Positive\Idioma\bin\Debug\Idioma.pdb
+C:\Archivos Oscar\HQS-Software\PositiveResponsive\Positive\Idioma\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\Archivos Oscar\HQS-Software\PositiveResponsive\Positive\Idioma\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\Archivos Oscar\HQS-Software\PositiveResponsive\Positive\Idioma\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
+C:\Archivos Oscar\HQS-Software\PositiveResponsive\Positive\Idioma\obj\Debug\Idioma.csproj.AssemblyReference.cache
+C:\Archivos Oscar\HQS-Software\PositiveResponsive\Positive\Idioma\obj\Debug\Idioma.csproj.CoreCompileInputs.cache
+C:\Archivos Oscar\HQS-Software\PositiveResponsive\Positive\Idioma\obj\Debug\Idioma.dll
+C:\Archivos Oscar\HQS-Software\PositiveResponsive\Positive\Idioma\obj\Debug\Idioma.pdb
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\Idioma\bin\Debug\Idioma.dll
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\Idioma\bin\Debug\Idioma.pdb
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\Idioma\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\Idioma\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\Idioma\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\Idioma\obj\Debug\Idioma.csproj.CoreCompileInputs.cache
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\Idioma\obj\Debug\Idioma.csproj.CopyComplete
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\Idioma\obj\Debug\Idioma.dll
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\Idioma\obj\Debug\Idioma.pdb

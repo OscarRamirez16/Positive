@@ -76,10 +76,12 @@ namespace InventarioDao
             return Lista;
         }
 
-        public List<tblTipoPagoItem> ObtenerTipoPagoLista()
+        public List<tblTipoPagoItem> ObtenerTipoPagoLista(long idPago)
         {
             List<tblTipoPagoItem> Lista = new List<tblTipoPagoItem>();
-            SqlCommand oSQL = new SqlCommand("EXEC spObtenerTipoPagoLista", Conexion);
+            SqlCommand oSQL = new SqlCommand("spObtenerTipoPagoLista", Conexion);
+            oSQL.CommandType = System.Data.CommandType.StoredProcedure;
+            oSQL.Parameters.Add(new SqlParameter("@idPago", idPago));
             try
             {
                 Conexion.Open();
@@ -118,7 +120,7 @@ namespace InventarioDao
         private bool Insertar(tblTipoPagoItem Item, SqlConnection Con, SqlTransaction Tran, long TipoDocumento)
         {
             string SQL = "";
-            if (TipoDocumento == 1 || TipoDocumento == 10)
+            if (TipoDocumento == 1 || TipoDocumento == 10 || TipoDocumento == 11)
             {
                 SQL = "spInsertarTipoPago";
             }

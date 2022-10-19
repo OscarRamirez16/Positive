@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using InventarioItem;
 using InventarioDao;
 
@@ -16,7 +13,18 @@ namespace InventarioBusiness
         {
             this.cadenaConexion = cadenaConexion;
         }
-
+        public void ActualizarConsecutivo(long IdEmpresa)
+        {
+            try
+            {
+                tblEmpresaDao oEmpD = new tblEmpresaDao(cadenaConexion);
+                oEmpD.ActualizarConsecutivo(IdEmpresa);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public List<tblEmpresaItem> ObtenerEmpresaLista()
         {
             try
@@ -43,17 +51,28 @@ namespace InventarioBusiness
             }
         }
 
-        public bool Guardar(tblEmpresaItem empresa)
+        public bool Guardar(tblEmpresaItem empresa, EmpresaUsuario oEUItem)
         {
             try
             {
                 tblEmpresaDao oEmpD = new tblEmpresaDao(cadenaConexion);
-                return oEmpD.Guardar(empresa);
+                return oEmpD.Guardar(empresa, oEUItem);
             }
             catch (Exception ex)
             {
                 throw ex;
             }
+        }
+        public List<Servidor> ObtenerServidorLista()
+        {
+            tblEmpresaDao oEmpD = new tblEmpresaDao(cadenaConexion);
+            return oEmpD.ObtenerServidorLista();
+        }
+
+        public Servidor ObtenerServidorID(int IdServidor)
+        {
+            tblEmpresaDao oEmpD = new tblEmpresaDao(cadenaConexion);
+            return oEmpD.ObtenerServidorID(IdServidor);
         }
     }
 }

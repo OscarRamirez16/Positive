@@ -7,11 +7,13 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Inventario {
-    
-    
-    public partial class frmCrearEditarArticulos {
-        
+namespace Inventario
+{
+
+
+    public partial class frmCrearEditarArticulos
+    {
+
         /// <summary>
         /// Control liCrearArticulo.
         /// </summary>
@@ -20,7 +22,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label liCrearArticulo;
-        
+
         /// <summary>
         /// Control liArticulosCreados.
         /// </summary>
@@ -29,7 +31,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label liArticulosCreados;
-        
+
         /// <summary>
         /// Control lblTitulo.
         /// </summary>
@@ -38,7 +40,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTitulo;
-        
+
         /// <summary>
         /// Control hddIdEmpresa.
         /// </summary>
@@ -47,7 +49,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden hddIdEmpresa;
-        
+
         /// <summary>
         /// Control hddTipoDocumento.
         /// </summary>
@@ -56,7 +58,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden hddTipoDocumento;
-        
+
         /// <summary>
         /// Control lblIdArticulo.
         /// </summary>
@@ -65,7 +67,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblIdArticulo;
-        
+
         /// <summary>
         /// Control chkActivo.
         /// </summary>
@@ -74,7 +76,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox chkActivo;
-        
+
         /// <summary>
         /// Control chkInventario.
         /// </summary>
@@ -83,7 +85,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox chkInventario;
-        
+
         /// <summary>
         /// Control chkPrecioAuto.
         /// </summary>
@@ -92,7 +94,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox chkPrecioAuto;
-        
+
         /// <summary>
         /// Control lblNombre.
         /// </summary>
@@ -101,7 +103,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblNombre;
-        
+
         /// <summary>
         /// Control txtNombre.
         /// </summary>
@@ -110,7 +112,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNombre;
-        
+
         /// <summary>
         /// Control rfvNombre.
         /// </summary>
@@ -119,7 +121,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvNombre;
-        
+
         /// <summary>
         /// Control lblPresentacion.
         /// </summary>
@@ -128,7 +130,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblPresentacion;
-        
+
         /// <summary>
         /// Control txtPresentacion.
         /// </summary>
@@ -137,7 +139,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPresentacion;
-        
+
         /// <summary>
         /// Control rfvPresentacion.
         /// </summary>
@@ -146,7 +148,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPresentacion;
-        
+
         /// <summary>
         /// Control lblCodigo.
         /// </summary>
@@ -155,7 +157,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblCodigo;
-        
+
         /// <summary>
         /// Control txtCodigo.
         /// </summary>
@@ -164,7 +166,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCodigo;
-        
+
         /// <summary>
         /// Control imgUltimoCodigo.
         /// </summary>
@@ -173,7 +175,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlImage imgUltimoCodigo;
-        
+
         /// <summary>
         /// Control rfvCodigo.
         /// </summary>
@@ -182,7 +184,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCodigo;
-        
+
         /// <summary>
         /// Control lblLinea.
         /// </summary>
@@ -191,7 +193,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblLinea;
-        
+
         /// <summary>
         /// Control ddlLinea.
         /// </summary>
@@ -200,7 +202,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlLinea;
-        
+
         /// <summary>
         /// Control lblCodigoBarra.
         /// </summary>
@@ -209,7 +211,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblCodigoBarra;
-        
+
         /// <summary>
         /// Control txtCodigoBarra.
         /// </summary>
@@ -218,7 +220,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCodigoBarra;
-        
+
         /// <summary>
         /// Control lblTercero.
         /// </summary>
@@ -227,7 +229,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTercero;
-        
+
         /// <summary>
         /// Control txtTercero.
         /// </summary>
@@ -236,7 +238,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTercero;
-        
+
         /// <summary>
         /// Control hddIdTercero.
         /// </summary>
@@ -245,7 +247,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden hddIdTercero;
-        
+
         /// <summary>
         /// Control rfvTercero.
         /// </summary>
@@ -254,7 +256,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvTercero;
-        
+
         /// <summary>
         /// Control lblIVACompra.
         /// </summary>
@@ -263,7 +265,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblIVACompra;
-        
+
         /// <summary>
         /// Control txtIVACompra.
         /// </summary>
@@ -272,7 +274,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtIVACompra;
-        
+
         /// <summary>
         /// Control lblIVAVenta.
         /// </summary>
@@ -281,7 +283,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblIVAVenta;
-        
+
         /// <summary>
         /// Control txtIVAVenta.
         /// </summary>
@@ -290,7 +292,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtIVAVenta;
-        
+
         /// <summary>
         /// Control lblStock.
         /// </summary>
@@ -299,7 +301,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblStock;
-        
+
         /// <summary>
         /// Control txtStockMinimo.
         /// </summary>
@@ -308,7 +310,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtStockMinimo;
-        
+
         /// <summary>
         /// Control lblBodega.
         /// </summary>
@@ -317,7 +319,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblBodega;
-        
+
         /// <summary>
         /// Control txtBodega.
         /// </summary>
@@ -326,7 +328,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtBodega;
-        
+
         /// <summary>
         /// Control hddIdBodega.
         /// </summary>
@@ -335,7 +337,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden hddIdBodega;
-        
+
         /// <summary>
         /// Control rfvBodega.
         /// </summary>
@@ -344,7 +346,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvBodega;
-        
+
         /// <summary>
         /// Control lblUbicacion.
         /// </summary>
@@ -353,7 +355,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblUbicacion;
-        
+
         /// <summary>
         /// Control txtUbicacion.
         /// </summary>
@@ -362,7 +364,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtUbicacion;
-        
+
         /// <summary>
         /// Control txtCostoPonderado.
         /// </summary>
@@ -371,7 +373,25 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCostoPonderado;
-        
+
+        /// <summary>
+        /// Control txtMarca.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtMarca;
+
+        /// <summary>
+        /// Control txtPorcentajeComision.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPorcentajeComision;
+
         /// <summary>
         /// Control chkEsCompuesto.
         /// </summary>
@@ -380,7 +400,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox chkEsCompuesto;
-        
+
         /// <summary>
         /// Control chkEsArticuloFinal.
         /// </summary>
@@ -389,7 +409,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox chkEsArticuloFinal;
-        
+
         /// <summary>
         /// Control chkEsHijo.
         /// </summary>
@@ -398,7 +418,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox chkEsHijo;
-        
+
         /// <summary>
         /// Control txtPadre.
         /// </summary>
@@ -407,7 +427,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPadre;
-        
+
         /// <summary>
         /// Control hddIdPadre.
         /// </summary>
@@ -416,7 +436,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden hddIdPadre;
-        
+
         /// <summary>
         /// Control txtCantidadPadre.
         /// </summary>
@@ -425,7 +445,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCantidadPadre;
-        
+
         /// <summary>
         /// Control lblTituloGrilla.
         /// </summary>
@@ -434,7 +454,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTituloGrilla;
-        
+
         /// <summary>
         /// Control dgBodegas.
         /// </summary>
@@ -443,7 +463,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DataGrid dgBodegas;
-        
+
         /// <summary>
         /// Control btnGuardar.
         /// </summary>
@@ -452,7 +472,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton btnGuardar;
-        
+
         /// <summary>
         /// Control btnCancelar.
         /// </summary>
@@ -461,7 +481,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton btnCancelar;
-        
+
         /// <summary>
         /// Control lblListaArticulos.
         /// </summary>
@@ -470,7 +490,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblListaArticulos;
-        
+
         /// <summary>
         /// Control txtNombreBus.
         /// </summary>
@@ -479,7 +499,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNombreBus;
-        
+
         /// <summary>
         /// Control ddlLineaBus.
         /// </summary>
@@ -488,7 +508,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlLineaBus;
-        
+
         /// <summary>
         /// Control txtProveedorBus.
         /// </summary>
@@ -497,7 +517,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtProveedorBus;
-        
+
         /// <summary>
         /// Control hddIdProBus.
         /// </summary>
@@ -506,7 +526,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden hddIdProBus;
-        
+
         /// <summary>
         /// Control btnBuscar.
         /// </summary>
@@ -515,7 +535,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton btnBuscar;
-        
+
         /// <summary>
         /// Control btnCancelarBus.
         /// </summary>
@@ -524,7 +544,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton btnCancelarBus;
-        
+
         /// <summary>
         /// Control dgArticulos.
         /// </summary>

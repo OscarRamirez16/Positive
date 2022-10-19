@@ -59,3 +59,13 @@ C:\Archivos Oscar\HQS-Software\Positive20190715\Idioma\obj\Release\Idioma.csproj
 C:\Archivos Oscar\HQS-Software\Positive20190715\Idioma\obj\Release\Idioma.csproj.CopyComplete
 C:\Archivos Oscar\HQS-Software\Positive20190715\Idioma\obj\Release\Idioma.dll
 C:\Archivos Oscar\HQS-Software\Positive20190715\Idioma\obj\Release\Idioma.pdb
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\Idioma\bin\Release\Idioma.dll
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\Idioma\bin\Release\Idioma.pdb
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\Idioma\bin\Release\Microsoft.ReportViewer.Common.dll
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\Idioma\bin\Release\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\Idioma\bin\Release\Microsoft.ReportViewer.WebForms.DLL
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\Idioma\obj\Release\Idioma.csproj.AssemblyReference.cache
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\Idioma\obj\Release\Idioma.csproj.CoreCompileInputs.cache
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\Idioma\obj\Release\Idioma.csproj.CopyComplete
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\Idioma\obj\Release\Idioma.dll
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\Idioma\obj\Release\Idioma.pdb

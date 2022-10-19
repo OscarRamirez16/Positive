@@ -36,6 +36,7 @@
         public long IdArticuloPadre { get; set; }
         public string NombrePadre { get; set; }
         public decimal CantidadPadre { get; set; }
+        public decimal PorcentajeComision { get; set; }
 
         //Para entrada masiva de artículos
         public decimal Costo { get; set; }

@@ -274,6 +274,12 @@
                             <li>
                                 <a href="frmCrearEditarRoles.aspx"><i class="fa fa-shield fa-fw"></i> Roles</a>
                             </li>
+                            <li>
+                                <a href="MisPedidos.aspx"><i class="fa fa-list fa-fw"></i> Mis Pedidos</a>
+                            </li>
+                            <li>
+                                <a href="PedidosPendientes.aspx"><i class="fa fa-beer fa-fw"></i> Pedidos Pendientes</a>
+                            </li>
                         </ul>
                     </div>
                     <!-- /.sidebar-collapse -->

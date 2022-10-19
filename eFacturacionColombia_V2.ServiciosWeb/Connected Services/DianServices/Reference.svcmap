@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="a001e5ba-a12e-4293-a6b9-7709f5793332" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ArrayList" Category="List" />
+      <CollectionMapping TypeName="System.Collections.Generic.SortedList`2" Category="Dictionary" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://vpfe.dian.gov.co/WcfDianCustomerServices.svc?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="WcfDianCustomerServices.xsd" MetadataType="Schema" ID="0ecfb361-91b3-4c12-9d0e-4e593321154f" SourceId="1" SourceUrl="https://vpfe.dian.gov.co/WcfDianCustomerServices.svc?xsd=xsd8" />
+    <MetadataFile FileName="WcfDianCustomerServices1.xsd" MetadataType="Schema" ID="bac0dd2c-df95-4975-af89-aabbec49f6c9" SourceId="1" SourceUrl="https://vpfe.dian.gov.co/WcfDianCustomerServices.svc?xsd=xsd9" />
+    <MetadataFile FileName="WcfDianCustomerServices2.xsd" MetadataType="Schema" ID="e0422a46-c23d-4506-9bde-a656f8c7f44f" SourceId="1" SourceUrl="https://vpfe.dian.gov.co/WcfDianCustomerServices.svc?xsd=xsd10" />
+    <MetadataFile FileName="WcfDianCustomerServices.wsdl" MetadataType="Wsdl" ID="74ce1af4-b362-46cb-8ec6-65ad9a2c931e" SourceId="1" SourceUrl="https://vpfe.dian.gov.co/WcfDianCustomerServices.svc?wsdl" />
+    <MetadataFile FileName="WcfDianCustomerServices3.xsd" MetadataType="Schema" ID="476dff0b-3f82-430f-9d36-431eb7d175dd" SourceId="1" SourceUrl="https://vpfe.dian.gov.co/WcfDianCustomerServices.svc?xsd=xsd6" />
+    <MetadataFile FileName="WcfDianCustomerServices4.xsd" MetadataType="Schema" ID="3a095cfa-bb07-4ebd-9b74-c6819bf36e39" SourceId="1" SourceUrl="https://vpfe.dian.gov.co/WcfDianCustomerServices.svc?xsd=xsd7" />
+    <MetadataFile FileName="WcfDianCustomerServices5.xsd" MetadataType="Schema" ID="282f0a3e-27ea-4e60-89ed-a600ed3abcc7" SourceId="1" SourceUrl="https://vpfe.dian.gov.co/WcfDianCustomerServices.svc?xsd=xsd4" />
+    <MetadataFile FileName="WcfDianCustomerServices6.xsd" MetadataType="Schema" ID="36e56308-392a-4f4d-ba10-023c8007e6dc" SourceId="1" SourceUrl="https://vpfe.dian.gov.co/WcfDianCustomerServices.svc?xsd=xsd5" />
+    <MetadataFile FileName="WcfDianCustomerServices7.xsd" MetadataType="Schema" ID="cfa66e70-c317-459b-9989-0f217b775579" SourceId="1" SourceUrl="https://vpfe.dian.gov.co/WcfDianCustomerServices.svc?xsd=xsd2" />
+    <MetadataFile FileName="WcfDianCustomerServices8.xsd" MetadataType="Schema" ID="9c5f9030-edab-4a6a-a31e-965f2eacfe98" SourceId="1" SourceUrl="https://vpfe.dian.gov.co/WcfDianCustomerServices.svc?xsd=xsd3" />
+    <MetadataFile FileName="WcfDianCustomerServices9.xsd" MetadataType="Schema" ID="143b0c32-f572-4135-9668-cf8bc42afb5a" SourceId="1" SourceUrl="https://vpfe.dian.gov.co/WcfDianCustomerServices.svc?xsd=xsd0" />
+    <MetadataFile FileName="WcfDianCustomerServices10.xsd" MetadataType="Schema" ID="066eae2b-1ea8-4e29-955e-28740f5ff968" SourceId="1" SourceUrl="https://vpfe.dian.gov.co/WcfDianCustomerServices.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -167,3 +167,15 @@ C:\Users\orami\Downloads\20210621PositiveResponsive\InventarioDao\obj\Release\In
 C:\Users\orami\Downloads\20210621PositiveResponsive\InventarioDao\obj\Release\InventarioDao.csproj.CopyComplete
 C:\Users\orami\Downloads\20210621PositiveResponsive\InventarioDao\obj\Release\InventarioDao.dll
 C:\Users\orami\Downloads\20210621PositiveResponsive\InventarioDao\obj\Release\InventarioDao.pdb
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\InventarioDao\bin\Release\InventarioDao.dll
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\InventarioDao\bin\Release\InventarioDao.pdb
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\InventarioDao\bin\Release\InventarioItem.dll
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\InventarioDao\bin\Release\Microsoft.ReportViewer.Common.dll
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\InventarioDao\bin\Release\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\InventarioDao\bin\Release\Microsoft.ReportViewer.WebForms.DLL
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\InventarioDao\bin\Release\InventarioItem.pdb
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\InventarioDao\obj\Release\InventarioDao.csproj.AssemblyReference.cache
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\InventarioDao\obj\Release\InventarioDao.csproj.CoreCompileInputs.cache
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\InventarioDao\obj\Release\InventarioDao.csproj.CopyComplete
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\InventarioDao\obj\Release\InventarioDao.dll
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\InventarioDao\obj\Release\InventarioDao.pdb

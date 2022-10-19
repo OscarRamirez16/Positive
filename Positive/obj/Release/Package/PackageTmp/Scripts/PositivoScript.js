@@ -1925,7 +1925,7 @@ function EstablecerAutoCompleteBodegaSimple(_ControlID, _Url, _hddID, idEmpresa,
         }
     });
 }
-function AdicionarVentaRapida(idVentaRapida, Articulo, Descripcion, Cantidad, ValorIVA, Precio, Stock, hddItemsID, Impoconsumo) {
+function AdicionarVentaRapida(idVentaRapida, Articulo, Descripcion, Cantidad, ValorIVA, Precio, Stock, hddItemsID, Impoconsumo, hideDelete) {
     var numDecimales = 2;
     if ((parseFloat($("#hdd" + idVentaRapida + "Stock").val()) - parseFloat(Cantidad)) >= 0) {
         var ValorIVATotal = parseFloat($("#tdValorIVA").html()) + parseFloat(ValorIVA);
@@ -1952,7 +1952,11 @@ function AdicionarVentaRapida(idVentaRapida, Articulo, Descripcion, Cantidad, Va
             $("#" + hddItemsID).val($("#" + hddItemsID).val() + "," + idVentaRapida);
         }
         $("#hdd" + idVentaRapida + "Stock").val(parseFloat($("#hdd" + idVentaRapida + "Stock").val()) - parseFloat(Cantidad));
-        var trVentaRapida = "<tr><td>" + Articulo + "</td><td>" + Descripcion + "</td><td>" + Cantidad + "</td><td style=\"text-align:right;\">" + Precio + "</td><td style=\"cursor:pointer;\" onclick=\"EliminarVentaRapida(" + idVentaRapida + ",this,'" + hddItemsID + "','" + ValorIVA + "','" + Precio + "','" + Cantidad + "','" + Impoconsumo + "');\"><img src='Images/Input/Eliminar.png' title='" + Descripcion + "'/></td></tr>"
+        var deleteHTML = "<td></td>";
+        if (hideDelete == false || hideDelete == undefined || hideDelete == "") {
+            deleteHTML = "<td style=\"cursor:pointer;\" onclick=\"EliminarVentaRapida(" + idVentaRapida + ",this,'" + hddItemsID + "','" + ValorIVA + "','" + Precio + "','" + Cantidad + "','" + Impoconsumo + "');\"><img src='Images/Input/Eliminar.png' title='" + Descripcion + "'/></td>";
+        }
+        var trVentaRapida = "<tr><td>" + Articulo + "</td><td>" + Descripcion + "</td><td>" + Cantidad + "</td><td style=\"text-align:right;\">" + Precio + "</td>" + deleteHTML + "</tr>"
         $(".FacturaRapidaBody").append(trVentaRapida);
     }
     else {

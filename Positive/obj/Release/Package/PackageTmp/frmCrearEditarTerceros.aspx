@@ -80,9 +80,67 @@
                                 <span class="input-group-addon"><img src="Images/Date.png" title="Fecha de Nacimiento" /></span>
                             </div>
                         </div>
-                        <div class="col-lg-1">
-
+                        <div class="col-lg-1"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4">
+                            Tipo ID DIAN
                         </div>
+                        <div class="col-lg-7">
+                            <div class = "input-group">
+                                <asp:DropDownList ID="ddlTipoIdDIAN" runat="server" CssClass="form-control" DataTextField="Nombre" DataValueField="Id"></asp:DropDownList>
+                                <span class="input-group-addon"><img src="Images/Input/Identificacion.png" title="Tipo ID DIAN" /></span>
+                            </div>
+                        </div>
+                        <div class="col-lg-1"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4">
+                            Matricula Mercantil
+                        </div>
+                        <div class="col-lg-7">
+                            <div class = "input-group">
+                                <asp:TextBox ID="txtMatriculaMercantil" runat="server" CssClass="form-control"></asp:TextBox>
+                                <span class="input-group-addon"><img src="Images/Input/Identificacion.png" title="Tipo ID DIAN" /></span>
+                            </div>
+                        </div>
+                        <div class="col-lg-1"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4">
+                            Tipo Contribuyente
+                        </div>
+                        <div class="col-lg-7">
+                            <div class = "input-group">
+                                <asp:DropDownList ID="ddlTipoContribuyente" CssClass="form-control" runat="server" DataTextField="Nombre" DataValueField="Id"></asp:DropDownList>
+                                <span class="input-group-addon"><img src="Images/Input/Identificacion.png" title="Tipo Contribuyente" /></span>
+                            </div>
+                        </div>
+                        <div class="col-lg-1"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4">
+                            Regimen Fiscal:
+                        </div>
+                        <div class="col-lg-7">
+                            <div class = "input-group">
+                                <asp:DropDownList ID="ddlRegimenFiscal" CssClass="form-control" runat="server" DataTextField="Nombre" DataValueField="Id"></asp:DropDownList>
+                                <span class="input-group-addon"><img src="Images/Input/Identificacion.png" title="Regimen Fiscal" /></span>
+                            </div>
+                        </div>
+                        <div class="col-lg-1"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4">
+                            Responsabilidad Fiscal:
+                        </div>
+                        <div class="col-lg-7">
+                            <div class = "input-group">
+                                <asp:DropDownList ID="ddlResponsabilidadFiscal" CssClass="form-control" runat="server" DataTextField="Nombre" DataValueField="Id"></asp:DropDownList>
+                                <span class="input-group-addon"><img src="Images/Input/Identificacion.png" title="Responsabilidad Fiscal" /></span>
+                            </div>
+                        </div>
+                        <div class="col-lg-1"></div>
                     </div>
                 </div>
             </div>

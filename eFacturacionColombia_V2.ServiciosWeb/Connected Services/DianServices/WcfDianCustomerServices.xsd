@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/NumberRangeResponse" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/NumberRangeResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfNumberRangeResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="NumberRangeResponse" nillable="true" type="tns:NumberRangeResponse" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfNumberRangeResponse" nillable="true" type="tns:ArrayOfNumberRangeResponse" />
+  <xs:complexType name="NumberRangeResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ResolutionNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ResolutionDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Prefix" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FromNumber" type="xs:long" />
+      <xs:element minOccurs="0" name="ToNumber" type="xs:long" />
+      <xs:element minOccurs="0" name="ValidDateFrom" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ValidDateTo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TechnicalKey" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="NumberRangeResponse" nillable="true" type="tns:NumberRangeResponse" />
+</xs:schema>

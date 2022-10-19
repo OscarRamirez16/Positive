@@ -1,0 +1,72 @@
+C:\eFacturacionColombia_V2\eFacturacionColombia_V2.Firma\bin\Debug\eFacturacionColombia_V2.Firma.dll
+C:\eFacturacionColombia_V2\eFacturacionColombia_V2.Firma\bin\Debug\eFacturacionColombia_V2.Firma.pdb
+C:\eFacturacionColombia_V2\eFacturacionColombia_V2.Firma\bin\Debug\FirmaXadesNet.dll
+C:\eFacturacionColombia_V2\eFacturacionColombia_V2.Firma\bin\Debug\Microsoft.Xades.dll
+C:\eFacturacionColombia_V2\eFacturacionColombia_V2.Firma\bin\Debug\BouncyCastle.Crypto.dll
+C:\eFacturacionColombia_V2\eFacturacionColombia_V2.Firma\bin\Debug\FirmaXadesNet.pdb
+C:\eFacturacionColombia_V2\eFacturacionColombia_V2.Firma\bin\Debug\Microsoft.Xades.pdb
+C:\eFacturacionColombia_V2\eFacturacionColombia_V2.Firma\obj\Debug\eFacturacionColombia_V2.Firma.csprojAssemblyReference.cache
+C:\eFacturacionColombia_V2\eFacturacionColombia_V2.Firma\obj\Debug\eFacturacionColombia_V2.Firma.csproj.CoreCompileInputs.cache
+C:\eFacturacionColombia_V2\eFacturacionColombia_V2.Firma\obj\Debug\eFacturacionColombia_V2.Firma.csproj.CopyComplete
+C:\eFacturacionColombia_V2\eFacturacionColombia_V2.Firma\obj\Debug\eFacturacionColombia_V2.Firma.dll
+C:\eFacturacionColombia_V2\eFacturacionColombia_V2.Firma\obj\Debug\eFacturacionColombia_V2.Firma.pdb
+C:\eFacturacionColombia_V2_facturalatam\eFacturacionColombia_V2.Firma\bin\Debug\eFacturacionColombia_V2.Firma.dll
+C:\eFacturacionColombia_V2_facturalatam\eFacturacionColombia_V2.Firma\bin\Debug\eFacturacionColombia_V2.Firma.pdb
+C:\eFacturacionColombia_V2_facturalatam\eFacturacionColombia_V2.Firma\bin\Debug\FirmaXadesNet.dll
+C:\eFacturacionColombia_V2_facturalatam\eFacturacionColombia_V2.Firma\bin\Debug\Microsoft.Xades.dll
+C:\eFacturacionColombia_V2_facturalatam\eFacturacionColombia_V2.Firma\bin\Debug\BouncyCastle.Crypto.dll
+C:\eFacturacionColombia_V2_facturalatam\eFacturacionColombia_V2.Firma\bin\Debug\FirmaXadesNet.pdb
+C:\eFacturacionColombia_V2_facturalatam\eFacturacionColombia_V2.Firma\bin\Debug\Microsoft.Xades.pdb
+C:\eFacturacionColombia_V2_facturalatam\eFacturacionColombia_V2.Firma\obj\Debug\eFacturacionColombia_V2.Firma.csprojAssemblyReference.cache
+C:\eFacturacionColombia_V2_facturalatam\eFacturacionColombia_V2.Firma\obj\Debug\eFacturacionColombia_V2.Firma.csproj.CoreCompileInputs.cache
+C:\eFacturacionColombia_V2_facturalatam\eFacturacionColombia_V2.Firma\obj\Debug\eFacturacionColombia_V2.Firma.csproj.CopyComplete
+C:\eFacturacionColombia_V2_facturalatam\eFacturacionColombia_V2.Firma\obj\Debug\eFacturacionColombia_V2.Firma.dll
+C:\eFacturacionColombia_V2_facturalatam\eFacturacionColombia_V2.Firma\obj\Debug\eFacturacionColombia_V2.Firma.pdb
+C:\Archivos Oscar\HQS-Software\FacturacionElectronica\co-e-fact-colombia-csharp-v1.7-2020-master\eFacturacionColombia_V2.Firma\bin\Debug\eFacturacionColombia_V2.Firma.dll
+C:\Archivos Oscar\HQS-Software\FacturacionElectronica\co-e-fact-colombia-csharp-v1.7-2020-master\eFacturacionColombia_V2.Firma\bin\Debug\eFacturacionColombia_V2.Firma.pdb
+C:\Archivos Oscar\HQS-Software\FacturacionElectronica\co-e-fact-colombia-csharp-v1.7-2020-master\eFacturacionColombia_V2.Firma\bin\Debug\FirmaXadesNet.dll
+C:\Archivos Oscar\HQS-Software\FacturacionElectronica\co-e-fact-colombia-csharp-v1.7-2020-master\eFacturacionColombia_V2.Firma\bin\Debug\Microsoft.Xades.dll
+C:\Archivos Oscar\HQS-Software\FacturacionElectronica\co-e-fact-colombia-csharp-v1.7-2020-master\eFacturacionColombia_V2.Firma\bin\Debug\BouncyCastle.Crypto.dll
+C:\Archivos Oscar\HQS-Software\FacturacionElectronica\co-e-fact-colombia-csharp-v1.7-2020-master\eFacturacionColombia_V2.Firma\bin\Debug\FirmaXadesNet.pdb
+C:\Archivos Oscar\HQS-Software\FacturacionElectronica\co-e-fact-colombia-csharp-v1.7-2020-master\eFacturacionColombia_V2.Firma\bin\Debug\Microsoft.Xades.pdb
+C:\Archivos Oscar\HQS-Software\FacturacionElectronica\co-e-fact-colombia-csharp-v1.7-2020-master\eFacturacionColombia_V2.Firma\obj\Debug\eFacturacionColombia_V2.Firma.csproj.AssemblyReference.cache
+C:\Archivos Oscar\HQS-Software\FacturacionElectronica\co-e-fact-colombia-csharp-v1.7-2020-master\eFacturacionColombia_V2.Firma\obj\Debug\eFacturacionColombia_V2.Firma.csproj.CoreCompileInputs.cache
+C:\Archivos Oscar\HQS-Software\FacturacionElectronica\co-e-fact-colombia-csharp-v1.7-2020-master\eFacturacionColombia_V2.Firma\obj\Debug\eFacturacionColombia_V2.Firma.csproj.CopyComplete
+C:\Archivos Oscar\HQS-Software\FacturacionElectronica\co-e-fact-colombia-csharp-v1.7-2020-master\eFacturacionColombia_V2.Firma\obj\Debug\eFacturacionColombia_V2.Firma.dll
+C:\Archivos Oscar\HQS-Software\FacturacionElectronica\co-e-fact-colombia-csharp-v1.7-2020-master\eFacturacionColombia_V2.Firma\obj\Debug\eFacturacionColombia_V2.Firma.pdb
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\eFacturacionColombia_V2.Firma\bin\Debug\eFacturacionColombia_V2.Firma.dll
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\eFacturacionColombia_V2.Firma\bin\Debug\eFacturacionColombia_V2.Firma.pdb
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\eFacturacionColombia_V2.Firma\bin\Debug\FirmaXadesNet.dll
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\eFacturacionColombia_V2.Firma\bin\Debug\Microsoft.Xades.dll
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\eFacturacionColombia_V2.Firma\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\eFacturacionColombia_V2.Firma\bin\Debug\FirmaXadesNet.pdb
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\eFacturacionColombia_V2.Firma\bin\Debug\Microsoft.Xades.pdb
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\eFacturacionColombia_V2.Firma\obj\Debug\eFacturacionColombia_V2.Firma.csproj.AssemblyReference.cache
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\eFacturacionColombia_V2.Firma\obj\Debug\eFacturacionColombia_V2.Firma.csproj.CoreCompileInputs.cache
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\eFacturacionColombia_V2.Firma\obj\Debug\eFacturacionColombia_V2.Firma.csproj.CopyComplete
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\eFacturacionColombia_V2.Firma\obj\Debug\eFacturacionColombia_V2.Firma.dll
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\eFacturacionColombia_V2.Firma\obj\Debug\eFacturacionColombia_V2.Firma.pdb
+C:\Archivos Oscar\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Firma\bin\Debug\eFacturacionColombia_V2.Firma.dll
+C:\Archivos Oscar\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Firma\bin\Debug\eFacturacionColombia_V2.Firma.pdb
+C:\Archivos Oscar\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Firma\bin\Debug\FirmaXadesNet.dll
+C:\Archivos Oscar\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Firma\bin\Debug\Microsoft.Xades.dll
+C:\Archivos Oscar\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Firma\bin\Debug\BouncyCastle.Crypto.dll
+C:\Archivos Oscar\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Firma\bin\Debug\FirmaXadesNet.pdb
+C:\Archivos Oscar\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Firma\bin\Debug\Microsoft.Xades.pdb
+C:\Archivos Oscar\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Firma\obj\Debug\eFacturacionColombia_V2.Firma.csproj.AssemblyReference.cache
+C:\Archivos Oscar\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Firma\obj\Debug\eFacturacionColombia_V2.Firma.csproj.CoreCompileInputs.cache
+C:\Archivos Oscar\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Firma\obj\Debug\eFacturacionColombia_V2.Firma.csproj.CopyComplete
+C:\Archivos Oscar\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Firma\obj\Debug\eFacturacionColombia_V2.Firma.dll
+C:\Archivos Oscar\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Firma\obj\Debug\eFacturacionColombia_V2.Firma.pdb
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Firma\bin\Debug\eFacturacionColombia_V2.Firma.dll
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Firma\bin\Debug\eFacturacionColombia_V2.Firma.pdb
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Firma\bin\Debug\FirmaXadesNet.dll
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Firma\bin\Debug\Microsoft.Xades.dll
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Firma\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Firma\bin\Debug\FirmaXadesNet.pdb
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Firma\bin\Debug\Microsoft.Xades.pdb
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Firma\obj\Debug\eFacturacionColombia_V2.Firma.csproj.CoreCompileInputs.cache
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Firma\obj\Debug\eFacturacionColombia_V2.Firma.dll
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Firma\obj\Debug\eFacturacionColombia_V2.Firma.pdb
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Firma\obj\Debug\eFacturacionColombia_V2.Firma.csproj.AssemblyReference.cache
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Firma\obj\Debug\eFacturacionColombia_V2.Firma.csproj.CopyComplete

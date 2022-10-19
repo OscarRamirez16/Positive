@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using InventarioItem;
 using InventarioDao;
 
@@ -68,7 +65,18 @@ namespace InventarioBusiness
                 throw ex;
             }
         }
-
+        public tblListaMaterialesItem ObtenerListaMaterialesPorIdArticulo(long IdArticulo)
+        {
+            try
+            {
+                tblListaMaterialesDao oListMatDao = new tblListaMaterialesDao(CadenaConexion);
+                return oListMatDao.ObtenerListaMaterialesPorIdArticulo(IdArticulo);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public List<tblListaMaterialesDetalleItem> ObtenerListaMaterialesDetallesPorID(string IdLista)
         {
             try

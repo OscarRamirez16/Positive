@@ -7,11 +7,13 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Inventario {
-    
-    
-    public partial class frmEmpresa {
-        
+namespace Inventario
+{
+
+
+    public partial class frmEmpresa
+    {
+
         /// <summary>
         /// Control lblTitulo.
         /// </summary>
@@ -20,7 +22,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTitulo;
-        
+
         /// <summary>
         /// Control fluImage.
         /// </summary>
@@ -29,7 +31,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload fluImage;
-        
+
         /// <summary>
         /// Control lblNombre.
         /// </summary>
@@ -38,7 +40,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblNombre;
-        
+
         /// <summary>
         /// Control txtNombre.
         /// </summary>
@@ -47,7 +49,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNombre;
-        
+
         /// <summary>
         /// Control lblTipoIdentificacion.
         /// </summary>
@@ -56,7 +58,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTipoIdentificacion;
-        
+
         /// <summary>
         /// Control ddlTipoIdentificacion.
         /// </summary>
@@ -65,7 +67,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlTipoIdentificacion;
-        
+
         /// <summary>
         /// Control lblIdentificacion.
         /// </summary>
@@ -74,7 +76,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblIdentificacion;
-        
+
         /// <summary>
         /// Control txtIdentificacion.
         /// </summary>
@@ -83,7 +85,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtIdentificacion;
-        
+
         /// <summary>
         /// Control lblDireccion.
         /// </summary>
@@ -92,7 +94,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblDireccion;
-        
+
         /// <summary>
         /// Control txtDireccion.
         /// </summary>
@@ -101,7 +103,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDireccion;
-        
+
         /// <summary>
         /// Control lblCiudad.
         /// </summary>
@@ -110,7 +112,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblCiudad;
-        
+
         /// <summary>
         /// Control txtCiudad.
         /// </summary>
@@ -119,7 +121,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCiudad;
-        
+
         /// <summary>
         /// Control hddIdCiudad.
         /// </summary>
@@ -128,7 +130,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden hddIdCiudad;
-        
+
         /// <summary>
         /// Control lblTelefono.
         /// </summary>
@@ -137,7 +139,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTelefono;
-        
+
         /// <summary>
         /// Control txtTelefono.
         /// </summary>
@@ -146,7 +148,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTelefono;
-        
+
         /// <summary>
         /// Control txtFechaInicialPedido.
         /// </summary>
@@ -155,7 +157,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtFechaInicialPedido;
-        
+
         /// <summary>
         /// Control chkMultiBodega.
         /// </summary>
@@ -164,7 +166,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox chkMultiBodega;
-        
+
         /// <summary>
         /// Control txtImpoconsumo.
         /// </summary>
@@ -173,34 +175,106 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtImpoconsumo;
-        
+
         /// <summary>
-        /// Control chkPrecioConIVA.
+        /// Control txtConsecutivoDIAN.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkPrecioConIVA;
-        
+        protected global::System.Web.UI.WebControls.TextBox txtConsecutivoDIAN;
+
         /// <summary>
-        /// Control chkCostoConIVA.
+        /// Control fluCertificado.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkCostoConIVA;
-        
+        protected global::System.Web.UI.WebControls.FileUpload fluCertificado;
+
         /// <summary>
-        /// Control chkDescuentoConIVA.
+        /// Control txtClaveCertificado.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkDescuentoConIVA;
-        
+        protected global::System.Web.UI.WebControls.TextBox txtClaveCertificado;
+
+        /// <summary>
+        /// Control txtSoftwareID.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtSoftwareID;
+
+        /// <summary>
+        /// Control txtSoftwarePIN.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtSoftwarePIN;
+
+        /// <summary>
+        /// Control txtMatriculaMercantil.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtMatriculaMercantil;
+
+        /// <summary>
+        /// Control ddlTipoContribuyente.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlTipoContribuyente;
+
+        /// <summary>
+        /// Control ddlRegimenFiscal.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlRegimenFiscal;
+
+        /// <summary>
+        /// Control ddlResponsabilidadFiscal.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlResponsabilidadFiscal;
+
+        /// <summary>
+        /// Control txtTestSetId.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtTestSetId;
+
+        /// <summary>
+        /// Control txtClaveTecnica.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtClaveTecnica;
+
         /// <summary>
         /// Control txtEncabezado.
         /// </summary>
@@ -209,7 +283,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEncabezado;
-        
+
         /// <summary>
         /// Control txtPiePagina.
         /// </summary>
@@ -218,7 +292,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPiePagina;
-        
+
         /// <summary>
         /// Control btnGuardar.
         /// </summary>
@@ -227,7 +301,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton btnGuardar;
-        
+
         /// <summary>
         /// Control btnCancelar.
         /// </summary>

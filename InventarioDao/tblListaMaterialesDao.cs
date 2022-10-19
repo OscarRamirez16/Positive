@@ -76,7 +76,34 @@ namespace InventarioDao
             }
             return Item;
         }
-
+        public tblListaMaterialesItem ObtenerListaMaterialesPorIdArticulo(long IdArticulo)
+        {
+            tblListaMaterialesItem Item = new tblListaMaterialesItem();
+            SqlCommand oSQL = new SqlCommand("spObtenerListaMaterialesPorIdArticulo", Conexion);
+            oSQL.CommandType = System.Data.CommandType.StoredProcedure;
+            try
+            {
+                Conexion.Open();
+                oSQL.Parameters.Add(new SqlParameter("@IdArticulo", IdArticulo));
+                SqlDataReader reader = oSQL.ExecuteReader();
+                if (reader.Read())
+                {
+                    Item = ObtenerItem(reader);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (Conexion.State == System.Data.ConnectionState.Open)
+                {
+                    Conexion.Close();
+                }
+            }
+            return Item;
+        }
         public List<tblListaMaterialesItem> ObtenerListaMaterialesPorFiltros(long IdArticulo, long IdUsuario, long IdEmpresa)
         {
             List<tblListaMaterialesItem> Lista = new List<tblListaMaterialesItem>();

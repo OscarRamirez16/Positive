@@ -48,6 +48,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CotizacionCocinaDao.cs" />
+    <Compile Include="CotizacionVentaRapidaDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="tblArticuloCodigoBarraDao.cs" />
     <Compile Include="tblArticuloDao.cs" />

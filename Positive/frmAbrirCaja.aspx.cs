@@ -7,6 +7,7 @@ using System.Configuration;
 using Idioma;
 using HQSFramework.Base;
 using System.Globalization;
+using System.Collections.Generic;
 
 namespace Inventario
 {
@@ -39,6 +40,10 @@ namespace Inventario
                             strScript = string.Format("{0}}});", strScript);
                             this.Page.ClientScript.RegisterClientScriptBlock(this.Page.GetType(), "InicializarControlesScript", strScript, true);
                         }
+                        if (!IsPostBack)
+                        {
+                            ObtenerNotificaciones();
+                        }
                     }
                     else
                     {
@@ -55,7 +60,38 @@ namespace Inventario
                 MostrarAlerta(0, "Error", ex.Message.Replace(Environment.NewLine, " "));
             }
         }
-
+        private void ObtenerNotificaciones()
+        {
+            try
+            {
+                string Mensaje = string.Empty;
+                List<tblCajaItem> oListCajaI = new List<tblCajaItem>();
+                tblCajaBusiness oCajaB = new tblCajaBusiness(CadenaConexion);
+                oListCajaI = oCajaB.ObtenerCajaProximaVencer(oUsuarioI.idEmpresa);
+                if (oListCajaI.Count > 0)
+                {
+                    foreach (tblCajaItem Item in oListCajaI)
+                    {
+                        if (string.IsNullOrEmpty(Mensaje))
+                        {
+                            Mensaje = string.Format("* La caja {0} esta proxima a vencer, fecha de vencimiento {1}", Item.nombre, Item.FechaVencimiento.ToShortDateString());
+                        }
+                        else
+                        {
+                            Mensaje += string.Format(" * La caja {0} esta proxima a vencer, fecha de vencimiento {1}", Item.nombre, Item.FechaVencimiento.ToShortDateString());
+                        }
+                    }
+                }
+                if (!string.IsNullOrEmpty(Mensaje))
+                {
+                    MostrarAlerta(0, "Advertencia", Mensaje);
+                }
+            }
+            catch (Exception ex)
+            {
+                MostrarAlerta(0, "Error", ex.Message);
+            }
+        }
         private void ConfiguracionIdioma()
         {
             try
@@ -94,7 +130,6 @@ namespace Inventario
                 throw ex;
             }
         }
-
         private void CargarUsuarios(Traductor oCIdioma, Idioma.Traductor.IdiomaEnum Idioma)
         {
             try
@@ -124,7 +159,6 @@ namespace Inventario
                 throw ex;
             }
         }
-
         private void CargarCajas(Traductor oCIdioma, Idioma.Traductor.IdiomaEnum Idioma)
         {
             try
@@ -193,7 +227,6 @@ namespace Inventario
                 MostrarAlerta(0, "Error", ex.Message.Replace(Environment.NewLine, " "));
             }
         }
-
         private void CargarDatosGuardar(tblCuadreCajaItem Caja)
         {
             try

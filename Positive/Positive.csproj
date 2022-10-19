@@ -50,6 +50,15 @@
     <Reference Include="AjaxControlToolkit.StaticResources, Version=20.1.0.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
       <HintPath>..\packages\AjaxControlToolkit.StaticResources.20.1.0\lib\net40\AjaxControlToolkit.StaticResources.dll</HintPath>
     </Reference>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.6.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.6.1\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.1, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.1\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Json.Net, Version=1.0.33.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Json.Net.1.0.33\lib\netstandard2.0\Json.Net.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.Common.dll</HintPath>
@@ -63,8 +72,15 @@
     <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
+    <Reference Include="System.Composition.Runtime, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Composition.Runtime.5.0.1\lib\net461\System.Composition.Runtime.dll</HintPath>
+    </Reference>
     <Reference Include="System.Configuration.ConfigurationManager, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Configuration.ConfigurationManager.5.0.0\lib\net461\System.Configuration.ConfigurationManager.dll</HintPath>
     </Reference>
@@ -116,9 +132,6 @@
     <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
       <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
@@ -144,176 +157,6 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="Contact.aspx" />
-    <Content Include="Content\AjaxControlToolkit\Images\AsyncFileUpload.Button.png" />
-    <Content Include="Content\AjaxControlToolkit\Images\BalloonPopup.CloudSprite.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\BalloonPopup.CloudSprite.png" />
-    <Content Include="Content\AjaxControlToolkit\Images\BalloonPopup.RectangleSprite.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\BalloonPopup.RectangleSprite.png" />
-    <Content Include="Content\AjaxControlToolkit\Images\Calendar.Arrow-Left.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\Calendar.Arrow-Right.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\ComboBox.Arrow-Down.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\DropDown.DropArrow.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\Gravatar.Anonymous.jpg" />
-    <Content Include="Content\AjaxControlToolkit\Images\Gravatar.G.jpg" />
-    <Content Include="Content\AjaxControlToolkit\Images\Gravatar.PG.jpg" />
-    <Content Include="Content\AjaxControlToolkit\Images\Gravatar.R.jpg" />
-    <Content Include="Content\AjaxControlToolkit\Images\Gravatar.X.jpg" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.BgiButton.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-1x1.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-AlignCenter-Active.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-AlignCenter-Inactive.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-AlignJustify-Active.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-AlignJustify-Inactive.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-AlignLeft-Active.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-AlignLeft-Inactive.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-AlignRemove-Active.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-AlignRemove-Inactive.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-AlignRight-Active.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-AlignRight-Inactive.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-Anchor.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-BackColor-Active.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-BackColor-Inactive.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-ColorBgClear-Active.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-ColorBgClear-Inactive.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-ColorFg-Active.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-ColorFg-Inactive.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-ColorFgClear-Active.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-ColorFgClear-Inactive.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-Copy-Active.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-Copy-Inactive.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-Cut-Active.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-Cut-Inactive.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-Design-Active.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-Design-Inactive.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-Flash.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-ForeColor-Active.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-ForeColor-Inactive.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-FormatBold-Active.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-FormatBold-Inactive.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-FormatItalic-Active.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-FormatItalic-Inactive.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-FormatLtr-Active.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-FormatLtr-Inactive.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-FormatParagraph-Active.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-FormatParagraph-Inactive.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-FormatRtl-Active.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-FormatRtl-Inactive.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-FormatStrike-Active.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-FormatStrike-Inactive.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-FormatSub-Active.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-FormatSub-Inactive.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-FormatSup-Active.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-FormatSup-Inactive.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-FormatUnderline-Active.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-FormatUnderline-Inactive.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-Html-Active.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-Html-Inactive.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-IndentLess-Active.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-IndentLess-Inactive.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-IndentMore-Active.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-IndentMore-Inactive.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-Link-Active.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-Link-Inactive.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-ListBullet-Active.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-ListBullet-Inactive.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-ListNum-Active.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-ListNum-Inactive.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-Media.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-Paste-Active.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-Paste-Inactive.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-PasteText-Active.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-PasteText-Inactive.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-PasteWord-Active.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-PasteWord-Inactive.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-Placeholder.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-Preview-Active.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-Preview-Inactive.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-Redo-Active.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-Redo-Inactive.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-Rule-Active.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-Rule-Inactive.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-Selector-Active.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-Selector-Inactive.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-Separator.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-Undo-Active.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-Undo-Inactive.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-Unformat-Active.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-Unformat-Inactive.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-Unlink-Active.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditor.Ed-Unlink-Inactive.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\HtmlEditorExtender.Buttons.png" />
-    <Content Include="Content\AjaxControlToolkit\Images\MultiHandleSlider.Handle-Horizontal.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\MultiHandleSlider.Handle-Vertical.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\MultiHandleSlider.HandleDown-Horizontal.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\MultiHandleSlider.HandleDown-Vertical.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\MultiHandleSlider.HandleHover-Horizontal.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\MultiHandleSlider.HandleHover-Vertical.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\MultiHandleSlider.Rail-Horizontal.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\MultiHandleSlider.Rail-Vertical.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\MultiHandleSlider.RailOuter-Horizontal.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\MultiHandleSlider.RailOuter-Vertical.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\Seadragon.Fullscreen-Grouphover.png" />
-    <Content Include="Content\AjaxControlToolkit\Images\Seadragon.Fullscreen-Hover.png" />
-    <Content Include="Content\AjaxControlToolkit\Images\Seadragon.Fullscreen-Pressed.png" />
-    <Content Include="Content\AjaxControlToolkit\Images\Seadragon.Fullscreen-Rest.png" />
-    <Content Include="Content\AjaxControlToolkit\Images\Seadragon.Home-Grouphover.png" />
-    <Content Include="Content\AjaxControlToolkit\Images\Seadragon.Home-Hover.png" />
-    <Content Include="Content\AjaxControlToolkit\Images\Seadragon.Home-Pressed.png" />
-    <Content Include="Content\AjaxControlToolkit\Images\Seadragon.Home-Rest.png" />
-    <Content Include="Content\AjaxControlToolkit\Images\Seadragon.ZoomIn-Grouphover.png" />
-    <Content Include="Content\AjaxControlToolkit\Images\Seadragon.ZoomIn-Hover.png" />
-    <Content Include="Content\AjaxControlToolkit\Images\Seadragon.ZoomIn-Pressed.png" />
-    <Content Include="Content\AjaxControlToolkit\Images\Seadragon.ZoomIn-Rest.png" />
-    <Content Include="Content\AjaxControlToolkit\Images\Seadragon.ZoomOut-Grouphover.png" />
-    <Content Include="Content\AjaxControlToolkit\Images\Seadragon.ZoomOut-Hover.png" />
-    <Content Include="Content\AjaxControlToolkit\Images\Seadragon.ZoomOut-Pressed.png" />
-    <Content Include="Content\AjaxControlToolkit\Images\Seadragon.ZoomOut-Rest.png" />
-    <Content Include="Content\AjaxControlToolkit\Images\Slider.Handle-Horizontal.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\Slider.Handle-Vertical.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\Slider.Rail-Horizontal.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\Slider.Rail-Vertical.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\Tabs.Active-VerticalLeft.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\Tabs.Active-VerticalRight.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\Tabs.Active.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\Tabs.ActiveLeft-VerticalLeft.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\Tabs.ActiveLeft-VerticalRight.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\Tabs.ActiveLeft.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\Tabs.ActiveRight-VerticalLeft.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\Tabs.ActiveRight-VerticalRight.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\Tabs.ActiveRight.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\Tabs.Background.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\Tabs.Bottom-Active.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\Tabs.Bottom-ActiveLeft.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\Tabs.Bottom-ActiveRight.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\Tabs.Bottom-Hover.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\Tabs.Bottom-HoverLeft.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\Tabs.Bottom-HoverRight.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\Tabs.Bottom-Left.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\Tabs.Bottom-Right.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\Tabs.Bottom.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\Tabs.Hover-VerticalLeft.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\Tabs.Hover-VerticalRight.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\Tabs.Hover.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\Tabs.HoverLeft-VerticalLeft.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\Tabs.HoverLeft-VerticalRight.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\Tabs.HoverLeft.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\Tabs.HoverRight-VerticalLeft.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\Tabs.HoverRight-VerticalRight.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\Tabs.HoverRight.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\Tabs.Left-VerticalLeft.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\Tabs.Left-VerticalRight.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\Tabs.Left.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\Tabs.Line.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\Tabs.Right-VerticalLeft.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\Tabs.Right-VerticalRight.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\Tabs.Right.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\Tabs.VerticalLeft.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\Tabs.VerticalRight.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\Twitter.24.png" />
-    <Content Include="Content\AjaxControlToolkit\Images\Twitter.32.png" />
-    <Content Include="Content\AjaxControlToolkit\Images\ValidatorCallout.Alert-Large.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\ValidatorCallout.Alert-Small.gif" />
-    <Content Include="Content\AjaxControlToolkit\Images\ValidatorCallout.Close.gif" />
     <Content Include="Content\AjaxControlToolkit\Styles\AjaxFileUpload.css" />
     <Content Include="Content\AjaxControlToolkit\Styles\AjaxFileUpload.min.css" />
     <Content Include="Content\AjaxControlToolkit\Styles\AreaChart.css" />
@@ -475,6 +318,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="frmAbrirCaja.aspx" />
     <Content Include="frmAnticipo.aspx" />
+    <Content Include="frmAnularFactura.aspx" />
     <Content Include="frmArticuloActualizarMasivo.aspx" />
     <Content Include="frmArticulos.aspx" />
     <Content Include="frmBodegas.aspx" />
@@ -506,8 +350,11 @@
     <Content Include="frmFormaPago.aspx" />
     <Content Include="frmGrupoArticulos.aspx" />
     <Content Include="frmGrupoCliente.aspx" />
+    <Content Include="frmImprimirAnticipo.aspx" />
     <Content Include="frmImprimirCuadreDiario.aspx" />
+    <Content Include="frmImprimirCuentasPorCobrarPagar.aspx" />
     <Content Include="frmImprimirDocumento.aspx" />
+    <Content Include="frmImprimirPOS.aspx" />
     <Content Include="frmIngresos.aspx" />
     <Content Include="frmInicioSesion.aspx" />
     <Content Include="frmListaMateriales.aspx" />
@@ -522,9 +369,11 @@
     <Content Include="frmRealizarPago.aspx" />
     <Content Include="frmReporteArticulosPorBodega.aspx" />
     <Content Include="frmReporteAuditoriaStock.aspx" />
+    <Content Include="frmReporteComisionesVentasPorArticulo.aspx" />
     <Content Include="frmReporteCompras.aspx" />
     <Content Include="frmReporteCreditos.aspx" />
     <Content Include="frmReporteCuadreDiario.aspx" />
+    <Content Include="frmReporteCuentaCobro.aspx" />
     <Content Include="frmReporteDocumentosPagos.aspx" />
     <Content Include="frmReporteDocumentosRangoFecha.aspx" />
     <Content Include="frmReporteFacturaCompra.aspx" />
@@ -538,6 +387,7 @@
     <Content Include="frmReporteVentasDevolucionesPorFecha.aspx" />
     <Content Include="frmRetenciones.aspx" />
     <Content Include="frmRetiros.aspx" />
+    <Content Include="frmTerceros.aspx" />
     <Content Include="frmTipoTarjetaCredito.aspx" />
     <Content Include="frmTrasladoMercancia.aspx" />
     <Content Include="frmVendedor.aspx" />
@@ -640,6 +490,7 @@
     <Content Include="Images\EditarPassword.png" />
     <Content Include="Images\eliminar.png" />
     <Content Include="Images\empresa.png" />
+    <Content Include="Images\entregarpedido.png" />
     <Content Include="Images\facturacompra.png" />
     <Content Include="Images\facturaventa.png" />
     <Content Include="Images\favicon.ico" />
@@ -745,6 +596,33 @@
     <Content Include="Images\users.png" />
     <Content Include="Images\⁫listaprecio.png" />
     <Content Include="Login.aspx" />
+    <Content Include="MisPedidos.aspx" />
+    <Content Include="PedidosPendientes.aspx" />
+    <Content Include="Prueba.aspx" />
+    <Content Include="Ashx\Articulo.ashx" />
+    <Content Include="Ashx\Bodega.ashx" />
+    <Content Include="Ashx\Ciudad.ashx" />
+    <Content Include="Ashx\Documento.ashx" />
+    <Content Include="Ashx\ListaMateriales.ashx" />
+    <Content Include="Ashx\Tercero.ashx" />
+    <Content Include="Reportes\ArticulosPorBodega.rdlc" />
+    <Content Include="Reportes\Documento.rdlc" />
+    <Content Include="Reportes\InformacionCompra.rdlc" />
+    <Content Include="Reportes\MovimientosPorDocumento.rdlc" />
+    <Content Include="Reportes\ReporteAuditoriaStock.rdlc" />
+    <Content Include="Reportes\ReporteCuadreDiario.rdlc" />
+    <Content Include="Reportes\ReporteDocumentoRangoFecha.rdlc" />
+    <Content Include="Reportes\ReporteDocumentosACredito.rdlc" />
+    <Content Include="Reportes\ReporteDocumentosPagos.rdlc" />
+    <Content Include="Reportes\ReporteFacturasCompra.rdlc" />
+    <Content Include="Reportes\ReporteHistoricoMovimientosArticulo.rdlc" />
+    <Content Include="Reportes\ReporteMovimientosArticulos.rdlc" />
+    <Content Include="Reportes\ReportePagosDocumentos.rdlc" />
+    <Content Include="Reportes\ReporteVentasDevolucionesDetalladasPorRangoFechas.rdlc" />
+    <Content Include="Content\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
+    <Content Include="Reportes\ReporteConciliaciones.rdlc" />
+    <Content Include="Scripts\ActivosFijosScript.js" />
     <Content Include="Scripts\AjaxControlToolkit\Debug\Accordion.debug.js" />
     <Content Include="Scripts\AjaxControlToolkit\Debug\AjaxFileUpload.debug.js" />
     <Content Include="Scripts\AjaxControlToolkit\Debug\AlwaysVisibleControl.debug.js" />
@@ -1057,30 +935,6 @@
     <Content Include="Scripts\AjaxControlToolkit\Release\ToggleButton.js" />
     <Content Include="Scripts\AjaxControlToolkit\Release\UpdatePanelAnimation.js" />
     <Content Include="Scripts\AjaxControlToolkit\Release\ValidatorCallout.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Ashx\Articulo.ashx" />
-    <Content Include="Ashx\Bodega.ashx" />
-    <Content Include="Ashx\Ciudad.ashx" />
-    <Content Include="Ashx\Documento.ashx" />
-    <Content Include="Ashx\ListaMateriales.ashx" />
-    <Content Include="Ashx\Tercero.ashx" />
-    <Content Include="Reportes\ArticulosPorBodega.rdlc" />
-    <Content Include="Reportes\Documento.rdlc" />
-    <Content Include="Reportes\InformacionCompra.rdlc" />
-    <Content Include="Reportes\MovimientosPorDocumento.rdlc" />
-    <Content Include="Reportes\ReporteAuditoriaStock.rdlc" />
-    <Content Include="Reportes\ReporteCuadreDiario.rdlc" />
-    <Content Include="Reportes\ReporteDocumentoRangoFecha.rdlc" />
-    <Content Include="Reportes\ReporteDocumentosACredito.rdlc" />
-    <Content Include="Reportes\ReporteDocumentosPagos.rdlc" />
-    <Content Include="Reportes\ReporteFacturasCompra.rdlc" />
-    <Content Include="Reportes\ReporteHistoricoMovimientosArticulo.rdlc" />
-    <Content Include="Reportes\ReporteMovimientosArticulos.rdlc" />
-    <Content Include="Reportes\ReportePagosDocumentos.rdlc" />
-    <Content Include="Reportes\ReporteVentasDevolucionesDetalladasPorRangoFechas.rdlc" />
-    <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
-    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
-    <Content Include="Scripts\ActivosFijosScript.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\Calendar.js" />
@@ -1091,13 +945,15 @@
     <Content Include="Scripts\fullcalendar.min.js" />
     <Content Include="Scripts\fullcalendar.print.css" />
     <Content Include="Scripts\fullcalendar.print.min.css" />
-    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-ui.js" />
     <Content Include="Scripts\jquery.mask.js" />
     <Content Include="Scripts\jquery.min.js" />
@@ -1148,6 +1004,9 @@
     <Content Include="Script\images\ui-icons_777777_256x240.png" />
     <Content Include="Script\images\ui-icons_cc0000_256x240.png" />
     <Content Include="Script\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Reportes\ReporteComisionesVentasPorArticulo.rdlc" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <None Include="Script\jquery-1.10.2.intellisense.js" />
     <Content Include="Script\jquery-1.10.2.js" />
     <Content Include="Script\jquery-1.10.2.min.js" />
@@ -1305,6 +1164,7 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="ArchivoConsecutivo.cs" />
     <Compile Include="Ashx\Articulo.ashx.cs">
       <DependentUpon>Articulo.ashx</DependentUpon>
     </Compile>
@@ -1353,6 +1213,13 @@
     </Compile>
     <Compile Include="frmAnticipo.aspx.designer.cs">
       <DependentUpon>frmAnticipo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmAnularFactura.aspx.cs">
+      <DependentUpon>frmAnularFactura.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmAnularFactura.aspx.designer.cs">
+      <DependentUpon>frmAnularFactura.aspx</DependentUpon>
     </Compile>
     <Compile Include="frmArticuloActualizarMasivo.aspx.cs">
       <DependentUpon>frmArticuloActualizarMasivo.aspx</DependentUpon>
@@ -1571,6 +1438,13 @@
     <Compile Include="frmGrupoCliente.aspx.designer.cs">
       <DependentUpon>frmGrupoCliente.aspx</DependentUpon>
     </Compile>
+    <Compile Include="frmImprimirAnticipo.aspx.cs">
+      <DependentUpon>frmImprimirAnticipo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmImprimirAnticipo.aspx.designer.cs">
+      <DependentUpon>frmImprimirAnticipo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="frmImprimirCuadreDiario.aspx.cs">
       <DependentUpon>frmImprimirCuadreDiario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1578,12 +1452,26 @@
     <Compile Include="frmImprimirCuadreDiario.aspx.designer.cs">
       <DependentUpon>frmImprimirCuadreDiario.aspx</DependentUpon>
     </Compile>
+    <Compile Include="frmImprimirCuentasPorCobrarPagar.aspx.cs">
+      <DependentUpon>frmImprimirCuentasPorCobrarPagar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmImprimirCuentasPorCobrarPagar.aspx.designer.cs">
+      <DependentUpon>frmImprimirCuentasPorCobrarPagar.aspx</DependentUpon>
+    </Compile>
     <Compile Include="frmImprimirDocumento.aspx.cs">
       <DependentUpon>frmImprimirDocumento.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="frmImprimirDocumento.aspx.designer.cs">
       <DependentUpon>frmImprimirDocumento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmImprimirPOS.aspx.cs">
+      <DependentUpon>frmImprimirPOS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmImprimirPOS.aspx.designer.cs">
+      <DependentUpon>frmImprimirPOS.aspx</DependentUpon>
     </Compile>
     <Compile Include="frmIngresos.aspx.cs">
       <DependentUpon>frmIngresos.aspx</DependentUpon>
@@ -1683,6 +1571,13 @@
     <Compile Include="frmReporteAuditoriaStock.aspx.designer.cs">
       <DependentUpon>frmReporteAuditoriaStock.aspx</DependentUpon>
     </Compile>
+    <Compile Include="frmReporteComisionesVentasPorArticulo.aspx.cs">
+      <DependentUpon>frmReporteComisionesVentasPorArticulo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmReporteComisionesVentasPorArticulo.aspx.designer.cs">
+      <DependentUpon>frmReporteComisionesVentasPorArticulo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="frmReporteCompras.aspx.cs">
       <DependentUpon>frmReporteCompras.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1703,6 +1598,13 @@
     </Compile>
     <Compile Include="frmReporteCuadreDiario.aspx.designer.cs">
       <DependentUpon>frmReporteCuadreDiario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmReporteCuentaCobro.aspx.cs">
+      <DependentUpon>frmReporteCuentaCobro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmReporteCuentaCobro.aspx.designer.cs">
+      <DependentUpon>frmReporteCuentaCobro.aspx</DependentUpon>
     </Compile>
     <Compile Include="frmReporteDocumentosPagos.aspx.cs">
       <DependentUpon>frmReporteDocumentosPagos.aspx</DependentUpon>
@@ -1794,6 +1696,13 @@
     </Compile>
     <Compile Include="frmRetiros.aspx.designer.cs">
       <DependentUpon>frmRetiros.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmTerceros.aspx.cs">
+      <DependentUpon>frmTerceros.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmTerceros.aspx.designer.cs">
+      <DependentUpon>frmTerceros.aspx</DependentUpon>
     </Compile>
     <Compile Include="frmTipoTarjetaCredito.aspx.cs">
       <DependentUpon>frmTipoTarjetaCredito.aspx</DependentUpon>
@@ -1896,7 +1805,28 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="MisPedidos.aspx.cs">
+      <DependentUpon>MisPedidos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MisPedidos.aspx.designer.cs">
+      <DependentUpon>MisPedidos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PedidosPendientes.aspx.cs">
+      <DependentUpon>PedidosPendientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PedidosPendientes.aspx.designer.cs">
+      <DependentUpon>PedidosPendientes.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Prueba.aspx.cs">
+      <DependentUpon>Prueba.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Prueba.aspx.designer.cs">
+      <DependentUpon>Prueba.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1925,8 +1855,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
-    <Content Include="Scripts\jquery-3.4.1.min.map" />
     <Content Include="Script\Bootstrap-4.4.1\dist\js\bootstrap.min.js.map" />
     <Content Include="Script\jquery-1.10.2.min.map" />
     <Content Include="Script\langs\readme.md" />
@@ -1945,6 +1873,30 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\eFacturacionColombia_V2.Documentos\eFacturacionColombia_V2.Documentos.csproj">
+      <Project>{F9BA5684-07F7-4EC5-A27C-4202156C73C9}</Project>
+      <Name>eFacturacionColombia_V2.Documentos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\eFacturacionColombia_V2.Firma\eFacturacionColombia_V2.Firma.csproj">
+      <Project>{50704E92-842F-45A7-B542-B01F25A63E95}</Project>
+      <Name>eFacturacionColombia_V2.Firma</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\eFacturacionColombia_V2.Pdf\eFacturacionColombia_V2.Pdf.csproj">
+      <Project>{D564BACE-79A6-4317-8B80-2DF34391D4C1}</Project>
+      <Name>eFacturacionColombia_V2.Pdf</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\eFacturacionColombia_V2.ServiciosWeb\eFacturacionColombia_V2.ServiciosWeb.csproj">
+      <Project>{45F01B48-A3B2-4A97-AC0A-E2C16D1740EE}</Project>
+      <Name>eFacturacionColombia_V2.ServiciosWeb</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\eFacturacionColombia_V2.Tipos\eFacturacionColombia_V2.Tipos.csproj">
+      <Project>{970EA753-5522-4F60-8391-039CC697E5E1}</Project>
+      <Name>eFacturacionColombia_V2.Tipos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\eFacturacionColombia_V2.Util\eFacturacionColombia_V2.Util.csproj">
+      <Project>{7F177523-C20E-4118-B587-59D1D2DCB4B6}</Project>
+      <Name>eFacturacionColombia_V2.Util</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Idioma\Idioma.csproj">
       <Project>{416b8edd-1f46-461f-8a88-2c29e3ea75a6}</Project>
       <Name>Idioma</Name>

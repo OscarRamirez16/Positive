@@ -1,4 +1,6 @@
-﻿namespace InventarioItem
+﻿using System;
+
+namespace InventarioItem
 {
     public class tblCajaItem
     {
@@ -12,5 +14,6 @@
         public string ValorFinal { get; set; }
         public string Resolucion { get; set; }
         public bool Activo { get; set; }
+        public DateTime FechaVencimiento { get; set; }
     }
 }

@@ -27,7 +27,6 @@ namespace Inventario
             fechaPAgo = 3,
             totalPago = 4
         }
-
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -73,7 +72,6 @@ namespace Inventario
                 MostrarMensaje("Error", string.Format("No se pudo cargar la pagina. {0}", ex.Message));
             }
         }
-
         private void ConfiguracionIdioma()
         {
             Traductor oCIdioma = new Traductor();
@@ -104,12 +102,10 @@ namespace Inventario
             lblFechaInical.Text = oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.FechaInicial);
             lblFechaFinal.Text = oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.FechaFinal);
         }
-
         protected void btnCancelar_Click(object sender, ImageClickEventArgs e)
         {
             Response.Redirect("frmMantenimientos.aspx");
         }
-
         protected void btnBuscar_Click(object sender, ImageClickEventArgs e)
         {
             try
@@ -123,7 +119,6 @@ namespace Inventario
                 MostrarMensaje("Error", string.Format("No se pudo cargar los pagos por cliente. {0}", ex.Message));
             }
         }
-
         protected void dgPagos_ItemCommand(object source, DataGridCommandEventArgs e)
         {
             try

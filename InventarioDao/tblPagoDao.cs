@@ -112,14 +112,16 @@ namespace InventarioDao
             }
         }
 
-        public tblPagoItem ObtenerPago(long Id)
+        public tblPagoItem ObtenerPago(long Id, int Tipo)
         {
             tblPagoItem Item = new tblPagoItem();
-            SqlCommand oSQL = new SqlCommand("EXEC spObtenerPago @id", Conexion);
+            SqlCommand oSQL = new SqlCommand("spObtenerPago", Conexion);
+            oSQL.CommandType = CommandType.StoredProcedure;
             try
             {
                 Conexion.Open();
                 oSQL.Parameters.Add(new SqlParameter("@id", Id));
+                oSQL.Parameters.Add(new SqlParameter("@Tipo", Tipo));
                 SqlDataReader reader = oSQL.ExecuteReader();
                 if (reader.Read())
                 {
@@ -238,6 +240,7 @@ namespace InventarioDao
             Item.fechaPago = DateTime.Parse(reader["fechaPago"].ToString());
             Item.idUsuario = long.Parse(reader["idUsuario"].ToString());
             Item.idEstado = short.Parse(reader["idEstado"].ToString());
+            Item.Observaciones = reader["Observaciones"].ToString();
             return Item;
         }
 
@@ -342,7 +345,7 @@ namespace InventarioDao
             tblTipoDocumentoDao oTDDao = new tblTipoDocumentoDao(oCon.ConnectionString);
             oTDItem = oTDDao.ObtenerTipoDocumentoConTransaccion(tipoDocumento, oCon, oTran);
             string SQL = "";
-            if (tipoDocumento == 1)
+            if (tipoDocumento == 1 || tipoDocumento == 11)
             {
                 SQL = "spInsertarPago";
             }

@@ -13,6 +13,9 @@ namespace Inventario
         private string cadenaConexion;
         private tblRol_PaginaItem oRolPagI = new tblRol_PaginaItem();
         tblUsuarioItem oUsuarioI = new tblUsuarioItem();
+        private enum dgPagosEnum { 
+            idPago = 0
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -101,6 +104,13 @@ namespace Inventario
             catch (Exception ex)
             {
                 MostrarMensaje("Error", string.Format("No se pudo cargar los anticipos. {0}", ex.Message));
+            }
+        }
+
+        protected void dgAnticipos_ItemCommand(object source, System.Web.UI.WebControls.DataGridCommandEventArgs e)
+        {
+            if (e.CommandName == "Imprimir") {
+                Response.Redirect($"frmImprimirAnticipo.aspx?idPago={e.Item.Cells[dgPagosEnum.idPago.GetHashCode()].Text}");
             }
         }
     }

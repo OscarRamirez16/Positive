@@ -334,7 +334,8 @@ namespace InventarioDao
         public tblArticuloItem ObtenerArticuloPorID(long Id, long idEmpresa)
         {
             tblArticuloItem Item = new tblArticuloItem();
-            SqlCommand oSQL = new SqlCommand("EXEC spObtenerArticuloPorID @id,@idEmpresa", Conexion);
+            SqlCommand oSQL = new SqlCommand("spObtenerArticuloPorID", Conexion);
+            oSQL.CommandType = CommandType.StoredProcedure;
             try
             {
                 Conexion.Open();
@@ -451,6 +452,8 @@ namespace InventarioDao
             Item.IdArticuloPadre = long.Parse(reader["IdArticuloPadre"].ToString());
             Item.NombrePadre = reader["NombrePadre"].ToString();
             Item.CantidadPadre = decimal.Parse(reader["CantidadPadre"].ToString());
+            Item.Marca = reader["Marca"].ToString();
+            Item.PorcentajeComision = decimal.Parse(reader["PorcentajeComision"].ToString());
             return Item;
         }
 
@@ -499,6 +502,22 @@ namespace InventarioDao
             else
             {
                 oSQL.Parameters.Add(new SqlParameter("@CantidadPadre", Item.CantidadPadre));
+            }
+            if (string.IsNullOrEmpty(Item.Marca))
+            {
+                oSQL.Parameters.Add(new SqlParameter("@Marca", DBNull.Value));
+            }
+            else
+            {
+                oSQL.Parameters.Add(new SqlParameter("@Marca", Item.Marca));
+            }
+            if(Item.PorcentajeComision == 0)
+            {
+                oSQL.Parameters.Add(new SqlParameter("@PorcentajeComision", DBNull.Value));
+            }
+            else
+            {
+                oSQL.Parameters.Add(new SqlParameter("@PorcentajeComision", Item.PorcentajeComision));
             }
             try
             {
@@ -565,6 +584,22 @@ namespace InventarioDao
             else
             {
                 oSQL.Parameters.Add(new SqlParameter("@CantidadPadre", Item.CantidadPadre));
+            }
+            if (string.IsNullOrEmpty(Item.Marca))
+            {
+                oSQL.Parameters.Add(new SqlParameter("@Marca", DBNull.Value));
+            }
+            else
+            {
+                oSQL.Parameters.Add(new SqlParameter("@Marca", Item.Marca));
+            }
+            if (Item.PorcentajeComision == 0)
+            {
+                oSQL.Parameters.Add(new SqlParameter("@PorcentajeComision", DBNull.Value));
+            }
+            else
+            {
+                oSQL.Parameters.Add(new SqlParameter("@PorcentajeComision", Item.PorcentajeComision));
             }
             try
             {
@@ -709,6 +744,22 @@ namespace InventarioDao
                     else
                     {
                         oSQL.Parameters.Add(new SqlParameter("@CantidadPadre", Item.CantidadPadre));
+                    }
+                    if (string.IsNullOrEmpty(Item.Marca))
+                    {
+                        oSQL.Parameters.Add(new SqlParameter("@Marca", DBNull.Value));
+                    }
+                    else
+                    {
+                        oSQL.Parameters.Add(new SqlParameter("@Marca", Item.Marca));
+                    }
+                    if (Item.PorcentajeComision == 0)
+                    {
+                        oSQL.Parameters.Add(new SqlParameter("@PorcentajeComision", DBNull.Value));
+                    }
+                    else
+                    {
+                        oSQL.Parameters.Add(new SqlParameter("@PorcentajeComision", Item.PorcentajeComision));
                     }
                     Item.IdArticulo = long.Parse(((decimal)oSQL.ExecuteScalar()).ToString());
                     if(Item.IdArticulo > 0)

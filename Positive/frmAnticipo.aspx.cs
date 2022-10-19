@@ -166,44 +166,16 @@ namespace Inventario
                             }
                             if (oPagB.GuardarPago(oPagI, oListDet, oTipPagLis, long.Parse(hddTipoDocumento.Value)))
                             {
-                                tblEmpresaItem oEmpI = new tblEmpresaItem();
-                                tblEmpresaBusiness oEmpB = new tblEmpresaBusiness(CadenaConexion);
-                                oEmpI = oEmpB.ObtenerEmpresa(oUsuarioI.idEmpresa);
                                 string FormaPago = "";
-                                FormaPago = "<table border='1' style='width:100%'><tr><td align='center'>Forma</td><td align='center'>Valor</td></tr>";
                                 foreach (DataGridItem Item in dgPagos.Items)
                                 {
                                     if (((TextBox)(Item.Cells[dgPagosColumnsEnum.ValorPago.GetHashCode()].FindControl("txtValorPago"))).Text != "" && ((TextBox)(Item.Cells[dgPagosColumnsEnum.ValorPago.GetHashCode()].FindControl("txtValorPago"))).Text != "0")
                                     {
-                                        FormaPago = FormaPago + "<tr><td>" + Item.Cells[dgPagosColumnsEnum.Nombre.GetHashCode()].Text + "</td>";
-                                        FormaPago = FormaPago + "<td align='right'>" + ((TextBox)(Item.Cells[dgPagosColumnsEnum.ValorPago.GetHashCode()].FindControl("txtValorPago"))).Text + "</td></tr>";
+                                        FormaPago = FormaPago + "* Forma: " + Item.Cells[dgPagosColumnsEnum.Nombre.GetHashCode()].Text;
+                                        FormaPago = FormaPago + " Valor: " + ((TextBox)(Item.Cells[dgPagosColumnsEnum.ValorPago.GetHashCode()].FindControl("txtValorPago"))).Text;
                                     }
                                 }
-                                FormaPago = FormaPago + "</table>";
-                                string Mensaje = "";
-                                Mensaje = string.Format("<div style='position:relative;font-family:arial;'>" +
-                                    "<div style='font-size: 12px; font-weight: bold; width: 300px; padding-top: 20px; text-align: center;'>{0}</div>" +
-                                    "<div style='font-size: 12px;font-weight: bold; padding-top: 5px; width: 300px; text-align: center;'>Nit: {1}</div>" +
-                                    "<div style='font-size: 12px;font-weight: bold; padding-top: 5px; width: 300px; text-align: center;'>Direcci&oacute;n: {2}</div>" +
-                                    "<div style='font-size: 12px;font-weight: bold; padding-top: 5px; width: 300px; text-align: center;'>Telefono: {3}</div>" +
-                                    "<div style='font-size: 12px;font-weight: bold; padding-top: 5px; width: 300px;'>{4}</div>" +
-                                    "<div style='font-size: 12px;font-weight: bold; padding-top: 5px; width: 300px; text-align:center;'>Anticipo</div>" +
-                                    "<div style='font-size: 12px;font-weight: bold; padding-top: 5px; width: 300px;'>Número: {5}</div>" +
-                                    "<div style='font-size: 12px;font-weight: bold; padding-top: 5px; width: 300px;'>Tercero: {6}</div>" +
-                                    "<div style='font-size: 12px;font-weight: bold; padding-top: 5px;'>Identificaci&oacute;n: {7}</div>" +
-                                    "<div style='font-size: 12px;font-weight: bold; padding-top: 5px; text-align:center; width:300px;'>Formas de Pago</div>" +
-                                    "<div style='font-size: 12px;font-weight: bold; padding-top: 5px; width: 300px;'>{11}</div>" +
-                                    "<div style='font-size: 14px;font-weight: bold; padding-top: 5px; width: 300px; text-align: right;'>Valor: {8}</div>" +
-                                    "<div style='font-size: 12px;font-weight: bold; padding-top: 5px; width: 300px;'>Vende: {9}</div>" +
-                                    "<div style='font-size: 12px;font-weight: bold; padding-top: 5px; width: 300px;'>Observaciones: {10}</div>" +
-                                    "</div>", oEmpI.Nombre, oEmpI.Identificacion, oEmpI.Direccion, oEmpI.Telefono, oPagI.fechaPago, oPagI.idPago, txtTercero.Text,
-                                    oTerB.ObtenerTercero(long.Parse(hddIdCliente.Value), oUsuarioI.idEmpresa).Identificacion, txtTotalPago.Text,
-                                    oUsuarioI.Usuario, oPagI.Observaciones, FormaPago);
-                                string strScript = string.Format("jQuery(document).ready(function(){{ ImprimirComprobanteAnticipo(\"{0}\");}});", Mensaje);
-                                if (!Page.ClientScript.IsClientScriptBlockRegistered("InicializarControlesScriptImprimir"))
-                                {
-                                    Page.ClientScript.RegisterClientScriptBlock(GetType(), "InicializarControlesScriptImprimir", strScript, true);
-                                }
+                                Response.Redirect($"frmImprimirAnticipo.aspx?FormaPago={FormaPago}&idPago={oPagI.idPago}");
                             }
                             else
                             {

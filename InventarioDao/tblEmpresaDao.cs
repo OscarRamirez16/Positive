@@ -13,7 +13,28 @@ namespace InventarioDao
         {
             Conexion = new SqlConnection(CadenaConexion);
         }
-
+        public void ActualizarConsecutivo(long IdEmpresa)
+        {
+            SqlCommand oSQL = new SqlCommand("spActualizarConsecutivo", Conexion);
+            oSQL.CommandType = System.Data.CommandType.StoredProcedure;
+            try
+            {
+                Conexion.Open();
+                oSQL.Parameters.Add(new SqlParameter("@IdEmpresa", IdEmpresa));
+                oSQL.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (Conexion.State == System.Data.ConnectionState.Open)
+                {
+                    Conexion.Close();
+                }
+            }
+        }
         public tblEmpresaItem ObtenerEmpresa(long Id)
         {
             tblEmpresaItem Item = new tblEmpresaItem();
@@ -70,6 +91,75 @@ namespace InventarioDao
             return Lista;
         }
 
+        public List<Servidor> ObtenerServidorLista()
+        {
+            List<Servidor> Lista = new List<Servidor>();
+            SqlCommand oSQL = new SqlCommand("spObtenerServidorLista", Conexion);
+            oSQL.CommandType = System.Data.CommandType.StoredProcedure;
+            try
+            {
+                Conexion.Open();
+                SqlDataReader reader = oSQL.ExecuteReader();
+                while (reader.Read())
+                {
+                    Servidor Item = new Servidor();
+                    Item.IdServidor = int.Parse(reader["IdServidor"].ToString());
+                    Item.Descripcion = reader["Descripcion"].ToString();
+                    Item.Nombre = reader["Nombre"].ToString();
+                    Item.CadenaConexion = reader["CadenaConexion"].ToString();
+                    Item.Disponible = bool.Parse(reader["Disponible"].ToString());
+                    Item.Usuario = reader["Usuario"].ToString();
+                    Item.Password = reader["Password"].ToString();
+                    Lista.Add(Item);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (Conexion.State == System.Data.ConnectionState.Open)
+                {
+                    Conexion.Close();
+                }
+            }
+            return Lista;
+        }
+        public Servidor ObtenerServidorID(int IdServidor)
+        {
+            Servidor Item = new Servidor();
+            SqlCommand oSQL = new SqlCommand("spObtenerServidorID", Conexion);
+            oSQL.CommandType = System.Data.CommandType.StoredProcedure;
+            oSQL.Parameters.Add(new SqlParameter("@IdServidor", IdServidor));
+            try
+            {
+                Conexion.Open();
+                SqlDataReader reader = oSQL.ExecuteReader();
+                if (reader.Read())
+                {
+                    Item.IdServidor = int.Parse(reader["IdServidor"].ToString());
+                    Item.Descripcion = reader["Descripcion"].ToString();
+                    Item.Nombre = reader["Nombre"].ToString();
+                    Item.CadenaConexion = reader["CadenaConexion"].ToString();
+                    Item.Disponible = bool.Parse(reader["Disponible"].ToString());
+                    Item.Usuario = reader["Usuario"].ToString();
+                    Item.Password = reader["Password"].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (Conexion.State == System.Data.ConnectionState.Open)
+                {
+                    Conexion.Close();
+                }
+            }
+            return Item;
+        }
         private tblEmpresaItem ObtenerItem(SqlDataReader reader)
         {
             tblEmpresaItem Item = new tblEmpresaItem();
@@ -100,13 +190,37 @@ namespace InventarioDao
                 Item.Logo = (byte[])reader["Logo"];
             }
             Item.Impoconsumo = decimal.Parse(reader["Impoconsumo"].ToString());
+            Item.Correo = reader["Correo"].ToString();
+            Item.SoftwareID = reader["SoftwareID"].ToString();
+            Item.SoftwarePIN = reader["SoftwarePIN"].ToString();
+            Item.CodigoDepartamento = reader["CodigoDepartamento"].ToString();
+            Item.Departamento = reader["Departamento"].ToString();
+            Item.CodigoCiudad = reader["CodigoCiudad"].ToString();
+            Item.MatriculaMercantil = reader["MatriculaMercantil"].ToString();
+            Item.TipoContribuyente = reader["TipoContribuyente"].ToString();
+            Item.RegimenFiscal = reader["RegimenFiscal"].ToString();
+            Item.CodigoResponsabilidadFiscal = reader["CodigoResponsabilidadFiscal"].ToString();
+            Item.ResponsabilidadFiscal = reader["ResponsabilidadFiscal"].ToString();
+            Item.TestSetId = reader["TestSetId"].ToString();
+            Item.ClaveTecnica = reader["ClaveTecnica"].ToString();
+            Item.ClaveCertificado = reader["ClaveCertificado"].ToString();
+            Item.Consecutivo = int.Parse(reader["Consecutivo"].ToString());
+            if (reader["CertificadoFE"] != DBNull.Value)
+            {
+                Item.CertificadoFE = (byte[])reader["CertificadoFE"];
+            }
+            if (reader["MostrarComisionesArticulo"] != DBNull.Value)
+            {
+                Item.MostrarComisionesArticulo = bool.Parse(reader["MostrarComisionesArticulo"].ToString());
+            }
             return Item;
         }
 
-        private bool Insertar(tblEmpresaItem Item)
+        private bool Insertar(tblEmpresaItem Item, EmpresaUsuario usuario)
         {
             SqlCommand oSQL = new SqlCommand("spInsertarEmpresa", Conexion);
             oSQL.CommandType = System.Data.CommandType.StoredProcedure;
+            oSQL.Parameters.Add(new SqlParameter("@idEmpresa", Item.idEmpresa));
             oSQL.Parameters.Add(new SqlParameter("@Nombre", Item.Nombre));
             oSQL.Parameters.Add(new SqlParameter("@idTipoIdentificacion", Item.idTipoIdentificacion));
             oSQL.Parameters.Add(new SqlParameter("@Identificacion", Item.Identificacion));
@@ -115,27 +229,15 @@ namespace InventarioDao
             oSQL.Parameters.Add(new SqlParameter("@idCiudad", Item.idCiudad));
             oSQL.Parameters.Add(new SqlParameter("@TextoEncabezadoFactura", Item.TextoEncabezadoFactura));
             oSQL.Parameters.Add(new SqlParameter("@TextoPieFactura", Item.TextoPieFactura));
-            //oSQL.Parameters.Add(new SqlParameter("@InventarioNegativo", Item.InventarioNegativo));
             oSQL.Parameters.Add(new SqlParameter("@MargenUtilidad", Item.MargenUtilidad));
-            oSQL.Parameters.Add(new SqlParameter("@Activo", Item.Activo));
-            oSQL.Parameters.Add(new SqlParameter("@NumeroUsuarios", Item.NumeroUsuarios));
-            oSQL.Parameters.Add(new SqlParameter("@ZonaHoraria", Item.ZonaHoraria));
-            oSQL.Parameters.Add(new SqlParameter("@FacturacionCaja", Item.FacturacionCaja));
-            oSQL.Parameters.Add(new SqlParameter("@FechaInicialEntrega", Item.FechaInicialEntrega));
-            oSQL.Parameters.Add(new SqlParameter("@ManejaPrecioConIVA", Item.ManejaPrecioConIVA));
-            oSQL.Parameters.Add(new SqlParameter("@ManejaCostoConIVA", Item.ManejaCostoConIVA));
-            oSQL.Parameters.Add(new SqlParameter("@ManejaDescuentoConIVA", Item.ManejaDescuentoConIVA));
-            oSQL.Parameters.Add(new SqlParameter("@MultiBodega", Item.MultiBodega));
-            oSQL.Parameters.Add(new SqlParameter("@Impoconsumo", Item.Impoconsumo));
-            if (Item.Logo != null)
-            {
-                oSQL.Parameters.Add(new SqlParameter("@Logo", Item.Logo));
-            }
-            else
-            {
-                oSQL.Parameters.Add(new SqlParameter("@Logo", DBNull.Value));
-            }
-            
+            oSQL.Parameters.Add(new SqlParameter("@prefijoUsuario", usuario.prefijoUsuario));
+            oSQL.Parameters.Add(new SqlParameter("@PrimeNombre", usuario.PrimeNombre));
+            oSQL.Parameters.Add(new SqlParameter("@SegundoNombre", usuario.SegundoNombre));
+            oSQL.Parameters.Add(new SqlParameter("@PrimerApellido", usuario.PrimerApellido));
+            oSQL.Parameters.Add(new SqlParameter("@SegundoApellido", usuario.SegundoApellido));
+            oSQL.Parameters.Add(new SqlParameter("@Email", usuario.Email));
+            oSQL.Parameters.Add(new SqlParameter("@IdServidor", Item.IdServidor));
+
             try
             {
                 Conexion.Open();
@@ -158,10 +260,21 @@ namespace InventarioDao
         private bool Actualizar(tblEmpresaItem Item)
         {
             SqlCommand oSQL;
-            if (Item.Logo != null)
+            if (Item.Logo != null && Item.CertificadoFE != null)
+            {
+                oSQL = new SqlCommand("spActualizarEmpresaConLogoCertificado", Conexion);
+                oSQL.Parameters.Add(new SqlParameter("@Logo", Item.Logo));
+                oSQL.Parameters.Add(new SqlParameter("@CertificadoFE", Item.CertificadoFE));
+            }
+            else if(Item.Logo != null && Item.CertificadoFE == null)
             {
                 oSQL = new SqlCommand("spActualizarEmpresaConLogo", Conexion);
                 oSQL.Parameters.Add(new SqlParameter("@Logo", Item.Logo));
+            }
+            else if(Item.Logo == null && Item.CertificadoFE != null)
+            {
+                oSQL = new SqlCommand("spActualizarEmpresaConCertificado", Conexion);
+                oSQL.Parameters.Add(new SqlParameter("@CertificadoFE", Item.CertificadoFE));
             }
             else
             {
@@ -177,7 +290,6 @@ namespace InventarioDao
             oSQL.Parameters.Add(new SqlParameter("@idCiudad", Item.idCiudad));
             oSQL.Parameters.Add(new SqlParameter("@TextoEncabezadoFactura", Item.TextoEncabezadoFactura));
             oSQL.Parameters.Add(new SqlParameter("@TextoPieFactura", Item.TextoPieFactura));
-            //oSQL.Parameters.Add(new SqlParameter("@InventarioNegativo", Item.InventarioNegativo));
             oSQL.Parameters.Add(new SqlParameter("@MargenUtilidad", Item.MargenUtilidad));
             oSQL.Parameters.Add(new SqlParameter("@Activo", Item.Activo));
             oSQL.Parameters.Add(new SqlParameter("@NumeroUsuarios", Item.NumeroUsuarios));
@@ -189,6 +301,16 @@ namespace InventarioDao
             oSQL.Parameters.Add(new SqlParameter("@ManejaDescuentoConIVA", Item.ManejaDescuentoConIVA));
             oSQL.Parameters.Add(new SqlParameter("@MultiBodega", Item.MultiBodega));
             oSQL.Parameters.Add(new SqlParameter("@Impoconsumo", Item.Impoconsumo));
+            oSQL.Parameters.Add(new SqlParameter("@SoftwareID", Item.SoftwareID));
+            oSQL.Parameters.Add(new SqlParameter("@SoftwarePIN", Item.SoftwarePIN));
+            oSQL.Parameters.Add(new SqlParameter("@MatriculaMercantil", Item.MatriculaMercantil));
+            oSQL.Parameters.Add(new SqlParameter("@TipoContribuyente", Item.TipoContribuyente));
+            oSQL.Parameters.Add(new SqlParameter("@RegimenFiscal", Item.RegimenFiscal));
+            oSQL.Parameters.Add(new SqlParameter("@ResponsabilidadFiscal", Item.ResponsabilidadFiscal));
+            oSQL.Parameters.Add(new SqlParameter("@TestSetId", Item.TestSetId));
+            oSQL.Parameters.Add(new SqlParameter("@ClaveTecnica", Item.ClaveTecnica));
+            oSQL.Parameters.Add(new SqlParameter("@ClaveCertificado", Item.ClaveCertificado));
+            oSQL.Parameters.Add(new SqlParameter("@Consecutivo", Item.Consecutivo));
             try
             {
                 Conexion.Open();
@@ -208,7 +330,7 @@ namespace InventarioDao
             return true;
         }
 
-        public bool Guardar(tblEmpresaItem Item)
+        public bool Guardar(tblEmpresaItem Item, EmpresaUsuario OEUItem)
         {
             if (Item.idEmpresa > 0)
             {
@@ -216,7 +338,7 @@ namespace InventarioDao
             }
             else
             {
-                return Insertar(Item);
+                return Insertar(Item, OEUItem);
             }
         }
     }

@@ -14,6 +14,102 @@ namespace InventarioDao
         {
             Conexion = new SqlConnection(CadenaConexion);
         }
+        public DataTable ObtenerTipoIdentificacionDIAN()
+        {
+            DataTable dt = new DataTable();
+            SqlCommand oSQL = new SqlCommand("spObtenerTipoIdentificacionDIAN", Conexion);
+            oSQL.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                Conexion.Open();
+                SqlDataAdapter oSqlDataAdapter = new SqlDataAdapter(oSQL);
+                oSqlDataAdapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (Conexion.State == ConnectionState.Open)
+                {
+                    Conexion.Close();
+                }
+            }
+            return dt;
+        }
+        public DataTable ObtenerTipoContribuyente()
+        {
+            DataTable dt = new DataTable();
+            SqlCommand oSQL = new SqlCommand("spObtenerTipoContribuyente", Conexion);
+            oSQL.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                Conexion.Open();
+                SqlDataAdapter oSqlDataAdapter = new SqlDataAdapter(oSQL);
+                oSqlDataAdapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (Conexion.State == ConnectionState.Open)
+                {
+                    Conexion.Close();
+                }
+            }
+            return dt;
+        }
+        public DataTable ObtenerRegimenFiscal()
+        {
+            DataTable dt = new DataTable();
+            SqlCommand oSQL = new SqlCommand("spObtenerRegimenFiscal", Conexion);
+            oSQL.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                Conexion.Open();
+                SqlDataAdapter oSqlDataAdapter = new SqlDataAdapter(oSQL);
+                oSqlDataAdapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (Conexion.State == ConnectionState.Open)
+                {
+                    Conexion.Close();
+                }
+            }
+            return dt;
+        }
+        public DataTable ObtenerResponsabilidadFiscal()
+        {
+            DataTable dt = new DataTable();
+            SqlCommand oSQL = new SqlCommand("spObtenerResponsabilidadFiscal", Conexion);
+            oSQL.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                Conexion.Open();
+                SqlDataAdapter oSqlDataAdapter = new SqlDataAdapter(oSQL);
+                oSqlDataAdapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (Conexion.State == ConnectionState.Open)
+                {
+                    Conexion.Close();
+                }
+            }
+            return dt;
+        }
         public List<tblTerceroRetencionItem> ObtenerRetencionesPorIdTercero(long IdTercero)
         {
             List<tblTerceroRetencionItem> Lista = new List<tblTerceroRetencionItem>();
@@ -202,7 +298,8 @@ namespace InventarioDao
         public tblTerceroItem ObtenerTerceroPorIdentificacion(string identificacion, long idEmpresa)
         {
             tblTerceroItem Item = new tblTerceroItem();
-            SqlCommand oSQL = new SqlCommand("EXEC spObtenerTerceroPorIdentificacion @identificacion,@idEmpresa", Conexion);
+            SqlCommand oSQL = new SqlCommand("spObtenerTerceroPorIdentificacion", Conexion);
+            oSQL.CommandType = CommandType.StoredProcedure;
             try
             {
                 Conexion.Open();
@@ -270,7 +367,7 @@ namespace InventarioDao
         {
             tblTerceroItem Item = new tblTerceroItem();
             Item.IdTercero = long.Parse(reader["idTercero"].ToString());
-            Item.idTipoIdentificacion = short.Parse(reader["idTipoIdentificacion"].ToString());
+            Item.idTipoIdentificacion = reader["idTipoIdentificacion"].ToString();
             Item.Identificacion = reader["Identificacion"].ToString();
             Item.Nombre = reader["Nombre"].ToString();
             Item.Telefono = reader["Telefono"].ToString();
@@ -295,6 +392,16 @@ namespace InventarioDao
             Item.Generico = bool.Parse(reader["Generico"].ToString());
             Item.Observaciones = reader["Observaciones"].ToString();
             Item.Activo = bool.Parse(reader["Activo"].ToString());
+            Item.TipoIdentificacionDIAN = reader["TipoIdentificacionDIAN"].ToString();
+            Item.CodigoDepartamento = reader["CodigoDepartamento"].ToString();
+            Item.Departamento = reader["Departamento"].ToString();
+            Item.CodigoCiudad = reader["CodigoCiudad"].ToString();
+            Item.MatriculaMercantil = reader["MatriculaMercantil"].ToString();
+            Item.TipoContribuyente = reader["TipoContribuyente"].ToString();
+            Item.RegimenFiscal = reader["RegimenFiscal"].ToString();
+            Item.CodigoResponsabilidadFiscal = reader["CodigoResponsabilidadFiscal"].ToString();
+            Item.ResponsabilidadFiscal = reader["ResponsabilidadFiscal"].ToString();
+            Item.CodigoZip = reader["CodigoZip"].ToString();
             return Item;
         }
         private string Insertar(tblTerceroItem Item)
@@ -370,16 +477,31 @@ namespace InventarioDao
                     oSQL.Parameters.Add(new SqlParameter("@Observaciones", Item.Observaciones));
                 }
                 oSQL.Parameters.Add(new SqlParameter("@Activo", Item.Activo));
+                oSQL.Parameters.Add(new SqlParameter("@TipoIdentificacionDIAN", Item.TipoIdentificacionDIAN));
+                oSQL.Parameters.Add(new SqlParameter("@MatriculaMercantil", Item.MatriculaMercantil));
+                oSQL.Parameters.Add(new SqlParameter("@TipoContribuyente", Item.TipoContribuyente));
+                oSQL.Parameters.Add(new SqlParameter("@RegimenFiscal", Item.RegimenFiscal));
+                oSQL.Parameters.Add(new SqlParameter("@ResponsabilidadFiscal", Item.ResponsabilidadFiscal));
+                if (string.IsNullOrEmpty(Item.CodigoZip))
+                {
+                    oSQL.Parameters.Add(new SqlParameter("@CodigoZip", DBNull.Value));
+                }
+                else
+                {
+                    oSQL.Parameters.Add(new SqlParameter("@CodigoZip", Item.CodigoZip));
+                }
                 oSQL.CommandType = CommandType.StoredProcedure;
                 Item.IdTercero = long.Parse(oSQL.ExecuteScalar().ToString());
                 if(Item.IdTercero > 0)
                 {
                     SqlCommand oSQL1 = new SqlCommand("spEliminarTerceroRetencion", Conexion, oTran);
+                    oSQL1.CommandType = CommandType.StoredProcedure;
                     oSQL1.Parameters.Add(new SqlParameter("@IdTercero", Item.IdTercero));
                     oSQL1.ExecuteNonQuery();
                     foreach (tblTerceroRetencionItem oRetI in Item.Retenciones)
                     {
                         SqlCommand oSQL2 = new SqlCommand("spInsertarTerceroRetencion", Conexion, oTran);
+                        oSQL2.CommandType = CommandType.StoredProcedure;
                         oSQL2.Parameters.Add(new SqlParameter("@IdTercero", Item.IdTercero));
                         oSQL2.Parameters.Add(new SqlParameter("@IdRetencion", oRetI.IdRetencion));
                         oSQL2.ExecuteNonQuery();
@@ -458,6 +580,19 @@ namespace InventarioDao
                     oSQL.Parameters.Add(new SqlParameter("@Observaciones", Item.Observaciones));
                 }
                 oSQL.Parameters.Add(new SqlParameter("@Activo", Item.Activo));
+                oSQL.Parameters.Add(new SqlParameter("@TipoIdentificacionDIAN", Item.TipoIdentificacionDIAN));
+                oSQL.Parameters.Add(new SqlParameter("@MatriculaMercantil", Item.MatriculaMercantil));
+                oSQL.Parameters.Add(new SqlParameter("@TipoContribuyente", Item.TipoContribuyente));
+                oSQL.Parameters.Add(new SqlParameter("@RegimenFiscal", Item.RegimenFiscal));
+                oSQL.Parameters.Add(new SqlParameter("@ResponsabilidadFiscal", Item.ResponsabilidadFiscal));
+                if (string.IsNullOrEmpty(Item.CodigoZip))
+                {
+                    oSQL.Parameters.Add(new SqlParameter("@CodigoZip", DBNull.Value));
+                }
+                else
+                {
+                    oSQL.Parameters.Add(new SqlParameter("@CodigoZip", Item.CodigoZip));
+                }
                 oSQL.CommandType = CommandType.StoredProcedure;
                 if (oSQL.ExecuteNonQuery() > 0)
                 {

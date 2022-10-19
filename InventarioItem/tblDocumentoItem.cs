@@ -55,5 +55,6 @@ namespace InventarioItem
         public decimal Impoconsumo { get; set; }
         public decimal TotalRetenciones { get; set; }
         public List<tblDocumentoRetencionItem> Retenciones { get; set; }
+        public string ZipKey { get; set; }
     }
 }

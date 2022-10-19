@@ -57,7 +57,7 @@ namespace Inventario
             {
                 tblTerceroItem oTerI = new tblTerceroItem();
                 tblTerceroBusiness oTerB = new tblTerceroBusiness(CadenaConexion);
-                oTerI.idTipoIdentificacion = short.Parse(ddlTipoID.SelectedValue);
+                oTerI.idTipoIdentificacion = ddlTipoID.SelectedValue;
                 oTerI.Identificacion = txtIdentificacion.Text;
                 oTerI.Nombre = txtNombre.Text;
                 oTerI.Mail = txtCorreo.Text;

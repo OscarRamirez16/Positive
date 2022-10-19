@@ -53,7 +53,7 @@ namespace Inventario
                     else
                     {
                         tblPrincipal.Visible = false;
-                        MostrarMensaje("Error", "El usuario no tiene relacionada una caja abierta.");
+                        MostrarAlerta(0, "Error", "El usuario no tiene relacionada una caja abierta.");
                         if (!this.Page.ClientScript.IsClientScriptBlockRegistered("InicializarControlesScript"))
                         {
                             string strScript = "$(document).ready(function(){";
@@ -70,7 +70,7 @@ namespace Inventario
             }
             catch (Exception ex)
             {
-                MostrarMensaje("Error", string.Format("No se pudo cargar la pagina. {0}", ex.Message));
+                MostrarAlerta(0, "Error", string.Format("No se pudo cargar la pagina. {0}", ex.Message));
             }
         }
 
@@ -172,17 +172,17 @@ namespace Inventario
                 CargarDatosGuardar(oMovI);
                 if (oMovB.Guardar(oMovI))
                 {
-                    MostrarMensaje("Retiro","El retiro se guardo con exito.");
+                    MostrarAlerta(1, "Retiro","El retiro se guardo con exito.");
                     limpiarControles();
                 }
                 else
                 {
-                    MostrarMensaje("Error","No se pudo guardar el retiro.");
+                    MostrarAlerta(0, "Error","No se pudo guardar el retiro.");
                 }
             }
             catch (Exception ex)
             {
-                MostrarMensaje("Error", string.Format("No se pudo realizar el retiro. {0}", ex.Message));
+                MostrarAlerta(0, "Error", string.Format("No se pudo realizar el retiro. {0}", ex.Message));
             }
         }
 

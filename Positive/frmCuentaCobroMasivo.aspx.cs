@@ -113,7 +113,7 @@ namespace Inventario
                         {
                             tblCuentaCobroItem oCuenI = new tblCuentaCobroItem();
                             oCuenI.Numero = 0;
-                            oCuenI.Fecha = DateTime.Now;
+                            oCuenI.Fecha = Util.ObtenerFecha(oUsuarioI.idEmpresa);
                             oCuenI.IdTercero = long.Parse(Cliente.Cells[dgClientesEnum.IdTercero.GetHashCode()].Text);
                             oCuenI.IdUsuario = oUsuarioI.idUsuario;
                             oCuenI.Concepto = txtConcepto.Value;

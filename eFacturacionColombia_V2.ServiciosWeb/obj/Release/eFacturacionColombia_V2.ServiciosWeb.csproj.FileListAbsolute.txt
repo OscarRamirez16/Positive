@@ -1,0 +1,10 @@
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\eFacturacionColombia_V2.ServiciosWeb\bin\Release\eFacturacionColombia_V2.ServiciosWeb.dll.config
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\eFacturacionColombia_V2.ServiciosWeb\bin\Release\eFacturacionColombia_V2.ServiciosWeb.dll
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\eFacturacionColombia_V2.ServiciosWeb\bin\Release\eFacturacionColombia_V2.ServiciosWeb.pdb
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\eFacturacionColombia_V2.ServiciosWeb\bin\Release\eFacturacionColombia_V2.Util.dll
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\eFacturacionColombia_V2.ServiciosWeb\bin\Release\eFacturacionColombia_V2.Util.pdb
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\eFacturacionColombia_V2.ServiciosWeb\obj\Release\eFacturacionColombia_V2.ServiciosWeb.csproj.AssemblyReference.cache
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\eFacturacionColombia_V2.ServiciosWeb\obj\Release\eFacturacionColombia_V2.ServiciosWeb.csproj.CoreCompileInputs.cache
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\eFacturacionColombia_V2.ServiciosWeb\obj\Release\eFacturacionColombia_V2.ServiciosWeb.csproj.CopyComplete
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\eFacturacionColombia_V2.ServiciosWeb\obj\Release\eFacturacionColombia_V2.ServiciosWeb.dll
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\eFacturacionColombia_V2.ServiciosWeb\obj\Release\eFacturacionColombia_V2.ServiciosWeb.pdb

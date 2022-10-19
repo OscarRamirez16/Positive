@@ -40,9 +40,11 @@ namespace Inventario
             EsHijo = 17,
             IdPadre = 18,
             CantidadPadre = 19,
-            Costo = 20,
-            Precio = 21,
-            Errores = 22
+            Marca = 20,
+            PorcentajeComision = 21,
+            Costo = 22,
+            Precio = 23,
+            Errores = 24
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -159,7 +161,7 @@ namespace Inventario
                     string error = oABiz.LeerArticulosArchivo(fulArticulos.PostedFile.InputStream, articulos, oUsuarioI.idEmpresa, char.Parse(ddlDelimitador.SelectedValue));
                     if (error != "")
                     {
-                        MostrarMensaje("Error", error);
+                        MostrarAlerta(0, "Error", error);
                     }
                     else
                     {
@@ -169,12 +171,12 @@ namespace Inventario
                 }
                 else
                 {
-                    Response.Write("<script>alert('No hay un archivo seleccionado');</script>");
+                    MostrarAlerta(0, "Error", "No hay un archivo seleccionado");
                 }
             }
             catch (Exception ex)
             {
-                MostrarMensaje("Error", string.Format("No se pudo cargar el archivo. {0}", ex.Message));
+                MostrarAlerta(0, "Error", ex.Message.Replace("'", "").Replace(Environment.NewLine, " "));
             }
         }
 
@@ -301,7 +303,7 @@ namespace Inventario
             }
             catch (Exception ex)
             {
-                MostrarMensaje("Error", string.Format("No se pudo cargar los articulos. {0}", ex.Message));
+                MostrarAlerta(0, "Error", ex.Message.Replace("'", "").Replace(Environment.NewLine, " "));
             }
         }
 
@@ -336,6 +338,8 @@ namespace Inventario
                         oArtI.EsHijo = Item.Cells[dgArticulosColumnsEnum.EsHijo.GetHashCode()].Text == "True" ? true : false;
                         oArtI.IdArticuloPadre = long.Parse(Item.Cells[dgArticulosColumnsEnum.IdPadre.GetHashCode()].Text);
                         oArtI.CantidadPadre = decimal.Parse(Item.Cells[dgArticulosColumnsEnum.CantidadPadre.GetHashCode()].Text, NumberStyles.Currency);
+                        oArtI.Marca = Item.Cells[dgArticulosColumnsEnum.Marca.GetHashCode()].Text;
+                        oArtI.PorcentajeComision = decimal.Parse(Item.Cells[dgArticulosColumnsEnum.PorcentajeComision.GetHashCode()].Text, NumberStyles.Currency);
                         oArtI.Costo = decimal.Parse(Item.Cells[dgArticulosColumnsEnum.Costo.GetHashCode()].Text, NumberStyles.Currency);
                         oArtI.Precio = decimal.Parse(Item.Cells[dgArticulosColumnsEnum.Precio.GetHashCode()].Text, NumberStyles.Currency);
                         oListArtI.Add(oArtI);
@@ -343,7 +347,7 @@ namespace Inventario
                     Error = oArtB.CreacionMasivaArticulos(oListArtI);
                     if (string.IsNullOrEmpty(Error))
                     {
-                        MostrarMensaje("Creación de Artículos", "Los articulos se crearon con exito");
+                        MostrarAlerta(0, "Creación de Artículos", "Los articulos se crearon con exito.");
                         LimpiarControles();
                     }
                     else
@@ -353,12 +357,12 @@ namespace Inventario
                 }
                 else
                 {
-                    MostrarMensaje("Error", "El usuario no posee permisos para esta operación.");
+                    MostrarAlerta(0, "Error", "El usuario no posee permisos para esta operación.");
                 }
             }
             catch (Exception ex)
             {
-                MostrarMensaje("Error", string.Format("No se pudo guardar los artículos. {0}", ex.Message));
+                MostrarAlerta(0, "Error", ex.Message.Replace("'", "").Replace(Environment.NewLine, " "));
             }
         }
 

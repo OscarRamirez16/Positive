@@ -98,6 +98,7 @@
                             </div>
                     </div>
                     <div class="col-md-2">
+                        <asp:CheckBox ID="chkFE" runat="server" Text="Factura Electrónica" />
                         <asp:Label ID="lblListaPrecio" runat="server"></asp:Label>
                     </div>
                 </div>
@@ -240,11 +241,20 @@
                                         </td>
                                     </tr>
                                     <tr>
+                                        <td>Retenciones:</td>
+                                        <td>
+                                            <div class = "input-group">
+                                                <asp:TextBox ID="txtTotalRetencion" runat="server" class="form-control BoxValor" ></asp:TextBox>
+                                                <span class = "input-group-addon"><img src="Images/Input/DolarAmarillo.png" title="Total Retenciones" /></span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
                                         <td>Descuento Por Artículos:</td>
                                         <td>
                                             <div class = "input-group">
                                                 <asp:TextBox ID="txtTotalDescuento" runat="server" class="form-control BoxValor" ></asp:TextBox>
-                                                <span class = "input-group-addon"><img src="Images/Input/DolarAmarillo.png" title="Total IVA" /></span>
+                                                <span class = "input-group-addon"><img src="Images/Input/DolarAmarillo.png" title="Total Descuentos" /></span>
                                             </div>
                                         </td>
                                     </tr>
@@ -271,7 +281,7 @@
                                         <td>
                                             <div class = "input-group">
                                                 <asp:TextBox ID="txtPropina" runat="server" class="form-control BoxValor"></asp:TextBox>
-                                                <span class = "input-group-addon"><img src="Images/Input/DolarAzulClaro.png" title="Propina" /></span>
+                                                <span class = "input-group-addon"><img src="Images/Input/DolarAzulClaro.png" title="Total Propina" /></span>
                                             </div>
                                         </td>
                                     </tr>
@@ -280,7 +290,7 @@
                                         <td>
                                             <div class = "input-group">
                                                 <asp:TextBox ID="txtTotalFactura" runat="server" class="form-control BoxValor"></asp:TextBox>
-                                                <span class = "input-group-addon"><img src="Images/Input/DolarAzulClaro.png" title="Total IVA" /></span>
+                                                <span class = "input-group-addon"><img src="Images/Input/DolarAzulClaro.png" title="Total a Pagar" /></span>
                                             </div>
                                         </td>
                                     </tr>
@@ -295,6 +305,7 @@
                         <asp:ImageButton ID="btnGuardar" CssClass="btnGuardar" runat="server" ImageUrl="~/Images/Documento/Guardar.png" OnClientClick="EsconderBoton();" OnClick="btnGuardar_Click" />
                         <asp:ImageButton ID="btnFacturar" Visible="false" runat="server" class="btnFacturar" ImageUrl="~/Images/Documento/Pasar.png" OnClick="btnFacturar_Click" />
                         <asp:ImageButton ID="btnPasar" Visible="false" runat="server" ToolTip="Pasar a Factura" class="btnFacturar" ImageUrl="~/Images/Documento/Pasar.png" OnClick="btnPasar_Click" />
+                        <asp:ImageButton ID="btnPrueba" runat="server" ImageUrl="~/Images/Documento/Guardar.png" OnClick="btnPrueba_Click" />
                     </div>
                 </div>
                 <div class="row">
@@ -514,7 +525,7 @@
                             <asp:BoundColumn DataField="Base" HeaderText="Base" ItemStyle-HorizontalAlign="Right" DataFormatString="{0:C}"></asp:BoundColumn>
                             <asp:TemplateColumn ItemStyle-HorizontalAlign="Center">
                                 <ItemTemplate>
-                                    <asp:CheckBox ID="chkSeleccionar" runat="server" />
+                                    <asp:CheckBox ID="chkSeleccionar" runat="server" AutoPostBack="true" OnCheckedChanged="CalcularRetenciones" />
                                 </ItemTemplate>
                             </asp:TemplateColumn>
                         </Columns>

@@ -51,11 +51,12 @@ namespace InventarioDao
             }
         }
 
-        public List<tblOrdenFabricacionItem> ObtenerOrdenesFabricacionPorFiltros(DateTime FechaInicial, DateTime FechaFinal, string IdOrden, long IdUsuario)
+        public List<tblOrdenFabricacionItem> ObtenerOrdenesFabricacionPorFiltros(DateTime FechaInicial, DateTime FechaFinal, string IdOrden, long IdUsuario, long IdEmpresa)
         {
             List<tblOrdenFabricacionItem> Lista = new List<tblOrdenFabricacionItem>();
             SqlCommand oSQL = new SqlCommand("spObtenerOrdenesFabricacionPorFiltros", Conexion);
             oSQL.CommandType = CommandType.StoredProcedure;
+            oSQL.Parameters.Add(new SqlParameter("@IdEmpresa", IdEmpresa));
             oSQL.Parameters.Add(new SqlParameter("@FechaInicial", FechaInicial));
             oSQL.Parameters.Add(new SqlParameter("@FechaFinal", FechaFinal));
             if (string.IsNullOrEmpty(IdOrden))

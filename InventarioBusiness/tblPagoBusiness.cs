@@ -39,6 +39,18 @@ namespace InventarioBusiness
         {
             this.cadenaConexion = cadenaConexion;
         }
+        public tblPagoItem ObtenerPagoPorIDPago(long idPago, int Tipo)
+        {
+            try
+            {
+                tblPagoDao oPagoD = new tblPagoDao(cadenaConexion);
+                return oPagoD.ObtenerPago(idPago, Tipo);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public DataTable ObtenerConciliaciones(DateTime FechaInicial, DateTime FechaFinal, string Tercero, string Identificacion, long IdEmpresa)
         {
             try
@@ -138,6 +150,19 @@ namespace InventarioBusiness
         public bool Guardar(tblTipoTarjetaCreditoItem Item) {
             tblTipoTarjetaCreditoDao oTTCDao = new tblTipoTarjetaCreditoDao(cadenaConexion);
             return oTTCDao.Guardar(Item);
+        }
+
+        public List<tblTipoPagoItem> ObtenerTipoPago(long idPago)
+        {
+            try
+            {
+                tblTipoPagoDao oTipoPagoD = new tblTipoPagoDao(cadenaConexion);
+                return oTipoPagoD.ObtenerTipoPagoLista(idPago);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

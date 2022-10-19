@@ -14,7 +14,8 @@
             notaCreditoCompra = 7,
             Remision = 8,
             OrdenFabricacion = 9,
-            CuentaCobro = 10
+            CuentaCobro = 10,
+            DocumentoElectronico = 11
         }
 
         public short idTipoDocumento { get; set; }

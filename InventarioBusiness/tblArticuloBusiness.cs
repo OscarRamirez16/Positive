@@ -78,8 +78,10 @@ namespace InventarioBusiness
             EsHijo = 14,
             IdPadre = 15,
             CantidadPadre = 16,
-            Costo = 17,
-            Precio = 18
+            Marca = 17,
+            PorcentajeComision = 18,
+            Costo = 19,
+            Precio = 20
         }
         public string ActualizarDatosArticulosMasivo(List<tblArticuloItem> oList)
         {
@@ -256,7 +258,7 @@ namespace InventarioBusiness
                     {
                         if (PrimeraLinea)
                         {
-                            if (linea.Split(Delimitador).Length < 19)
+                            if (linea.Split(Delimitador).Length != 21)
                             {
                                 blnError = true;
                                 Error = "El numero de columnas del archivo no es valido...";
@@ -287,6 +289,8 @@ namespace InventarioBusiness
                                 oAItem.EsHijo = linea.Split(Delimitador)[PlantillaColumnasEnum.EsHijo.GetHashCode()] == "1" ? true : false;
                                 oAItem.IdArticuloPadre = long.Parse(linea.Split(Delimitador)[PlantillaColumnasEnum.IdPadre.GetHashCode()]);
                                 oAItem.CantidadPadre = decimal.Parse(linea.Split(Delimitador)[PlantillaColumnasEnum.CantidadPadre.GetHashCode()], System.Globalization.NumberStyles.Currency);
+                                oAItem.Marca = linea.Split(Delimitador)[PlantillaColumnasEnum.Marca.GetHashCode()];
+                                oAItem.PorcentajeComision = decimal.Parse(linea.Split(Delimitador)[PlantillaColumnasEnum.PorcentajeComision.GetHashCode()], System.Globalization.NumberStyles.Currency);
                                 oAItem.Costo = decimal.Parse(linea.Split(Delimitador)[PlantillaColumnasEnum.Costo.GetHashCode()], System.Globalization.NumberStyles.Currency);
                                 oAItem.Precio = decimal.Parse(linea.Split(Delimitador)[PlantillaColumnasEnum.Precio.GetHashCode()], System.Globalization.NumberStyles.Currency);
                                 Articulos.Add(oAItem);
@@ -427,21 +431,28 @@ namespace InventarioBusiness
                                 oArtI = oArtB.ObtenerArticuloPorCodigo(linea.Split(Delimitador)[PlantillaEntradaSalidaMasivaMercanciaEnum.CodigoArticulo.GetHashCode()], IdEmpresa);
                                 if (oArtI.IdArticulo > 0)
                                 {
-                                    oBodI = oBodB.ObtenerBodega(long.Parse(linea.Split(Delimitador)[PlantillaEntradaSalidaMasivaMercanciaEnum.IdBodega.GetHashCode()]), IdEmpresa);
-                                    if (oBodI.IdBodega > 0)
+                                    if(oArtI.EsInventario && !oArtI.EsHijo && !oArtI.EsCompuesto)
                                     {
-                                        oArtI.IdBodega = oBodI.IdBodega;
-                                        oArtI.Bodega = oBodI.Descripcion;
+                                        oBodI = oBodB.ObtenerBodega(long.Parse(linea.Split(Delimitador)[PlantillaEntradaSalidaMasivaMercanciaEnum.IdBodega.GetHashCode()]), IdEmpresa);
+                                        if (oBodI.IdBodega > 0)
+                                        {
+                                            oArtI.IdBodega = oBodI.IdBodega;
+                                            oArtI.Bodega = oBodI.Descripcion;
+                                        }
+                                        else
+                                        {
+                                            Error = string.Format("La bodega {0} no existe en el sistema. <br>", linea.Split(Delimitador)[PlantillaEntradaSalidaMasivaMercanciaEnum.IdBodega.GetHashCode()]);
+                                        }
+                                        oArtI.Cantidad = decimal.Parse(linea.Split(Delimitador)[PlantillaEntradaSalidaMasivaMercanciaEnum.Cantidad.GetHashCode()]);
+                                        oArtI.Costo = oBodB.ConsultarArticulosBodegaPorID(oArtI.IdArticulo, oArtI.IdBodega).Costo;
+                                        if (string.IsNullOrEmpty(Error))
+                                        {
+                                            Articulos.Add(oArtI);
+                                        }
                                     }
                                     else
                                     {
-                                        Error = string.Format("La bodega {0} no existe en el sistema. <br>", linea.Split(Delimitador)[PlantillaEntradaSalidaMasivaMercanciaEnum.IdBodega.GetHashCode()]);
-                                    }
-                                    oArtI.Cantidad = decimal.Parse(linea.Split(Delimitador)[PlantillaEntradaSalidaMasivaMercanciaEnum.Cantidad.GetHashCode()]);
-                                    oArtI.Costo = oBodB.ConsultarArticulosBodegaPorID(oArtI.IdArticulo, oArtI.IdBodega).Costo;
-                                    if (string.IsNullOrEmpty(Error))
-                                    {
-                                        Articulos.Add(oArtI);
+                                        Error = string.Format("El código {0} debe ser de inventario y no debe ser hijo ni compuesto. <br>", linea.Split(Delimitador)[PlantillaEntradaSalidaMasivaMercanciaEnum.CodigoArticulo.GetHashCode()]);
                                     }
                                 }
                                 else

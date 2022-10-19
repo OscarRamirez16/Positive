@@ -52,6 +52,8 @@
     <Compile Include="bsq_ObtenerTerceroListaPorFiltrosNombreCiudadEmpresaItem.cs" />
     <Compile Include="bsq_ObtenerRolLista.cs" />
     <Compile Include="bsq_ObtenerUsuarioListaPorFiltrosNombreEmpresaItem.cs" />
+    <Compile Include="CotizacionCocinaItem.cs" />
+    <Compile Include="CotizacionVentaRapidaItem.cs" />
     <Compile Include="CuadreCajaItem.cs" />
     <Compile Include="JSONItem.cs" />
     <Compile Include="tblArticuloCodigoBarraItem.cs" />

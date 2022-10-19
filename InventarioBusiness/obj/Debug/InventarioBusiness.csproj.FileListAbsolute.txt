@@ -684,22 +684,6 @@ C:\Users\orami\Downloads\20210713PositiveResponsive\InventarioBusiness\obj\Debug
 C:\Users\orami\Downloads\20210713PositiveResponsive\InventarioBusiness\obj\Debug\InventarioBusiness.csproj.CopyComplete
 C:\Users\orami\Downloads\20210713PositiveResponsive\InventarioBusiness\obj\Debug\InventarioBusiness.dll
 C:\Users\orami\Downloads\20210713PositiveResponsive\InventarioBusiness\obj\Debug\InventarioBusiness.pdb
-<<<<<<< HEAD
-=======
-D:\RepositorioGitHub\Positive-main\InventarioBusiness\bin\Debug\InventarioBusiness.dll
-D:\RepositorioGitHub\Positive-main\InventarioBusiness\bin\Debug\InventarioBusiness.pdb
-D:\RepositorioGitHub\Positive-main\InventarioBusiness\bin\Debug\InventarioDao.dll
-D:\RepositorioGitHub\Positive-main\InventarioBusiness\bin\Debug\InventarioItem.dll
-D:\RepositorioGitHub\Positive-main\InventarioBusiness\bin\Debug\Microsoft.ReportViewer.Common.dll
-D:\RepositorioGitHub\Positive-main\InventarioBusiness\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
-D:\RepositorioGitHub\Positive-main\InventarioBusiness\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
-D:\RepositorioGitHub\Positive-main\InventarioBusiness\bin\Debug\InventarioDao.pdb
-D:\RepositorioGitHub\Positive-main\InventarioBusiness\bin\Debug\InventarioItem.pdb
-D:\RepositorioGitHub\Positive-main\InventarioBusiness\obj\Debug\InventarioBusiness.csproj.AssemblyReference.cache
-D:\RepositorioGitHub\Positive-main\InventarioBusiness\obj\Debug\InventarioBusiness.csproj.CoreCompileInputs.cache
-D:\RepositorioGitHub\Positive-main\InventarioBusiness\obj\Debug\InventarioBusiness.csproj.CopyComplete
-D:\RepositorioGitHub\Positive-main\InventarioBusiness\obj\Debug\InventarioBusiness.dll
-D:\RepositorioGitHub\Positive-main\InventarioBusiness\obj\Debug\InventarioBusiness.pdb
 D:\RepositorioGitHub\Positive\InventarioBusiness\bin\Debug\InventarioBusiness.dll
 D:\RepositorioGitHub\Positive\InventarioBusiness\bin\Debug\InventarioBusiness.pdb
 D:\RepositorioGitHub\Positive\InventarioBusiness\bin\Debug\InventarioDao.dll
@@ -714,4 +698,58 @@ D:\RepositorioGitHub\Positive\InventarioBusiness\obj\Debug\InventarioBusiness.cs
 D:\RepositorioGitHub\Positive\InventarioBusiness\obj\Debug\InventarioBusiness.csproj.CopyComplete
 D:\RepositorioGitHub\Positive\InventarioBusiness\obj\Debug\InventarioBusiness.dll
 D:\RepositorioGitHub\Positive\InventarioBusiness\obj\Debug\InventarioBusiness.pdb
->>>>>>> main
+D:\Software\PositiveNew\20210904PositiveResponsive\Positive\InventarioBusiness\bin\Debug\InventarioBusiness.dll
+D:\Software\PositiveNew\20210904PositiveResponsive\Positive\InventarioBusiness\bin\Debug\InventarioBusiness.pdb
+D:\Software\PositiveNew\20210904PositiveResponsive\Positive\InventarioBusiness\bin\Debug\InventarioDao.dll
+D:\Software\PositiveNew\20210904PositiveResponsive\Positive\InventarioBusiness\bin\Debug\InventarioItem.dll
+D:\Software\PositiveNew\20210904PositiveResponsive\Positive\InventarioBusiness\bin\Debug\Microsoft.ReportViewer.Common.dll
+D:\Software\PositiveNew\20210904PositiveResponsive\Positive\InventarioBusiness\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+D:\Software\PositiveNew\20210904PositiveResponsive\Positive\InventarioBusiness\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
+D:\Software\PositiveNew\20210904PositiveResponsive\Positive\InventarioBusiness\bin\Debug\InventarioDao.pdb
+D:\Software\PositiveNew\20210904PositiveResponsive\Positive\InventarioBusiness\bin\Debug\InventarioItem.pdb
+D:\Software\PositiveNew\20210904PositiveResponsive\Positive\InventarioBusiness\obj\Debug\InventarioBusiness.csprojAssemblyReference.cache
+D:\Software\PositiveNew\20210904PositiveResponsive\Positive\InventarioBusiness\obj\Debug\InventarioBusiness.csproj.CoreCompileInputs.cache
+D:\Software\PositiveNew\20210904PositiveResponsive\Positive\InventarioBusiness\obj\Debug\InventarioBusiness.csproj.CopyComplete
+D:\Software\PositiveNew\20210904PositiveResponsive\Positive\InventarioBusiness\obj\Debug\InventarioBusiness.dll
+D:\Software\PositiveNew\20210904PositiveResponsive\Positive\InventarioBusiness\obj\Debug\InventarioBusiness.pdb
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\InventarioBusiness\bin\Debug\InventarioBusiness.dll
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\InventarioBusiness\bin\Debug\InventarioBusiness.pdb
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\InventarioBusiness\bin\Debug\InventarioDao.dll
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\InventarioBusiness\bin\Debug\InventarioItem.dll
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\InventarioBusiness\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\InventarioBusiness\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\InventarioBusiness\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\InventarioBusiness\bin\Debug\InventarioDao.pdb
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\InventarioBusiness\bin\Debug\InventarioItem.pdb
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\InventarioBusiness\obj\Debug\InventarioBusiness.csproj.AssemblyReference.cache
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\InventarioBusiness\obj\Debug\InventarioBusiness.csproj.CoreCompileInputs.cache
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\InventarioBusiness\obj\Debug\InventarioBusiness.csproj.CopyComplete
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\InventarioBusiness\obj\Debug\InventarioBusiness.dll
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\InventarioBusiness\obj\Debug\InventarioBusiness.pdb
+C:\Archivos Oscar\HQS-Software\PositiveResponsive\Positive\InventarioBusiness\bin\Debug\InventarioBusiness.dll
+C:\Archivos Oscar\HQS-Software\PositiveResponsive\Positive\InventarioBusiness\bin\Debug\InventarioBusiness.pdb
+C:\Archivos Oscar\HQS-Software\PositiveResponsive\Positive\InventarioBusiness\bin\Debug\InventarioDao.dll
+C:\Archivos Oscar\HQS-Software\PositiveResponsive\Positive\InventarioBusiness\bin\Debug\InventarioItem.dll
+C:\Archivos Oscar\HQS-Software\PositiveResponsive\Positive\InventarioBusiness\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\Archivos Oscar\HQS-Software\PositiveResponsive\Positive\InventarioBusiness\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\Archivos Oscar\HQS-Software\PositiveResponsive\Positive\InventarioBusiness\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
+C:\Archivos Oscar\HQS-Software\PositiveResponsive\Positive\InventarioBusiness\bin\Debug\InventarioDao.pdb
+C:\Archivos Oscar\HQS-Software\PositiveResponsive\Positive\InventarioBusiness\bin\Debug\InventarioItem.pdb
+C:\Archivos Oscar\HQS-Software\PositiveResponsive\Positive\InventarioBusiness\obj\Debug\InventarioBusiness.csproj.AssemblyReference.cache
+C:\Archivos Oscar\HQS-Software\PositiveResponsive\Positive\InventarioBusiness\obj\Debug\InventarioBusiness.csproj.CoreCompileInputs.cache
+C:\Archivos Oscar\HQS-Software\PositiveResponsive\Positive\InventarioBusiness\obj\Debug\InventarioBusiness.csproj.CopyComplete
+C:\Archivos Oscar\HQS-Software\PositiveResponsive\Positive\InventarioBusiness\obj\Debug\InventarioBusiness.dll
+C:\Archivos Oscar\HQS-Software\PositiveResponsive\Positive\InventarioBusiness\obj\Debug\InventarioBusiness.pdb
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\InventarioBusiness\bin\Debug\InventarioBusiness.dll
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\InventarioBusiness\bin\Debug\InventarioBusiness.pdb
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\InventarioBusiness\bin\Debug\InventarioDao.dll
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\InventarioBusiness\bin\Debug\InventarioItem.dll
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\InventarioBusiness\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\InventarioBusiness\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\InventarioBusiness\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\InventarioBusiness\bin\Debug\InventarioDao.pdb
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\InventarioBusiness\bin\Debug\InventarioItem.pdb
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\InventarioBusiness\obj\Debug\InventarioBusiness.csproj.CoreCompileInputs.cache
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\InventarioBusiness\obj\Debug\InventarioBusiness.dll
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\InventarioBusiness\obj\Debug\InventarioBusiness.pdb
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\InventarioBusiness\obj\Debug\InventarioBusiness.csproj.AssemblyReference.cache

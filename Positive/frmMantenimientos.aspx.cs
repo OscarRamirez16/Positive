@@ -4,6 +4,8 @@ using System.Web.UI;
 using InventarioItem;
 using Idioma;
 using HQSFramework.Base;
+using InventarioBusiness;
+using System.Data;
 
 namespace Inventario
 {
@@ -12,6 +14,19 @@ namespace Inventario
 
         private string cadenaConexion;
         tblUsuarioItem oUsuarioI = new tblUsuarioItem();
+
+        private enum FacturasPendientesEnum
+        {
+            Fecha = 0,
+            NumeroDocumento = 1,
+            Nombre = 2,
+            Direccion = 3,
+            Telefono = 4,
+            Observaciones = 5,
+            TotalDocumento = 6,
+            saldo = 7,
+            TotalAntesIVA = 8
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -33,6 +48,10 @@ namespace Inventario
                         this.Page.ClientScript.RegisterClientScriptBlock(this.Page.GetType(), "InicializarControlesScript", strScript, true);
                     }
                     ConfiguracionIdioma();
+                    if (!IsPostBack)
+                    {
+                        ObtenerNotificaciones();
+                    }
                 }
                 else
                 {
@@ -41,7 +60,39 @@ namespace Inventario
             }
             catch (Exception ex)
             {
-                Response.Write("<script>alert('Error al cargar la pagina de menu. " + ex.ToString() + "');</script>");
+                MostrarAlerta(0, "Error", string.Format("No se pudo cargar la pagina. {0}", ex.Message));
+            }
+        }
+        private void ObtenerNotificaciones()
+        {
+            try
+            {
+                string Mensaje = string.Empty;
+                string Cadena = ConfigurationManager.ConnectionStrings["Backend"].ConnectionString;
+                tblDocumentoBusiness oDocB = new tblDocumentoBusiness(Cadena);
+                DataTable FacturasPendientes = oDocB.ObtenerFacturasPendientesPorPago(oUsuarioI.IdTercero);
+                if(FacturasPendientes.Rows.Count > 0)
+                {
+                    foreach (DataRow row in FacturasPendientes.Rows)
+                    {
+                        if (string.IsNullOrEmpty(Mensaje))
+                        {
+                            Mensaje = string.Format("* Tiene pendiente por pago la factura No {0} por un valor de {1}, observaciones: {2}", row[FacturasPendientesEnum.NumeroDocumento.GetHashCode()], decimal.Parse(row[FacturasPendientesEnum.TotalDocumento.GetHashCode()].ToString()).ToString(Util.ObtenerFormatoDecimal()), row[FacturasPendientesEnum.Observaciones.GetHashCode()]);
+                        }
+                        else
+                        {
+                            Mensaje += string.Format(" * Tiene pendiente por pago la factura No {0} por un valor de {1}, observaciones: {2}", row[FacturasPendientesEnum.NumeroDocumento.GetHashCode()], decimal.Parse(row[FacturasPendientesEnum.TotalDocumento.GetHashCode()].ToString()).ToString(Util.ObtenerFormatoDecimal()), row[FacturasPendientesEnum.Observaciones.GetHashCode()]);
+                        }
+                    }
+                }
+                if (!string.IsNullOrEmpty(Mensaje))
+                {
+                    MostrarAlerta(0, "Advertencia", Mensaje);
+                }
+            }
+            catch (Exception ex)
+            {
+                MostrarAlerta(0, "Error", ex.Message);
             }
         }
         private void ConfiguracionIdioma()
@@ -129,6 +180,7 @@ namespace Inventario
             lblSubCuadreDiario.Text = oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.CuadreDiario);
             lblSubMovRetirosIngresos.Text = oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.MovimientosRetiroIngreso);
             lblSubImprimirCuadreDiario.Text = string.Format("Imprimir {0}", oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.CuadreDiario));
+            lblSubReporteComisionesVentasPorArticulo.Text = "Reporte Comisiones Ventas Por Articulo";
         }
 
         protected void imbSalir_Click(object sender, ImageClickEventArgs e)

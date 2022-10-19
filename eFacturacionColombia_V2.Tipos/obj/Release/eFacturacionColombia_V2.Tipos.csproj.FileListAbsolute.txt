@@ -1,0 +1,5 @@
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\eFacturacionColombia_V2.Tipos\bin\Release\eFacturacionColombia_V2.Tipos.dll
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\eFacturacionColombia_V2.Tipos\bin\Release\eFacturacionColombia_V2.Tipos.pdb
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\eFacturacionColombia_V2.Tipos\obj\Release\eFacturacionColombia_V2.Tipos.csproj.CoreCompileInputs.cache
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\eFacturacionColombia_V2.Tipos\obj\Release\eFacturacionColombia_V2.Tipos.dll
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\eFacturacionColombia_V2.Tipos\obj\Release\eFacturacionColombia_V2.Tipos.pdb

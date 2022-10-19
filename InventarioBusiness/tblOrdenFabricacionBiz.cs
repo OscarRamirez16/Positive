@@ -52,12 +52,12 @@ namespace InventarioBusiness
             }
         }
 
-        public List<tblOrdenFabricacionItem> ObtenerOrdenesFabricacionPorFiltros(DateTime FechaInicial, DateTime FechaFinal, string IdOrden, long IdUsuario)
+        public List<tblOrdenFabricacionItem> ObtenerOrdenesFabricacionPorFiltros(DateTime FechaInicial, DateTime FechaFinal, string IdOrden, long IdUsuario, long IdEmpresa)
         {
             try
             {
                 tblOrdenFabricacionDao oOrdD = new tblOrdenFabricacionDao(CadenaConexion);
-                return oOrdD.ObtenerOrdenesFabricacionPorFiltros(FechaInicial, FechaFinal, IdOrden, IdUsuario);
+                return oOrdD.ObtenerOrdenesFabricacionPorFiltros(FechaInicial, FechaFinal, IdOrden, IdUsuario, IdEmpresa);
             }
             catch (Exception ex)
             {

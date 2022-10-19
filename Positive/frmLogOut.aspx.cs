@@ -11,7 +11,7 @@ namespace Positive
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session.Remove("oUItem");
+            Session.Remove("Usuario");
             Response.Redirect("frmInicioSesion.aspx");
         }
     }

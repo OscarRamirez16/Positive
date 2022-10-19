@@ -7,6 +7,7 @@ using System.Configuration;
 using Idioma;
 using HQSFramework.Base;
 using System.Collections.Generic;
+using System.Data;
 
 namespace Inventario
 {
@@ -15,6 +16,13 @@ namespace Inventario
         private string CadenaConexion;
         private tblRol_PaginaItem oRolPagI = new tblRol_PaginaItem();
         private tblUsuarioItem oUsuarioI = new tblUsuarioItem();
+        private enum ComisionesEnum
+        {
+            IdVendedor = 0,
+            Vendedor = 1,
+            Total = 2,
+            Comision = 3
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -242,6 +250,20 @@ namespace Inventario
                         txtRemision.Text = oMovB.ObtenerValorRemisionesUsuario(oCuaI.idUsuarioCaja).ToString(Util.ObtenerFormatoDecimal());
                         txtCreditos.Text = oCuaB.ObtenerCreditos(oCuaI).ToString(Util.ObtenerFormatoDecimal());
                         txtTotalCuadre.Text = (oCuaI.SaldoInicial + TotalVentas).ToString(Util.ObtenerFormatoDecimal());
+                        tblEmpresaItem oEmpI = new tblEmpresaItem();
+                        tblEmpresaBusiness oEmpB = new tblEmpresaBusiness(CadenaConexion);
+                        oEmpI = oEmpB.ObtenerEmpresa(oUsuarioI.idEmpresa);
+                        if (oEmpI.MostrarComisionesArticulo)
+                        {
+                            divComisionesPorArticulos.Visible = true;
+                            tblDocumentoBusiness oDocB = new tblDocumentoBusiness(CadenaConexion);
+                            dgComisiones.DataSource = oDocB.ObtenerComisionesVentasPorArticuloAgrupadoPorVendedor(oCuaI.Fecha, DateTime.Now, oUsuarioI.idEmpresa);
+                            dgComisiones.DataBind();
+                        }
+                        else
+                        {
+                            divComisionesPorArticulos.Visible = false;
+                        }
                     }
                     else
                     {
@@ -340,6 +362,20 @@ namespace Inventario
                                     Remisiones = "<tr><td>Remisiones:</td><td style='text-align: right;'>NO</td></tr>";
                                 }
                             }
+                            string DetallesComisionesArticulo = "";
+                            if (oEmpI.MostrarComisionesArticulo)
+                            {
+                                DetallesComisionesArticulo = "<tr><td colspan='3' style='text-align:center;'>COMISIONES</td></tr>";
+                                tblDocumentoBusiness oDocB = new tblDocumentoBusiness(CadenaConexion);
+                                DataTable oListComisiones = oDocB.ObtenerComisionesVentasPorArticuloAgrupadoPorVendedor(oCuaI.Fecha, oCuaI.FechaCierre, oUsuarioI.idEmpresa);
+                                foreach (DataRow row in oListComisiones.Rows)
+                                {
+                                    DetallesComisionesArticulo = string.Format("<tr><td>{0}:</td><td style='text-align: right;'>{1}</td><td style='text-align: right;'>{2}</td></tr>", 
+                                        row[ComisionesEnum.Vendedor.GetHashCode()],
+                                        decimal.Parse(row[ComisionesEnum.Comision.GetHashCode()].ToString()).ToString(Util.ObtenerFormatoDecimal()),
+                                        decimal.Parse(row[ComisionesEnum.Total.GetHashCode()].ToString()).ToString(Util.ObtenerFormatoDecimal()));
+                                }
+                            }
                             string Mensaje = "";
                             Mensaje = string.Format("<div style='position:relative;font-family:arial;'>" +
                             "<div style='font-size: 18px; font-weight: bold; width: 300px; padding-top: 20px; text-align: center;'>{0}</div>" +
@@ -373,6 +409,7 @@ namespace Inventario
                             "<tr><td>Propinas:</td><td style='text-align: right;'>{23}</td></tr>" +
                             "<tr><td>Creditos:</td><td style='text-align: right;'>{21}</td></tr>" +
                             "<tr><td>Pagos de Creditos:</td><td style='text-align: right;'>{22}</td></tr></table>" +
+                            DetallesComisionesArticulo +
                             "<div style='font-size: 12px;font-weight: bold; padding-top: 5px; width: 300px;'>Observaciones: {16}</div>" +
                             "</div>", oEmpI.Nombre, oEmpI.Identificacion, oEmpI.Direccion, oEmpI.Telefono, oCuaI.SaldoInicial.ToString(Util.ObtenerFormatoDecimal()),
                             oCuaI.TotalIngresos.ToString(Util.ObtenerFormatoDecimal()), oCuaI.Efectivo.ToString(Util.ObtenerFormatoDecimal()),

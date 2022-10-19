@@ -52,7 +52,42 @@ namespace InventarioBusiness
         {
             this.cadenaConexion = cadenaConexion;
         }
-
+        public DataTable ObtenerCuentaCobro(DateTime FechaInicial, DateTime FechaFinal, long IdUsuario, long IdTercero, long IdEmpresa)
+        {
+            try
+            {
+                tblDocumentoDao oDocD = new tblDocumentoDao(cadenaConexion);
+                return oDocD.ObtenerCuentaCobro(FechaInicial, FechaFinal, IdUsuario, IdTercero, IdEmpresa);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public DataTable ObtenerComisionesVentasPorArticulo(DateTime FechaInicial, DateTime FechaFinal, long IdVendedor, long IdEmpresa)
+        {
+            try
+            {
+                tblDocumentoDao oDocD = new tblDocumentoDao(cadenaConexion);
+                return oDocD.ObtenerComisionesVentasPorArticulo(FechaInicial, FechaFinal, IdVendedor, IdEmpresa);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public DataTable ObtenerComisionesVentasPorArticuloAgrupadoPorVendedor(DateTime FechaInicial, DateTime FechaFinal, long IdEmpresa)
+        {
+            try
+            {
+                tblDocumentoDao oDocD = new tblDocumentoDao(cadenaConexion);
+                return oDocD.ObtenerComisionesVentasPorArticuloAgrupadoPorVendedor(FechaInicial, FechaFinal, IdEmpresa);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public DataTable ObtenerFacturasPendientesPorPago(long IdTercero)
         {
             try
@@ -85,6 +120,19 @@ namespace InventarioBusiness
             {
                 tblDocumentoDao oDocD = new tblDocumentoDao(cadenaConexion);
                 return oDocD.ActualizarCotizacion(oDocItem, oListDet);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public tblDocumentoItem ObtenerDevolucionPorReferencia(string NumeroFactura, long IdEmpresa)
+        {
+            try
+            {
+                tblDocumentoDao oDocD = new tblDocumentoDao(cadenaConexion);
+                return oDocD.ObtenerDevolucionPorReferencia(NumeroFactura, IdEmpresa);
             }
             catch (Exception ex)
             {
@@ -506,7 +554,7 @@ namespace InventarioBusiness
                 throw ex;
             }
         }
-        #region "Venta rapida"
+        #region Venta rapida
         public tblVentaRapidaItem ObtenerVentaRapida(long Id, long idEmpresa) {
             tblVentaRapidaDao oVRDao = new tblVentaRapidaDao(cadenaConexion);
             return oVRDao.ObtenerVentaRapida(Id, idEmpresa);
@@ -540,6 +588,25 @@ namespace InventarioBusiness
             //retornamos la nueva imagen
             return vBitmap;
         }
+        public List<CotizacionVentaRapidaItem> ObtenerCotizacionVentaRapida(long idCotizacion, long idEmpresa) {
+            CotizacionVentaRapidaDao oCPVR = new CotizacionVentaRapidaDao(cadenaConexion);
+            return oCPVR.ObtenerCotizacionVentaRapida(idCotizacion, idEmpresa);
+        }
+
+        public List<PedidoAbierto> ObtenerCotizacionVentaRapidaLista(long idUsuario) {
+            CotizacionVentaRapidaDao oCPVR = new CotizacionVentaRapidaDao(cadenaConexion);
+            return oCPVR.ObtenerCotizacionVentaRapidaLista(idUsuario);
+        }
+
+        public bool Eliminar(CotizacionVentaRapidaItem Item) {
+            CotizacionVentaRapidaDao oCPVR = new CotizacionVentaRapidaDao(cadenaConexion);
+            return oCPVR.Eliminar(Item);
+        }
+        public bool Guardar(CotizacionVentaRapidaItem Item)
+        {
+            CotizacionVentaRapidaDao oCPVR = new CotizacionVentaRapidaDao(cadenaConexion);
+            return oCPVR.Guardar(Item);
+        }
         #endregion
         #region  Entrega de Facturas
         public DataTable FacturasPendienteEntrega(long idEmpresa)
@@ -551,6 +618,20 @@ namespace InventarioBusiness
             tblDocumentoDao oDocumentoD = new tblDocumentoDao(cadenaConexion);
             return oDocumentoD.ActualizarFacturaEntrega(idDocumento);
         }
-            #endregion
+        #endregion
+        #region entrega pedidos cocina
+        public List<CotizacionCocinaItem> ObtenerCotizacionCocinaLista(long idEmpresa) {
+            CotizacionCocinaDao oCCDao = new CotizacionCocinaDao(cadenaConexion);
+            return oCCDao.ObtenerCotizacionCocinaLista(idEmpresa);
+        }
+        public bool EliminarCotizacionCocina(long idEmpresa) {
+            CotizacionCocinaDao oCCDao = new CotizacionCocinaDao(cadenaConexion);
+            return oCCDao.Eliminar(idEmpresa);
+        }
+        public bool Guardar(CotizacionCocinaItem Item) {
+            CotizacionCocinaDao oCCDao = new CotizacionCocinaDao(cadenaConexion);
+            return oCCDao.Guardar(Item);
+        }
+        #endregion
     }
 }

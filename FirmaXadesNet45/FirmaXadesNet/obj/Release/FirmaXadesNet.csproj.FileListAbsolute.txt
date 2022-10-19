@@ -1,0 +1,10 @@
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\FirmaXadesNet45\FirmaXadesNet\bin\Release\FirmaXadesNet.dll
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\FirmaXadesNet45\FirmaXadesNet\bin\Release\FirmaXadesNet.pdb
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\FirmaXadesNet45\FirmaXadesNet\bin\Release\BouncyCastle.Crypto.dll
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\FirmaXadesNet45\FirmaXadesNet\bin\Release\Microsoft.Xades.dll
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\FirmaXadesNet45\FirmaXadesNet\bin\Release\Microsoft.Xades.pdb
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\FirmaXadesNet45\FirmaXadesNet\obj\Release\FirmaXadesNet.csproj.AssemblyReference.cache
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\FirmaXadesNet45\FirmaXadesNet\obj\Release\FirmaXadesNet.csproj.CoreCompileInputs.cache
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\FirmaXadesNet45\FirmaXadesNet\obj\Release\FirmaXadesNet.csproj.CopyComplete
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\FirmaXadesNet45\FirmaXadesNet\obj\Release\FirmaXadesNet.dll
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\FirmaXadesNet45\FirmaXadesNet\obj\Release\FirmaXadesNet.pdb

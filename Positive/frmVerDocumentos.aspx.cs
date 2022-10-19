@@ -31,13 +31,13 @@ namespace Inventario
             Observaciones = 8,
             txtObservaciones = 9,
             seleccionar = 10,
-            Anular = 11,
-            Imprimir = 12,
-            ImprimirFormal = 13
+            //Anular = 11,
+            Imprimir = 11,
+            ImprimirFormal = 12
         }
-
         protected void Page_Load(object sender, EventArgs e)
         {
+            MostrarMensaje();
             try
             {
                 oUsuarioI = (tblUsuarioItem)(Session["Usuario"]);
@@ -80,8 +80,8 @@ namespace Inventario
             {
                 MostrarMensaje("Error", string.Format("No se pudo cargar la pagina. {0}", ex.Message));
             }
+            
         }
-
         public void CargarOpcionDocumento(Traductor oCIdioma, Idioma.Traductor.IdiomaEnum Idioma)
         {
             if (tblTipoDocumentoItem.TipoDocumentoEnum.venta.GetHashCode().ToString() == Request.QueryString["opcionDocumento"])
@@ -147,8 +147,14 @@ namespace Inventario
                 PaginaID = SeguridadBusiness.paginasEnum.CuentaCobro;
                 Documento = "Cuenta de Cobro";
             }
+            if (tblTipoDocumentoItem.TipoDocumentoEnum.DocumentoElectronico.GetHashCode().ToString() == Request.QueryString["opcionDocumento"])
+            {
+                lblTipoDocumento.Text = "Documento Electrónico";
+                hddTipoDocumento.Value = "11";
+                PaginaID = SeguridadBusiness.paginasEnum.VerVentas;
+                Documento = "Documento Electrónico";
+            }
         }
-
         private void ConfiguracionIdioma()
         {
             Traductor oCIdioma = new Traductor();
@@ -181,7 +187,6 @@ namespace Inventario
             lblIdentificacion.Text = oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.Identificacion);
             CargarOpcionDocumento(oCIdioma, Idioma);
         }
-
         public void CargarDocumentos()
         {
             try
@@ -195,7 +200,6 @@ namespace Inventario
                 throw ex;
             }
         }
-
         protected void dgDocumentos_EditCommand(object source, DataGridCommandEventArgs e)
         {
             if (oRolPagI.Leer)
@@ -207,17 +211,14 @@ namespace Inventario
                 MostrarMensaje("Error", "El usuario no posee permisos pata esta operación");
             }
         }
-
         protected void btnBuscar_Click(object sender, ImageClickEventArgs e)
         {
             CargarDocumentos();
         }
-
         protected void btnCancelar_Click(object sender, ImageClickEventArgs e)
         {
             Response.Redirect("frmMantenimientos.aspx");
         }
-
         protected void dgDocumentos_ItemCommand(object source, DataGridCommandEventArgs e)
         {
             if (e.CommandName == "Imprimir")
@@ -317,81 +318,84 @@ namespace Inventario
             {
                 Response.Redirect(string.Format("frmImprimirDocumento.aspx?IdDocumento={0}&TipoDocumento={1}", long.Parse(e.Item.Cells[dgDocumentosEnum.idDocumento.GetHashCode()].Text), long.Parse(hddTipoDocumento.Value)));
             }
-            if (e.CommandName == "Anular")
+            else if (e.CommandName == "AnularFactura" && hddTipoDocumento.Value == "1")
             {
-                try
+                SeguridadBusiness oSegB = new SeguridadBusiness(cadenaConexion);
+                oRolPagI = oSegB.TraerPermisosPaginasPorUsuario(oUsuarioI.idUsuario, oUsuarioI.idEmpresa, short.Parse(SeguridadBusiness.paginasEnum.AnularFacturaVenta.GetHashCode().ToString()));
+                if (oRolPagI.Insertar && !ValidarFacturaConDevolucion(e.Item.Cells[dgDocumentosEnum.numDocumento.GetHashCode()].Text))
                 {
-                    if(e.Item.Cells[dgDocumentosEnum.idEstado.GetHashCode()].Text == tblDocumentoBusiness.EstadoDocumentoEnum.Abierto.GetHashCode().ToString() || e.Item.Cells[dgDocumentosEnum.idEstado.GetHashCode()].Text == tblDocumentoBusiness.EstadoDocumentoEnum.Pagado.GetHashCode().ToString())
+                    if (!this.ClientScript.IsClientScriptBlockRegistered("AnularFactura"))
                     {
-                        tblDocumentoBusiness oDocB = new tblDocumentoBusiness(cadenaConexion);
-                        SeguridadBusiness oSegB = new SeguridadBusiness(cadenaConexion);
-                        if (hddTipoDocumento.Value == "1")
+                        this.ClientScript.RegisterClientScriptBlock(this.GetType(), "AnularFactura", $"AnularFacturaVenta({e.Item.Cells[dgDocumentosEnum.idDocumento.GetHashCode()].Text});", true);
+                    }
+                }
+                else
+                {
+                    if (ValidarCajaAbierta() && !ValidarFacturaConDevolucion(e.Item.Cells[dgDocumentosEnum.numDocumento.GetHashCode()].Text))
+                    {
+                        if (!this.ClientScript.IsClientScriptBlockRegistered("AnularFactura"))
                         {
-                            if(oSegB.TraerPermisosPaginasPorUsuario(oUsuarioI.idUsuario, oUsuarioI.idEmpresa, SeguridadBusiness.paginasEnum.AnularFacturaVenta.GetHashCode()).Insertar)
-                            {
-                                if (oDocB.CambiarEstadoDocumento(long.Parse(e.Item.Cells[dgDocumentosEnum.idDocumento.GetHashCode()].Text), tblDocumentoBusiness.EstadoDocumentoEnum.Anular.GetHashCode(), tblDocumentoBusiness.TipoDocumentoEnum.Venta.GetHashCode()))
-                                {
-                                    MostrarMensaje("Exito", "El documento se anulo con exito.");
-                                    CargarDocumentos();
-                                }
-                                else
-                                {
-                                    MostrarMensaje("Error", "El documento no se pudo anular");
-                                }
-                            }
-                            else
-                            {
-                                MostrarMensaje("Error", "El usuario no posee permisos para esta operación");
-                            }
-                        }
-                        if (hddTipoDocumento.Value == "2")
-                        {
-                            if (oSegB.TraerPermisosPaginasPorUsuario(oUsuarioI.idUsuario, oUsuarioI.idEmpresa, SeguridadBusiness.paginasEnum.AnularFacturaCompra.GetHashCode()).Insertar)
-                            {
-                                if (oDocB.CambiarEstadoDocumento(long.Parse(e.Item.Cells[dgDocumentosEnum.idDocumento.GetHashCode()].Text), tblDocumentoBusiness.EstadoDocumentoEnum.Anular.GetHashCode(), tblDocumentoBusiness.TipoDocumentoEnum.Compra.GetHashCode()))
-                                {
-                                    MostrarMensaje("Exito", "El documento se anulo con exito.");
-                                    CargarDocumentos();
-                                }
-                                else
-                                {
-                                    MostrarMensaje("Error", "El documento no se pudo anular");
-                                }
-                            }
-                            else
-                            {
-                                MostrarMensaje("Error", "El usuario no posee permisos para esta operación");
-                            }
-                        }
-                        if (hddTipoDocumento.Value == "3")
-                        {
-                            if (oSegB.TraerPermisosPaginasPorUsuario(oUsuarioI.idUsuario, oUsuarioI.idEmpresa, SeguridadBusiness.paginasEnum.Cotizaciones.GetHashCode()).Actualizar)
-                            {
-                                if (oDocB.CambiarEstadoDocumento(long.Parse(e.Item.Cells[dgDocumentosEnum.idDocumento.GetHashCode()].Text), tblDocumentoBusiness.EstadoDocumentoEnum.Anular.GetHashCode(), tblDocumentoBusiness.TipoDocumentoEnum.Cotizaciones.GetHashCode()))
-                                {
-                                    MostrarMensaje("Exito", "El documento se anulo con exito.");
-                                    CargarDocumentos();
-                                }
-                                else
-                                {
-                                    MostrarMensaje("Error", "El documento no se pudo anular");
-                                }
-                            }
-                            else
-                            {
-                                MostrarMensaje("Error", "El usuario no posee permisos para esta operación");
-                            }
+                            this.ClientScript.RegisterClientScriptBlock(this.GetType(), "AnularFactura", $"AnularFacturaVenta({e.Item.Cells[dgDocumentosEnum.idDocumento.GetHashCode()].Text});", true);
                         }
                     }
                     else
                     {
-                        MostrarMensaje("Error","El documento ya esta en estado anulado.");
+                        MostrarMensaje("Anular Factura", "El usuario no tiene caja abierta o la factura ya tiene una DV");
                     }
                 }
-                catch (Exception ex)
+            }
+        }
+        private bool ValidarFacturaConDevolucion(string NumeroFactuta)
+        {
+            try
+            {
+                tblDocumentoBusiness oDocB = new tblDocumentoBusiness(cadenaConexion);
+                if (oDocB.ObtenerDevolucionPorReferencia(NumeroFactuta, oUsuarioI.idEmpresa).idDocumento > 0)
                 {
-                    MostrarMensaje("Error", string.Format("El documento no se pudo anular. {0}", ex.Message));
+                    return true;
                 }
+                else
+                {
+                    return false;
+                }
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+        private bool ValidarCajaAbierta()
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(Request.QueryString["consulta"]) || Request.QueryString["TipoDocumento"] == tblDocumentoBusiness.TipoDocumentoEnum.Venta.GetHashCode().ToString())
+                {
+                    tblCuadreCajaBusiness oCuaB = new tblCuadreCajaBusiness(cadenaConexion);
+                    tblCuadreCajaItem oCuaI = new tblCuadreCajaItem();
+                    oCuaI.idEmpresa = oUsuarioI.idEmpresa;
+                    oCuaI.idUsuarioCaja = oUsuarioI.idUsuario;
+                    oCuaI.Estado = true;
+                    oCuaI = oCuaB.ObtenerCuadreCajaListaPorUsuario(oCuaI);
+                    if (oCuaI.idCuadreCaja == 0)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        tblCajaItem oCajaI = new tblCajaItem();
+                        tblCajaBusiness oCajaB = new tblCajaBusiness(cadenaConexion);
+                        oCajaI = oCajaB.ObtenerCajaPorID(oCuaI.idCaja);
+                        return true;
+                    }
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            catch
+            {
+                return false;
             }
         }
     }

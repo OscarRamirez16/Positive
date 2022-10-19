@@ -7,11 +7,22 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Inventario {
-    
-    
-    public partial class frmVerConciliacion {
-        
+namespace Inventario
+{
+
+
+    public partial class frmVerConciliacion
+    {
+
+        /// <summary>
+        /// Control smMovimientos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager smMovimientos;
+
         /// <summary>
         /// Control txtFechaInicial.
         /// </summary>
@@ -20,7 +31,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtFechaInicial;
-        
+
         /// <summary>
         /// Control txtFechaFinal.
         /// </summary>
@@ -29,7 +40,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtFechaFinal;
-        
+
         /// <summary>
         /// Control txtCliente.
         /// </summary>
@@ -38,7 +49,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCliente;
-        
+
         /// <summary>
         /// Control txtIdentificacion.
         /// </summary>
@@ -47,7 +58,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtIdentificacion;
-        
+
         /// <summary>
         /// Control btnBuscar.
         /// </summary>
@@ -56,7 +67,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton btnBuscar;
-        
+
         /// <summary>
         /// Control btnCancelar.
         /// </summary>
@@ -65,7 +76,7 @@ namespace Inventario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton btnCancelar;
-        
+
         /// <summary>
         /// Control rvPos.
         /// </summary>

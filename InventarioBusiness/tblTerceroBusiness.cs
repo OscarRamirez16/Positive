@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using InventarioItem;
 using InventarioDao;
 using System.Data;
+using System.IO;
+using System.Text;
 
 namespace InventarioBusiness
 {
@@ -20,7 +19,54 @@ namespace InventarioBusiness
             Nit = 1,
             Cedula = 2
         }
-
+        public DataTable ObtenerTipoIdentificacionDIAN()
+        {
+            try
+            {
+                tblTerceroDao oTerD = new tblTerceroDao(cadenaConexion);
+                return oTerD.ObtenerTipoIdentificacionDIAN();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public DataTable ObtenerTipoContribuyente()
+        {
+            try
+            {
+                tblTerceroDao oTerD = new tblTerceroDao(cadenaConexion);
+                return oTerD.ObtenerTipoContribuyente();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public DataTable ObtenerRegimenFiscal()
+        {
+            try
+            {
+                tblTerceroDao oTerD = new tblTerceroDao(cadenaConexion);
+                return oTerD.ObtenerRegimenFiscal();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public DataTable ObtenerResponsabilidadFiscal()
+        {
+            try
+            {
+                tblTerceroDao oTerD = new tblTerceroDao(cadenaConexion);
+                return oTerD.ObtenerResponsabilidadFiscal();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public tblTerceroBusiness(string cadenaConexion)
         {
             this.cadenaConexion = cadenaConexion;
@@ -176,5 +222,73 @@ namespace InventarioBusiness
             tblGrupoClienteDao oGCDao = new tblGrupoClienteDao(cadenaConexion);
             return oGCDao.Guardar(Item);
         }
+
+        private enum PlantillaColumnasEnum { 
+            TipoTercero =0,
+            TipoIdentificacion = 1,
+            Identificacion = 2,
+            Grupo = 3,
+            Nombre = 4,
+            Direccion = 5,
+            Telefonos = 6,
+            Mail = 7,
+            Ciudad = 8
+        }
+
+        public string LeerTercerosArchivo(Stream fileStream, List<tblTerceroItem> terceros, long idEmpresa, char Delimitador)
+        {
+            try
+            {
+                string Error = "";
+                using (StreamReader sr = new StreamReader(fileStream, Encoding.UTF7))
+                {
+                    string linea = null;
+                    bool PrimeraLinea = true;
+                    bool blnError = false;
+                    int IdLinea = 2;
+                    while (((linea = sr.ReadLine()) != null) && !blnError)
+                    {
+                        if (PrimeraLinea)
+                        {
+                            if (linea.Split(Delimitador).Length < 9)
+                            {
+                                blnError = true;
+                                Error = "El numero de columnas del archivo no es valido...";
+                            }
+                            PrimeraLinea = false;
+                        }
+                        else
+                        {
+                            if (linea.Split(Delimitador)[PlantillaColumnasEnum.TipoTercero.GetHashCode()] != "" && linea.Split(Delimitador)[PlantillaColumnasEnum.Nombre.GetHashCode()] != "")
+                            {
+                                tblTerceroItem oTItem = new tblTerceroItem();
+                                oTItem.TipoTercero = linea.Split(Delimitador)[PlantillaColumnasEnum.TipoTercero.GetHashCode()];
+                                oTItem.idTipoIdentificacion = linea.Split(Delimitador)[PlantillaColumnasEnum.TipoIdentificacion.GetHashCode()];
+                                oTItem.Identificacion = linea.Split(Delimitador)[PlantillaColumnasEnum.Identificacion.GetHashCode()];
+                                oTItem.idGrupoCliente = long.Parse(linea.Split(Delimitador)[PlantillaColumnasEnum.Grupo.GetHashCode()]);
+                                oTItem.Nombre = linea.Split(Delimitador)[PlantillaColumnasEnum.Nombre.GetHashCode()];
+                                oTItem.Direccion = linea.Split(Delimitador)[PlantillaColumnasEnum.Direccion.GetHashCode()];
+                                oTItem.Telefono = linea.Split(Delimitador)[PlantillaColumnasEnum.Telefonos.GetHashCode()];
+                                oTItem.Mail = linea.Split(Delimitador)[PlantillaColumnasEnum.Mail.GetHashCode()];
+                                oTItem.idCiudad = short.Parse(linea.Split(Delimitador)[PlantillaColumnasEnum.Ciudad.GetHashCode()]);
+                                oTItem.idEmpresa = idEmpresa;
+                                terceros.Add(oTItem);
+                                IdLinea++;
+                            }
+                            else
+                            {
+                                blnError = true;
+                            }
+                        }
+                    }
+                }
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }

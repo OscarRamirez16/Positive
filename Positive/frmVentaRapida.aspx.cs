@@ -16,65 +16,91 @@ namespace Inventario
         private string CadenaConexion;
         private tblRol_PaginaItem oRolPagI = new tblRol_PaginaItem();
         tblUsuarioItem oUsuarioI = new tblUsuarioItem();
+        private long idDocumento = 0;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            CadenaConexion = ConfigurationManager.ConnectionStrings["inventario"].ConnectionString;
-            oUsuarioI = (tblUsuarioItem)(Session["Usuario"]);
-            if (!IsPostBack) {
-                if (int.TryParse(Request.QueryString["IdTipoDocumento"], out int IdTipoDocumento))
+            try
+            {
+                long.TryParse(Request.QueryString["idDocumento"], out idDocumento);
+                CadenaConexion = ConfigurationManager.ConnectionStrings["inventario"].ConnectionString;
+                oUsuarioI = (tblUsuarioItem)(Session["Usuario"]);
+                if (!IsPostBack)
                 {
-                    switch ((tblDocumentoBusiness.TipoDocumentoEnum)IdTipoDocumento)
+                    if (int.TryParse(Request.QueryString["IdTipoDocumento"], out int IdTipoDocumento))
                     {
-                        case tblDocumentoBusiness.TipoDocumentoEnum.Venta:
-                            rdbFacturaVenta.Checked = true;
-                            break;
-                        case tblDocumentoBusiness.TipoDocumentoEnum.Remision:
-                            rdbRemision.Checked = true;
-                            break;
-                        default:
-                            rdbCotizacion.Checked = true;
-                            break;
+                        switch ((tblDocumentoBusiness.TipoDocumentoEnum)IdTipoDocumento)
+                        {
+                            case tblDocumentoBusiness.TipoDocumentoEnum.Venta:
+                                rdbFacturaVenta.Checked = true;
+                                break;
+                            case tblDocumentoBusiness.TipoDocumentoEnum.Remision:
+                                rdbRemision.Checked = true;
+                                break;
+                            default:
+                                rdbCotizacion.Checked = true;
+                                rdbFacturaVenta.Enabled = false;
+                                rdbRemision.Enabled = false;
+                                rdbCotizacion.Enabled = false;
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        rdbFacturaVenta.Checked = true;
                     }
                 }
-                else
+                if (oUsuarioI != null)
                 {
-                    rdbFacturaVenta.Checked = true;
+                    SeguridadBusiness oSegB = new SeguridadBusiness(CadenaConexion);
+                    oRolPagI = oSegB.TraerPermisosPaginasPorUsuario(oUsuarioI.idUsuario, oUsuarioI.idEmpresa, short.Parse(SeguridadBusiness.paginasEnum.VentaRapida.GetHashCode().ToString()));
+                    if (oRolPagI.Leer)
+                    {
+                        if (ValidarCajaAbierta() || rdbCotizacion.Checked)
+                        {
+                            InicializarControles();
+                            ConfiguracionIdioma();
+                            string strScript = "$(document).ready(function(){";
+                            if (!oUsuarioI.ModificaPrecio)
+                            {
+                                strScript = string.Format("{0} $('#txtPrecioArticulo_0').prop('disabled', true);", strScript);
+                            }
+                            strScript = string.Format("{0} menu();", strScript);
+                            strScript = string.Format("{0} EstablecerAutoCompleteCliente('{1}','Ashx/Tercero.ashx','{2}','','','');", strScript, txtTercero.ClientID, hddIdCliente.ClientID);
+                            if (rdbCotizacion.Checked && idDocumento > 0)
+                            {
+                                List<CotizacionVentaRapidaItem> items = (new tblDocumentoBusiness(CadenaConexion)).ObtenerCotizacionVentaRapida(idDocumento, oUsuarioI.idEmpresa);
+                                if (items != null && items.Count > 0)
+                                {
+                                    foreach (CotizacionVentaRapidaItem item in items)
+                                    {
+                                        strScript = string.Format("{0} AdicionarVentaRapida({1}, {2}, '{3}', '{4}', {5}, {6}, 1000, '{7}', {8}, true);", strScript, item.idVentaRapida, item.Articulo, item.Descripcion, item.Cantidad, item.ValorIVA, item.Precio, hddItems.ClientID, 0);
+                                    }
+                                }
+                            }
+                            strScript = string.Format("{0}}});", strScript);
+                            if (!this.Page.ClientScript.IsClientScriptBlockRegistered("InicializarControlesScript"))
+                            {
+                                this.Page.ClientScript.RegisterClientScriptBlock(this.Page.GetType(), "InicializarControlesScript", strScript, true);
+                            }
+                        }
+                        else
+                        {
+                            MostrarAlerta(0, "Error", "El usuario no tiene una caja abierta.");
+                            btnGuardar.Visible = false;
+                        }
+                    }
+                    else
+                    {
+                        Response.Redirect("frmMantenimientos.aspx");
+                    }
                 }
             }
-            if (oUsuarioI != null)
+            catch(Exception ex)
             {
-                SeguridadBusiness oSegB = new SeguridadBusiness(CadenaConexion);
-                oRolPagI = oSegB.TraerPermisosPaginasPorUsuario(oUsuarioI.idUsuario, oUsuarioI.idEmpresa, short.Parse(SeguridadBusiness.paginasEnum.VentaRapida.GetHashCode().ToString()));
-                if (oRolPagI.Leer)
-                {
-                    if (ValidarCajaAbierta())
-                    {
-                        InicializarControles();
-                        ConfiguracionIdioma();
-                        string strScript = "$(document).ready(function(){";
-                        if (!oUsuarioI.ModificaPrecio)
-                        {
-                            strScript = string.Format("{0} $('#txtPrecioArticulo_0').prop('disabled', true);", strScript);
-                        }
-                        strScript = string.Format("{0} menu();", strScript);
-                        strScript = string.Format("{0} EstablecerAutoCompleteCliente('{1}','Ashx/Tercero.ashx','{2}','','','');", strScript, txtTercero.ClientID, hddIdCliente.ClientID);
-                        strScript = string.Format("{0}}});", strScript);
-                        if (!this.Page.ClientScript.IsClientScriptBlockRegistered("InicializarControlesScript")) {
-                            this.Page.ClientScript.RegisterClientScriptBlock(this.Page.GetType(), "InicializarControlesScript", strScript, true);
-                        }
-                    }
-                    else {
-                        MostrarMensaje("Error", "El usuario no tiene una caja abierta.");
-                        btnGuardar.Visible = false;
-                    }
-                }
-                else {
-                    Response.Redirect("frmMantenimientos.aspx");
-                }
+                MostrarAlerta(0, "Error", ex.Message.Replace(Environment.NewLine, " "));
             }
         }
-
         private bool ValidarCajaAbierta()
         {
             try
@@ -99,7 +125,6 @@ namespace Inventario
                 return false;
             }
         }
-
         private void InicializarControles()
         {
             btnCancelar.Attributes.Add("onclick", string.Format("LimpiarFacturaVentaRapida('{0}');return false;",hddItems.ClientID));
@@ -116,7 +141,6 @@ namespace Inventario
             PintarArticulosCard();
             
         }
-
         private void ConfiguracionIdioma()
         {
             Traductor oCIdioma = new Traductor();
@@ -209,7 +233,6 @@ namespace Inventario
             navDiv = string.Format("{0}</ul>", navDiv);
             divItems.InnerHtml = string.Format("{0}{1}", navDiv, sbHTML.ToString());
         }
-
         private string ObtenerVentaRapidaHTML(tblVentaRapidaItem oVRItem)
         {
             Traductor oCIdioma = new Traductor();
@@ -232,10 +255,10 @@ namespace Inventario
             sbVRHtml.AppendLine(string.Format("<br/><span>{0}:&nbsp;<b id='{2}'>{1:0.00}</b></span><br/>", oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.Cantidad), oVRItem.Cantidad, oVRItem.idVentaRapida));
             sbVRHtml.AppendLine(string.Format("<span>{0}:&nbsp;<b>{1:0.00}</b></span>", oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.Precio), oVRItem.Precio));
             sbVRHtml.AppendLine("</div>");
+            sbVRHtml.AppendLine(string.Format("<div class = \"vrFacturar\" onclick=\"FaturarVentaRapida({0},'{1}','{2}','{3:0.00}','{4:0.00}','{5:0.00}','{6:0.00}','{7}','{8}');\">", oVRItem.idVentaRapida, oVRItem.idArticulo, oVRItem.Articulo, oVRItem.Cantidad, oVRItem.ValorIVA, oVRItem.Precio, oVRItem.Stock, hddItems.ClientID, oUsuarioI.Impoconsumo));
+            sbVRHtml.AppendLine("<p>Facturar</p></div>");
             return sbVRHtml.ToString();
         }
-
-
         private void PintarArticulosCard()
         {
             tblDocumentoBusiness oDBiz = new tblDocumentoBusiness(CadenaConexion);
@@ -307,7 +330,6 @@ namespace Inventario
             navDiv = string.Format("{0}</ul>", navDiv);
             divItems.InnerHtml = string.Format("{0}{1}", navDiv, sbHTML.ToString());
         }
-
         private string ObtenerVentaRapidaCardHTML(tblVentaRapidaItem oVRItem)
         {
             Traductor oCIdioma = new Traductor();
@@ -325,19 +347,19 @@ namespace Inventario
             sbVRHtml.AppendLine("<div class = \"containerCard\">");
             sbVRHtml.AppendLine(string.Format("<input type='hidden' id='hdd{0}Stock' value='{1}'/>", oVRItem.idVentaRapida, oVRItem.Stock));
             sbVRHtml.AppendLine(string.Format("<p class=\"title\"><b>{0}</b></p>", oVRItem.Nombre));
-            sbVRHtml.AppendLine(string.Format("<p>{0}:&nbsp;<b>{1:N0}</b></p>", oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.Disponibles), oVRItem.Stock));
+            sbVRHtml.AppendLine(string.Format("<p>{0}:&nbsp;<b>{1:N3}</b></p>", oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.Disponibles), oVRItem.Stock));
             sbVRHtml.AppendLine(string.Format("<p>{0}:&nbsp;<b id='{2}'>{1:N0}</b></p>", oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.Cantidad), oVRItem.Cantidad, oVRItem.idVentaRapida));
             sbVRHtml.AppendLine(string.Format("<p>{0}:&nbsp;<b>{1:C0}</b></p>", oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.Precio), oVRItem.Precio));
             sbVRHtml.AppendLine("</div>");
             sbVRHtml.AppendLine("</div>");
+            sbVRHtml.AppendLine(string.Format("<div class = \"vrFacturar\" onclick=\"FaturarVentaRapida({0},'{1}','{2}','{3:0.00}','{4:0.00}','{5:0.00}','{6:0.00}','{7}','{8}');\">", oVRItem.idVentaRapida, oVRItem.idArticulo, oVRItem.Articulo, oVRItem.Cantidad, oVRItem.ValorIVA, oVRItem.Precio, oVRItem.Stock, hddItems.ClientID, oUsuarioI.Impoconsumo));
+            sbVRHtml.AppendLine("<p>Facturar</p></div>");
             return sbVRHtml.ToString();
         }
-
         protected void btnCancelar_Click(object sender, ImageClickEventArgs e)
         {
             Response.Redirect("frmVentaRapida.aspx");
         }
-
         protected void btnGuardar_Click(object sender, ImageClickEventArgs e)
         {
             try
@@ -354,6 +376,7 @@ namespace Inventario
                 oDocI.Direccion = oTerI.Direccion;
                 oDocI.idCiudad = oUsuarioI.idCiudad;
                 oDocI.NombreTercero = txtTercero.Text;
+                oDocI.idDocumento = idDocumento;
                 if (string.IsNullOrEmpty(txtObservaciones.Text))
                 {
                     oDocI.Observaciones = "Venta rapida";
@@ -380,6 +403,7 @@ namespace Inventario
                 }
                 else {
                     oDocI.IdTipoDocumento = tblDocumentoBusiness.TipoDocumentoEnum.Cotizaciones.GetHashCode();
+                    oDocI.TipoDocumento = tblTipoDocumentoItem.TipoDocumentoEnum.cotizacion;
                     TipoDocumento = "Cotización";
                 }
                 oDocI.EnCuadre = false;
@@ -391,7 +415,8 @@ namespace Inventario
                     MostrarMensaje("Error", "No se pudo guardar la venta rapida.");
                 }
                 else {
-                    ImprimirFactura(oDocI.idDocumento, TipoDocumento, oDocI.IdTipoDocumento);
+                    Response.Redirect($"frmImprimirPOS.aspx?idDocumento={oDocI.idDocumento}&IdTipoDocumento={oDocI.IdTipoDocumento}");
+                    //Response.Write($"<script>window.open('frmImprimirPOS.aspx?idDocumento={oDocI.idDocumento}&IdTipoDocumento={oDocI.IdTipoDocumento}','_blank');</script>");
                     hddItems.Value = "";
                     hddValorTotal.Value = "0";
                     hddValorIVA.Value = "0";
@@ -402,70 +427,6 @@ namespace Inventario
                 MostrarMensaje("Error", string.Format("No se pudo registrar la venta rapida. {0}", ex.Message.Replace("'","")));
             }
         }
-
-        private void ImprimirFactura(long IdFacturaVenta, string TipoDocumento, long IdTipoDocumento) {
-            tblEmpresaItem oEmpI = new tblEmpresaItem();
-            tblEmpresaBusiness oEmpB = new tblEmpresaBusiness(CadenaConexion);
-            tblDocumentoBusiness oDBiz = new tblDocumentoBusiness(CadenaConexion);
-            tblArticuloBusiness oABiz = new tblArticuloBusiness(CadenaConexion);
-            tblDocumentoItem oDocI = oDBiz.traerDocumentoPorId(IdTipoDocumento, IdFacturaVenta);
-            tblTerceroBusiness oTBiz = new tblTerceroBusiness(CadenaConexion);
-            tblTerceroItem oTItem = oTBiz.ObtenerTercero(oDocI.idTercero, oDocI.idEmpresa);
-            oEmpI = oEmpB.ObtenerEmpresa(oUsuarioI.idEmpresa);
-            string Mensaje = "";
-            string Detalles = "";
-            Detalles = "<table border='1' style='width:100%'><tr><td align='center'>Cant</td><td align='center'>Descripcion</td><td align='center'>Valor</td></tr>";
-            foreach (tblDetalleDocumentoItem Item in oDocI.DocumentoLineas)
-            {
-                Detalles = Detalles + "<tr><td align='center'>" + Item.Cantidad + "</td>";
-                Detalles = Detalles + "<td>" + Item.Articulo.Replace("\"", "") + "</td>";
-                Detalles = Detalles + "<td  align='right' style='width: 20%'>" + (Item.ValorUnitario * Item.Cantidad).ToString(Util.ObtenerFormatoDecimal()) + "</td></tr>";
-            }
-            Detalles = Detalles + "</table>";
-            string FormaPago = "";
-            FormaPago = "<table border='1' style='width:100%'><tr><td align='center'>Forma</td><td align='center'>Valor</td></tr>";
-            foreach (tblTipoPagoItem Item in oDocI.FormasPago)
-            {
-                FormaPago = FormaPago + "<tr><td>" + Item.FormaPago + "</td>";
-                FormaPago = FormaPago + "<td align='right'>" + Item.ValorPago.ToString(Util.ObtenerFormatoDecimal()) + "</td></tr>";
-            }
-            FormaPago = FormaPago + "</table>";
-            Mensaje = string.Format("<div style='position:relative;font-family:arial;'>" +
-            "<div style='font-size: 18px;font-weight: bold; padding-top: 0px; width: 300px; text-align: center;'>{0}</div>" +
-            "<div style='font-size: 12px;font-weight: bold; padding-top: 2px; width: 300px; text-align: center;'>Nit: {1}</div>" +
-            "<div style='font-size: 12px;font-weight: bold; padding-top: 2px; width: 300px; text-align: center;'>Direcci&oacute;n: {2}</div>" +
-            "<div style='font-size: 12px;font-weight: bold; padding-top: 2px; width: 300px; text-align: center;'>Telefono: {3}</div>" +
-            "<div style='font-size: 12px;font-weight: bold; padding-top: 2px; width: 300px; text-align: center;'>{4}</div>" +
-            "<div style='font-size: 12px;font-weight: bold; padding-top: 2px; width: 300px;'>{5}</div>" +
-            "<div style='font-size: 20px;font-weight: bold; padding-top: 2px; width: 300px;'>Numero Documento: {6}</div>" +
-            "<div style='font-size: 12px;font-weight: bold; padding-top: 2px; width: 300px;'>{7}</div>" +
-            "<div style='font-size: 12px;font-weight: bold; padding-top: 2px; width: 300px;'>Tercero: {8}</div>" +
-            "<div style='font-size: 12px;font-weight: bold; padding-top: 2px; width: 300px;'>Identificaci&oacute;n: {9}</div>" +
-            "<div style='font-size: 12px;font-weight: bold; padding-top: 2px; width: 300px; text-align: center; width:300px;'>DETALLES</div>" +
-            "<div style='font-size: 12px;font-weight: bold; padding-top: 2px; width: 300px;'>{10}</div>" +
-            "<div style='font-size: 12px;font-weight: bold; padding-top: 2px; width: 300px; text-align: right;'>Antes de IVA: {11}</div>" +
-            "<div style='font-size: 12px;font-weight: bold; padding-top: 2px; width: 300px; text-align: right;'>Valor IVA: {12}</div>" +
-            "<div style='font-size: 12px;font-weight: bold; padding-top: 2px; width: 300px; text-align: right;'>Impoconsumo: {19}</div>" +
-            "<div style='font-size: 14px;font-weight: bold; padding-top: 2px; width: 300px; text-align: right;'>Total a pagar: {13}</div>" +
-            "<div style='font-size: 10px;font-weight: bold; padding-top: 2px; width: 300px; text-align: center;'>Formas de Pago</div>" +
-            "<div style='font-size: 12px;font-weight: bold; padding-top: 2px; width: 300px;'>{17}</div>" +
-            "<div style='font-size: 14px;font-weight: bold; padding-top: 2px; width: 300px; text-align: right;'>Cambio: {18}</div>" +
-            "<div style='font-size: 12px;font-weight: bold; padding-top: 2px; width: 300px;'>Vende: {14}</div>" +
-            "<div style='font-size: 12px;font-weight: bold; padding-top: 2px; width: 300px;'>Observaciones: {15}</div>" +
-            "<div style='font-size: 12px;font-weight: bold; padding-top: 2px; width: 300px;'>{16}</div>" +
-            "</div>", oEmpI.Nombre, oEmpI.Identificacion, oEmpI.Direccion, oEmpI.Telefono, TipoDocumento, oEmpI.TextoEncabezadoFactura,
-            oDocI.NumeroDocumento, oDocI.Fecha, oDocI.NombreTercero, oTItem.Identificacion,
-            Detalles, (oDocI.TotalDocumento - oDocI.TotalIVA).ToString(Util.ObtenerFormatoDecimal()),
-            oDocI.TotalIVA.ToString(Util.ObtenerFormatoDecimal()), oDocI.TotalDocumento.ToString(Util.ObtenerFormatoDecimal()),
-            oUsuarioI.Usuario, oDocI.Observaciones, oEmpI.TextoPieFactura, FormaPago, oDocI.Devuelta.ToString(Util.ObtenerFormatoDecimal()),
-            oDocI.Impoconsumo.ToString(Util.ObtenerFormatoDecimal()));
-            string strScript = string.Format("jQuery(document).ready(function(){{ ImprimirDocumentoVentaRapida(\"{0}\");}});", Mensaje);
-            if (!Page.ClientScript.IsClientScriptBlockRegistered("InicializarControlesScriptImprimir"))
-            {
-                Page.ClientScript.RegisterClientScriptBlock(GetType(), "InicializarControlesScriptImprimir", strScript, true);
-            }
-        }
-
         protected void btnActualizarPrecios_Click(object sender, EventArgs e)
         {
 

@@ -38,6 +38,10 @@ namespace Inventario
                         if (!IsPostBack)
                         {
                             CargarRetenciones();
+                            CargarTipoIdentificacionDIAN();
+                            CargarTipoContribuyente();
+                            CargarRegimenFiscal();
+                            CargarResponsabilidadFiscal();
                             if (Request.QueryString["idTercero"] != null)
                             {
                                 tblTerceroItem oTerceroI = new tblTerceroItem();
@@ -45,6 +49,11 @@ namespace Inventario
                                 oTerceroI = oTerceroB.ObtenerTercero(long.Parse(Request.QueryString["idTercero"].ToString()), oUsuarioI.idEmpresa);
                                 CargarDatosTercero(oTerceroI);
                             }
+                            tblEmpresaBusiness oEBiz = new tblEmpresaBusiness(CadenaConexion);
+                            ddlServidor.DataTextField = "Nombre";
+                            ddlServidor.DataValueField = "IdServidor";
+                            ddlServidor.DataSource = oEBiz.ObtenerServidorLista();
+                            ddlServidor.DataBind();
                         }
                         if (!this.Page.ClientScript.IsClientScriptBlockRegistered("InicializarControlesScript"))
                         {
@@ -55,6 +64,7 @@ namespace Inventario
                             strScript = string.Format("{0}}});", strScript);
                             this.Page.ClientScript.RegisterClientScriptBlock(this.Page.GetType(), "InicializarControlesScript", strScript, true);
                         }
+                        divEmpresa.Visible = Util.EsBackOfficce() && Util.BackOfficceID() == oUsuarioI.idEmpresa && Request.QueryString["idTercero"] == null;
                     }
                     else
                     {
@@ -69,6 +79,66 @@ namespace Inventario
             catch (Exception ex)
             {
                 MostrarAlerta(0, "Error", ex.Message.Replace(Environment.NewLine, " "));
+            }
+        }
+        private void CargarTipoIdentificacionDIAN()
+        {
+            try
+            {
+                tblTerceroBusiness oTerB = new tblTerceroBusiness(CadenaConexion);
+                ddlTipoIdDIAN.DataSource = oTerB.ObtenerTipoIdentificacionDIAN();
+                ddlTipoIdDIAN.DataBind();
+                ddlTipoIdDIAN.Items.Add(new ListItem("Seleccione opción", ""));
+                ddlTipoIdDIAN.SelectedValue = "";
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        private void CargarTipoContribuyente()
+        {
+            try
+            {
+                tblTerceroBusiness oTerB = new tblTerceroBusiness(CadenaConexion);
+                ddlTipoContribuyente.DataSource = oTerB.ObtenerTipoContribuyente();
+                ddlTipoContribuyente.DataBind();
+                ddlTipoIdentificacion.Items.Add(new ListItem("Seleccione opción", ""));
+                ddlTipoContribuyente.SelectedValue = "";
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        private void CargarRegimenFiscal()
+        {
+            try
+            {
+                tblTerceroBusiness oTerB = new tblTerceroBusiness(CadenaConexion);
+                ddlRegimenFiscal.DataSource = oTerB.ObtenerRegimenFiscal();
+                ddlRegimenFiscal.DataBind();
+                ddlRegimenFiscal.Items.Add(new ListItem("Seleccione opción", ""));
+                ddlRegimenFiscal.SelectedValue = "";
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        private void CargarResponsabilidadFiscal()
+        {
+            try
+            {
+                tblTerceroBusiness oTerB = new tblTerceroBusiness(CadenaConexion);
+                ddlResponsabilidadFiscal.DataSource = oTerB.ObtenerResponsabilidadFiscal();
+                ddlResponsabilidadFiscal.DataBind();
+                ddlResponsabilidadFiscal.Items.Add(new ListItem("Seleccione opción", ""));
+                ddlResponsabilidadFiscal.SelectedValue = "";
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
         private void CargarRetenciones()
@@ -124,6 +194,8 @@ namespace Inventario
             txtCelular.Attributes.Add("placeholder", oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.Celular));
             lblDireccion.Text = oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.Direccion);
             txtDireccion.Attributes.Add("placeholder", oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.Direccion));
+            lblZipCode.Text = oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.ZipCode);
+            txtZipCode.Attributes.Add("placeholder", oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.ZipCode));
             lblCiudad.Text = oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.Ciudad);
             txtCiudad.Attributes.Add("placeholder", oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.Ciudad));
             lblListaPrecio.Text = oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.ListaPrecio);
@@ -228,13 +300,14 @@ namespace Inventario
             {
                 if (tercero.IdTercero <= 0)
                 {
-                    tercero.idTipoIdentificacion = short.Parse(ddlTipoIdentificacion.SelectedValue);
-                    tercero.Identificacion = txtIdentificacion.Text;
-                    tercero.Nombre = txtNombre.Text;
-                    tercero.Mail = txtCorreo.Text;
-                    tercero.Telefono = txtTelefono.Text;
-                    tercero.Celular = txtCelular.Text;
-                    tercero.Direccion = txtDireccion.Text;
+                    tercero.idTipoIdentificacion = ddlTipoIdentificacion.SelectedValue;
+                    tercero.Identificacion = txtIdentificacion.Text.Trim();
+                    tercero.Nombre = txtNombre.Text.Trim();
+                    tercero.Mail = txtCorreo.Text.Trim();
+                    tercero.Telefono = txtTelefono.Text.Trim();
+                    tercero.Celular = txtCelular.Text.Trim();
+                    tercero.Direccion = txtDireccion.Text.Trim();
+                    tercero.CodigoZip = txtZipCode.Text.Trim();
                     tercero.idCiudad = short.Parse(hddIdCiudad.Value);
                     tercero.idEmpresa = oUsuarioI.idEmpresa;
                     tercero.TipoTercero = ddlTipoTercero.SelectedValue;
@@ -264,6 +337,11 @@ namespace Inventario
                             tercero.Retenciones.Add(oRetI);
                         }
                     }
+                    tercero.TipoIdentificacionDIAN = ddlTipoIdDIAN.SelectedValue;
+                    tercero.MatriculaMercantil = txtMatriculaMercantil.Text.Trim();
+                    tercero.TipoContribuyente = ddlTipoContribuyente.SelectedValue;
+                    tercero.RegimenFiscal = ddlRegimenFiscal.SelectedValue;
+                    tercero.ResponsabilidadFiscal = ddlResponsabilidadFiscal.SelectedValue;
                 }
                 else
                 {
@@ -277,6 +355,7 @@ namespace Inventario
                     txtTelefono.Text = tercero.Telefono;
                     txtCelular.Text = tercero.Celular;
                     txtDireccion.Text = tercero.Direccion;
+                    txtZipCode.Text = tercero.CodigoZip;
                     txtCiudad.Text = oCiuI.Nombre;
                     hddIdCiudad.Value = tercero.idCiudad.ToString();
                     ddlTipoTercero.SelectedValue = tercero.TipoTercero;
@@ -305,12 +384,35 @@ namespace Inventario
                             }
                         }
                     }
+                    ddlTipoIdDIAN.SelectedValue = tercero.TipoIdentificacionDIAN;
+                    txtMatriculaMercantil.Text = tercero.MatriculaMercantil;
+                    ddlTipoContribuyente.SelectedValue = tercero.TipoContribuyente;
+                    ddlRegimenFiscal.SelectedValue = tercero.RegimenFiscal;
+                    ddlResponsabilidadFiscal.SelectedValue = tercero.CodigoResponsabilidadFiscal;
                 }
             }
             catch (Exception ex)
             {
                 throw ex;
             }
+        }
+
+        private string ValidarDatosEmpresa() {
+            var result = "";
+            if (Util.EsBackOfficce() && Util.BackOfficceID() == oUsuarioI.idEmpresa) {
+                if (string.IsNullOrEmpty(txtPrefijo.Text)) {
+                    result = $"{result}<br/>El campo Prefijo es obligatorio";
+                }
+                if (string.IsNullOrEmpty(txtPrimerNombre.Text))
+                {
+                    result = $"{result}<br/>El campo Primer Nombre es obligatorio";
+                }
+                if (string.IsNullOrEmpty(txtPrimerApellido.Text))
+                {
+                    result = $"{result}<br/>El campo Primer Apellido es obligatorio";
+                }
+            }
+            return result;
         }
 
         protected void btnGuardar_Click(object sender, ImageClickEventArgs e)
@@ -329,11 +431,59 @@ namespace Inventario
                 }
                 if (oRolPagI.Insertar && oTerceroI.IdTercero == 0)
                 {
-                    string Error = oTerceroB.insertar(oTerceroI);
-                    if (string.IsNullOrEmpty(Error))
-                    {
-                        MostrarAlerta(1, "Exitoso", "El tercero se guardó con exito.");
-                        LimpiarControles();
+                    string Error = ValidarDatosEmpresa();
+                    if (string.IsNullOrEmpty(Error)) {
+                        Error = oTerceroB.insertar(oTerceroI);
+                        if (string.IsNullOrEmpty(Error))
+                        {
+                            if (Util.EsBackOfficce() && Util.BackOfficceID() == oUsuarioI.idEmpresa && chkCrearEmpresa.Checked)
+                            {
+                                tblEmpresaBusiness oEBiz = new tblEmpresaBusiness(CadenaConexion);
+                                Servidor oSItem = oEBiz.ObtenerServidorID(int.Parse(ddlServidor.SelectedValue));
+                                oEBiz = new tblEmpresaBusiness(oSItem.CadenaConexion);
+                                EmpresaUsuario oEUItem = new EmpresaUsuario()
+                                {
+                                    Email = txtCorreo.Text,
+                                    prefijoUsuario = txtPrefijo.Text,
+                                    PrimeNombre = txtPrimerNombre.Text,
+                                    SegundoNombre = txtSegundoNombre.Text,
+                                    PrimerApellido = txtPrimerApellido.Text,
+                                    SegundoApellido = txtSegundoApellido.Text
+                                };
+                                tblEmpresaItem oEItem = new tblEmpresaItem()
+                                {
+                                    idEmpresa = 0,
+                                    Nombre = txtNombre.Text,
+                                    idTipoIdentificacion = short.Parse(ddlTipoIdentificacion.SelectedValue),
+                                    Identificacion = txtIdentificacion.Text,
+                                    Telefono = txtTelefono.Text,
+                                    Direccion = txtDireccion.Text,
+                                    idCiudad = short.Parse(hddIdCiudad.Value),
+                                    TextoEncabezadoFactura = txtEncabezado.Text,
+                                    TextoPieFactura = txtPie.Text,
+                                    MargenUtilidad = 0,
+                                    Prefijo = txtPrefijo.Text,
+                                    Correo = txtCorreo.Text,
+                                    IdServidor = int.Parse(ddlServidor.SelectedValue)
+                                };
+                                if (oEBiz.Guardar(oEItem, oEUItem))
+                                {
+                                    MostrarAlerta(1, "Exitoso", "El tercero y la empresa se guardaron con exito.");
+                                }
+                                else
+                                {
+                                    MostrarAlerta(1, "Exitoso", "El tercero se guardó con exito, la empresa no se guardó.");
+                                }
+                            }
+                            else {
+                                MostrarAlerta(1, "Exitoso", "El tercero se guardó con exito.");
+                            }
+                            LimpiarControles();
+                        }
+                        else
+                        {
+                            MostrarAlerta(0, "Error", Error);
+                        }
                     }
                     else
                     {
@@ -372,13 +522,14 @@ namespace Inventario
             try
             {
                 tercero.IdTercero = long.Parse(Request.QueryString["idTercero"]);
-                tercero.idTipoIdentificacion = short.Parse(ddlTipoIdentificacion.SelectedValue);
+                tercero.idTipoIdentificacion = ddlTipoIdentificacion.SelectedValue;
                 tercero.Identificacion = txtIdentificacion.Text.Trim();
                 tercero.Nombre = txtNombre.Text.Trim();
                 tercero.Mail = txtCorreo.Text.Trim();
                 tercero.Telefono = txtTelefono.Text.Trim();
                 tercero.Celular = txtCelular.Text.Trim();
                 tercero.Direccion = txtDireccion.Text.Trim();
+                tercero.CodigoZip = txtZipCode.Text.Trim();
                 tercero.idCiudad = short.Parse(hddIdCiudad.Value);
                 tercero.idEmpresa = oUsuarioI.idEmpresa;
                 tercero.TipoTercero = ddlTipoTercero.SelectedValue;
@@ -408,6 +559,11 @@ namespace Inventario
                         tercero.Retenciones.Add(oRetI);
                     }
                 }
+                tercero.TipoIdentificacionDIAN = ddlTipoIdDIAN.SelectedValue;
+                tercero.MatriculaMercantil = txtMatriculaMercantil.Text.Trim();
+                tercero.TipoContribuyente = ddlTipoContribuyente.SelectedValue;
+                tercero.RegimenFiscal = ddlRegimenFiscal.SelectedValue;
+                tercero.ResponsabilidadFiscal = ddlResponsabilidadFiscal.SelectedValue;
             }
             catch (Exception ex)
             {
@@ -425,11 +581,17 @@ namespace Inventario
                 txtTelefono.Text = "";
                 txtCelular.Text = "";
                 txtDireccion.Text = "";
+                txtZipCode.Text = "";
                 txtCiudad.Text = "";
                 hddIdCiudad.Value = "";
                 txtFechaNac.Text = "";
                 txtObservaciones.Text = "";
                 ConfiguracionIdioma();
+                CargarRetenciones();
+                CargarTipoIdentificacionDIAN();
+                CargarTipoContribuyente();
+                CargarRegimenFiscal();
+                CargarResponsabilidadFiscal();
                 ddlGrupoCliente.SelectedIndex = 0;
                 chkActivo.Checked = false;
             }

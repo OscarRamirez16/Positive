@@ -1,0 +1,35 @@
+C:\eFacturacionColombia_V2\eFacturacionColombia_V2.Tipos\bin\Debug\eFacturacionColombia_V2.Tipos.dll
+C:\eFacturacionColombia_V2\eFacturacionColombia_V2.Tipos\bin\Debug\eFacturacionColombia_V2.Tipos.pdb
+C:\eFacturacionColombia_V2\eFacturacionColombia_V2.Tipos\obj\Debug\eFacturacionColombia_V2.Tipos.csproj.CoreCompileInputs.cache
+C:\eFacturacionColombia_V2\eFacturacionColombia_V2.Tipos\obj\Debug\eFacturacionColombia_V2.Tipos.dll
+C:\eFacturacionColombia_V2\eFacturacionColombia_V2.Tipos\obj\Debug\eFacturacionColombia_V2.Tipos.pdb
+C:\eFacturacionColombia_V2_facturalatam\eFacturacionColombia_V2.Tipos\bin\Debug\eFacturacionColombia_V2.Tipos.dll
+C:\eFacturacionColombia_V2_facturalatam\eFacturacionColombia_V2.Tipos\bin\Debug\eFacturacionColombia_V2.Tipos.pdb
+C:\eFacturacionColombia_V2_facturalatam\eFacturacionColombia_V2.Tipos\obj\Debug\eFacturacionColombia_V2.Tipos.csprojAssemblyReference.cache
+C:\eFacturacionColombia_V2_facturalatam\eFacturacionColombia_V2.Tipos\obj\Debug\eFacturacionColombia_V2.Tipos.csproj.CoreCompileInputs.cache
+C:\eFacturacionColombia_V2_facturalatam\eFacturacionColombia_V2.Tipos\obj\Debug\eFacturacionColombia_V2.Tipos.dll
+C:\eFacturacionColombia_V2_facturalatam\eFacturacionColombia_V2.Tipos\obj\Debug\eFacturacionColombia_V2.Tipos.pdb
+C:\Archivos Oscar\HQS-Software\FacturacionElectronica\co-e-fact-colombia-csharp-v1.7-2020-master\eFacturacionColombia_V2.Tipos\bin\Debug\eFacturacionColombia_V2.Tipos.dll
+C:\Archivos Oscar\HQS-Software\FacturacionElectronica\co-e-fact-colombia-csharp-v1.7-2020-master\eFacturacionColombia_V2.Tipos\bin\Debug\eFacturacionColombia_V2.Tipos.pdb
+C:\Archivos Oscar\HQS-Software\FacturacionElectronica\co-e-fact-colombia-csharp-v1.7-2020-master\eFacturacionColombia_V2.Tipos\obj\Debug\eFacturacionColombia_V2.Tipos.csproj.AssemblyReference.cache
+C:\Archivos Oscar\HQS-Software\FacturacionElectronica\co-e-fact-colombia-csharp-v1.7-2020-master\eFacturacionColombia_V2.Tipos\obj\Debug\eFacturacionColombia_V2.Tipos.csproj.CoreCompileInputs.cache
+C:\Archivos Oscar\HQS-Software\FacturacionElectronica\co-e-fact-colombia-csharp-v1.7-2020-master\eFacturacionColombia_V2.Tipos\obj\Debug\eFacturacionColombia_V2.Tipos.dll
+C:\Archivos Oscar\HQS-Software\FacturacionElectronica\co-e-fact-colombia-csharp-v1.7-2020-master\eFacturacionColombia_V2.Tipos\obj\Debug\eFacturacionColombia_V2.Tipos.pdb
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\eFacturacionColombia_V2.Tipos\bin\Debug\eFacturacionColombia_V2.Tipos.dll
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\eFacturacionColombia_V2.Tipos\bin\Debug\eFacturacionColombia_V2.Tipos.pdb
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\eFacturacionColombia_V2.Tipos\obj\Debug\eFacturacionColombia_V2.Tipos.csproj.AssemblyReference.cache
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\eFacturacionColombia_V2.Tipos\obj\Debug\eFacturacionColombia_V2.Tipos.csproj.CoreCompileInputs.cache
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\eFacturacionColombia_V2.Tipos\obj\Debug\eFacturacionColombia_V2.Tipos.dll
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\eFacturacionColombia_V2.Tipos\obj\Debug\eFacturacionColombia_V2.Tipos.pdb
+C:\Archivos Oscar\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Tipos\bin\Debug\eFacturacionColombia_V2.Tipos.dll
+C:\Archivos Oscar\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Tipos\bin\Debug\eFacturacionColombia_V2.Tipos.pdb
+C:\Archivos Oscar\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Tipos\obj\Debug\eFacturacionColombia_V2.Tipos.csproj.AssemblyReference.cache
+C:\Archivos Oscar\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Tipos\obj\Debug\eFacturacionColombia_V2.Tipos.csproj.CoreCompileInputs.cache
+C:\Archivos Oscar\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Tipos\obj\Debug\eFacturacionColombia_V2.Tipos.dll
+C:\Archivos Oscar\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Tipos\obj\Debug\eFacturacionColombia_V2.Tipos.pdb
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Tipos\bin\Debug\eFacturacionColombia_V2.Tipos.dll
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Tipos\bin\Debug\eFacturacionColombia_V2.Tipos.pdb
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Tipos\obj\Debug\eFacturacionColombia_V2.Tipos.csproj.CoreCompileInputs.cache
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Tipos\obj\Debug\eFacturacionColombia_V2.Tipos.dll
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Tipos\obj\Debug\eFacturacionColombia_V2.Tipos.pdb
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Tipos\obj\Debug\eFacturacionColombia_V2.Tipos.csproj.AssemblyReference.cache

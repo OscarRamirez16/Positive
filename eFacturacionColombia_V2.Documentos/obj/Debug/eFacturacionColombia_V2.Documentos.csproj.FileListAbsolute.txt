@@ -1,0 +1,66 @@
+C:\eFacturacionColombia_V2\eFacturacionColombia_V2.Documentos\bin\Debug\eFacturacionColombia_V2.Documentos.dll
+C:\eFacturacionColombia_V2\eFacturacionColombia_V2.Documentos\bin\Debug\eFacturacionColombia_V2.Documentos.pdb
+C:\eFacturacionColombia_V2\eFacturacionColombia_V2.Documentos\bin\Debug\eFacturacionColombia_V2.Tipos.dll
+C:\eFacturacionColombia_V2\eFacturacionColombia_V2.Documentos\bin\Debug\eFacturacionColombia_V2.Util.dll
+C:\eFacturacionColombia_V2\eFacturacionColombia_V2.Documentos\bin\Debug\eFacturacionColombia_V2.Tipos.pdb
+C:\eFacturacionColombia_V2\eFacturacionColombia_V2.Documentos\bin\Debug\eFacturacionColombia_V2.Util.pdb
+C:\eFacturacionColombia_V2\eFacturacionColombia_V2.Documentos\obj\Debug\eFacturacionColombia_V2.Documentos.csprojAssemblyReference.cache
+C:\eFacturacionColombia_V2\eFacturacionColombia_V2.Documentos\obj\Debug\eFacturacionColombia_V2.Documentos.csproj.CoreCompileInputs.cache
+C:\eFacturacionColombia_V2\eFacturacionColombia_V2.Documentos\obj\Debug\eFacturacionColombia_V2.Documentos.csproj.CopyComplete
+C:\eFacturacionColombia_V2\eFacturacionColombia_V2.Documentos\obj\Debug\eFacturacionColombia_V2.Documentos.dll
+C:\eFacturacionColombia_V2\eFacturacionColombia_V2.Documentos\obj\Debug\eFacturacionColombia_V2.Documentos.pdb
+C:\eFacturacionColombia_V2_facturalatam\eFacturacionColombia_V2.Documentos\bin\Debug\eFacturacionColombia_V2.Documentos.dll
+C:\eFacturacionColombia_V2_facturalatam\eFacturacionColombia_V2.Documentos\bin\Debug\eFacturacionColombia_V2.Documentos.pdb
+C:\eFacturacionColombia_V2_facturalatam\eFacturacionColombia_V2.Documentos\bin\Debug\eFacturacionColombia_V2.Tipos.dll
+C:\eFacturacionColombia_V2_facturalatam\eFacturacionColombia_V2.Documentos\bin\Debug\eFacturacionColombia_V2.Util.dll
+C:\eFacturacionColombia_V2_facturalatam\eFacturacionColombia_V2.Documentos\bin\Debug\eFacturacionColombia_V2.Tipos.pdb
+C:\eFacturacionColombia_V2_facturalatam\eFacturacionColombia_V2.Documentos\bin\Debug\eFacturacionColombia_V2.Util.pdb
+C:\eFacturacionColombia_V2_facturalatam\eFacturacionColombia_V2.Documentos\obj\Debug\eFacturacionColombia_V2.Documentos.csprojAssemblyReference.cache
+C:\eFacturacionColombia_V2_facturalatam\eFacturacionColombia_V2.Documentos\obj\Debug\eFacturacionColombia_V2.Documentos.csproj.CoreCompileInputs.cache
+C:\eFacturacionColombia_V2_facturalatam\eFacturacionColombia_V2.Documentos\obj\Debug\eFacturacionColombia_V2.Documentos.csproj.CopyComplete
+C:\eFacturacionColombia_V2_facturalatam\eFacturacionColombia_V2.Documentos\obj\Debug\eFacturacionColombia_V2.Documentos.dll
+C:\eFacturacionColombia_V2_facturalatam\eFacturacionColombia_V2.Documentos\obj\Debug\eFacturacionColombia_V2.Documentos.pdb
+C:\Archivos Oscar\HQS-Software\FacturacionElectronica\co-e-fact-colombia-csharp-v1.7-2020-master\eFacturacionColombia_V2.Documentos\bin\Debug\eFacturacionColombia_V2.Documentos.dll
+C:\Archivos Oscar\HQS-Software\FacturacionElectronica\co-e-fact-colombia-csharp-v1.7-2020-master\eFacturacionColombia_V2.Documentos\bin\Debug\eFacturacionColombia_V2.Documentos.pdb
+C:\Archivos Oscar\HQS-Software\FacturacionElectronica\co-e-fact-colombia-csharp-v1.7-2020-master\eFacturacionColombia_V2.Documentos\bin\Debug\eFacturacionColombia_V2.Tipos.dll
+C:\Archivos Oscar\HQS-Software\FacturacionElectronica\co-e-fact-colombia-csharp-v1.7-2020-master\eFacturacionColombia_V2.Documentos\bin\Debug\eFacturacionColombia_V2.Util.dll
+C:\Archivos Oscar\HQS-Software\FacturacionElectronica\co-e-fact-colombia-csharp-v1.7-2020-master\eFacturacionColombia_V2.Documentos\bin\Debug\eFacturacionColombia_V2.Tipos.pdb
+C:\Archivos Oscar\HQS-Software\FacturacionElectronica\co-e-fact-colombia-csharp-v1.7-2020-master\eFacturacionColombia_V2.Documentos\bin\Debug\eFacturacionColombia_V2.Util.pdb
+C:\Archivos Oscar\HQS-Software\FacturacionElectronica\co-e-fact-colombia-csharp-v1.7-2020-master\eFacturacionColombia_V2.Documentos\obj\Debug\eFacturacionColombia_V2.Documentos.csproj.AssemblyReference.cache
+C:\Archivos Oscar\HQS-Software\FacturacionElectronica\co-e-fact-colombia-csharp-v1.7-2020-master\eFacturacionColombia_V2.Documentos\obj\Debug\eFacturacionColombia_V2.Documentos.csproj.CoreCompileInputs.cache
+C:\Archivos Oscar\HQS-Software\FacturacionElectronica\co-e-fact-colombia-csharp-v1.7-2020-master\eFacturacionColombia_V2.Documentos\obj\Debug\eFacturacionColombia_V2.Documentos.csproj.CopyComplete
+C:\Archivos Oscar\HQS-Software\FacturacionElectronica\co-e-fact-colombia-csharp-v1.7-2020-master\eFacturacionColombia_V2.Documentos\obj\Debug\eFacturacionColombia_V2.Documentos.dll
+C:\Archivos Oscar\HQS-Software\FacturacionElectronica\co-e-fact-colombia-csharp-v1.7-2020-master\eFacturacionColombia_V2.Documentos\obj\Debug\eFacturacionColombia_V2.Documentos.pdb
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\eFacturacionColombia_V2.Documentos\bin\Debug\eFacturacionColombia_V2.Documentos.dll
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\eFacturacionColombia_V2.Documentos\bin\Debug\eFacturacionColombia_V2.Documentos.pdb
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\eFacturacionColombia_V2.Documentos\bin\Debug\eFacturacionColombia_V2.Tipos.dll
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\eFacturacionColombia_V2.Documentos\bin\Debug\eFacturacionColombia_V2.Util.dll
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\eFacturacionColombia_V2.Documentos\bin\Debug\eFacturacionColombia_V2.Tipos.pdb
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\eFacturacionColombia_V2.Documentos\bin\Debug\eFacturacionColombia_V2.Util.pdb
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\eFacturacionColombia_V2.Documentos\obj\Debug\eFacturacionColombia_V2.Documentos.csproj.AssemblyReference.cache
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\eFacturacionColombia_V2.Documentos\obj\Debug\eFacturacionColombia_V2.Documentos.csproj.CoreCompileInputs.cache
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\eFacturacionColombia_V2.Documentos\obj\Debug\eFacturacionColombia_V2.Documentos.csproj.CopyComplete
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\eFacturacionColombia_V2.Documentos\obj\Debug\eFacturacionColombia_V2.Documentos.dll
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\eFacturacionColombia_V2.Documentos\obj\Debug\eFacturacionColombia_V2.Documentos.pdb
+C:\Archivos Oscar\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Documentos\bin\Debug\eFacturacionColombia_V2.Documentos.dll
+C:\Archivos Oscar\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Documentos\bin\Debug\eFacturacionColombia_V2.Documentos.pdb
+C:\Archivos Oscar\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Documentos\bin\Debug\eFacturacionColombia_V2.Tipos.dll
+C:\Archivos Oscar\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Documentos\bin\Debug\eFacturacionColombia_V2.Util.dll
+C:\Archivos Oscar\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Documentos\bin\Debug\eFacturacionColombia_V2.Tipos.pdb
+C:\Archivos Oscar\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Documentos\bin\Debug\eFacturacionColombia_V2.Util.pdb
+C:\Archivos Oscar\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Documentos\obj\Debug\eFacturacionColombia_V2.Documentos.csproj.AssemblyReference.cache
+C:\Archivos Oscar\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Documentos\obj\Debug\eFacturacionColombia_V2.Documentos.csproj.CoreCompileInputs.cache
+C:\Archivos Oscar\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Documentos\obj\Debug\eFacturacionColombia_V2.Documentos.csproj.CopyComplete
+C:\Archivos Oscar\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Documentos\obj\Debug\eFacturacionColombia_V2.Documentos.dll
+C:\Archivos Oscar\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Documentos\obj\Debug\eFacturacionColombia_V2.Documentos.pdb
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Documentos\bin\Debug\eFacturacionColombia_V2.Documentos.dll
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Documentos\bin\Debug\eFacturacionColombia_V2.Documentos.pdb
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Documentos\bin\Debug\eFacturacionColombia_V2.Tipos.dll
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Documentos\bin\Debug\eFacturacionColombia_V2.Util.dll
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Documentos\bin\Debug\eFacturacionColombia_V2.Tipos.pdb
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Documentos\bin\Debug\eFacturacionColombia_V2.Util.pdb
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Documentos\obj\Debug\eFacturacionColombia_V2.Documentos.csproj.CoreCompileInputs.cache
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Documentos\obj\Debug\eFacturacionColombia_V2.Documentos.dll
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Documentos\obj\Debug\eFacturacionColombia_V2.Documentos.pdb
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Documentos\obj\Debug\eFacturacionColombia_V2.Documentos.csproj.AssemblyReference.cache
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Documentos\obj\Debug\eFacturacionColombia_V2.Documentos.csproj.CopyComplete

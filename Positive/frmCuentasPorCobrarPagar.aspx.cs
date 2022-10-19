@@ -126,7 +126,7 @@ namespace Inventario
                     else
                     {
                         divPrincipal.Visible = false;
-                        MostrarMensaje("Error", "El usuario no tiene relacionada una caja abierta");
+                        MostrarAlerta(0, "Error", "El usuario no tiene relacionada una caja abierta");
                         if (!this.Page.ClientScript.IsClientScriptBlockRegistered("InicializarControlesScript"))
                         {
                             string strScript = "$(document).ready(function(){";
@@ -143,10 +143,9 @@ namespace Inventario
             }
             catch (Exception ex)
             {
-                MostrarMensaje("Error", string.Format("No se pudo cargar la pagiona. {0}", ex.Message));
+                MostrarAlerta(0, "Error", ex.Message.Replace("'", "").Replace(Environment.NewLine, " "));
             }
         }
-
         private void ConfiguracionIdioma()
         {
             Traductor oCIdioma = new Traductor();
@@ -191,7 +190,6 @@ namespace Inventario
             lblTotal.Text = oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.Total);
             ConfigurarIdiomaGrillaDocumentos(oCIdioma, Idioma);
         }
-
         private void ConfigurarIdiomaGrillaDocumentos(Traductor oCIdioma, Idioma.Traductor.IdiomaEnum Idioma)
         {
             try
@@ -208,7 +206,6 @@ namespace Inventario
                 throw ex;
             }
         }
-
         private bool validarCajaAbierta()
         {
             try
@@ -232,7 +229,6 @@ namespace Inventario
                 return false;
             }
         }
-
         public void CargarFormasPagos()
         {
             try
@@ -246,7 +242,6 @@ namespace Inventario
                 throw ex;
             }
         }
-
         public void CargarFacturasPendientesPagos()
         {
             try
@@ -261,7 +256,6 @@ namespace Inventario
                 throw ex;
             }
         }
-
         protected void txtTercero_TextChanged(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(txtTercero.Text))
@@ -278,7 +272,6 @@ namespace Inventario
                 txtDireccion.Text = "";
             }
         }
-
         public void CargarSaldosPendientesCliente()
         {
             try
@@ -292,7 +285,6 @@ namespace Inventario
                 throw ex;
             }
         }
-
         protected void dgDocumentos_ItemDataBound(object sender, DataGridItemEventArgs e)
         {
             if ((e.Item.ItemType == ListItemType.Item) || (e.Item.ItemType == ListItemType.AlternatingItem))
@@ -300,7 +292,6 @@ namespace Inventario
                 txtTotal.Text = (decimal.Parse(txtTotal.Text, NumberStyles.Currency) + decimal.Parse(e.Item.Cells[dgDocumentosColumnsEnum.saldo.GetHashCode()].Text, NumberStyles.Currency)).ToString(Util.ObtenerFormatoDecimal());
             }
         }
-
         protected void CalcularTotalPago(object sender, EventArgs e)
         {
             txtTotalPago.Text = decimal.Parse("0", NumberStyles.Currency).ToString(Util.ObtenerFormatoDecimal());
@@ -328,7 +319,6 @@ namespace Inventario
                 txtDevuelta.Text = (decimal.Parse(txtTotalPago.Text, NumberStyles.Currency) - decimal.Parse(txtTotal.Text, NumberStyles.Currency)).ToString(Util.ObtenerFormatoDecimal());
             }
         }
-
         protected void btnAplicar_Click(object sender, ImageClickEventArgs e)
         {
             try
@@ -360,7 +350,6 @@ namespace Inventario
                 MostrarMensaje("Error", string.Format("Error al querer aplicar el pago. {0}", ex.Message));
             }
         }
-
         private bool ValidarSeleccionarDocumento()
         {
             bool Result = false;
@@ -373,7 +362,6 @@ namespace Inventario
             }
             return Result;
         }
-
         private bool ValidarPagoConTarjetas()
         {
             try
@@ -408,196 +396,175 @@ namespace Inventario
                 throw ex;
             }
         }
-
         protected void btnPagar_Click(object sender, ImageClickEventArgs e)
         {
             try
             {
-                if (validarCajaAbierta() && ValidarSeleccionarDocumento())
+                SeguridadBusiness oSegB = new SeguridadBusiness(cadenaConexion);
+                oRolPagI = oSegB.TraerPermisosPaginasPorUsuario(oUsuarioI.idUsuario, oUsuarioI.idEmpresa, short.Parse(SeguridadBusiness.paginasEnum.Pagos.GetHashCode().ToString()));
+                if (oRolPagI.Insertar)
                 {
-                    if (ValidarPagoConTarjetas())
+                    if (validarCajaAbierta() && ValidarSeleccionarDocumento())
                     {
-                        if (hddIdCliente.Value != "0")
+                        if (ValidarPagoConTarjetas())
                         {
-                            tblPagoItem oPagoI = new tblPagoItem();
-                            List<tblPagoDetalleItem> oPagDetLis = new List<tblPagoDetalleItem>();
-                            tblDocumentoBusiness oDocB = new tblDocumentoBusiness(cadenaConexion);
-                            List<tblTipoPagoItem> oTipPagLis = new List<tblTipoPagoItem>();
-                            decimal Saldo = 0;
-                            decimal TotalAPagar = 0;
-                            string PagoDetalle = string.Empty;
-                            foreach (DataGridItem Item in dgDocumentos.Items)
+                            if (hddIdCliente.Value != "0")
                             {
-                                if (((CheckBox)(Item.Cells[dgDocumentosColumnsEnum.Seleccionar.GetHashCode()].FindControl("chkSeleccionar"))).Checked)
-                                {
-                                    Saldo = Math.Round((Saldo + decimal.Parse(Item.Cells[dgDocumentosColumnsEnum.saldo.GetHashCode()].Text, NumberStyles.Currency)), 0);
-                                }
-                            }
-                            TotalAPagar = Saldo;
-                            decimal Acumulado = decimal.Parse(txtTotalPago.Text, NumberStyles.Currency);
-                            if (dgSaldos.Items.Count > 0)
-                            {
-                                foreach (DataGridItem Item in dgSaldos.Items)
-                                {
-                                    if (((CheckBox)(Item.Cells[dgSaldosColumnsEnum.Seleccionar.GetHashCode()].FindControl("chkSeleccionar"))).Checked)
-                                    {
-                                        if (Saldo > 0)
-                                        {
-                                            tblTipoPagoItem oTipPagI = new tblTipoPagoItem();
-                                            oTipPagI.idFormaPago = short.Parse(Item.Cells[dgSaldosColumnsEnum.IdFormaPago.GetHashCode()].Text);
-                                            oTipPagI.voucher = Item.Cells[dgSaldosColumnsEnum.Id.GetHashCode()].Text;
-                                            if (decimal.Parse(Item.Cells[dgSaldosColumnsEnum.Saldo.GetHashCode()].Text, NumberStyles.Currency) > Saldo)
-                                            {
-                                                oTipPagI.ValorPago = Saldo;
-                                                Saldo = Saldo - oTipPagI.ValorPago;
-                                            }
-                                            else
-                                            {
-                                                oTipPagI.ValorPago = decimal.Parse(Item.Cells[dgSaldosColumnsEnum.Saldo.GetHashCode()].Text, NumberStyles.Currency);
-                                                Saldo = Saldo - oTipPagI.ValorPago;
-                                            }
-                                            oPagoI.totalPago = oPagoI.totalPago + decimal.Parse(Item.Cells[dgSaldosColumnsEnum.Saldo.GetHashCode()].Text, NumberStyles.Currency);
-                                            oTipPagLis.Add(oTipPagI);
-                                        }
-                                    }
-                                }
-                            }
-                            foreach (DataGridItem Item in dgFormasPagos.Items)
-                            {
-                                tblTipoPagoItem oTipPagI = new tblTipoPagoItem();
-                                oTipPagI.idFormaPago = short.Parse(Item.Cells[dgFormasPagosEnum.IdFormaPago.GetHashCode()].Text);
-                                if (oTipPagI.idFormaPago == tblDocumentoBusiness.FormasPagoEnum.TarjetaCredito.GetHashCode())
-                                {
-                                    oTipPagI.ValorPago = decimal.Parse(Item.Cells[dgFormasPagosEnum.Valor.GetHashCode()].Text, NumberStyles.Currency);
-                                    oTipPagI.voucher = Item.Cells[dgFormasPagosEnum.Voucher.GetHashCode()].Text;
-                                    oTipPagI.idTipoTarjetaCredito = short.Parse(Item.Cells[dgFormasPagosEnum.IdTipoTarjetaCredito.GetHashCode()].Text);
-                                }
-                                else if (oTipPagI.idFormaPago != tblDocumentoBusiness.FormasPagoEnum.Efectivo.GetHashCode())
-                                {
-                                    oTipPagI.ValorPago = decimal.Parse(Item.Cells[dgFormasPagosEnum.Valor.GetHashCode()].Text, NumberStyles.Currency);
-                                    oTipPagI.voucher = Item.Cells[dgFormasPagosEnum.Voucher.GetHashCode()].Text;
-                                }
-                                else
-                                {
-                                    if (txtDevuelta.Text != "Crédito" && decimal.Parse(txtDevuelta.Text, NumberStyles.Currency) > 0)
-                                    {
-                                        oTipPagI.ValorPago = decimal.Parse(Item.Cells[dgFormasPagosEnum.Valor.GetHashCode()].Text, NumberStyles.Currency);
-                                        oTipPagI.ValorPago = oTipPagI.ValorPago - decimal.Parse(txtDevuelta.Text, NumberStyles.Currency);
-                                    }
-                                    else
-                                    {
-                                        oTipPagI.ValorPago = decimal.Parse(Item.Cells[dgFormasPagosEnum.Valor.GetHashCode()].Text, NumberStyles.Currency);
-                                    }
-                                }
-                                oPagoI.totalPago = oPagoI.totalPago + oTipPagI.ValorPago;
-                                oTipPagLis.Add(oTipPagI);
-                            }
-                            if (oPagoI.totalPago > TotalAPagar)
-                            {
-                                oPagoI.totalPago = TotalAPagar;
-                            }
-                            if (oTipPagLis.Count > 0)
-                            {
-                                PagoDetalle = "<table border='1' style='width:100%'><tr><td align='center'>Num. Documento</td><td align='center'>Valor</td></tr>";
-                                oPagoI.idTercero = long.Parse(hddIdCliente.Value);
-                                oPagoI.idEmpresa = oUsuarioI.idEmpresa;
-                                oPagoI.fechaPago = Util.ObtenerFecha(oUsuarioI.idEmpresa);
-                                oPagoI.idUsuario = oUsuarioI.idUsuario;
-                                oPagoI.idEstado = short.Parse(tblPagoBusiness.EstadoPago.Definitivo.GetHashCode().ToString());
-                                oPagoI.EnCuadre = false;
-                                oPagoI.Observaciones = txtObser.Text;
-                                oPagoI.IdTipoPago = short.Parse(tblPagoBusiness.TipoPago.PagoNormal.GetHashCode().ToString());
+                                tblPagoItem oPagoI = new tblPagoItem();
+                                List<tblPagoDetalleItem> oPagDetLis = new List<tblPagoDetalleItem>();
+                                tblDocumentoBusiness oDocB = new tblDocumentoBusiness(cadenaConexion);
+                                List<tblTipoPagoItem> oTipPagLis = new List<tblTipoPagoItem>();
+                                decimal Saldo = 0;
+                                decimal TotalAPagar = 0;
+                                string PagoDetalle = string.Empty;
                                 foreach (DataGridItem Item in dgDocumentos.Items)
                                 {
                                     if (((CheckBox)(Item.Cells[dgDocumentosColumnsEnum.Seleccionar.GetHashCode()].FindControl("chkSeleccionar"))).Checked)
                                     {
-                                        PagoDetalle = PagoDetalle + "<tr><td align='left'>" + Item.Cells[dgDocumentosColumnsEnum.NumeroDocumento.GetHashCode()].Text + "</td><td align='right'>" + decimal.Parse(Item.Cells[dgDocumentosColumnsEnum.saldo.GetHashCode()].Text, NumberStyles.Currency).ToString(Util.ObtenerFormatoDecimal()) + "</td>";
-                                        tblPagoDetalleItem oPagDetI = new tblPagoDetalleItem();
-                                        oPagDetI.idDocumento = long.Parse(Item.Cells[dgDocumentosColumnsEnum.idDocumento.GetHashCode()].Text);
-                                        oPagDetI.NumeroDocumento = Item.Cells[dgDocumentosColumnsEnum.NumeroDocumento.GetHashCode()].Text;
-                                        if (Acumulado < decimal.Parse(Item.Cells[dgDocumentosColumnsEnum.saldo.GetHashCode()].Text, NumberStyles.Currency))
+                                        Saldo = Math.Round((Saldo + decimal.Parse(Item.Cells[dgDocumentosColumnsEnum.saldo.GetHashCode()].Text, NumberStyles.Currency)), 0);
+                                    }
+                                }
+                                TotalAPagar = Saldo;
+                                decimal Acumulado = decimal.Parse(txtTotalPago.Text, NumberStyles.Currency);
+                                if (dgSaldos.Items.Count > 0)
+                                {
+                                    foreach (DataGridItem Item in dgSaldos.Items)
+                                    {
+                                        if (((CheckBox)(Item.Cells[dgSaldosColumnsEnum.Seleccionar.GetHashCode()].FindControl("chkSeleccionar"))).Checked)
                                         {
-                                            oPagDetI.valorAbono = Acumulado;
-                                            Acumulado = 0;
+                                            if (Saldo > 0)
+                                            {
+                                                tblTipoPagoItem oTipPagI = new tblTipoPagoItem();
+                                                oTipPagI.idFormaPago = short.Parse(Item.Cells[dgSaldosColumnsEnum.IdFormaPago.GetHashCode()].Text);
+                                                oTipPagI.voucher = Item.Cells[dgSaldosColumnsEnum.Id.GetHashCode()].Text;
+                                                if (decimal.Parse(Item.Cells[dgSaldosColumnsEnum.Saldo.GetHashCode()].Text, NumberStyles.Currency) > Saldo)
+                                                {
+                                                    oTipPagI.ValorPago = Saldo;
+                                                    Saldo = Saldo - oTipPagI.ValorPago;
+                                                }
+                                                else
+                                                {
+                                                    oTipPagI.ValorPago = decimal.Parse(Item.Cells[dgSaldosColumnsEnum.Saldo.GetHashCode()].Text, NumberStyles.Currency);
+                                                    Saldo = Saldo - oTipPagI.ValorPago;
+                                                }
+                                                oPagoI.totalPago = oPagoI.totalPago + decimal.Parse(Item.Cells[dgSaldosColumnsEnum.Saldo.GetHashCode()].Text, NumberStyles.Currency);
+                                                oTipPagLis.Add(oTipPagI);
+                                            }
+                                        }
+                                    }
+                                }
+                                foreach (DataGridItem Item in dgFormasPagos.Items)
+                                {
+                                    tblTipoPagoItem oTipPagI = new tblTipoPagoItem();
+                                    oTipPagI.idFormaPago = short.Parse(Item.Cells[dgFormasPagosEnum.IdFormaPago.GetHashCode()].Text);
+                                    if (oTipPagI.idFormaPago == tblDocumentoBusiness.FormasPagoEnum.TarjetaCredito.GetHashCode())
+                                    {
+                                        oTipPagI.ValorPago = decimal.Parse(Item.Cells[dgFormasPagosEnum.Valor.GetHashCode()].Text, NumberStyles.Currency);
+                                        oTipPagI.voucher = Item.Cells[dgFormasPagosEnum.Voucher.GetHashCode()].Text;
+                                        oTipPagI.idTipoTarjetaCredito = short.Parse(Item.Cells[dgFormasPagosEnum.IdTipoTarjetaCredito.GetHashCode()].Text);
+                                    }
+                                    else if (oTipPagI.idFormaPago != tblDocumentoBusiness.FormasPagoEnum.Efectivo.GetHashCode())
+                                    {
+                                        oTipPagI.ValorPago = decimal.Parse(Item.Cells[dgFormasPagosEnum.Valor.GetHashCode()].Text, NumberStyles.Currency);
+                                        oTipPagI.voucher = Item.Cells[dgFormasPagosEnum.Voucher.GetHashCode()].Text;
+                                    }
+                                    else
+                                    {
+                                        if (txtDevuelta.Text != "Crédito" && decimal.Parse(txtDevuelta.Text, NumberStyles.Currency) > 0)
+                                        {
+                                            oTipPagI.ValorPago = decimal.Parse(Item.Cells[dgFormasPagosEnum.Valor.GetHashCode()].Text, NumberStyles.Currency);
+                                            oTipPagI.ValorPago = oTipPagI.ValorPago - decimal.Parse(txtDevuelta.Text, NumberStyles.Currency);
                                         }
                                         else
                                         {
-                                            oPagDetI.valorAbono = decimal.Parse(Item.Cells[dgDocumentosColumnsEnum.saldo.GetHashCode()].Text, NumberStyles.Currency);
-                                            Acumulado = Acumulado - decimal.Parse(Item.Cells[dgDocumentosColumnsEnum.saldo.GetHashCode()].Text, NumberStyles.Currency);
+                                            oTipPagI.ValorPago = decimal.Parse(Item.Cells[dgFormasPagosEnum.Valor.GetHashCode()].Text, NumberStyles.Currency);
                                         }
-                                        oPagDetLis.Add(oPagDetI);
+                                    }
+                                    oPagoI.totalPago = oPagoI.totalPago + oTipPagI.ValorPago;
+                                    oTipPagLis.Add(oTipPagI);
+                                }
+                                if (oPagoI.totalPago > TotalAPagar)
+                                {
+                                    oPagoI.totalPago = TotalAPagar;
+                                }
+                                if (oTipPagLis.Count > 0)
+                                {
+                                    oPagoI.idTercero = long.Parse(hddIdCliente.Value);
+                                    oPagoI.idEmpresa = oUsuarioI.idEmpresa;
+                                    oPagoI.fechaPago = Util.ObtenerFecha(oUsuarioI.idEmpresa);
+                                    oPagoI.idUsuario = oUsuarioI.idUsuario;
+                                    oPagoI.idEstado = short.Parse(tblPagoBusiness.EstadoPago.Definitivo.GetHashCode().ToString());
+                                    oPagoI.EnCuadre = false;
+                                    oPagoI.Observaciones = txtObser.Text;
+                                    oPagoI.IdTipoPago = short.Parse(tblPagoBusiness.TipoPago.PagoNormal.GetHashCode().ToString());
+                                    foreach (DataGridItem Item in dgDocumentos.Items)
+                                    {
+                                        if (((CheckBox)(Item.Cells[dgDocumentosColumnsEnum.Seleccionar.GetHashCode()].FindControl("chkSeleccionar"))).Checked)
+                                        {
+                                            PagoDetalle = PagoDetalle + "* Num. Documento: " + Item.Cells[dgDocumentosColumnsEnum.NumeroDocumento.GetHashCode()].Text + " Valor: " + decimal.Parse(Item.Cells[dgDocumentosColumnsEnum.saldo.GetHashCode()].Text, NumberStyles.Currency).ToString(Util.ObtenerFormatoDecimal());
+                                            tblPagoDetalleItem oPagDetI = new tblPagoDetalleItem();
+                                            oPagDetI.idDocumento = long.Parse(Item.Cells[dgDocumentosColumnsEnum.idDocumento.GetHashCode()].Text);
+                                            oPagDetI.NumeroDocumento = Item.Cells[dgDocumentosColumnsEnum.NumeroDocumento.GetHashCode()].Text;
+                                            if (Acumulado < decimal.Parse(Item.Cells[dgDocumentosColumnsEnum.saldo.GetHashCode()].Text, NumberStyles.Currency))
+                                            {
+                                                oPagDetI.valorAbono = Acumulado;
+                                                Acumulado = 0;
+                                            }
+                                            else
+                                            {
+                                                oPagDetI.valorAbono = decimal.Parse(Item.Cells[dgDocumentosColumnsEnum.saldo.GetHashCode()].Text, NumberStyles.Currency);
+                                                Acumulado = Acumulado - decimal.Parse(Item.Cells[dgDocumentosColumnsEnum.saldo.GetHashCode()].Text, NumberStyles.Currency);
+                                            }
+                                            oPagDetLis.Add(oPagDetI);
+                                        }
                                     }
                                 }
-                            }
-                            if (oPagoI.totalPago > 0)
-                            {
-                                if (oDocB.GuardarPago(oPagoI, oPagDetLis, oTipPagLis, long.Parse(hddTipoDocumento.Value)))
+                                if (oPagoI.totalPago > 0)
                                 {
-                                    if (oPagoI.idPago > 0)
+                                    if (oDocB.GuardarPago(oPagoI, oPagDetLis, oTipPagLis, long.Parse(hddTipoDocumento.Value)))
                                     {
-                                        tblEmpresaItem oEmpI = new tblEmpresaItem();
-                                        tblEmpresaBusiness oEmpB = new tblEmpresaBusiness(cadenaConexion);
-                                        oEmpI = oEmpB.ObtenerEmpresa(oUsuarioI.idEmpresa);
-                                        string Mensaje = "";
-                                        Mensaje = string.Format("<div style='position:relative;font-family:arial;'>" +
-                                            "<div style='font-size: 12px; font-weight: bold; width: 300px; padding-top: 20px; text-align: left;'>{0}</div>" +
-                                            "<div style='font-size: 12px;font-weight: bold; padding-top: 5px; width: 300px; text-align: left;'>Nit: {1}</div>" +
-                                            "<div style='font-size: 12px;font-weight: bold; padding-top: 5px; width: 300px; text-align: left;'>Direcci&oacute;n: {2}</div>" +
-                                            "<div style='font-size: 12px;font-weight: bold; padding-top: 5px; width: 300px; text-align: left;'>Telefono: {3}</div>" +
-                                            "<div style='font-size: 12px;font-weight: bold; padding-top: 5px; width: 300px;'>{4}</div>" +
-                                            "<div style='font-size: 12px;font-weight: bold; padding-top: 5px; width: 300px; text-align:center;'>Comprobante de pago</div>" +
-                                            "<div style='font-size: 12px;font-weight: bold; padding-top: 5px; width: 300px;'>ID Pago: {5}</div>" +
-                                            "<div style='font-size: 12px;font-weight: bold; padding-top: 5px; width: 300px;'>Tercero: {6}</div>" +
-                                            "<div style='font-size: 12px;font-weight: bold; padding-top: 5px;'>Identificaci&oacute;n: {7}</div>" +
-                                            "<div style='font-size: 14px;font-weight: bold; padding-top: 5px; width: 300px; text-align: right;'>Total a pagar: {8}</div>" +
-                                            "<div style='font-size: 14px;font-weight: bold; padding-top: 5px; width: 300px; text-align: right;'>Valor del pago: {9}</div>" +
-                                            "<div style='font-size: 14px;font-weight: bold; padding-top: 5px; width: 300px; text-align: right;'>Saldo: {10}</div>" +
-                                            "<div style='font-size: 12px;font-weight: bold; padding-top: 5px; width: 300px;'>Vende: {11}</div>" +
-                                            "<div style='font-size: 12px;font-weight: bold; padding-top: 5px; width: 300px;'>Observaciones: {12}</div>" +
-                                            "<div style='font-size: 12px;font-weight: bold; padding-top: 5px; width: 300px; text-align:center;'>Documentos Relacionados</div>" +
-                                            "<div style='font-size: 14px;font-weight: bold; padding-top: 5px; width: 300px; text-align: right;'>{13}</div>" +
-                                            "</div>", oEmpI.Nombre, oEmpI.Identificacion, oEmpI.Direccion, oEmpI.Telefono, oPagoI.fechaPago, oPagoI.idPago, txtTercero.Text,
-                                            txtIdentificacion.Text, txtTotal.Text, txtTotalPago.Text, (decimal.Parse(txtTotal.Text, NumberStyles.Currency) - decimal.Parse(txtTotalPago.Text, NumberStyles.Currency)).ToString(Util.ObtenerFormatoDecimal()),
-                                            oUsuarioI.Usuario, txtObser.Text, PagoDetalle);
-                                        string strScript = string.Format("jQuery(document).ready(function(){{ ImprimirComprobantePago(\"{0}\");}});", Mensaje);
-                                        if (!Page.ClientScript.IsClientScriptBlockRegistered("InicializarControlesScriptImprimir"))
+                                        if (oPagoI.idPago > 0)
                                         {
-                                            Page.ClientScript.RegisterClientScriptBlock(GetType(), "InicializarControlesScriptImprimir", strScript, true);
+                                            Response.Redirect($"frmImprimirCuentasPorCobrarPagar.aspx?TipoPago={Request.QueryString["TipoPago"]}&idPago={oPagoI.idPago}&PagoDetalle={PagoDetalle}&TotalPagar={txtTotal.Text}&Tipo={hddTipoDocumento.Value}");
+                                        }
+                                        else
+                                        {
+                                            MostrarAlerta(0, "Error", "El pago no se pudo realizar.");
                                         }
                                     }
                                     else
                                     {
-                                        MostrarMensaje("Error", "El pago no se pudo realizar.");
+                                        MostrarAlerta(0, "Error", "El pago no se pudo realizar.");
                                     }
                                 }
                                 else
                                 {
-                                    MostrarMensaje("Error", "El pago no se pudo realizar.");
+                                    MostrarAlerta(0, "Error", "El valor del pago debe ser mayor a 0.");
                                 }
                             }
                             else
                             {
-                                MostrarMensaje("Error", "El valor del pago debe ser mayor a 0.");
+                                MostrarAlerta(0, "Error", "Debe seleccionar un cliente.");
                             }
                         }
                         else
                         {
-                            MostrarMensaje("Error", "Debe seleccionar un cliente.");
+                            MostrarAlerta(0, "Error", "El valor a pagar por medio de tarjetas no puede sobre pasar el valor del pago total de los documentos.");
                         }
                     }
                     else
                     {
-                        MostrarMensaje("Error", "El valor a pagar por medio de tarjetas no puede sobre pasar el valor del pago total de los documentos.");
+                        MostrarAlerta(0, "Error", "Debe tener una caja abierta o seleccionar un documento.");
                     }
                 }
                 else
                 {
-                    MostrarMensaje("Error", "Debe tener una caja abierta o seleccionar un documento.");
+                    MostrarAlerta(0, "Error", "No tiene permiso de crear pagos.");
                 }
             }
             catch (Exception ex)
             {
-                MostrarMensaje("Error", string.Format("No se pudo efectuar el pago. {0}", ex.Message));
+                MostrarAlerta(0, "Error", ex.Message.Replace("'", "").Replace(Environment.NewLine, " "));
             }
         }
 
@@ -618,7 +585,7 @@ namespace Inventario
             }
             catch(Exception ex)
             {
-                MostrarMensaje("Error", string.Format("No se pudo efectuar el pago. {0}", ex.Message));
+                MostrarAlerta(0, "Error", ex.Message.Replace("'", "").Replace(Environment.NewLine, " "));
             }
         }
 
@@ -675,7 +642,7 @@ namespace Inventario
             }
             catch (Exception ex)
             {
-                MostrarMensaje("Error", string.Format("No se pudo realizar la operación. {0}", ex.Message));
+                MostrarAlerta(0, "Error", ex.Message.Replace("'", "").Replace(Environment.NewLine, " "));
             }
         }
 
@@ -770,12 +737,12 @@ namespace Inventario
                 }
                 else
                 {
-                    MostrarMensaje("Error", "Primero debe seleccionar un documento.");
+                    MostrarAlerta(0, "Error", "Primero debe seleccionar un documento.");
                 }
             }
             catch (Exception ex)
             {
-                MostrarMensaje("Error", string.Format("No se pudo realizar la operación. {0}", ex.Message));
+                MostrarAlerta(0, "Error", ex.Message.Replace("'", "").Replace(Environment.NewLine, " "));
             }
         }
 
@@ -831,7 +798,7 @@ namespace Inventario
             }
             else
             {
-                MostrarMensaje("Error", "Primero debe seleccionar un documento.");
+                MostrarAlerta(0, "Error", "Primero debe seleccionar un documento.");
                 CargarSaldosPendientesCliente();
             }
         }
@@ -867,7 +834,7 @@ namespace Inventario
             }
             catch (Exception ex)
             {
-                MostrarMensaje("Error", string.Format("No se pudo realizar la operación. {0}", ex.Message));
+                MostrarAlerta(0, "Error", ex.Message.Replace("'", "").Replace(Environment.NewLine, " "));
             }
         }
 
@@ -922,7 +889,7 @@ namespace Inventario
             }
             catch (Exception ex)
             {
-                MostrarMensaje("Error", ex.Message);
+                MostrarAlerta(0, "Error", ex.Message.Replace("'", "").Replace(Environment.NewLine, " "));
             }
         }
     }

@@ -1,0 +1,20 @@
+C:\eFacturacionColombia_V2\FirmaXadesNet45\Microsoft.Xades\bin\Debug\Microsoft.Xades.dll
+C:\eFacturacionColombia_V2\FirmaXadesNet45\Microsoft.Xades\bin\Debug\Microsoft.Xades.pdb
+C:\eFacturacionColombia_V2\FirmaXadesNet45\Microsoft.Xades\bin\Debug\XAdES.xml
+C:\eFacturacionColombia_V2\FirmaXadesNet45\Microsoft.Xades\obj\Debug\Microsoft.Xades.csproj.CoreCompileInputs.cache
+C:\eFacturacionColombia_V2\FirmaXadesNet45\Microsoft.Xades\obj\Debug\Microsoft.Xades.dll
+C:\eFacturacionColombia_V2\FirmaXadesNet45\Microsoft.Xades\obj\Debug\Microsoft.Xades.pdb
+C:\eFacturacionColombia_V2_facturalatam\FirmaXadesNet45\Microsoft.Xades\bin\Debug\Microsoft.Xades.dll
+C:\eFacturacionColombia_V2_facturalatam\FirmaXadesNet45\Microsoft.Xades\bin\Debug\Microsoft.Xades.pdb
+C:\eFacturacionColombia_V2_facturalatam\FirmaXadesNet45\Microsoft.Xades\bin\Debug\XAdES.xml
+C:\eFacturacionColombia_V2_facturalatam\FirmaXadesNet45\Microsoft.Xades\obj\Debug\Microsoft.Xades.csprojAssemblyReference.cache
+C:\eFacturacionColombia_V2_facturalatam\FirmaXadesNet45\Microsoft.Xades\obj\Debug\Microsoft.Xades.csproj.CoreCompileInputs.cache
+C:\eFacturacionColombia_V2_facturalatam\FirmaXadesNet45\Microsoft.Xades\obj\Debug\Microsoft.Xades.dll
+C:\eFacturacionColombia_V2_facturalatam\FirmaXadesNet45\Microsoft.Xades\obj\Debug\Microsoft.Xades.pdb
+C:\Archivos Oscar\HQS-Software\FacturacionElectronica\co-e-fact-colombia-csharp-v1.7-2020-master\FirmaXadesNet45\Microsoft.Xades\bin\Debug\Microsoft.Xades.dll
+C:\Archivos Oscar\HQS-Software\FacturacionElectronica\co-e-fact-colombia-csharp-v1.7-2020-master\FirmaXadesNet45\Microsoft.Xades\bin\Debug\Microsoft.Xades.pdb
+C:\Archivos Oscar\HQS-Software\FacturacionElectronica\co-e-fact-colombia-csharp-v1.7-2020-master\FirmaXadesNet45\Microsoft.Xades\bin\Debug\XAdES.xml
+C:\Archivos Oscar\HQS-Software\FacturacionElectronica\co-e-fact-colombia-csharp-v1.7-2020-master\FirmaXadesNet45\Microsoft.Xades\obj\Debug\Microsoft.Xades.csproj.AssemblyReference.cache
+C:\Archivos Oscar\HQS-Software\FacturacionElectronica\co-e-fact-colombia-csharp-v1.7-2020-master\FirmaXadesNet45\Microsoft.Xades\obj\Debug\Microsoft.Xades.csproj.CoreCompileInputs.cache
+C:\Archivos Oscar\HQS-Software\FacturacionElectronica\co-e-fact-colombia-csharp-v1.7-2020-master\FirmaXadesNet45\Microsoft.Xades\obj\Debug\Microsoft.Xades.dll
+C:\Archivos Oscar\HQS-Software\FacturacionElectronica\co-e-fact-colombia-csharp-v1.7-2020-master\FirmaXadesNet45\Microsoft.Xades\obj\Debug\Microsoft.Xades.pdb

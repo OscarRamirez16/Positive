@@ -101,7 +101,7 @@ namespace Inventario
             }
             catch (Exception ex)
             {
-                MostrarMensaje("Error", ex.Message);
+                MostrarAlerta(0, "Error", ex.Message);
             }
         }
 
@@ -202,7 +202,7 @@ namespace Inventario
             }
             catch (Exception ex)
             {
-                MostrarMensaje("Error", string.Format("No se pudo adicionar la materia prima. {0}", ex.Message));
+                MostrarAlerta(0, "Error", string.Format("No se pudo adicionar la materia prima. {0}", ex.Message));
             }
         }
 
@@ -282,7 +282,7 @@ namespace Inventario
                 if (hddEsInventario.Value == "1" && (decimal.Parse(hddCantidad.Value, NumberStyles.Currency) < decimal.Parse(txtCantidad.Text, NumberStyles.Currency)))
                 {
                     Validador = false;
-                    MostrarMensaje("Error", "No hay existencias suficientes del artículo para la venta.");
+                    MostrarAlerta(0, "Error", "No hay existencias suficientes del artículo para la venta.");
                 }
             }
             if (Validador)
@@ -401,7 +401,7 @@ namespace Inventario
                     {
                         if (hddEsInventario.Value == "1" && (decimal.Parse(hddCantidad.Value, NumberStyles.Currency) < (decimal.Parse(txtCantidad.Text, NumberStyles.Currency) + Cantidad)))
                         {
-                            MostrarMensaje("Error", "No hay existencias suficientes del artículo para la venta.");
+                            MostrarAlerta(0, "Error", "No hay existencias suficientes del artículo para la venta.");
                         }
                         else
                         {
@@ -663,6 +663,7 @@ namespace Inventario
                         oDocItem.TotalDescuento = decimal.Parse(txtTotalDescuento.Text, NumberStyles.Currency);
                         oDocItem.TotalAntesIVA = decimal.Parse(txtAntesIVA.Text, NumberStyles.Currency);
                         oDocItem.FechaVencimiento = DateTime.Now;
+                        oDocItem.Retenciones = new List<tblDocumentoRetencionItem>();
                         if (!oDocB.GuardarTodo(oDocItem, oListDet, oPagoI, oTipPagLis))
                         {
                             Errores = string.Format("No se pudo realizar la factura del cliente {0}. {1}", oDocItem.NombreTercero, Errores);
@@ -671,11 +672,11 @@ namespace Inventario
                 }
                 if (string.IsNullOrEmpty(Errores))
                 {
-                    MostrarMensaje("Exito", "La facturación masiva se realizó con exito.");
+                    MostrarAlerta(1, "Exito", "La facturación masiva se realizó con exito.");
                 }
                 else
                 {
-                    MostrarMensaje("Error", Errores);
+                    MostrarAlerta(0, "Error", Errores);
                 }
                 dgFactura.DataSource = null;
                 dgFactura.DataBind();
@@ -687,7 +688,7 @@ namespace Inventario
             }
             catch(Exception ex)
             {
-                MostrarMensaje("Error", ex.Message);
+                MostrarAlerta(0, "Error", ex.Message);
             }
         }
 
@@ -699,7 +700,7 @@ namespace Inventario
             }
             catch(Exception ex)
             {
-                MostrarMensaje("Error", ex.Message);
+                MostrarAlerta(0, "Error", ex.Message);
             }
         }
     }

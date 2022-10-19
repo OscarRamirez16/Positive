@@ -43,7 +43,7 @@ namespace Inventario
                         ConfiguracionIdioma();
                         if (!IsPostBack)
                         {
-                            txtFechaInicial.Text = DateTime.Now.AddMonths(-1).ToShortDateString();
+                            txtFechaInicial.Text = DateTime.Now.AddDays(-8).ToShortDateString();
                             txtFechaFinal.Text = DateTime.Now.ToShortDateString();
                             CargarOrdenesFabricacion();
                         }
@@ -78,7 +78,7 @@ namespace Inventario
             try
             {
                 tblOrdenFabricacionBiz oOrdB = new tblOrdenFabricacionBiz(CadenaConexion);
-                dgOrdenes.DataSource = oOrdB.ObtenerOrdenesFabricacionPorFiltros(DateTime.Parse(txtFechaInicial.Text), DateTime.Parse(txtFechaFinal.Text), txtIdOrden.Text, long.Parse(ddlUsuario.SelectedValue));
+                dgOrdenes.DataSource = oOrdB.ObtenerOrdenesFabricacionPorFiltros(DateTime.Parse(txtFechaInicial.Text), DateTime.Parse(txtFechaFinal.Text), txtIdOrden.Text, long.Parse(ddlUsuario.SelectedValue), oUsuarioI.idEmpresa);
                 dgOrdenes.DataBind();
             }
             catch (Exception ex)

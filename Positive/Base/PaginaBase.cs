@@ -5,9 +5,17 @@ namespace HQSFramework.Base
     public class PaginaBase : System.Web.UI.Page
     {
         public void MostrarMensaje(string Titulo, string Mensaje) {
-            if (!Page.ClientScript.IsClientScriptBlockRegistered("scriptRegistrarMensaje"))
-            {
-                Page.ClientScript.RegisterClientScriptBlock(Page.GetType(), "scriptRegistrarMensaje", string.Format("$(document).ready(function(){{MostrarAlerta('{0}', '{1}', '80%');}});", Titulo, Mensaje), true);
+            MostrarAlerta(1, Titulo, Mensaje);
+        }
+
+        public void MostrarMensaje()
+        {
+            var Titulo = Request.QueryString["Titulo"];
+            var Mensaje = Request.QueryString["Mensaje"];
+            var TipoMensaje = 1; 
+            int.TryParse(Request.QueryString["TipoMensaje"],out TipoMensaje);
+            if (!string.IsNullOrEmpty(Titulo) && !string.IsNullOrEmpty(Mensaje)) {
+                MostrarAlerta(TipoMensaje, Titulo, Mensaje);
             }
         }
 

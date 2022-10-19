@@ -234,13 +234,55 @@ namespace Idioma
             Administrador = 216,
             PorcentajeDescuento = 217,
             Remision = 218,
-            Remisiones = 219
+            Remisiones = 219,
+            ZipCode = 220,
+            Rapida = 221,
+            CuentaCobro = 222,
+            Anticipo = 223,
+            Conciliacion = 224,
+            RetirarEfectivo = 225,
+            GrupoArticulo = 226,
+            CreacionMasivaArticulo = 227,
+            ActualizacionMasivaArticulo = 228,
+            EntradaSalidaMasiva = 229,
+            ArticuloCompuesto = 230,
+            GrupoSocioNegocio = 231
         }
 
         public string TraducirPalabra(IdiomaEnum Idioma, IdiomaPalabraEnum Palabra) {
             string strPalabra = "";
             switch (Palabra)
             {
+                case IdiomaPalabraEnum.GrupoSocioNegocio:
+                    strPalabra = "Grupo Socio Negocio|Business Partner Group";
+                    break;
+                case IdiomaPalabraEnum.ArticuloCompuesto:
+                    strPalabra = "Articulo Compuesto|Composite Item";
+                    break;
+                case IdiomaPalabraEnum.EntradaSalidaMasiva:
+                    strPalabra = "Entrada/Salida Masiva|Massive Input/Output";
+                    break;
+                case IdiomaPalabraEnum.ActualizacionMasivaArticulo:
+                    strPalabra = "Actualizacion Masiva Articulo|Massive Update Articles";
+                    break;
+                case IdiomaPalabraEnum.CreacionMasivaArticulo:
+                    strPalabra = "Creacion Masiva Articulo|Massive Creation Articles";
+                    break;
+                case IdiomaPalabraEnum.GrupoArticulo:
+                    strPalabra = "Grupo Articulo|Items Group";
+                    break;
+                case IdiomaPalabraEnum.RetirarEfectivo:
+                    strPalabra = "Retirar Efectivo|Remove Cash";
+                    break;
+                case IdiomaPalabraEnum.Conciliacion:
+                    strPalabra = "Conciliacion|Conciliation";
+                    break;
+                case IdiomaPalabraEnum.Anticipo:
+                    strPalabra = "Anticipo|Advance Payment";
+                    break;
+                case IdiomaPalabraEnum.CuentaCobro:
+                    strPalabra = "Cuenta Cobro|Account Receivable";
+                    break;
                 case IdiomaPalabraEnum.Remisiones:
                     strPalabra = "Remisiones|Deliveries";
                     break;
@@ -437,10 +479,10 @@ namespace Idioma
                     strPalabra = "Cedula|Cell Phone Number";
                     break;
                 case IdiomaPalabraEnum.IngresarEfectivo:
-                    strPalabra = "Ingresar Efectivo|Extra Cash Deposits";
+                    strPalabra = "Ingresar Efectivo|Cash Deposits";
                     break;
                 case IdiomaPalabraEnum.CerrarCaja:
-                    strPalabra = "Cerrar Caja|Overview Cash Register";
+                    strPalabra = "Cerrar Caja|Close Cash Register";
                     break;
                 case IdiomaPalabraEnum.IniciarCaja:
                     strPalabra = "Iniciar Caja|Start Cash Register";
@@ -881,7 +923,7 @@ namespace Idioma
                     strPalabra = "% Comisión|% Commission";
                     break;
                 case IdiomaPalabraEnum.Vendedor:
-                    strPalabra = "Vendedor|Salesman";
+                    strPalabra = "Vendedor|Vendor";
                     break;
                 case IdiomaPalabraEnum.ComisionDecimal:
                     strPalabra = "Campo comisión debe ser decimal|Commission field must be decimal";
@@ -894,6 +936,12 @@ namespace Idioma
                     break;
                 case IdiomaPalabraEnum.VendedoresCreados:
                     strPalabra = "Vendedores creados|Salesmans list";
+                    break;
+                case IdiomaPalabraEnum.ZipCode:
+                    strPalabra = "Código Zip|Zip Code";
+                    break;
+                case IdiomaPalabraEnum.Rapida:
+                    strPalabra = "Rapida|Quick";
                     break;
             }
             return TraducirPalabra(Idioma,strPalabra);

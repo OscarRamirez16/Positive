@@ -96,6 +96,29 @@ p {
     text-transform: uppercase;
 }
 
+    .vrFacturar {
+        height: 32px;
+        background-color: #5CB85C;
+        cursor:pointer;
+        text-align: center;
+        align-content:center;
+    }
+
+    .vrFacturar p {
+        font-size: 16px;
+        position: relative;
+        top: 5px;
+        font-weight: bold;
+        color: #337AB7;
+    }
+
+    .vrFacturar p:hover {
+        color: #FFFFFF;
+    }
+
+    .divFacturaVentaRapida {
+    }
+
 </style>
     <script type="text/javascript">
         function CalcularDevueltaVentaRapida() {
@@ -129,118 +152,116 @@ p {
                 <div class="col-md-3">
                     <asp:RadioButton ID="rdbFacturaVenta" GroupName="TipoDocumento" runat="server" Text="Factura de Venta" />&nbsp;&nbsp;&nbsp;<asp:RadioButton ID="rdbRemision" GroupName="TipoDocumento" runat="server" Text="Remisión" />&nbsp;&nbsp;&nbsp;<asp:RadioButton ID="rdbCotizacion" GroupName="TipoDocumento" runat="server" Text="Cotización" />
                 </div>
-                <div class="col-md-2">
-                    <button onclick="return false;" data-toggle="collapse" class="btn btn-success btn-toolbar" data-target="#demo"><i class="fa fa-angle-down fa-fw"></i></button>
-                    
-                </div>
-            </div>
-            <div id="demo" class="collapse">
-                <div class="row" id="div_Factura">
-                    <div class="col-md-4">
-                        <div class = "panel panel-default" style="font-size:xx-small;height:450px;overflow-y: scroll;width:auto">
-                            <div class = "panel-heading">
-                                <h3 class = "panel-title">
-                                    <asp:Label ID="lblFacturaVenta" runat="server"></asp:Label>
-                                </h3>
-                            </div>
-   
-                            <div class = "panel-body">
-                                <table style="width:100%">
-                                    <thead>
-                                        <tr>
-                                            <th><asp:Label runat="server" ID="lblCodigo"></asp:Label></th>
-                                            <th><asp:Label runat="server" ID="lblDescripcion"></asp:Label></th>
-                                            <th><asp:Label runat="server" ID="lblCantidad"></asp:Label></th>
-                                            <th><asp:Label runat="server" ID="lblValor"></asp:Label></th>
-                                            <th></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="FacturaRapidaBody">
-                                    </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <td colspan="5"><hr /></td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="3"><asp:Label runat="server" ID="lblValorAntesIVA"></asp:Label></td>
-                                            <td style="text-align:right;font-weight:bold;font-size:small;" id="tdValorAntesIVA">0</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="3"><asp:Label runat="server" ID="lblIVA"></asp:Label></td>
-                                            <td style="text-align:right;font-weight:bold;font-size:small;" id="tdValorIVA">0</td>
-                                            <td><input type="hidden" id="hddValorIVA" runat="server" value="0" /></td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="3"><asp:Label runat="server" ID="lblImpoconsumo">Impoconsumo</asp:Label></td>
-                                            <td style="text-align:right;font-weight:bold;font-size:small;" id="tdValorImpoconsumo">0</td>
-                                            <td><input type="hidden" id="hddValorImpoconsumo" runat="server" value="0" /></td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="3"><asp:Label runat="server" ID="lblValorTotal"></asp:Label></td>
-                                            <td style="text-align:right;font-weight:bold;font-size:small;" id="tdValorTotal">0</td>
-                                            <td><input type="hidden" runat="server" id="hddValorTotal" value="0" /></td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="5" style="text-align:center;">
-                                                <asp:ImageButton ImageUrl="~/Images/Documento/Guardar.png" ToolTip="Guardar" runat="server" ID="btnGuardar" OnClick="btnGuardar_Click"/>
-                                                <asp:ImageButton ImageUrl="~/Images/Documento/Cancelar.png" ToolTip="Cancelar" runat="server" ID="btnCancelar" CausesValidation="false" OnClick="btnCancelar_Click"/>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="5" style="text-align:center;"><br /></td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="5" style="text-align:left; padding-left:10px">
-                                                <b> Observaciones</b>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="5" style="text-align:center;">
-                                                    <asp:TextBox ID="txtObservaciones" runat="server" CssClass="form-control" TextMode="MultiLine"></asp:TextBox>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="5" style="text-align:left; padding-left:10px">
-                                                <b> Valor Pago</b>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="5" style="text-align:center;">
-                                                <div class = "input-group">
-                                                    <input type="text" id="txtValorPago" style="font-family:Courier New;font-size:medium" class="Decimal form-control BoxValor" onblur="CalcularDevueltaVentaRapida();" />
-                                                <span class = "input-group-addon"><img src="Images/Input/DolarAzul.png" title="Total IVA" /></span>
-                                            </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="5" style="text-align:center;"><br /></td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="5" style="text-align:left; padding-left:10px">
-                                                <b>Devuelta</b>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="5" style="text-align:center;">
-                                                <div class = "input-group">
-                                                    <input type="text" id="txtDevuelta" style="font-family:Courier New;font-size:medium;color:blue" class="form-control BoxValor" disabled="disabled" />
-                                                <span class = "input-group-addon"><img src="Images/Input/DolarAzul.png" title="Total IVA" /></span>
-                                            </div>
-                                            </td>
-                                        </tr>
-                                    </tfoot>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-9">
                     <div>
                         <br />
                         <div id="divItems" runat="server">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div id="demo" class="divFacturaVentaRapida">
+                        <div class="row" id="div_Factura">
+                            <div class="col-md-12">
+                                <div class = "panel panel-default" style="font-size:xx-small;height:450px;overflow-y: scroll;width:auto">
+                                    <div class = "panel-heading">
+                                        <h3 class = "panel-title">
+                                            <asp:Label ID="lblFacturaVenta" runat="server"></asp:Label>
+                                        </h3>
+                                    </div>
+   
+                                    <div class = "panel-body">
+                                        <table style="width:100%">
+                                            <thead>
+                                                <tr>
+                                                    <th><asp:Label runat="server" ID="lblCodigo"></asp:Label></th>
+                                                    <th><asp:Label runat="server" ID="lblDescripcion"></asp:Label></th>
+                                                    <th><asp:Label runat="server" ID="lblCantidad"></asp:Label></th>
+                                                    <th><asp:Label runat="server" ID="lblValor"></asp:Label></th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="FacturaRapidaBody">
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <td colspan="5"><hr /></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3"><asp:Label runat="server" ID="lblValorAntesIVA"></asp:Label></td>
+                                                    <td style="text-align:right;font-weight:bold;font-size:small;" id="tdValorAntesIVA">0</td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3"><asp:Label runat="server" ID="lblIVA"></asp:Label></td>
+                                                    <td style="text-align:right;font-weight:bold;font-size:small;" id="tdValorIVA">0</td>
+                                                    <td><input type="hidden" id="hddValorIVA" runat="server" value="0" /></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3"><asp:Label runat="server" ID="lblImpoconsumo">Impoconsumo</asp:Label></td>
+                                                    <td style="text-align:right;font-weight:bold;font-size:small;" id="tdValorImpoconsumo">0</td>
+                                                    <td><input type="hidden" id="hddValorImpoconsumo" runat="server" value="0" /></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3"><asp:Label runat="server" ID="lblValorTotal"></asp:Label></td>
+                                                    <td style="text-align:right;font-weight:bold;font-size:small;" id="tdValorTotal">0</td>
+                                                    <td><input type="hidden" runat="server" id="hddValorTotal" value="0" /></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="5" style="text-align:center;">
+                                                        <asp:ImageButton ImageUrl="~/Images/Documento/Guardar.png" CssClass="GuardarVentaRapida" ToolTip="Guardar" runat="server" ID="btnGuardar" OnClick="btnGuardar_Click"/>
+                                                        <asp:ImageButton ImageUrl="~/Images/Documento/Cancelar.png" ToolTip="Cancelar" runat="server" ID="btnCancelar" CausesValidation="false" OnClick="btnCancelar_Click"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="5" style="text-align:center;"><br /></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="5" style="text-align:left; padding-left:10px">
+                                                        <b> Observaciones</b>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="5" style="text-align:center;">
+                                                            <asp:TextBox ID="txtObservaciones" runat="server" CssClass="form-control" TextMode="MultiLine"></asp:TextBox>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="5" style="text-align:left; padding-left:10px">
+                                                        <b> Valor Pago</b>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="5" style="text-align:center;">
+                                                        <div class = "input-group">
+                                                            <input type="text" id="txtValorPago" style="font-family:Courier New;font-size:medium" class="Decimal form-control BoxValor" onblur="CalcularDevueltaVentaRapida();" />
+                                                        <span class = "input-group-addon"><img src="Images/Input/DolarAzul.png" title="Total IVA" /></span>
+                                                    </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="5" style="text-align:center;"><br /></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="5" style="text-align:left; padding-left:10px">
+                                                        <b>Devuelta</b>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="5" style="text-align:center;">
+                                                        <div class = "input-group">
+                                                            <input type="text" id="txtDevuelta" style="font-family:Courier New;font-size:medium;color:blue" class="form-control BoxValor" disabled="disabled" />
+                                                        <span class = "input-group-addon"><img src="Images/Input/DolarAzul.png" title="Total IVA" /></span>
+                                                    </div>
+                                                    </td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

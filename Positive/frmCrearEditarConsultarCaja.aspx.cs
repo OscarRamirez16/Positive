@@ -51,6 +51,7 @@ namespace Inventario
                         {
                             string strScript = "$(document).ready(function(){";
                             strScript = string.Format("{0} menu();", strScript);
+                            strScript = string.Format("{0} EstablecerDataPicker('{1}');", strScript, txtFechaVencimiento.ClientID);
                             strScript = string.Format("{0} EstablecerAutoCompleteBodega('{1}','Ashx/Bodega.ashx','{2}','{3}','1');", strScript, txtBodega.ClientID, hddIdBodega.ClientID, oUsuarioI.idEmpresa);
                             strScript = string.Format("{0}}});", strScript);
                             this.Page.ClientScript.RegisterClientScriptBlock(this.Page.GetType(), "InicializarControlesScript", strScript, true);
@@ -99,12 +100,7 @@ namespace Inventario
             }
             lblTitulo.Text = string.Format("{0} {1}", oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.Crear), oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.Caja));
             lblTituloGrilla.Text = string.Format("{0} {1} {2}", oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.Lista), oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.de), oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.Cajas));
-            txtNombre.Attributes.Add("placeholder", oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.Descripcion));
-            txtBodega.Attributes.Add("placeholder", oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.Bodega));
-            txtValorInicial.Attributes.Add("placeholder", "Valor Inicial");
-            txtValorFinal.Attributes.Add("placeholder", "Valor Final");
-            txtProximoValor.Attributes.Add("placeholder", "Proximo Valor");
-            txtResolucion.Attributes.Add("placeholder", "Resolución DIAN");
+            txtFechaVencimiento.Attributes.Add("placeholder", "DD/MM/AAAA");
             ConfigurarIdiomaGrilla(oCIdioma, Idioma);
         }
 
@@ -132,6 +128,7 @@ namespace Inventario
             txtValorInicial.Text = "";
             txtValorFinal.Text = "";
             txtResolucion.Text = "";
+            txtFechaVencimiento.Text = "";
             chkActivo.Checked = false;
         }
 
@@ -151,6 +148,10 @@ namespace Inventario
                 Caja.ProximoValor = txtProximoValor.Text;
                 Caja.Resolucion = txtResolucion.Text;
                 Caja.Activo = chkActivo.Checked;
+                if (!string.IsNullOrEmpty(txtFechaVencimiento.Text))
+                {
+                    Caja.FechaVencimiento = DateTime.Parse(txtFechaVencimiento.Text);
+                }
             }
             catch (Exception ex)
             {
@@ -162,7 +163,7 @@ namespace Inventario
         {
             try
             {
-                tblCajaBussines oCajaB = new tblCajaBussines(cadenaConexion);
+                tblCajaBusiness oCajaB = new tblCajaBusiness(cadenaConexion);
                 dgCajas.DataSource = oCajaB.ObtenerCajaLista(oUsuarioI.idEmpresa);
                 dgCajas.DataBind();
             }
@@ -197,6 +198,10 @@ namespace Inventario
                         txtProximoValor.Text = oCajaI.ProximoValor;
                         txtResolucion.Text = oCajaI.Resolucion;
                         chkActivo.Checked = oCajaI.Activo;
+                        if(oCajaI.FechaVencimiento != DateTime.MinValue)
+                        {
+                            txtFechaVencimiento.Text = oCajaI.FechaVencimiento.ToShortDateString();
+                        }
                     }
                     else
                     {
@@ -252,7 +257,7 @@ namespace Inventario
                 string Errores = ValidarDatos();
                 if (string.IsNullOrEmpty(Errores))
                 {
-                    tblCajaBussines oCajaB = new tblCajaBussines(cadenaConexion);
+                    tblCajaBusiness oCajaB = new tblCajaBusiness(cadenaConexion);
                     tblCajaItem oCajaI = new tblCajaItem();
                     CargarDatosGuardar(oCajaI);
                     if (oRolPagI.Insertar && oCajaI.idCaja == 0)

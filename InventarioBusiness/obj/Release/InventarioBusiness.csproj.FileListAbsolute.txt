@@ -203,3 +203,17 @@ C:\Users\orami\Downloads\20210621PositiveResponsive\InventarioBusiness\obj\Relea
 C:\Users\orami\Downloads\20210621PositiveResponsive\InventarioBusiness\obj\Release\InventarioBusiness.csproj.CopyComplete
 C:\Users\orami\Downloads\20210621PositiveResponsive\InventarioBusiness\obj\Release\InventarioBusiness.dll
 C:\Users\orami\Downloads\20210621PositiveResponsive\InventarioBusiness\obj\Release\InventarioBusiness.pdb
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\InventarioBusiness\bin\Release\InventarioBusiness.dll
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\InventarioBusiness\bin\Release\InventarioBusiness.pdb
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\InventarioBusiness\bin\Release\InventarioDao.dll
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\InventarioBusiness\bin\Release\InventarioItem.dll
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\InventarioBusiness\bin\Release\Microsoft.ReportViewer.Common.dll
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\InventarioBusiness\bin\Release\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\InventarioBusiness\bin\Release\Microsoft.ReportViewer.WebForms.DLL
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\InventarioBusiness\bin\Release\InventarioDao.pdb
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\InventarioBusiness\bin\Release\InventarioItem.pdb
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\InventarioBusiness\obj\Release\InventarioBusiness.csproj.AssemblyReference.cache
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\InventarioBusiness\obj\Release\InventarioBusiness.csproj.CoreCompileInputs.cache
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\InventarioBusiness\obj\Release\InventarioBusiness.csproj.CopyComplete
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\InventarioBusiness\obj\Release\InventarioBusiness.dll
+C:\Users\orami\Downloads\20210904PositiveResponsive\Positive\InventarioBusiness\obj\Release\InventarioBusiness.pdb

@@ -1,19 +1,49 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using InventarioDao;
-using InventarioItem;
 using System.Configuration;
 using System.Security.Cryptography;
 using System.Text.RegularExpressions;
+using System.Security.Cryptography.X509Certificates;
+using System.IO;
+//using eFacturacionColombia_V2.Documentos;
+//using eFacturacionColombia_V2.ServiciosWeb;
 
 namespace InventarioBusiness
 {
     public class Util
     {
         string key = "hqs";
+        public static string RUTA_CERTIFICADO = "Certificados/HQS/POSITIVE.pfx";
+        public static string CLAVE_CERTIFICADO = "Positive@01";
+        /// <summary>
+        /// Método para obtener el rango de numeración de la DIAN
+        /// </summary>
+        /// <returns></returns>
+        //public static RangoNumeracion ObtenerRangoNumeracion(string EMISOR_NIT, string SOFTWARE_IDENTIFICADOR)
+        //{
+        //    RangoNumeracion Rango = new RangoNumeracion();
+        //    var cliente = new ClienteServicioDian
+        //    {
+        //        Ambiente = AmbienteServicio.PRUEBAS,
+        //        Certificado = new X509Certificate2(File.ReadAllBytes(RUTA_CERTIFICADO), CLAVE_CERTIFICADO)
+        //    };
+        //    var response = cliente.ObtenerRangosNumeracion(EMISOR_NIT, SOFTWARE_IDENTIFICADOR);
+        //    if (response.ResponseList != null)
+        //    {
+        //        foreach (var range in response.ResponseList)
+        //        {
+        //            Rango.NumeroResolucion = long.Parse(range.ResolutionNumber);
+        //            Rango.FechaResolucion = DateTime.Parse(range.ResolutionDate);
+        //            Rango.Prefijo = range.Prefix;
+        //            Rango.Desde = range.FromNumber;
+        //            Rango.Hasta = range.ToNumber;
+        //            Rango.ClaveTecnica = range.TechnicalKey;
+        //            Rango.VigenciaDesde = DateTime.Parse(range.ValidDateFrom);
+        //            Rango.VigenciaHasta = DateTime.Parse(range.ValidDateTo);
+        //        }
+        //    }
+        //    return Rango;
+        //}
 
         /// <summary>
         /// Valida la estructura de un correo electronico.
@@ -22,7 +52,7 @@ namespace InventarioBusiness
         /// <returns>booleano según sea la respuesta de la validación</returns>
         public static bool ValidarEmail(string email)
         {
-            String expresion;
+            string expresion;
             expresion = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
             if (Regex.IsMatch(email, expresion))
             {
@@ -277,6 +307,30 @@ namespace InventarioBusiness
             catch
             {
                 return 128;
+            }
+        }
+
+        public static bool EsBackOfficce()
+        {
+            try
+            {
+                return bool.Parse(ConfigurationManager.AppSettings["BackOfficce"]);
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public static int BackOfficceID()
+        {
+            try
+            {
+                return int.Parse(ConfigurationManager.AppSettings["BackOfficceID"]);
+            }
+            catch
+            {
+                return 0;
             }
         }
     }

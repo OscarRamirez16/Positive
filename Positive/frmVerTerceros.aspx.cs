@@ -23,11 +23,12 @@ namespace Inventario
             identificacion = 2,
             nombre = 3,
             tipoTercero = 4,
-            telefono = 5,
-            correo = 6,
-            direccion = 7,
-            ciudad = 8,
-            empresa = 9
+            grupo = 5,
+            telefono = 6,
+            correo = 7,
+            direccion = 8,
+            ciudad = 9,
+            empresa = 10
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -55,7 +56,7 @@ namespace Inventario
                     }
                     else
                     {
-                        Response.Write("<script>alert('El usuario no posee permisos en la pagina');</script>");
+                        MostrarAlerta(0, "Error", "El usuario no posee permisos para esta opción");
                         Response.Redirect("frmMantenimientos.aspx");
                     }
                 }
@@ -66,7 +67,7 @@ namespace Inventario
             }
             catch (Exception ex)
             {
-                Response.Write("<script>alert('Error al cargar la pagina de ver terceros. " + ex.ToString() + "');</script>");
+                MostrarAlerta(0, "Error", ex.Message.Replace(Environment.NewLine, " "));
             }
         }
 
@@ -108,7 +109,8 @@ namespace Inventario
             {
                 dgClientes.Columns[dgClientesColumnsEnum.identificacion.GetHashCode()].HeaderText = oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.Identificacion);
                 dgClientes.Columns[dgClientesColumnsEnum.nombre.GetHashCode()].HeaderText = oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.Nombre);
-                dgClientes.Columns[dgClientesColumnsEnum.tipoTercero.GetHashCode()].HeaderText = string.Format("{0} {1}", oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.Tipo), oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.SocioNegocio));
+                dgClientes.Columns[dgClientesColumnsEnum.tipoTercero.GetHashCode()].HeaderText = oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.Tipo);
+                dgClientes.Columns[dgClientesColumnsEnum.grupo.GetHashCode()].HeaderText = oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.GrupoCliente);
                 dgClientes.Columns[dgClientesColumnsEnum.telefono.GetHashCode()].HeaderText = oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.Telefono);
                 dgClientes.Columns[dgClientesColumnsEnum.correo.GetHashCode()].HeaderText = oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.Correo);
                 dgClientes.Columns[dgClientesColumnsEnum.direccion.GetHashCode()].HeaderText = oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.Direccion);
@@ -122,19 +124,26 @@ namespace Inventario
 
         public void CargarTipoTercero(Traductor oCIdioma, Idioma.Traductor.IdiomaEnum Idioma)
         {
-            string Opcion = ddlTipoTercero.SelectedValue;
-            ddlTipoTercero.Items.Clear();
-            ddlTipoTercero.Items.Add(new ListItem(string.Format("{0} {1} {2} {3}", oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.Seleccione), oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.Tipo), oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.de), oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.SocioNegocio)), "-1"));
-            ddlTipoTercero.Items.Add(new ListItem(oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.Cliente), "C"));
-            ddlTipoTercero.Items.Add(new ListItem(oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.Proveedor), "P"));
-            ddlTipoTercero.DataBind();
-            if (!IsPostBack)
+            try
             {
-                ddlTipoTercero.SelectedValue = "-1";
+                string Opcion = ddlTipoTercero.SelectedValue;
+                ddlTipoTercero.Items.Clear();
+                ddlTipoTercero.Items.Add(new ListItem(string.Format("{0} {1} {2} {3}", oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.Seleccione), oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.Tipo), oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.de), oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.SocioNegocio)), "-1"));
+                ddlTipoTercero.Items.Add(new ListItem(oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.Cliente), "C"));
+                ddlTipoTercero.Items.Add(new ListItem(oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.Proveedor), "P"));
+                ddlTipoTercero.DataBind();
+                if (!IsPostBack)
+                {
+                    ddlTipoTercero.SelectedValue = "-1";
+                }
+                else
+                {
+                    ddlTipoTercero.SelectedValue = Opcion;
+                }
             }
-            else
+            catch(Exception ex)
             {
-                ddlTipoTercero.SelectedValue = Opcion;
+                MostrarAlerta(0, "Error", ex.Message.Replace(Environment.NewLine, " "));
             }
         }
 
@@ -146,7 +155,7 @@ namespace Inventario
             }
             else
             {
-                Response.Write("<script>alert('El usuario no posee permisos para esta operación');</script>");
+                MostrarAlerta(0, "Error", "El usuario no posee permisos para esta opción");
             }
         }
 
@@ -165,7 +174,7 @@ namespace Inventario
             }
             catch (Exception ex)
             {
-                Response.Write("<script>alert('Error al cargar los terceros. " + ex.ToString() + "');</script>");
+                MostrarAlerta(0, "Error", ex.Message.Replace(Environment.NewLine, " "));
             }
         }
 
@@ -176,7 +185,5 @@ namespace Inventario
                 e.Item.Cells[dgClientesColumnsEnum.Numero.GetHashCode()].Text = (e.Item.ItemIndex + 1).ToString();
             }
         }
-
-        
     }
 }

@@ -58,7 +58,6 @@
     <Compile Include="tblArticuloBusiness.cs" />
     <Compile Include="tblBodegaBusiness.cs" />
     <Compile Include="tblCajaBusiness.cs" />
-    <Compile Include="tblCajaBussines.cs" />
     <Compile Include="tblCiudadBusiness.cs" />
     <Compile Include="tblConciliacionBusiness.cs" />
     <Compile Include="tblCuadreCajaBusiness.cs" />
