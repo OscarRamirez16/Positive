@@ -86,7 +86,7 @@ namespace Inventario
             }
             catch (Exception ex)
             {
-                MostrarMensaje("Error", string.Format("No se pudo cargar la pagina de creación masiva de articulos. {0}", ex.Message));
+                MostrarAlerta(0, "Error", ex.Message.Replace(Environment.NewLine, " "));
             }
         }
 
@@ -190,7 +190,7 @@ namespace Inventario
             }
             catch (Exception ex)
             {
-                MostrarMensaje("Error", string.Format("No se pudo cargar los delimitadores. {0}", ex.Message));
+                MostrarAlerta(0, "Error", ex.Message.Replace(Environment.NewLine, " "));
             }
         }
 
@@ -352,7 +352,7 @@ namespace Inventario
                     }
                     else
                     {
-                        MostrarMensaje("Error", Error);
+                        MostrarAlerta(0, "Error", Error);
                     }
                 }
                 else

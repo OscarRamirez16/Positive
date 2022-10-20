@@ -14,6 +14,152 @@ namespace InventarioDao
         {
             Conexion = new SqlConnection(CadenaConexion);
         }
+        public string CreacionMasivaTerceros(List<tblTerceroItem> oListTer)
+        {
+            string Error = string.Empty;
+            Conexion.Open();
+            SqlTransaction oTran;
+            oTran = Conexion.BeginTransaction();
+            try
+            {
+                foreach (tblTerceroItem Item in oListTer)
+                {
+                    SqlCommand oSQL = new SqlCommand("spInsertarTercero", Conexion, oTran);
+                    oSQL.Parameters.Add(new SqlParameter("@idTipoIdentificacion", Item.idTipoIdentificacion));
+                    oSQL.Parameters.Add(new SqlParameter("@Identificacion", Item.Identificacion));
+                    oSQL.Parameters.Add(new SqlParameter("@Nombre", Item.Nombre));
+                    if (string.IsNullOrEmpty(Item.Telefono))
+                    {
+                        oSQL.Parameters.Add(new SqlParameter("@Telefono", DBNull.Value));
+                    }
+                    else
+                    {
+                        oSQL.Parameters.Add(new SqlParameter("@Telefono", Item.Telefono));
+                    }
+                    if (string.IsNullOrEmpty(Item.Celular))
+                    {
+                        oSQL.Parameters.Add(new SqlParameter("@Celular", DBNull.Value));
+                    }
+                    else
+                    {
+                        oSQL.Parameters.Add(new SqlParameter("@Celular", Item.Celular));
+                    }
+                    if (string.IsNullOrEmpty(Item.Mail))
+                    {
+                        oSQL.Parameters.Add(new SqlParameter("@Mail", DBNull.Value));
+                    }
+                    else
+                    {
+                        oSQL.Parameters.Add(new SqlParameter("@Mail", Item.Mail));
+                    }
+                    oSQL.Parameters.Add(new SqlParameter("@Direccion", Item.Direccion));
+                    oSQL.Parameters.Add(new SqlParameter("@idCiudad", Item.idCiudad));
+                    oSQL.Parameters.Add(new SqlParameter("@idEmpresa", Item.idEmpresa));
+                    oSQL.Parameters.Add(new SqlParameter("@TipoTercero", Item.TipoTercero));
+                    if (Item.FechaNacimiento != null && Item.FechaNacimiento != DateTime.MinValue)
+                    {
+                        oSQL.Parameters.Add(new SqlParameter("@FechaNacimiento", Item.FechaNacimiento));
+                    }
+                    else
+                    {
+                        oSQL.Parameters.Add(new SqlParameter("@FechaNacimiento", DBNull.Value));
+                    }
+                    if (Item.IdListaPrecio != 0)
+                    {
+                        oSQL.Parameters.Add(new SqlParameter("@IdListaPrecio", Item.IdListaPrecio));
+                    }
+                    else
+                    {
+                        oSQL.Parameters.Add(new SqlParameter("@IdListaPrecio", DBNull.Value));
+                    }
+                    if (Item.idGrupoCliente != 0)
+                    {
+                        oSQL.Parameters.Add(new SqlParameter("@idGrupoCliente", Item.idGrupoCliente));
+                    }
+                    else
+                    {
+                        oSQL.Parameters.Add(new SqlParameter("@idGrupoCliente", DBNull.Value));
+                    }
+                    if (string.IsNullOrEmpty(Item.Observaciones))
+                    {
+                        oSQL.Parameters.Add(new SqlParameter("@Observaciones", DBNull.Value));
+                    }
+                    else
+                    {
+                        oSQL.Parameters.Add(new SqlParameter("@Observaciones", Item.Observaciones));
+                    }
+                    oSQL.Parameters.Add(new SqlParameter("@Activo", Item.Activo));
+                    if (string.IsNullOrEmpty(Item.TipoIdentificacionDIAN))
+                    {
+                        oSQL.Parameters.Add(new SqlParameter("@TipoIdentificacionDIAN", DBNull.Value));
+                    }
+                    else
+                    {
+                        oSQL.Parameters.Add(new SqlParameter("@TipoIdentificacionDIAN", Item.TipoIdentificacionDIAN));
+                    }
+                    if (string.IsNullOrEmpty(Item.MatriculaMercantil))
+                    {
+                        oSQL.Parameters.Add(new SqlParameter("@MatriculaMercantil", DBNull.Value));
+                    }
+                    else
+                    {
+                        oSQL.Parameters.Add(new SqlParameter("@MatriculaMercantil", Item.MatriculaMercantil));
+                    }
+                    if (string.IsNullOrEmpty(Item.TipoContribuyente))
+                    {
+                        oSQL.Parameters.Add(new SqlParameter("@TipoContribuyente", DBNull.Value));
+                    }
+                    else
+                    {
+                        oSQL.Parameters.Add(new SqlParameter("@TipoContribuyente", Item.TipoContribuyente));
+                    }
+                    if (string.IsNullOrEmpty(Item.RegimenFiscal))
+                    {
+                        oSQL.Parameters.Add(new SqlParameter("@RegimenFiscal", DBNull.Value));
+                    }
+                    else
+                    {
+                        oSQL.Parameters.Add(new SqlParameter("@RegimenFiscal", Item.RegimenFiscal));
+                    }
+                    if (string.IsNullOrEmpty(Item.ResponsabilidadFiscal))
+                    {
+                        oSQL.Parameters.Add(new SqlParameter("@ResponsabilidadFiscal", DBNull.Value));
+                    }
+                    else
+                    {
+                        oSQL.Parameters.Add(new SqlParameter("@ResponsabilidadFiscal", Item.ResponsabilidadFiscal));
+                    }
+                    if (string.IsNullOrEmpty(Item.CodigoZip))
+                    {
+                        oSQL.Parameters.Add(new SqlParameter("@CodigoZip", DBNull.Value));
+                    }
+                    else
+                    {
+                        oSQL.Parameters.Add(new SqlParameter("@CodigoZip", Item.CodigoZip));
+                    }
+                    oSQL.CommandType = CommandType.StoredProcedure;
+                    Item.IdTercero = long.Parse(oSQL.ExecuteScalar().ToString());
+                    if (Item.IdTercero <= 0)
+                    {
+                        Error = string.Format("{0} * No se pudo crear el tercero {1} - {2}<br>", Error, Item.Identificacion, Item.Nombre);
+                    }
+                }
+                oTran.Commit();
+            }
+            catch (Exception ex)
+            {
+                oTran.Rollback();
+                return ex.Message;
+            }
+            finally
+            {
+                if (Conexion.State == System.Data.ConnectionState.Open)
+                {
+                    Conexion.Close();
+                }
+            }
+            return Error;
+        }
         public DataTable ObtenerTipoIdentificacionDIAN()
         {
             DataTable dt = new DataTable();
@@ -367,7 +513,7 @@ namespace InventarioDao
         {
             tblTerceroItem Item = new tblTerceroItem();
             Item.IdTercero = long.Parse(reader["idTercero"].ToString());
-            Item.idTipoIdentificacion = reader["idTipoIdentificacion"].ToString();
+            Item.idTipoIdentificacion = short.Parse(reader["idTipoIdentificacion"].ToString());
             Item.Identificacion = reader["Identificacion"].ToString();
             Item.Nombre = reader["Nombre"].ToString();
             Item.Telefono = reader["Telefono"].ToString();
@@ -477,11 +623,46 @@ namespace InventarioDao
                     oSQL.Parameters.Add(new SqlParameter("@Observaciones", Item.Observaciones));
                 }
                 oSQL.Parameters.Add(new SqlParameter("@Activo", Item.Activo));
-                oSQL.Parameters.Add(new SqlParameter("@TipoIdentificacionDIAN", Item.TipoIdentificacionDIAN));
-                oSQL.Parameters.Add(new SqlParameter("@MatriculaMercantil", Item.MatriculaMercantil));
-                oSQL.Parameters.Add(new SqlParameter("@TipoContribuyente", Item.TipoContribuyente));
-                oSQL.Parameters.Add(new SqlParameter("@RegimenFiscal", Item.RegimenFiscal));
-                oSQL.Parameters.Add(new SqlParameter("@ResponsabilidadFiscal", Item.ResponsabilidadFiscal));
+                if (string.IsNullOrEmpty(Item.TipoIdentificacionDIAN))
+                {
+                    oSQL.Parameters.Add(new SqlParameter("@TipoIdentificacionDIAN", DBNull.Value));
+                }
+                else
+                {
+                    oSQL.Parameters.Add(new SqlParameter("@TipoIdentificacionDIAN", Item.TipoIdentificacionDIAN));
+                }
+                if (string.IsNullOrEmpty(Item.MatriculaMercantil))
+                {
+                    oSQL.Parameters.Add(new SqlParameter("@MatriculaMercantil", DBNull.Value));
+                }
+                else
+                {
+                    oSQL.Parameters.Add(new SqlParameter("@MatriculaMercantil", Item.MatriculaMercantil));
+                }
+                if (string.IsNullOrEmpty(Item.TipoContribuyente))
+                {
+                    oSQL.Parameters.Add(new SqlParameter("@TipoContribuyente", DBNull.Value));
+                }
+                else
+                {
+                    oSQL.Parameters.Add(new SqlParameter("@TipoContribuyente", Item.TipoContribuyente));
+                }
+                if (string.IsNullOrEmpty(Item.RegimenFiscal))
+                {
+                    oSQL.Parameters.Add(new SqlParameter("@RegimenFiscal", DBNull.Value));
+                }
+                else
+                {
+                    oSQL.Parameters.Add(new SqlParameter("@RegimenFiscal", Item.RegimenFiscal));
+                }
+                if (string.IsNullOrEmpty(Item.ResponsabilidadFiscal))
+                {
+                    oSQL.Parameters.Add(new SqlParameter("@ResponsabilidadFiscal", DBNull.Value));
+                }
+                else
+                {
+                    oSQL.Parameters.Add(new SqlParameter("@ResponsabilidadFiscal", Item.ResponsabilidadFiscal));
+                }
                 if (string.IsNullOrEmpty(Item.CodigoZip))
                 {
                     oSQL.Parameters.Add(new SqlParameter("@CodigoZip", DBNull.Value));
@@ -580,11 +761,46 @@ namespace InventarioDao
                     oSQL.Parameters.Add(new SqlParameter("@Observaciones", Item.Observaciones));
                 }
                 oSQL.Parameters.Add(new SqlParameter("@Activo", Item.Activo));
-                oSQL.Parameters.Add(new SqlParameter("@TipoIdentificacionDIAN", Item.TipoIdentificacionDIAN));
-                oSQL.Parameters.Add(new SqlParameter("@MatriculaMercantil", Item.MatriculaMercantil));
-                oSQL.Parameters.Add(new SqlParameter("@TipoContribuyente", Item.TipoContribuyente));
-                oSQL.Parameters.Add(new SqlParameter("@RegimenFiscal", Item.RegimenFiscal));
-                oSQL.Parameters.Add(new SqlParameter("@ResponsabilidadFiscal", Item.ResponsabilidadFiscal));
+                if (string.IsNullOrEmpty(Item.TipoIdentificacionDIAN))
+                {
+                    oSQL.Parameters.Add(new SqlParameter("@TipoIdentificacionDIAN", DBNull.Value));
+                }
+                else
+                {
+                    oSQL.Parameters.Add(new SqlParameter("@TipoIdentificacionDIAN", Item.TipoIdentificacionDIAN));
+                }
+                if (string.IsNullOrEmpty(Item.MatriculaMercantil))
+                {
+                    oSQL.Parameters.Add(new SqlParameter("@MatriculaMercantil", DBNull.Value));
+                }
+                else
+                {
+                    oSQL.Parameters.Add(new SqlParameter("@MatriculaMercantil", Item.MatriculaMercantil));
+                }
+                if (string.IsNullOrEmpty(Item.TipoContribuyente))
+                {
+                    oSQL.Parameters.Add(new SqlParameter("@TipoContribuyente", DBNull.Value));
+                }
+                else
+                {
+                    oSQL.Parameters.Add(new SqlParameter("@TipoContribuyente", Item.TipoContribuyente));
+                }
+                if (string.IsNullOrEmpty(Item.RegimenFiscal))
+                {
+                    oSQL.Parameters.Add(new SqlParameter("@RegimenFiscal", DBNull.Value));
+                }
+                else
+                {
+                    oSQL.Parameters.Add(new SqlParameter("@RegimenFiscal", Item.RegimenFiscal));
+                }
+                if (string.IsNullOrEmpty(Item.ResponsabilidadFiscal))
+                {
+                    oSQL.Parameters.Add(new SqlParameter("@ResponsabilidadFiscal", DBNull.Value));
+                }
+                else
+                {
+                    oSQL.Parameters.Add(new SqlParameter("@ResponsabilidadFiscal", Item.ResponsabilidadFiscal));
+                }
                 if (string.IsNullOrEmpty(Item.CodigoZip))
                 {
                     oSQL.Parameters.Add(new SqlParameter("@CodigoZip", DBNull.Value));

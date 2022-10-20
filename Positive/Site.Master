@@ -298,7 +298,7 @@
   				                    <li><a href="frmVerTerceros.aspx"><i class="fa fa-search fa-fw"></i> <asp:Label ID="lblConsultarSocioNegocio" runat="server"></asp:Label></a></li>
                                     <li><a href="frmGrupoCliente.aspx"><i class="fa fa-plus-circle fa-fw"></i> <asp:Label ID="lblGrupoSocioNegocio" runat="server"></asp:Label></a></li>
                                     <li><a href="frmVendedor.aspx"><i class="fa fa-plus-circle fa-fw"></i> <asp:Label ID="lblVendedor" runat="server"></asp:Label></a></li>
-                                    <li><a href="frmTerceros.aspx"><i class="fa fa-plus-circle fa-fw"></i> Creación Masiva de Terceros</a></li>
+                                    <li><a href="frmCreacionMasivaTerceros.aspx"><i class="fa fa-plus-circle fa-fw"></i> Creación Masiva de Terceros</a></li>
                                 </ul>
                                 <!-- /.nav-second-level -->
                             </li>

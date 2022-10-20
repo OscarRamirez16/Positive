@@ -451,3 +451,4 @@ C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\Posi
 C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\Positive\bin\Json.Net.dll
 C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\Positive\bin\eFacturacionColombia_V2.Pdf.dll
 C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\Positive\bin\eFacturacionColombia_V2.Pdf.pdb
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\Positive\obj\Debug\Positive.csproj.CopyComplete

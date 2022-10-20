@@ -330,6 +330,7 @@
     <Content Include="frmCodigoBarra.aspx" />
     <Content Include="frmConciliacion.aspx" />
     <Content Include="frmCreacionMasivaArticulos.aspx" />
+    <Content Include="frmCreacionMasivaTerceros.aspx" />
     <Content Include="frmCrearEditarConsultarArticulos.aspx" />
     <Content Include="frmCrearEditarConsultarBodega.aspx" />
     <Content Include="frmCrearEditarConsultarCaja.aspx" />
@@ -387,7 +388,6 @@
     <Content Include="frmReporteVentasDevolucionesPorFecha.aspx" />
     <Content Include="frmRetenciones.aspx" />
     <Content Include="frmRetiros.aspx" />
-    <Content Include="frmTerceros.aspx" />
     <Content Include="frmTipoTarjetaCredito.aspx" />
     <Content Include="frmTrasladoMercancia.aspx" />
     <Content Include="frmVendedor.aspx" />
@@ -1298,6 +1298,13 @@
     <Compile Include="frmCreacionMasivaArticulos.aspx.designer.cs">
       <DependentUpon>frmCreacionMasivaArticulos.aspx</DependentUpon>
     </Compile>
+    <Compile Include="frmCreacionMasivaTerceros.aspx.cs">
+      <DependentUpon>frmCreacionMasivaTerceros.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmCreacionMasivaTerceros.aspx.designer.cs">
+      <DependentUpon>frmCreacionMasivaTerceros.aspx</DependentUpon>
+    </Compile>
     <Compile Include="frmCrearEditarConsultarArticulos.aspx.cs">
       <DependentUpon>frmCrearEditarConsultarArticulos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1696,13 +1703,6 @@
     </Compile>
     <Compile Include="frmRetiros.aspx.designer.cs">
       <DependentUpon>frmRetiros.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="frmTerceros.aspx.cs">
-      <DependentUpon>frmTerceros.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="frmTerceros.aspx.designer.cs">
-      <DependentUpon>frmTerceros.aspx</DependentUpon>
     </Compile>
     <Compile Include="frmTipoTarjetaCredito.aspx.cs">
       <DependentUpon>frmTipoTarjetaCredito.aspx</DependentUpon>

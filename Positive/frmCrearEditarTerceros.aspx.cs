@@ -300,7 +300,7 @@ namespace Inventario
             {
                 if (tercero.IdTercero <= 0)
                 {
-                    tercero.idTipoIdentificacion = ddlTipoIdentificacion.SelectedValue;
+                    tercero.idTipoIdentificacion = short.Parse(ddlTipoIdentificacion.SelectedValue);
                     tercero.Identificacion = txtIdentificacion.Text.Trim();
                     tercero.Nombre = txtNombre.Text.Trim();
                     tercero.Mail = txtCorreo.Text.Trim();
@@ -522,7 +522,7 @@ namespace Inventario
             try
             {
                 tercero.IdTercero = long.Parse(Request.QueryString["idTercero"]);
-                tercero.idTipoIdentificacion = ddlTipoIdentificacion.SelectedValue;
+                tercero.idTipoIdentificacion = short.Parse(ddlTipoIdentificacion.SelectedValue);
                 tercero.Identificacion = txtIdentificacion.Text.Trim();
                 tercero.Nombre = txtNombre.Text.Trim();
                 tercero.Mail = txtCorreo.Text.Trim();

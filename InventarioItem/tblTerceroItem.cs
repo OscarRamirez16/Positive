@@ -11,7 +11,7 @@ namespace InventarioItem
             Retenciones = new List<tblTerceroRetencionItem>();
         }
         public long IdTercero { get; set; }
-        public string idTipoIdentificacion { get; set; }
+        public short idTipoIdentificacion { get; set; }
         public string Identificacion { get; set; }
         public string Nombre { get; set; }
         public string Telefono { get; set; }

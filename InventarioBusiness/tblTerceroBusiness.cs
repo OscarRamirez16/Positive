@@ -19,6 +19,18 @@ namespace InventarioBusiness
             Nit = 1,
             Cedula = 2
         }
+        public string CreacionMasivaTerceros(List<tblTerceroItem> oListTer)
+        {
+            try
+            {
+                tblTerceroDao oTerD = new tblTerceroDao(cadenaConexion);
+                return oTerD.CreacionMasivaTerceros(oListTer);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public DataTable ObtenerTipoIdentificacionDIAN()
         {
             try
@@ -223,19 +235,29 @@ namespace InventarioBusiness
             return oGCDao.Guardar(Item);
         }
 
-        private enum PlantillaColumnasEnum { 
-            TipoTercero =0,
-            TipoIdentificacion = 1,
-            Identificacion = 2,
-            Grupo = 3,
-            Nombre = 4,
-            Direccion = 5,
-            Telefonos = 6,
-            Mail = 7,
-            Ciudad = 8
+        private enum PlantillaColumnasEnum {
+            TipoIdentificacion = 0,
+            Identificacion = 1,
+            Nombre = 2,
+            Telefono = 3,
+            Celular = 4,
+            Mail = 5,
+            Direccion = 6,
+            Ciudad = 7,
+            TipoTercero = 8,
+            FechaNacimiento = 9,
+            ListaPrecio = 10,
+            GrupoCliente = 11,
+            Observaciones = 12,
+            TipoIdentificacionDIAN = 13,
+            MatriculaMercantil = 14,
+            TipoContribuyente = 15,
+            RegimenFiscal = 16,
+            ResponsabilidadFiscal = 17,
+            CodigoZip = 18
         }
 
-        public string LeerTercerosArchivo(Stream fileStream, List<tblTerceroItem> terceros, long idEmpresa, char Delimitador)
+        public string LeerTercerosArchivo(Stream fileStream, List<tblTerceroItem> terceros, char Delimitador)
         {
             try
             {
@@ -250,7 +272,7 @@ namespace InventarioBusiness
                     {
                         if (PrimeraLinea)
                         {
-                            if (linea.Split(Delimitador).Length < 9)
+                            if (linea.Split(Delimitador).Length < 19)
                             {
                                 blnError = true;
                                 Error = "El numero de columnas del archivo no es valido...";
@@ -259,19 +281,37 @@ namespace InventarioBusiness
                         }
                         else
                         {
-                            if (linea.Split(Delimitador)[PlantillaColumnasEnum.TipoTercero.GetHashCode()] != "" && linea.Split(Delimitador)[PlantillaColumnasEnum.Nombre.GetHashCode()] != "")
+                            if (linea.Split(Delimitador)[PlantillaColumnasEnum.TipoIdentificacion.GetHashCode()] != "" && linea.Split(Delimitador)[PlantillaColumnasEnum.TipoTercero.GetHashCode()] != "" && linea.Split(Delimitador)[PlantillaColumnasEnum.Nombre.GetHashCode()] != "")
                             {
                                 tblTerceroItem oTItem = new tblTerceroItem();
-                                oTItem.TipoTercero = linea.Split(Delimitador)[PlantillaColumnasEnum.TipoTercero.GetHashCode()];
-                                oTItem.idTipoIdentificacion = linea.Split(Delimitador)[PlantillaColumnasEnum.TipoIdentificacion.GetHashCode()];
+                                oTItem.idTipoIdentificacion = short.Parse(linea.Split(Delimitador)[PlantillaColumnasEnum.TipoIdentificacion.GetHashCode()] == "NIT" ? "1" : "2");
                                 oTItem.Identificacion = linea.Split(Delimitador)[PlantillaColumnasEnum.Identificacion.GetHashCode()];
-                                oTItem.idGrupoCliente = long.Parse(linea.Split(Delimitador)[PlantillaColumnasEnum.Grupo.GetHashCode()]);
                                 oTItem.Nombre = linea.Split(Delimitador)[PlantillaColumnasEnum.Nombre.GetHashCode()];
-                                oTItem.Direccion = linea.Split(Delimitador)[PlantillaColumnasEnum.Direccion.GetHashCode()];
-                                oTItem.Telefono = linea.Split(Delimitador)[PlantillaColumnasEnum.Telefonos.GetHashCode()];
+                                oTItem.Telefono = linea.Split(Delimitador)[PlantillaColumnasEnum.Telefono.GetHashCode()];
+                                oTItem.Celular = linea.Split(Delimitador)[PlantillaColumnasEnum.Celular.GetHashCode()];
                                 oTItem.Mail = linea.Split(Delimitador)[PlantillaColumnasEnum.Mail.GetHashCode()];
+                                oTItem.Direccion = linea.Split(Delimitador)[PlantillaColumnasEnum.Direccion.GetHashCode()];
                                 oTItem.idCiudad = short.Parse(linea.Split(Delimitador)[PlantillaColumnasEnum.Ciudad.GetHashCode()]);
-                                oTItem.idEmpresa = idEmpresa;
+                                oTItem.TipoTercero = linea.Split(Delimitador)[PlantillaColumnasEnum.TipoTercero.GetHashCode()];
+                                if(linea.Split(Delimitador)[PlantillaColumnasEnum.FechaNacimiento.GetHashCode()] != "")
+                                {
+                                    oTItem.FechaNacimiento = DateTime.Parse(linea.Split(Delimitador)[PlantillaColumnasEnum.FechaNacimiento.GetHashCode()]);
+                                }
+                                if (linea.Split(Delimitador)[PlantillaColumnasEnum.ListaPrecio.GetHashCode()] != "")
+                                {
+                                    oTItem.IdListaPrecio = long.Parse(linea.Split(Delimitador)[PlantillaColumnasEnum.ListaPrecio.GetHashCode()]);
+                                }
+                                if (linea.Split(Delimitador)[PlantillaColumnasEnum.GrupoCliente.GetHashCode()] != "")
+                                {
+                                    oTItem.idGrupoCliente = long.Parse(linea.Split(Delimitador)[PlantillaColumnasEnum.GrupoCliente.GetHashCode()]);
+                                }
+                                oTItem.Observaciones = linea.Split(Delimitador)[PlantillaColumnasEnum.Observaciones.GetHashCode()];
+                                oTItem.TipoIdentificacionDIAN = linea.Split(Delimitador)[PlantillaColumnasEnum.TipoIdentificacionDIAN.GetHashCode()];
+                                oTItem.MatriculaMercantil = linea.Split(Delimitador)[PlantillaColumnasEnum.MatriculaMercantil.GetHashCode()];
+                                oTItem.TipoContribuyente = linea.Split(Delimitador)[PlantillaColumnasEnum.TipoContribuyente.GetHashCode()];
+                                oTItem.RegimenFiscal = linea.Split(Delimitador)[PlantillaColumnasEnum.RegimenFiscal.GetHashCode()];
+                                oTItem.ResponsabilidadFiscal = linea.Split(Delimitador)[PlantillaColumnasEnum.ResponsabilidadFiscal.GetHashCode()];
+                                oTItem.CodigoZip = linea.Split(Delimitador)[PlantillaColumnasEnum.CodigoZip.GetHashCode()];
                                 terceros.Add(oTItem);
                                 IdLinea++;
                             }

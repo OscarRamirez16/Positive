@@ -11,7 +11,7 @@ namespace Positive
 {
 
 
-    public partial class frmTerceros
+    public partial class frmCreacionMasivaTerceros
     {
 
         /// <summary>
@@ -42,6 +42,15 @@ namespace Positive
         protected global::System.Web.UI.WebControls.ImageButton btnCargar;
 
         /// <summary>
+        /// Control divGrilla.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divGrilla;
+
+        /// <summary>
         /// Control dgTerceros.
         /// </summary>
         /// <remarks>
@@ -49,6 +58,15 @@ namespace Positive
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DataGrid dgTerceros;
+
+        /// <summary>
+        /// Control divBotones.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divBotones;
 
         /// <summary>
         /// Control btnGuardar.
