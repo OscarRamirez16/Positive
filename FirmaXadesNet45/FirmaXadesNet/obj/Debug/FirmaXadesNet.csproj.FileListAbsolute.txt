@@ -56,4 +56,4 @@ C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\Firm
 C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\FirmaXadesNet45\FirmaXadesNet\obj\Debug\FirmaXadesNet.csproj.CopyComplete
 C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\FirmaXadesNet45\FirmaXadesNet\obj\Debug\FirmaXadesNet.dll
 C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\FirmaXadesNet45\FirmaXadesNet\obj\Debug\FirmaXadesNet.pdb
-C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\FirmaXadesNet45\FirmaXadesNet\obj\Debug\FirmaXadesNet.csproj.AssemblyReference.cache
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\FirmaXadesNet45\FirmaXadesNet\obj\Debug\FirmaXadesNet.csprojAssemblyReference.cache

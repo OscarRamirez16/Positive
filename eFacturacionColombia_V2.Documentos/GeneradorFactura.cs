@@ -17,7 +17,14 @@ namespace eFacturacionColombia_V2.Documentos
             Invoice = new InvoiceType();
             Invoice.UBLVersionID = new UBLVersionIDType { Value = "UBL 2.1" };
             Invoice.CustomizationID = new CustomizationIDType { Value = OperacionFactura.ESTANDAR.Codigo };
-            Invoice.ProfileID = new ProfileIDType { Value = "DIAN 2.1: Factura Electrónica de Venta" };
+            if(tipo.Codigo == "05")
+            {
+                Invoice.ProfileID = new ProfileIDType { Value = "DIAN 2.1: documento soporte en adquisiciones efectuadas a no obligados a facturar." };
+            }
+            else
+            {
+                Invoice.ProfileID = new ProfileIDType { Value = "DIAN 2.1: Factura Electrónica de Venta" };
+            }
             Invoice.ProfileExecutionID = new ProfileExecutionIDType { Value = ambiente.Codigo };
             Invoice.UBLExtensions = new UBLExtensionType[]
             {
@@ -32,7 +39,6 @@ namespace eFacturacionColombia_V2.Documentos
         {
             Invoice = invoice;   
         }
-
 
         public GeneradorFactura ConOperacion(OperacionFactura operacion)
         {
@@ -62,14 +68,12 @@ namespace eFacturacionColombia_V2.Documentos
         public GeneradorFactura ConNota(string texto)
         {
             Invoice.Note = new NoteType[] { new NoteType { Value = texto } };
-
             return this;
         }
 
         public GeneradorFactura ConMoneda(Moneda moneda)
         {
             Invoice.DocumentCurrencyCode = new DocumentCurrencyCodeType { Value = moneda.Codigo };
-
             return this;
         }
 
@@ -940,16 +944,16 @@ namespace eFacturacionColombia_V2.Documentos
 
         public GeneradorFactura AgregarResumenImpuesto(ResumenImpuesto resumen)
         {
-            bool ValidadorDetalles = false;
-            foreach(Impuesto Detalle in resumen.Detalles)
-            {
-                if(Detalle != null && Detalle.BaseImponible > 0)
-                {
-                    ValidadorDetalles = true;
-                }
-            }
-            if (ValidadorDetalles)
-            {
+            //bool ValidadorDetalles = false;
+            //foreach (Impuesto Detalle in resumen.Detalles)
+            //{
+            //    if (Detalle != null && Detalle.BaseImponible > 0)
+            //    {
+            //        ValidadorDetalles = true;
+            //    }
+            //}
+            //if (ValidadorDetalles)
+            //{
                 if (resumen.Retenido)
                 {
                     AgregarResumenImpuestoRetenido(resumen);
@@ -958,7 +962,7 @@ namespace eFacturacionColombia_V2.Documentos
                 {
                     AgregarResumenImpuestoNormal(resumen);
                 }
-            }
+            //}
             return this;
         }
 
@@ -1051,7 +1055,6 @@ namespace eFacturacionColombia_V2.Documentos
 
             Invoice.TaxTotal = list.ToArray();
         }
-
         protected void AgregarResumenImpuestoRetenido(ResumenImpuesto resumen)
         {
             var list = (Invoice.WithholdingTaxTotal != null) ? Invoice.WithholdingTaxTotal.ToList() : new List<TaxTotalType>();
@@ -1139,7 +1142,6 @@ namespace eFacturacionColombia_V2.Documentos
 
             Invoice.WithholdingTaxTotal = list.ToArray();
         }
-
         public GeneradorFactura ConTotales(Totales totales)
         {
             Invoice.LegalMonetaryTotal = new MonetaryTotalType
@@ -1442,6 +1444,25 @@ namespace eFacturacionColombia_V2.Documentos
                 line.TaxTotal = listTaxtTotal.ToArray();
                 line.WithholdingTaxTotal = listWithholdingTaxTotal.ToArray();
             }
+            if (linea.InvoicePeriod)
+            {
+                var invPeriod = new List<PeriodType>();
+                var descriptionCode = new List<DescriptionCodeType>();
+                descriptionCode.Add(new DescriptionCodeType() { Value = "1" });
+                var description = new List<DescriptionType>();
+                description.Add(new DescriptionType() { Value = "Por operación" });
+
+                invPeriod.Add(new PeriodType()
+                {
+                    DescriptionCode = descriptionCode.ToArray(),
+                    Description = description.ToArray(),
+                    StartDate = new StartDateType()
+                    {
+                        Value = DateTime.Now
+                    }
+                });
+                line.InvoicePeriod = invPeriod.ToArray();
+            }
             list.Add(line);
             Invoice.InvoiceLine = list.ToArray();
             Invoice.LineCountNumeric = new LineCountNumericType { Value = list.Count };
@@ -1708,13 +1729,31 @@ namespace eFacturacionColombia_V2.Documentos
                     line.TaxTotal = listTaxtTotal.ToArray();
                     line.WithholdingTaxTotal = listWithholdingTaxTotal.ToArray();
                 }
+                if (linea.InvoicePeriod)
+                {
+                    var invPeriod = new List<PeriodType>();
+                    var descriptionCode = new List<DescriptionCodeType>();
+                    descriptionCode.Add(new DescriptionCodeType() { Value = "1" });
+                    var description = new List<DescriptionType>();
+                    description.Add(new DescriptionType() { Value = "Por operación" });
+
+                    invPeriod.Add(new PeriodType()
+                    {
+                        DescriptionCode = descriptionCode.ToArray(),
+                        Description = description.ToArray(),
+                        StartDate = new StartDateType()
+                        {
+                            Value = DateTime.Now
+                        }
+                    });
+                    line.InvoicePeriod = invPeriod.ToArray();
+                }
                 list.Add(line);
             }
             Invoice.InvoiceLine = list.ToArray();
             Invoice.LineCountNumeric = new LineCountNumericType { Value = list.Count };
             return this;
         }
-
         public GeneradorFactura AsignarCUFE(string claveTecnica, string pinSoftware)
         {
             var algoritmo = (Invoice.InvoiceTypeCode.Value != TipoFactura.CONTINGENCIA_FACTURADOR.Codigo &&
@@ -1736,7 +1775,6 @@ namespace eFacturacionColombia_V2.Documentos
 
             return this;
         }
-
         public string GenerarTextoQR()
         {
             var NumFac = Invoice.ID.Value;
@@ -1780,19 +1818,17 @@ namespace eFacturacionColombia_V2.Documentos
 
             return ret;
         }
-
         public InvoiceType Obtener()
         {
             return Invoice;
         }
-
-
         public static string CrearCUFE(InvoiceType invoice, string claveTecnica, string pinSoftware)
         {
             if (invoice.InvoiceTypeCode.Value != TipoFactura.VENTA.Codigo &&
                 invoice.InvoiceTypeCode.Value != TipoFactura.CONTINGENCIA_FACTURADOR.Codigo &&
                 invoice.InvoiceTypeCode.Value != TipoFactura.CONTINGENCIA_DIAN.Codigo &&
-                invoice.InvoiceTypeCode.Value != TipoFactura.EXPORTACION.Codigo)
+                invoice.InvoiceTypeCode.Value != TipoFactura.EXPORTACION.Codigo &&
+                invoice.InvoiceTypeCode.Value != TipoFactura.DOCUMENTO_SOPORTE.Codigo)
             {
                 throw new NotSupportedException("Tipo de factura desconocido.");
             }

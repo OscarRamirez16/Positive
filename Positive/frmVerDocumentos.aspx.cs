@@ -302,7 +302,7 @@ namespace Inventario
                         "</div>", oEmpI.Nombre.Replace("\"", ""), oEmpI.Identificacion, oEmpI.Direccion.Replace("\"", ""), oEmpI.Telefono, Documento,
                         string.Format("{0} - {1}", oEmpI.TextoEncabezadoFactura.Replace(Environment.NewLine, " ").Replace("\"", ""), oDocI.Resolucion.Replace(Environment.NewLine, " ")),
                         oDocI.NumeroDocumento, oDocI.Fecha, oDocI.NombreTercero.Replace("\"", ""), oTerB.ObtenerTerceroPorId(oDocI.idTercero, oUsuarioI.idEmpresa).Identificacion,
-                        Detalles, (oDocI.TotalDocumento - oDocI.TotalIVA).ToString(Util.ObtenerFormatoDecimal()),
+                        Detalles, oDocI.TotalAntesIVA.ToString(Util.ObtenerFormatoDecimal()),
                         oDocI.TotalIVA.ToString(Util.ObtenerFormatoDecimal()), oDocI.TotalDocumento.ToString(Util.ObtenerFormatoDecimal()),
                         oUsuarioI.Usuario, oDocI.Observaciones.Replace("\"", ""), oEmpI.TextoPieFactura.Replace("\"", ""), FormaPago, oDocI.Devuelta.ToString(Util.ObtenerFormatoDecimal()),
                         oDocI.TotalDescuento.ToString(Util.ObtenerFormatoDecimal()), oDocI.Impoconsumo.ToString(Util.ObtenerFormatoDecimal()), oDocI.Propina.ToString(Util.ObtenerFormatoDecimal()));

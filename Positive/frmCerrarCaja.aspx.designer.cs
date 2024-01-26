@@ -7,13 +7,11 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Inventario
-{
-
-
-    public partial class frmCerrarCaja
-    {
-
+namespace Inventario {
+    
+    
+    public partial class frmCerrarCaja {
+        
         /// <summary>
         /// Control lblTitulo.
         /// </summary>
@@ -22,7 +20,7 @@ namespace Inventario
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTitulo;
-
+        
         /// <summary>
         /// Control hddIdEmpresa.
         /// </summary>
@@ -31,7 +29,7 @@ namespace Inventario
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden hddIdEmpresa;
-
+        
         /// <summary>
         /// Control lblCaja.
         /// </summary>
@@ -40,7 +38,7 @@ namespace Inventario
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblCaja;
-
+        
         /// <summary>
         /// Control ddlCaja.
         /// </summary>
@@ -49,7 +47,7 @@ namespace Inventario
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlCaja;
-
+        
         /// <summary>
         /// Control btnBuscar.
         /// </summary>
@@ -58,7 +56,7 @@ namespace Inventario
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton btnBuscar;
-
+        
         /// <summary>
         /// Control lblSaldoInicial.
         /// </summary>
@@ -67,7 +65,7 @@ namespace Inventario
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblSaldoInicial;
-
+        
         /// <summary>
         /// Control txtSaldoInicial.
         /// </summary>
@@ -76,7 +74,7 @@ namespace Inventario
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtSaldoInicial;
-
+        
         /// <summary>
         /// Control lblIngresos.
         /// </summary>
@@ -85,7 +83,7 @@ namespace Inventario
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblIngresos;
-
+        
         /// <summary>
         /// Control txtIngresos.
         /// </summary>
@@ -94,7 +92,7 @@ namespace Inventario
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtIngresos;
-
+        
         /// <summary>
         /// Control lblEfectivo.
         /// </summary>
@@ -103,7 +101,7 @@ namespace Inventario
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblEfectivo;
-
+        
         /// <summary>
         /// Control txtEfectivo.
         /// </summary>
@@ -112,7 +110,7 @@ namespace Inventario
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEfectivo;
-
+        
         /// <summary>
         /// Control lblTarjetaCredito.
         /// </summary>
@@ -121,7 +119,7 @@ namespace Inventario
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTarjetaCredito;
-
+        
         /// <summary>
         /// Control txtTarjetaCredito.
         /// </summary>
@@ -130,7 +128,7 @@ namespace Inventario
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTarjetaCredito;
-
+        
         /// <summary>
         /// Control lblTarjetaDebito.
         /// </summary>
@@ -139,7 +137,7 @@ namespace Inventario
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTarjetaDebito;
-
+        
         /// <summary>
         /// Control txtTarjetaDebito.
         /// </summary>
@@ -148,7 +146,7 @@ namespace Inventario
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTarjetaDebito;
-
+        
         /// <summary>
         /// Control lblCheque.
         /// </summary>
@@ -157,7 +155,7 @@ namespace Inventario
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblCheque;
-
+        
         /// <summary>
         /// Control txtCheque.
         /// </summary>
@@ -166,7 +164,7 @@ namespace Inventario
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCheque;
-
+        
         /// <summary>
         /// Control lblBonos.
         /// </summary>
@@ -175,7 +173,7 @@ namespace Inventario
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblBonos;
-
+        
         /// <summary>
         /// Control txtBonos.
         /// </summary>
@@ -184,7 +182,7 @@ namespace Inventario
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtBonos;
-
+        
         /// <summary>
         /// Control lblConsignacion.
         /// </summary>
@@ -193,7 +191,7 @@ namespace Inventario
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblConsignacion;
-
+        
         /// <summary>
         /// Control txtConsignacion.
         /// </summary>
@@ -202,7 +200,7 @@ namespace Inventario
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtConsignacion;
-
+        
         /// <summary>
         /// Control lblNomina.
         /// </summary>
@@ -211,7 +209,7 @@ namespace Inventario
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblNomina;
-
+        
         /// <summary>
         /// Control txtNomina.
         /// </summary>
@@ -220,7 +218,16 @@ namespace Inventario
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNomina;
-
+        
+        /// <summary>
+        /// Control dgImpuestos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataGrid dgImpuestos;
+        
         /// <summary>
         /// Control divComisionesPorArticulos.
         /// </summary>
@@ -229,7 +236,7 @@ namespace Inventario
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divComisionesPorArticulos;
-
+        
         /// <summary>
         /// Control dgComisiones.
         /// </summary>
@@ -238,7 +245,7 @@ namespace Inventario
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DataGrid dgComisiones;
-
+        
         /// <summary>
         /// Control lblRetiros.
         /// </summary>
@@ -247,7 +254,7 @@ namespace Inventario
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblRetiros;
-
+        
         /// <summary>
         /// Control txtRetiros.
         /// </summary>
@@ -256,7 +263,7 @@ namespace Inventario
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtRetiros;
-
+        
         /// <summary>
         /// Control lblCompras.
         /// </summary>
@@ -265,7 +272,7 @@ namespace Inventario
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblCompras;
-
+        
         /// <summary>
         /// Control txtCompras.
         /// </summary>
@@ -274,7 +281,7 @@ namespace Inventario
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCompras;
-
+        
         /// <summary>
         /// Control lblPagosCreditos.
         /// </summary>
@@ -283,7 +290,7 @@ namespace Inventario
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblPagosCreditos;
-
+        
         /// <summary>
         /// Control txtPagoCreditos.
         /// </summary>
@@ -292,7 +299,7 @@ namespace Inventario
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPagoCreditos;
-
+        
         /// <summary>
         /// Control lblPropina.
         /// </summary>
@@ -301,7 +308,7 @@ namespace Inventario
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblPropina;
-
+        
         /// <summary>
         /// Control txtPropina.
         /// </summary>
@@ -310,7 +317,7 @@ namespace Inventario
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPropina;
-
+        
         /// <summary>
         /// Control lblRemision.
         /// </summary>
@@ -319,7 +326,7 @@ namespace Inventario
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblRemision;
-
+        
         /// <summary>
         /// Control txtRemision.
         /// </summary>
@@ -328,7 +335,7 @@ namespace Inventario
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtRemision;
-
+        
         /// <summary>
         /// Control lblCreditos.
         /// </summary>
@@ -337,7 +344,7 @@ namespace Inventario
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblCreditos;
-
+        
         /// <summary>
         /// Control txtCreditos.
         /// </summary>
@@ -346,7 +353,7 @@ namespace Inventario
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCreditos;
-
+        
         /// <summary>
         /// Control lblPagoEfectivo.
         /// </summary>
@@ -355,7 +362,7 @@ namespace Inventario
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblPagoEfectivo;
-
+        
         /// <summary>
         /// Control txtPagoEfectivo.
         /// </summary>
@@ -364,7 +371,7 @@ namespace Inventario
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPagoEfectivo;
-
+        
         /// <summary>
         /// Control lblOtrasFormasPago.
         /// </summary>
@@ -373,7 +380,7 @@ namespace Inventario
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblOtrasFormasPago;
-
+        
         /// <summary>
         /// Control txtOtrasFormasPago.
         /// </summary>
@@ -382,7 +389,7 @@ namespace Inventario
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtOtrasFormasPago;
-
+        
         /// <summary>
         /// Control lblTotalCuadre.
         /// </summary>
@@ -391,7 +398,7 @@ namespace Inventario
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTotalCuadre;
-
+        
         /// <summary>
         /// Control txtTotalCuadre.
         /// </summary>
@@ -400,7 +407,7 @@ namespace Inventario
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTotalCuadre;
-
+        
         /// <summary>
         /// Control lblObservaciones.
         /// </summary>
@@ -409,7 +416,7 @@ namespace Inventario
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblObservaciones;
-
+        
         /// <summary>
         /// Control txtObser.
         /// </summary>
@@ -418,7 +425,7 @@ namespace Inventario
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTextArea txtObser;
-
+        
         /// <summary>
         /// Control btnGuardar.
         /// </summary>
@@ -427,7 +434,7 @@ namespace Inventario
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton btnGuardar;
-
+        
         /// <summary>
         /// Control btnCancelar.
         /// </summary>

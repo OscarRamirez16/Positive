@@ -29,14 +29,13 @@ namespace Inventario
             TarjetaCredito = 5,
             Eliminar = 6
         }
-
         private enum TipoPagoEnum
         {
             FacturaVenta = 1,
             FacturaCompra = 2,
-            CuentaCobro = 10
+            CuentaCobro = 10,
+            FacturaElectronica = 11
         }
-
         private enum dgSaldosColumnsEnum
         {
             Seleccionar = 0,
@@ -46,7 +45,6 @@ namespace Inventario
             NumeroDocumento = 4,
             Saldo = 5
         }
-
         private enum dgDocumentosColumnsEnum
         {
             Seleccionar = 0,
@@ -62,7 +60,6 @@ namespace Inventario
             saldo = 10,
             nuevoSaldo = 11,
         }
-
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -111,6 +108,12 @@ namespace Inventario
                                 if (Request.QueryString["TipoPago"] == TipoPagoEnum.CuentaCobro.GetHashCode().ToString())
                                 {
                                     hddTipoDocumento.Value = "10";
+                                    strScript = string.Format("{0} EstablecerAutoCompleteCliente('{1}','Ashx/Tercero.ashx','{2}','{3}','{4}','{5}');", strScript, txtTercero.ClientID, hddIdCliente.ClientID, txtIdentificacion.ClientID, txtTelefono.ClientID, txtDireccion.ClientID);
+                                    txtIdentificacion.Attributes.Add("onblur", string.Format("EstablecerAutoCompleteClientePorIdentificacion('{0}','Ashx/Tercero.ashx','{1}','{2}','{3}','{4}')", txtTercero.ClientID, hddIdCliente.ClientID, txtIdentificacion.ClientID, txtTelefono.ClientID, txtDireccion.ClientID));
+                                }
+                                if (Request.QueryString["TipoPago"] == TipoPagoEnum.FacturaElectronica.GetHashCode().ToString())
+                                {
+                                    hddTipoDocumento.Value = "11";
                                     strScript = string.Format("{0} EstablecerAutoCompleteCliente('{1}','Ashx/Tercero.ashx','{2}','{3}','{4}','{5}');", strScript, txtTercero.ClientID, hddIdCliente.ClientID, txtIdentificacion.ClientID, txtTelefono.ClientID, txtDireccion.ClientID);
                                     txtIdentificacion.Attributes.Add("onblur", string.Format("EstablecerAutoCompleteClientePorIdentificacion('{0}','Ashx/Tercero.ashx','{1}','{2}','{3}','{4}')", txtTercero.ClientID, hddIdCliente.ClientID, txtIdentificacion.ClientID, txtTelefono.ClientID, txtDireccion.ClientID));
                                 }
@@ -194,6 +197,7 @@ namespace Inventario
         {
             try
             {
+                dgDocumentos.Columns[dgDocumentosColumnsEnum.Seleccionar.GetHashCode()].HeaderText = string.Format("{0} <input type='checkbox' id='chkSelTod' data-elementos='chkSeleccionar' class='_selecionar' />", "Sel");
                 dgDocumentos.Columns[dgDocumentosColumnsEnum.NumeroDocumento.GetHashCode()].HeaderText = oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.Numero);
                 dgDocumentos.Columns[dgDocumentosColumnsEnum.Fecha.GetHashCode()].HeaderText = oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.Fecha);
                 dgDocumentos.Columns[dgDocumentosColumnsEnum.NombreTercero.GetHashCode()].HeaderText = oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.SocioNegocio);
@@ -276,9 +280,12 @@ namespace Inventario
         {
             try
             {
-                tblDocumentoBusiness oDocB = new tblDocumentoBusiness(cadenaConexion);
-                dgSaldos.DataSource = oDocB.ObtenerSaldoDocumentoAFavorCliente(long.Parse(hddIdCliente.Value), oUsuarioI.idEmpresa);
-                dgSaldos.DataBind();
+                if (!string.IsNullOrEmpty(hddIdCliente.Value))
+                {
+                    tblDocumentoBusiness oDocB = new tblDocumentoBusiness(cadenaConexion);
+                    dgSaldos.DataSource = oDocB.ObtenerSaldoDocumentoAFavorCliente(long.Parse(hddIdCliente.Value), oUsuarioI.idEmpresa);
+                    dgSaldos.DataBind();
+                }
             }
             catch (Exception ex)
             {
@@ -408,7 +415,7 @@ namespace Inventario
                     {
                         if (ValidarPagoConTarjetas())
                         {
-                            if (hddIdCliente.Value != "0")
+                            if (hddIdCliente.Value != "0" && !string.IsNullOrEmpty(hddIdCliente.Value))
                             {
                                 tblPagoItem oPagoI = new tblPagoItem();
                                 List<tblPagoDetalleItem> oPagDetLis = new List<tblPagoDetalleItem>();
@@ -525,7 +532,41 @@ namespace Inventario
                                     {
                                         if (oPagoI.idPago > 0)
                                         {
-                                            Response.Redirect($"frmImprimirCuentasPorCobrarPagar.aspx?TipoPago={Request.QueryString["TipoPago"]}&idPago={oPagoI.idPago}&PagoDetalle={PagoDetalle}&TotalPagar={txtTotal.Text}&Tipo={hddTipoDocumento.Value}");
+                                            //Response.Redirect($"frmImprimirCuentasPorCobrarPagar.aspx?TipoPago={Request.QueryString["TipoPago"]}&idPago={oPagoI.idPago}&PagoDetalle={PagoDetalle}&TotalPagar={txtTotal.Text}&Tipo={hddTipoDocumento.Value}");
+                                            tblPagoBusiness oPagB = new tblPagoBusiness(cadenaConexion);
+                                            oPagoI = oPagB.ObtenerPagoPorIDPago(oPagoI.idPago, int.Parse(hddTipoDocumento.Value));
+                                            tblTerceroItem oTerI = new tblTerceroItem();
+                                            tblTerceroBusiness oTerB = new tblTerceroBusiness(cadenaConexion);
+                                            oTerI = oTerB.ObtenerTercero(oPagoI.idTercero, oUsuarioI.idEmpresa);
+                                            tblEmpresaItem oEmpI = new tblEmpresaItem();
+                                            tblEmpresaBusiness oEmpB = new tblEmpresaBusiness(cadenaConexion);
+                                            oEmpI = oEmpB.ObtenerEmpresa(oUsuarioI.idEmpresa);
+                                            string Mensaje = "";
+                                            Mensaje = string.Format("<div style='position:relative;font-family:arial;'>" +
+                                                "<div style='font-size: 12px; font-weight: bold; width: 300px; padding-top: 20px; text-align: left;'>{0}</div>" +
+                                                "<div style='font-size: 12px;font-weight: bold; padding-top: 5px; width: 300px; text-align: left;'>Nit: {1}</div>" +
+                                                "<div style='font-size: 12px;font-weight: bold; padding-top: 5px; width: 300px; text-align: left;'>Direcci&oacute;n: {2}</div>" +
+                                                "<div style='font-size: 12px;font-weight: bold; padding-top: 5px; width: 300px; text-align: left;'>Telefono: {3}</div>" +
+                                                "<div style='font-size: 12px;font-weight: bold; padding-top: 5px; width: 300px;'>{4}</div>" +
+                                                "<div style='font-size: 12px;font-weight: bold; padding-top: 5px; width: 300px; text-align:center;'>Comprobante de pago</div>" +
+                                                "<div style='font-size: 12px;font-weight: bold; padding-top: 5px; width: 300px;'>ID Pago: {5}</div>" +
+                                                "<div style='font-size: 12px;font-weight: bold; padding-top: 5px; width: 300px;'>Tercero: {6}</div>" +
+                                                "<div style='font-size: 12px;font-weight: bold; padding-top: 5px;'>Identificaci&oacute;n: {7}</div>" +
+                                                "<div style='font-size: 14px;font-weight: bold; padding-top: 5px; width: 300px; text-align: right;'>Total a pagar: {8}</div>" +
+                                                "<div style='font-size: 14px;font-weight: bold; padding-top: 5px; width: 300px; text-align: right;'>Valor del pago: {9}</div>" +
+                                                "<div style='font-size: 14px;font-weight: bold; padding-top: 5px; width: 300px; text-align: right;'>Saldo: {10}</div>" +
+                                                "<div style='font-size: 12px;font-weight: bold; padding-top: 5px; width: 300px;'>Vende: {11}</div>" +
+                                                "<div style='font-size: 12px;font-weight: bold; padding-top: 5px; width: 300px;'>Observaciones: {12}</div>" +
+                                                "<div style='font-size: 12px;font-weight: bold; padding-top: 5px; width: 300px; text-align:center;'>Documentos Relacionados</div>" +
+                                                "<div style='font-size: 14px;font-weight: bold; padding-top: 5px; width: 300px; text-align: left;'>{13}</div>" +
+                                                "</div>", oEmpI.Nombre, oEmpI.Identificacion, oEmpI.Direccion, oEmpI.Telefono, oPagoI.fechaPago, oPagoI.idPago, oTerI.Nombre,
+                                                oTerI.Identificacion, decimal.Parse(txtTotal.Text, NumberStyles.Currency).ToString(Util.ObtenerFormatoDecimal()), oPagoI.totalPago, (decimal.Parse(txtTotal.Text, NumberStyles.Currency) - oPagoI.totalPago).ToString(Util.ObtenerFormatoDecimal()),
+                                                oUsuarioI.Usuario, oPagoI.Observaciones, PagoDetalle);
+                                            string strScript = string.Format("jQuery(document).ready(function(){{ ImprimirComprobantePago(\"{0}\");}});", Mensaje);
+                                            if (!Page.ClientScript.IsClientScriptBlockRegistered("InicializarControlesScriptImprimir"))
+                                            {
+                                                Page.ClientScript.RegisterClientScriptBlock(GetType(), "InicializarControlesScriptImprimir", strScript, true);
+                                            }
                                         }
                                         else
                                         {
@@ -567,7 +608,6 @@ namespace Inventario
                 MostrarAlerta(0, "Error", ex.Message.Replace("'", "").Replace(Environment.NewLine, " "));
             }
         }
-
         protected void CalcularPagoTotal(object sender, EventArgs e)
         {
             try
@@ -588,12 +628,10 @@ namespace Inventario
                 MostrarAlerta(0, "Error", ex.Message.Replace("'", "").Replace(Environment.NewLine, " "));
             }
         }
-
         protected void btnCancelar_Click(object sender, ImageClickEventArgs e)
         {
             LimpiarControles();
         }
-
         private void LimpiarControles()
         {
             try
@@ -615,7 +653,6 @@ namespace Inventario
                 throw ex;
             }
         }
-
         protected void ddlFormaPago_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -645,7 +682,6 @@ namespace Inventario
                 MostrarAlerta(0, "Error", ex.Message.Replace("'", "").Replace(Environment.NewLine, " "));
             }
         }
-
         private void CargarColumnasFormaPago(ref DataTable dt)
         {
             DataColumn column;
@@ -674,7 +710,6 @@ namespace Inventario
             column.ColumnName = "TarjetaCredito";
             dt.Columns.Add(column);
         }
-
         protected void btnAdicionarPago_Click(object sender, EventArgs e)
         {
             try
@@ -745,7 +780,6 @@ namespace Inventario
                 MostrarAlerta(0, "Error", ex.Message.Replace("'", "").Replace(Environment.NewLine, " "));
             }
         }
-
         protected void CalcularTotalPago()
         {
             txtTotalPago.Text = decimal.Parse("0").ToString(Util.ObtenerFormatoDecimal());
@@ -789,7 +823,6 @@ namespace Inventario
                 txtDevuelta.Text = Math.Round((decimal.Parse(txtTotalPago.Text, NumberStyles.Currency) - ValorAPagar), 0).ToString(Util.ObtenerFormatoEntero());
             }
         }
-
         protected void AdicionarPago(object sender, EventArgs e)
         {
             if (ValidarSeleccionarDocumento())
@@ -802,7 +835,6 @@ namespace Inventario
                 CargarSaldosPendientesCliente();
             }
         }
-
         protected void dgFormasPagos_ItemCommand(object source, DataGridCommandEventArgs e)
         {
             try
@@ -837,7 +869,6 @@ namespace Inventario
                 MostrarAlerta(0, "Error", ex.Message.Replace("'", "").Replace(Environment.NewLine, " "));
             }
         }
-
         public void CargarTipoTarjetaCredito()
         {
             try
@@ -851,7 +882,6 @@ namespace Inventario
                 throw ex;
             }
         }
-
         private void LimpiarControlesFormasPago()
         {
             try
@@ -872,7 +902,6 @@ namespace Inventario
                 throw ex;
             }
         }
-
         protected void chkVerTodos_CheckedChanged(object sender, EventArgs e)
         {
             try

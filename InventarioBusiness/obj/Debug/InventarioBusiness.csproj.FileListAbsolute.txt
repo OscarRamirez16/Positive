@@ -752,4 +752,9 @@ C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\Inve
 C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\InventarioBusiness\obj\Debug\InventarioBusiness.csproj.CoreCompileInputs.cache
 C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\InventarioBusiness\obj\Debug\InventarioBusiness.dll
 C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\InventarioBusiness\obj\Debug\InventarioBusiness.pdb
-C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\InventarioBusiness\obj\Debug\InventarioBusiness.csproj.AssemblyReference.cache
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\InventarioBusiness\bin\Debug\EPPlus.dll
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\InventarioBusiness\bin\Debug\EPPlus.Interfaces.dll
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\InventarioBusiness\bin\Debug\EPPlus.System.Drawing.dll
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\InventarioBusiness\bin\Debug\EPPlus.xml
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\InventarioBusiness\obj\Debug\InventarioBusiness.csproj.CopyComplete
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\InventarioBusiness\obj\Debug\InventarioBusiness.csprojAssemblyReference.cache

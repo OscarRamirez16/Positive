@@ -72,7 +72,7 @@ namespace Inventario
             }
             catch (Exception ex)
             {
-                MostrarMensaje("Error", string.Format("Error al cargar la pagina. {0}", ex.Message));
+                MostrarAlerta(0, "Error", ex.Message.Replace(Environment.NewLine, " "));
             }
         }
 

@@ -253,7 +253,7 @@ namespace InventarioDao
             SqlTransaction oTran;
             oTran = Conexion.BeginTransaction();
             string SQL = "";
-            if (tipoDocumento == 1 || tipoDocumento == 10)
+            if (tipoDocumento == 1 || tipoDocumento == 10 || tipoDocumento == 11)
             {
                 SQL = "spInsertarPago";
             }

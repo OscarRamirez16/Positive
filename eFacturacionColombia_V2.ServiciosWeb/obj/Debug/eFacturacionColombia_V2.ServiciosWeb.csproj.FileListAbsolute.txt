@@ -54,7 +54,7 @@ C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\eFac
 C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.ServiciosWeb\bin\Debug\eFacturacionColombia_V2.Util.dll
 C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.ServiciosWeb\bin\Debug\eFacturacionColombia_V2.Util.pdb
 C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.ServiciosWeb\obj\Debug\eFacturacionColombia_V2.ServiciosWeb.csproj.CoreCompileInputs.cache
-C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.ServiciosWeb\obj\Debug\eFacturacionColombia_V2.ServiciosWeb.csproj.CopyComplete
 C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.ServiciosWeb\obj\Debug\eFacturacionColombia_V2.ServiciosWeb.dll
 C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.ServiciosWeb\obj\Debug\eFacturacionColombia_V2.ServiciosWeb.pdb
-C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.ServiciosWeb\obj\Debug\eFacturacionColombia_V2.ServiciosWeb.csproj.AssemblyReference.cache
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.ServiciosWeb\obj\Debug\eFacturacionColombia_V2.ServiciosWeb.csprojAssemblyReference.cache
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.ServiciosWeb\obj\Debug\eFacturacionColombia_V2.ServiciosWeb.csproj.CopyComplete

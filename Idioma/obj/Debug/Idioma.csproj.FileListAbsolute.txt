@@ -226,3 +226,4 @@ C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\Idio
 C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\Idioma\obj\Debug\Idioma.csproj.CopyComplete
 C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\Idioma\obj\Debug\Idioma.dll
 C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\Idioma\obj\Debug\Idioma.pdb
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\Idioma\obj\Debug\Idioma.csprojAssemblyReference.cache

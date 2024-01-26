@@ -347,7 +347,7 @@ namespace Inventario
                     Error = oArtB.CreacionMasivaArticulos(oListArtI);
                     if (string.IsNullOrEmpty(Error))
                     {
-                        MostrarAlerta(0, "Creación de Artículos", "Los articulos se crearon con exito.");
+                        MostrarAlerta(1, "Creación de Artículos", "Los articulos se crearon con exito.");
                         LimpiarControles();
                     }
                     else

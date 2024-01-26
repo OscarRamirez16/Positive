@@ -447,8 +447,14 @@ C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\Posi
 C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\Positive\obj\Debug\Positive.csproj.CoreCompileInputs.cache
 C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\Positive\obj\Debug\Positive.dll
 C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\Positive\obj\Debug\Positive.pdb
-C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\Positive\obj\Debug\Positive.csproj.AssemblyReference.cache
 C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\Positive\bin\Json.Net.dll
 C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\Positive\bin\eFacturacionColombia_V2.Pdf.dll
 C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\Positive\bin\eFacturacionColombia_V2.Pdf.pdb
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\Positive\bin\EPPlus.dll
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\Positive\bin\EPPlus.Interfaces.dll
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\Positive\bin\EPPlus.System.Drawing.dll
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\Positive\bin\EPPlus.xml
 C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\Positive\obj\Debug\Positive.csproj.CopyComplete
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\Positive\obj\Debug\Positive.csprojAssemblyReference.cache
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\Positive\obj\Debug\RdlCompile.cache
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\Positive\obj\Debug\RdlCompile.compiled

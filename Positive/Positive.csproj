@@ -347,6 +347,7 @@
     <Content Include="frmEmpresa.aspx" />
     <Content Include="frmEntradaMasivaMercancia.aspx" />
     <Content Include="frmFacturacionMasiva.aspx" />
+    <Content Include="frmFacturacionTemplateMasiva.aspx" />
     <Content Include="frmFacturaVentaEntregar.aspx" />
     <Content Include="frmFormaPago.aspx" />
     <Content Include="frmGrupoArticulos.aspx" />
@@ -375,6 +376,7 @@
     <Content Include="frmReporteCreditos.aspx" />
     <Content Include="frmReporteCuadreDiario.aspx" />
     <Content Include="frmReporteCuentaCobro.aspx" />
+    <Content Include="frmReporteDocumentosAgrupadoPorArticulo.aspx" />
     <Content Include="frmReporteDocumentosPagos.aspx" />
     <Content Include="frmReporteDocumentosRangoFecha.aspx" />
     <Content Include="frmReporteFacturaCompra.aspx" />
@@ -385,10 +387,12 @@
     <Content Include="frmReportePagosDocumentos.aspx" />
     <Content Include="frmReportePagosPorCliente.aspx" />
     <Content Include="frmReportePagosPorProveedor.aspx" />
+    <Content Include="frmReporteTrasladoMercancia.aspx" />
     <Content Include="frmReporteVentasDevolucionesPorFecha.aspx" />
     <Content Include="frmRetenciones.aspx" />
     <Content Include="frmRetiros.aspx" />
     <Content Include="frmTipoTarjetaCredito.aspx" />
+    <Content Include="frmTrasladoMasivoMercancia.aspx" />
     <Content Include="frmTrasladoMercancia.aspx" />
     <Content Include="frmVendedor.aspx" />
     <Content Include="frmVentaRapida.aspx" />
@@ -1005,6 +1009,9 @@
     <Content Include="Script\images\ui-icons_cc0000_256x240.png" />
     <Content Include="Script\images\ui-icons_ffffff_256x240.png" />
     <Content Include="Reportes\ReporteComisionesVentasPorArticulo.rdlc" />
+    <Content Include="Reportes\ReporteDocumentosAgrupadoPorArticulo.rdlc" />
+    <Content Include="Reportes\ReporteTrasladosMercancia.rdlc" />
+    <Content Include="Reportes\ReporteCuentaCobro.rdlc" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <None Include="Script\jquery-1.10.2.intellisense.js" />
@@ -1417,6 +1424,13 @@
     <Compile Include="frmFacturacionMasiva.aspx.designer.cs">
       <DependentUpon>frmFacturacionMasiva.aspx</DependentUpon>
     </Compile>
+    <Compile Include="frmFacturacionTemplateMasiva.aspx.cs">
+      <DependentUpon>frmFacturacionTemplateMasiva.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmFacturacionTemplateMasiva.aspx.designer.cs">
+      <DependentUpon>frmFacturacionTemplateMasiva.aspx</DependentUpon>
+    </Compile>
     <Compile Include="frmFacturaVentaEntregar.aspx.cs">
       <DependentUpon>frmFacturaVentaEntregar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1613,6 +1627,13 @@
     <Compile Include="frmReporteCuentaCobro.aspx.designer.cs">
       <DependentUpon>frmReporteCuentaCobro.aspx</DependentUpon>
     </Compile>
+    <Compile Include="frmReporteDocumentosAgrupadoPorArticulo.aspx.cs">
+      <DependentUpon>frmReporteDocumentosAgrupadoPorArticulo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmReporteDocumentosAgrupadoPorArticulo.aspx.designer.cs">
+      <DependentUpon>frmReporteDocumentosAgrupadoPorArticulo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="frmReporteDocumentosPagos.aspx.cs">
       <DependentUpon>frmReporteDocumentosPagos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1683,6 +1704,13 @@
     <Compile Include="frmReportePagosPorProveedor.aspx.designer.cs">
       <DependentUpon>frmReportePagosPorProveedor.aspx</DependentUpon>
     </Compile>
+    <Compile Include="frmReporteTrasladoMercancia.aspx.cs">
+      <DependentUpon>frmReporteTrasladoMercancia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmReporteTrasladoMercancia.aspx.designer.cs">
+      <DependentUpon>frmReporteTrasladoMercancia.aspx</DependentUpon>
+    </Compile>
     <Compile Include="frmReporteVentasDevolucionesPorFecha.aspx.cs">
       <DependentUpon>frmReporteVentasDevolucionesPorFecha.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1710,6 +1738,13 @@
     </Compile>
     <Compile Include="frmTipoTarjetaCredito.aspx.designer.cs">
       <DependentUpon>frmTipoTarjetaCredito.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmTrasladoMasivoMercancia.aspx.cs">
+      <DependentUpon>frmTrasladoMasivoMercancia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmTrasladoMasivoMercancia.aspx.designer.cs">
+      <DependentUpon>frmTrasladoMasivoMercancia.aspx</DependentUpon>
     </Compile>
     <Compile Include="frmTrasladoMercancia.aspx.cs">
       <DependentUpon>frmTrasladoMercancia.aspx</DependentUpon>

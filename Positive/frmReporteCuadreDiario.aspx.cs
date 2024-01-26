@@ -108,7 +108,6 @@ namespace Inventario
                 Idioma = Traductor.IdiomaEnum.Aleman;
             }
             lblUsuario.Text = oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.Usuario);
-            lblUsuario.Text = oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.Usuario);
             lblCaja.Text = oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.Caja);
             CargarCajas(oCIdioma, Idioma);
             CargarUsuarios(oCIdioma, Idioma);

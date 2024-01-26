@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using InventarioItem;
 using System.Data.SqlClient;
+using System.Data;
 
 namespace InventarioDao
 {
@@ -12,6 +13,33 @@ namespace InventarioDao
         public tblCuadreCajaDao(string CadenaConexion)
         {
             Conexion = new SqlConnection(CadenaConexion);
+        }
+
+        public DataTable ObtenerValoresImpuestosAgrupados(long IdUsuario, long IdEmpresa)
+        {
+            DataTable dt = new DataTable();
+            SqlCommand oSQL = new SqlCommand("spObtenerValoresImpuestosAgrupados", Conexion);
+            oSQL.CommandType = CommandType.StoredProcedure;
+            oSQL.Parameters.Add(new SqlParameter("@IdUsuario", IdUsuario));
+            oSQL.Parameters.Add(new SqlParameter("@IdEmpresa", IdEmpresa));
+            try
+            {
+                Conexion.Open();
+                SqlDataAdapter oSqlDataAdapter = new SqlDataAdapter(oSQL);
+                oSqlDataAdapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (Conexion.State == ConnectionState.Open)
+                {
+                    Conexion.Close();
+                }
+            }
+            return dt;
         }
 
         public int ObtenerNumeroFacturaDesde(long idEmpresa, long idUsuario)

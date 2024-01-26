@@ -43,5 +43,12 @@
         public decimal Precio { get; set; }
         public decimal Cantidad { get; set; }
         public short IdTipoManejoPrecio { get; set; }
+        public decimal StockBodega { get; set; }
+
+        //Para traslado masivo de mercancia
+        public long IdBodegaOrigen { get; set; }
+        public string BodegaOrigen { get; set; }
+        public long IdBodegaDestino { get; set; }
+        public string BodegaDestino { get; set; }
     }
 }

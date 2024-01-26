@@ -1,8 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="frmReporteDocumentosRangoFecha.aspx.cs" Inherits="Inventario.frmReporteDocumentosRangoFecha" %>
 <%@ Register assembly="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" namespace="Microsoft.Reporting.WebForms" tagprefix="rsweb" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="cphContenido" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="cphContenido" runat="server">
     <asp:ScriptManager ID="smMovimientos" runat="server"></asp:ScriptManager>
     <table class="table" style="width: 100%">
         <tr style="text-align: center;">

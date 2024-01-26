@@ -32,4 +32,4 @@ C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\eFac
 C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Tipos\obj\Debug\eFacturacionColombia_V2.Tipos.csproj.CoreCompileInputs.cache
 C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Tipos\obj\Debug\eFacturacionColombia_V2.Tipos.dll
 C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Tipos\obj\Debug\eFacturacionColombia_V2.Tipos.pdb
-C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Tipos\obj\Debug\eFacturacionColombia_V2.Tipos.csproj.AssemblyReference.cache
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Tipos\obj\Debug\eFacturacionColombia_V2.Tipos.csprojAssemblyReference.cache

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using InventarioItem;
 using InventarioDao;
+using System.Data;
 
 namespace InventarioBusiness
 {
@@ -21,6 +22,19 @@ namespace InventarioBusiness
         public tblCuadreCajaBusiness(string cadenaConexion)
         {
             this.cadenaConexion = cadenaConexion;
+        }
+
+        public DataTable ObtenerValoresImpuestosAgrupados(long IdUsuario, long IdEmpresa)
+        {
+            try
+            {
+                tblCuadreCajaDao oCuaD = new tblCuadreCajaDao(cadenaConexion);
+                return oCuaD.ObtenerValoresImpuestosAgrupados(IdUsuario, IdEmpresa);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public tblCuadreCajaItem ObtenerCuadreCajaPorID(long IdCuadreCaja)

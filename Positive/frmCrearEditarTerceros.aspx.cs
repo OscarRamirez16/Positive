@@ -399,7 +399,7 @@ namespace Inventario
 
         private string ValidarDatosEmpresa() {
             var result = "";
-            if (Util.EsBackOfficce() && Util.BackOfficceID() == oUsuarioI.idEmpresa) {
+            if (chkCrearEmpresa.Checked && Util.EsBackOfficce() && Util.BackOfficceID() == oUsuarioI.idEmpresa) {
                 if (string.IsNullOrEmpty(txtPrefijo.Text)) {
                     result = $"{result}<br/>El campo Prefijo es obligatorio";
                 }

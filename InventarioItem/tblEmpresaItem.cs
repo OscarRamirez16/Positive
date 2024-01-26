@@ -70,5 +70,6 @@ namespace InventarioItem
         public byte[] CertificadoFE { get; set; }
         public int IdServidor { get; set; }
         public string Prefijo { get; set; }
+        public int ConsecutivoDocumentoSoporte { get; set; }
     }
 }

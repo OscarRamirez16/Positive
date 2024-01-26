@@ -535,5 +535,5 @@ C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\Inve
 C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\InventarioDao\obj\Debug\InventarioDao.csproj.CoreCompileInputs.cache
 C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\InventarioDao\obj\Debug\InventarioDao.dll
 C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\InventarioDao\obj\Debug\InventarioDao.pdb
-C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\InventarioDao\obj\Debug\InventarioDao.csproj.AssemblyReference.cache
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\InventarioDao\obj\Debug\InventarioDao.csprojAssemblyReference.cache
 C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\InventarioDao\obj\Debug\InventarioDao.csproj.CopyComplete

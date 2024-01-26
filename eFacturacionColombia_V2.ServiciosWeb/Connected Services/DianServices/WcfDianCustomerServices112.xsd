@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/UploadDocumentResponse" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/UploadDocumentResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://vpfe-hab.dian.gov.co/WcfDianCustomerServices.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/XmlParamsResponseTrackId" />
+  <xs:complexType name="UploadDocumentResponse">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/XmlParamsResponseTrackId" minOccurs="0" name="ErrorMessageList" nillable="true" type="q1:ArrayOfXmlParamsResponseTrackId" />
+      <xs:element minOccurs="0" name="ZipKey" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UploadDocumentResponse" nillable="true" type="tns:UploadDocumentResponse" />
+</xs:schema>

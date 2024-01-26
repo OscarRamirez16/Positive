@@ -24,6 +24,44 @@ namespace InventarioDao
             CuentaCobro = 10,
             FacturaElectronica = 11
         }
+        public DataTable ObtenerDocumentosAgrupadoPorArticulo(DateTime FechaInicial, DateTime FechaFinal, long IdUsuario, long IdEmpresa, int TipoDocumento, long IdBodega)
+        {
+            try
+            {
+                SqlCommand oSQL = new SqlCommand("spObtenerDocumentosAgrupadoPorArticulo", Conexion);
+                oSQL.CommandType = CommandType.StoredProcedure;
+                oSQL.Parameters.Add(new SqlParameter("@FechaInicial", FechaInicial));
+                oSQL.Parameters.Add(new SqlParameter("@FechaFinal", FechaFinal));
+                if (IdUsuario == 0)
+                {
+                    oSQL.Parameters.Add(new SqlParameter("@IdUsuario", DBNull.Value));
+                }
+                else
+                {
+                    oSQL.Parameters.Add(new SqlParameter("@IdUsuario", IdUsuario));
+                }
+                oSQL.Parameters.Add(new SqlParameter("@idEmpresa", IdEmpresa));
+                oSQL.Parameters.Add(new SqlParameter("@TipoDocumento", TipoDocumento));
+                oSQL.Parameters.Add(new SqlParameter("@IdBodega", IdBodega));
+                SqlDataAdapter adapter = new SqlDataAdapter(oSQL);
+                DataSet dsReporte = new DataSet();
+                adapter.Fill(dsReporte, "Reporte");
+                Conexion.Open();
+                DataTable dtReporte = dsReporte.Tables[0];
+                return dtReporte;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (Conexion.State == System.Data.ConnectionState.Open)
+                {
+                    Conexion.Close();
+                }
+            }
+        }
         public DataTable ObtenerCuentaCobro(DateTime FechaInicial, DateTime FechaFinal, long IdUsuario, long IdTercero, long IdEmpresa)
         {
             try
@@ -639,17 +677,20 @@ namespace InventarioDao
                             SQLAuditoriaStock.ExecuteNonQuery();
                         }
                     }
-                    foreach (tblDocumentoRetencionItem Retencion in oDocItem.Retenciones)
+                    if(oDocItem.Retenciones != null)
                     {
-                        SqlCommand oSQL2 = new SqlCommand("spGuardarDocumentoRetencion", Conexion, oTran);
-                        oSQL2.CommandType = CommandType.StoredProcedure;
-                        oSQL2.Parameters.Add(new SqlParameter("@IdDocumento", oDocItem.idDocumento));
-                        oSQL2.Parameters.Add(new SqlParameter("@IdRetencion", Retencion.IdRetencion));
-                        oSQL2.Parameters.Add(new SqlParameter("@TipoDocumento", Retencion.TipoDocumento));
-                        oSQL2.Parameters.Add(new SqlParameter("@Porcentaje", Retencion.Porcentaje));
-                        oSQL2.Parameters.Add(new SqlParameter("@Base", Retencion.Base));
-                        oSQL2.Parameters.Add(new SqlParameter("@Valor", Retencion.Valor));
-                        oSQL2.ExecuteNonQuery();
+                        foreach (tblDocumentoRetencionItem Retencion in oDocItem.Retenciones)
+                        {
+                            SqlCommand oSQL2 = new SqlCommand("spGuardarDocumentoRetencion", Conexion, oTran);
+                            oSQL2.CommandType = CommandType.StoredProcedure;
+                            oSQL2.Parameters.Add(new SqlParameter("@IdDocumento", oDocItem.idDocumento));
+                            oSQL2.Parameters.Add(new SqlParameter("@IdRetencion", Retencion.IdRetencion));
+                            oSQL2.Parameters.Add(new SqlParameter("@TipoDocumento", Retencion.TipoDocumento));
+                            oSQL2.Parameters.Add(new SqlParameter("@Porcentaje", Retencion.Porcentaje));
+                            oSQL2.Parameters.Add(new SqlParameter("@Base", Retencion.Base));
+                            oSQL2.Parameters.Add(new SqlParameter("@Valor", Retencion.Valor));
+                            oSQL2.ExecuteNonQuery();
+                        }
                     }
                     oTran.Commit();
                 }
@@ -809,8 +850,9 @@ namespace InventarioDao
                             //throw new Exception($"El articulo {Detalle.idArticulo} - {Detalle.Articulo} no superó la validación stock.");
                             SqlCommand SQLCorrejirStock = new SqlCommand("spCorrejirStock", Conexion, oTran);
                             SQLCorrejirStock.CommandType = CommandType.StoredProcedure;
-                            SQLCorrejirStock.Parameters.Add(new SqlParameter("@idArticulo", Detalle.idArticulo));
-                            SQLCorrejirStock.Parameters.Add(new SqlParameter("@idBodega", Detalle.idBodega));
+                            SQLCorrejirStock.Parameters.Add(new SqlParameter("@IdArticulo", Detalle.idArticulo));
+                            SQLCorrejirStock.Parameters.Add(new SqlParameter("@IdBodega", Detalle.idBodega));
+                            SQLCorrejirStock.Parameters.Add(new SqlParameter("@IdEmpresa", oDocItem.idEmpresa));
                             SQLCorrejirStock.ExecuteNonQuery();
                         }
                         var SPNombre = ObtenerMovimientoStockNombre((TipoDocumentoEnum)oDocItem.IdTipoDocumento);
@@ -1326,7 +1368,7 @@ namespace InventarioDao
                 throw ex;
             }
         }
-        public bool GuardarVentaRapida(tblDocumentoItem Item, string Articulos)
+        public bool GuardarVentaRapida(tblDocumentoItem Item, string Articulos, long IdBodega)
         {
             Conexion.Open();
             SqlTransaction oTran;
@@ -1388,6 +1430,14 @@ namespace InventarioDao
                     oSQL1.Parameters.Add(new SqlParameter("@IdDocumento", Item.idDocumento));
                     oSQL1.Parameters.Add(new SqlParameter("@NumeroLinea", NumeroLinea));
                     oSQL1.Parameters.Add(new SqlParameter("@IdTipoDocumento", Item.IdTipoDocumento));
+                    if(IdBodega == 0)
+                    {
+                        oSQL1.Parameters.Add(new SqlParameter("@IdBodegaOrigen", DBNull.Value));
+                    }
+                    else
+                    {
+                        oSQL1.Parameters.Add(new SqlParameter("@IdBodegaOrigen", IdBodega));
+                    }
                     oSQL1.ExecuteNonQuery();
                     NumeroLinea++;
                 }

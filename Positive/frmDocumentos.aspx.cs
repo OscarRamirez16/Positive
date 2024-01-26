@@ -24,6 +24,7 @@ using System.IO;
 using System.Net.Mime;
 using System.Linq;
 using eFacturacionColombia_V2.Pdf;
+using System.IO.Compression;
 
 namespace Inventario
 {
@@ -307,17 +308,18 @@ namespace Inventario
                     }
                     else
                     {
-                        MostrarAlerta(0, "Error", "El usuario no tiene una caja abierta, la caja venció su resolución o el tipo de documento no es correcto.");
-                        if (!this.Page.ClientScript.IsClientScriptBlockRegistered("InicializarControlesScript"))
-                        {
-                            string strScript = "$(document).ready(function(){";
-                            strScript = string.Format("{0} menu();", strScript);
-                            strScript = string.Format("{0} pestañas();", strScript);
-                            strScript = string.Format("{0} ConfigurarEnter();", strScript);
-                            strScript = string.Format("{0}}});", strScript);
-                            this.Page.ClientScript.RegisterClientScriptBlock(this.Page.GetType(), "InicializarControlesScript", strScript, true);
-                        }
-                        btnGuardar.Visible = false;
+                        Response.Redirect("frmMantenimientos.aspx?Error=El usuario no tiene una caja abierta, la caja venció su resolución o el tipo de documento no es correcto.");
+                        //MostrarAlerta(0, "Error", "El usuario no tiene una caja abierta, la caja venció su resolución o el tipo de documento no es correcto.");
+                        //if (!this.Page.ClientScript.IsClientScriptBlockRegistered("InicializarControlesScript"))
+                        //{
+                        //    string strScript = "$(document).ready(function(){";
+                        //    strScript = string.Format("{0} menu();", strScript);
+                        //    strScript = string.Format("{0} pestañas();", strScript);
+                        //    strScript = string.Format("{0} ConfigurarEnter();", strScript);
+                        //    strScript = string.Format("{0}}});", strScript);
+                        //    this.Page.ClientScript.RegisterClientScriptBlock(this.Page.GetType(), "InicializarControlesScript", strScript, true);
+                        //}
+                        //btnGuardar.Visible = false;
                     }
                 }
             }
@@ -1030,7 +1032,7 @@ namespace Inventario
                                 if (oUsuarioI.ManejaDescuentoConIVA)
                                 {
                                     row["ValorUnitario"] = ((decimal.Parse(txtPrecio.Text, NumberStyles.Currency) - decimal.Parse(hddValorDescuento.Value, NumberStyles.Currency)) / (1 + (decimal.Parse(hddIVA.Value, NumberStyles.Currency) / 100))).ToString(Util.ObtenerFormatoDecimal());
-                                    row["ValorUnitarioConDescuento"] = (decimal.Parse(txtPrecio.Text, NumberStyles.Currency)).ToString(Util.ObtenerFormatoDecimal());
+                                    row["ValorUnitarioConDescuento"] = (decimal.Parse(txtPrecio.Text, NumberStyles.Currency) - decimal.Parse(hddValorDescuento.Value, NumberStyles.Currency)).ToString(Util.ObtenerFormatoDecimal());
                                     row["ValorUnitarioConIVA"] = (decimal.Parse(txtPrecio.Text, NumberStyles.Currency) - decimal.Parse(hddValorDescuento.Value, NumberStyles.Currency)).ToString(Util.ObtenerFormatoDecimal());
                                     row["TotalLinea"] = (decimal.Parse(txtCantidad.Text, NumberStyles.Currency) * (decimal.Parse(row["ValorUnitarioConIVA"].ToString(), NumberStyles.Currency))).ToString(Util.ObtenerFormatoDecimal());
                                 }
@@ -1614,29 +1616,61 @@ namespace Inventario
                 return Errores;
             }
         }
-        private RangoNumeracion ObtenerRangoNumeracion(string EMISOR_NIT, string SOFTWARE_IDENTIFICADOR, string CLAVE_CERTIFICADO, byte[] CertificadoFE)
+        private RangoNumeracion ObtenerRangoNumeracion(string EMISOR_NIT, string SOFTWARE_IDENTIFICADOR, string CLAVE_CERTIFICADO, byte[] CertificadoFE, string PrefijoDS)
         {
             try
             {
                 RangoNumeracion Rango = new RangoNumeracion();
-                var cliente = new ClienteServicioDian
+                if(CertificadoFE != null)
                 {
-                    Ambiente = AmbienteServicio.PRODUCCION,
-                    Certificado = new X509Certificate2(CertificadoFE, CLAVE_CERTIFICADO)
-                };
-                var response = cliente.ObtenerRangosNumeracion(EMISOR_NIT, SOFTWARE_IDENTIFICADOR);
-                if (response.ResponseList != null)
-                {
-                    foreach (var range in response.ResponseList)
+                    var cliente = new ClienteServicioDian
                     {
-                        Rango.NumeroResolucion = long.Parse(range.ResolutionNumber);
-                        Rango.FechaResolucion = DateTime.Parse(range.ResolutionDate);
-                        Rango.Prefijo = range.Prefix;
-                        Rango.Desde = range.FromNumber;
-                        Rango.Hasta = range.ToNumber;
-                        Rango.ClaveTecnica = range.TechnicalKey;
-                        Rango.VigenciaDesde = DateTime.Parse(range.ValidDateFrom);
-                        Rango.VigenciaHasta = DateTime.Parse(range.ValidDateTo);
+                        Ambiente = AmbienteServicio.PRODUCCION,
+                        Certificado = new X509Certificate2(CertificadoFE, CLAVE_CERTIFICADO)
+                    };
+                    var response = cliente.ObtenerRangosNumeracion(EMISOR_NIT, SOFTWARE_IDENTIFICADOR);
+                    if (response.ResponseList != null)
+                    {
+                        foreach (var range in response.ResponseList)
+                        {
+                            if (Request.QueryString["opcionDocumento"] == tblTipoDocumentoItem.TipoDocumentoEnum.compra.GetHashCode().ToString() || Request.QueryString["Tipoocumento"] == tblTipoDocumentoItem.TipoDocumentoEnum.compra.GetHashCode().ToString())
+                            {
+                                if (range.Prefix == PrefijoDS)
+                                {
+                                    Rango.NumeroResolucion = long.Parse(range.ResolutionNumber);
+                                    Rango.FechaResolucion = DateTime.Parse(range.ResolutionDate);
+                                    Rango.Prefijo = range.Prefix;
+                                    Rango.Desde = range.FromNumber;
+                                    Rango.Hasta = range.ToNumber;
+                                    Rango.ClaveTecnica = range.TechnicalKey;
+                                    Rango.VigenciaDesde = DateTime.Parse(range.ValidDateFrom);
+                                    Rango.VigenciaHasta = DateTime.Parse(range.ValidDateTo);
+                                    return Rango;
+                                }
+                            }
+                            else
+                            {
+                                Rango.NumeroResolucion = long.Parse(range.ResolutionNumber);
+                                Rango.FechaResolucion = DateTime.Parse(range.ResolutionDate);
+                                Rango.Prefijo = range.Prefix;
+                                Rango.Desde = range.FromNumber;
+                                Rango.Hasta = range.ToNumber;
+                                Rango.ClaveTecnica = range.TechnicalKey;
+                                Rango.VigenciaDesde = DateTime.Parse(range.ValidDateFrom);
+                                Rango.VigenciaHasta = DateTime.Parse(range.ValidDateTo);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Rango.NumeroResolucion = 18760000001;
+                        Rango.FechaResolucion = new DateTime(0001, 01, 01);
+                        Rango.Prefijo = "SETP";
+                        Rango.Desde = 990000000;
+                        Rango.Hasta = 995000000;
+                        Rango.ClaveTecnica = "fc8eac422eba16e22ffd8c6f94b3f40a6e38162c";
+                        Rango.VigenciaDesde = new DateTime(2019, 01, 19);
+                        Rango.VigenciaHasta = new DateTime(2030, 01, 19);
                     }
                 }
                 else
@@ -1841,8 +1875,17 @@ namespace Inventario
                                 {
                                     NotaCredito = true;
                                 }
-                                RangoNumeracion Rango = ObtenerRangoNumeracion(oEmpI.Identificacion, oEmpI.SoftwareID, oEmpI.ClaveCertificado, oEmpI.CertificadoFE);
-                                var consecutivo = new Positive.ArchivoConsecutivo(oEmpI.Consecutivo);
+                                RangoNumeracion Rango = ObtenerRangoNumeracion(oEmpI.Identificacion, oEmpI.SoftwareID, oEmpI.ClaveCertificado, oEmpI.CertificadoFE, oEmpI.Prefijo);
+                                int Valorsiguiente = 0;
+                                if (Request.QueryString["opcionDocumento"] == tblTipoDocumentoItem.TipoDocumentoEnum.compra.GetHashCode().ToString() || Request.QueryString["Tipoocumento"] == tblTipoDocumentoItem.TipoDocumentoEnum.compra.GetHashCode().ToString())
+                                {
+                                    Valorsiguiente = oEmpI.ConsecutivoDocumentoSoporte;
+                                }
+                                else
+                                {
+                                    Valorsiguiente = oEmpI.Consecutivo;
+                                }
+                                var consecutivo = new Positive.ArchivoConsecutivo(Valorsiguiente);
                                 string numero = Rango.Prefijo + consecutivo.ObtenerSiguiente();
                                 var fecha = DateTimeHelper.GetColombianDate();
                                 var vencimiento = fecha.AddMonths(1);
@@ -1943,10 +1986,14 @@ namespace Inventario
                                 List<Linea> Lineas = new List<Linea>();
                                 decimal Importe5 = 0;
                                 decimal Importe19 = 0;
+                                //decimal ImporteImpoconsumo = 0;
+                                decimal BaseImponible0 = 0;
                                 decimal BaseImponible5 = 0;
                                 decimal BaseImponible19 = 0;
+                                //decimal BaseImponibleImpoconsumo = 0;
                                 decimal ValorBruto = 0;
                                 decimal ValorBrutoConImpuestos = 0;
+                                //decimal Impoconsumo = decimal.Parse(txtImpoconsumo.Text, NumberStyles.Currency);
                                 foreach (DataGridItem Item in dgFactura.Items)
                                 {
                                     if (decimal.Parse(Item.Cells[dgFacturaEnum.Descuento.GetHashCode()].Text, NumberStyles.Currency) == 0 && decimal.Parse(Item.Cells[dgFacturaEnum.IVA.GetHashCode()].Text, NumberStyles.Currency) == 0)
@@ -1957,8 +2004,28 @@ namespace Inventario
                                             Descripcion = Item.Cells[dgFacturaEnum.Articulo.GetHashCode()].Text,
                                             CodigoProducto = new CodigoProducto { Valor = Item.Cells[dgFacturaEnum.Codigo.GetHashCode()].Text },
                                             PrecioUnitario = decimal.Parse(Item.Cells[dgFacturaEnum.ValorUnitario.GetHashCode()].Text, NumberStyles.Currency),
-                                            CostoTotal = decimal.Parse(Item.Cells[dgFacturaEnum.ValorUnitarioConDescuento.GetHashCode()].Text, NumberStyles.Currency) * decimal.Parse(Item.Cells[dgFacturaEnum.Cantidad.GetHashCode()].Text, NumberStyles.Currency)
+                                            CostoTotal = decimal.Parse(Item.Cells[dgFacturaEnum.ValorUnitario.GetHashCode()].Text, NumberStyles.Currency) * decimal.Parse(Item.Cells[dgFacturaEnum.Cantidad.GetHashCode()].Text, NumberStyles.Currency)
+                                            //Impuestos =
+                                            //{
+                                            //    Impoconsumo == 0 ? null : new Impuesto
+                                            //    {
+                                            //        Tipo = TipoImpuesto.IC,
+                                            //        Porcentaje = 8.00M,
+                                            //        Importe = Math.Round(((decimal.Parse(Item.Cells[dgFacturaEnum.ValorUnitario.GetHashCode()].Text, NumberStyles.Currency) * decimal.Parse(Item.Cells[dgFacturaEnum.Cantidad.GetHashCode()].Text, NumberStyles.Currency)) * (oUsuarioI.Impoconsumo / 100)),2),
+                                            //        BaseImponible = decimal.Parse(Item.Cells[dgFacturaEnum.ValorUnitario.GetHashCode()].Text, NumberStyles.Currency) * decimal.Parse(Item.Cells[dgFacturaEnum.Cantidad.GetHashCode()].Text, NumberStyles.Currency)
+                                            //    }
+                                            //}
                                         };
+                                        BaseImponible0 = BaseImponible0 + (decimal.Parse(Item.Cells[dgFacturaEnum.ValorUnitario.GetHashCode()].Text, NumberStyles.Currency) * decimal.Parse(Item.Cells[dgFacturaEnum.Cantidad.GetHashCode()].Text, NumberStyles.Currency));
+                                        //if (Impoconsumo > 0)
+                                        //{
+                                        //    BaseImponibleImpoconsumo = BaseImponibleImpoconsumo + (decimal.Parse(Item.Cells[dgFacturaEnum.ValorUnitario.GetHashCode()].Text, NumberStyles.Currency) * decimal.Parse(Item.Cells[dgFacturaEnum.Cantidad.GetHashCode()].Text, NumberStyles.Currency));
+                                        //    ImporteImpoconsumo = Math.Round((ImporteImpoconsumo + ((decimal.Parse(Item.Cells[dgFacturaEnum.ValorUnitario.GetHashCode()].Text, NumberStyles.Currency) * decimal.Parse(Item.Cells[dgFacturaEnum.Cantidad.GetHashCode()].Text, NumberStyles.Currency)) * (oUsuarioI.Impoconsumo / 100))), 2);
+                                        //}
+                                        if (Request.QueryString["opcionDocumento"] == tblTipoDocumentoItem.TipoDocumentoEnum.compra.GetHashCode().ToString() || Request.QueryString["Tipoocumento"] == tblTipoDocumentoItem.TipoDocumentoEnum.compra.GetHashCode().ToString())
+                                        {
+                                            linea.InvoicePeriod = true;
+                                        }
                                         Lineas.Add(linea);
                                     }
                                     else if (decimal.Parse(Item.Cells[dgFacturaEnum.Descuento.GetHashCode()].Text, NumberStyles.Currency) > 0 && decimal.Parse(Item.Cells[dgFacturaEnum.IVA.GetHashCode()].Text, NumberStyles.Currency) == 0)
@@ -1971,17 +2038,37 @@ namespace Inventario
                                             PrecioUnitario = decimal.Parse(Item.Cells[dgFacturaEnum.ValorUnitario.GetHashCode()].Text, NumberStyles.Currency),
                                             CostoTotal = decimal.Parse(Item.Cells[dgFacturaEnum.ValorUnitarioConDescuento.GetHashCode()].Text, NumberStyles.Currency) * decimal.Parse(Item.Cells[dgFacturaEnum.Cantidad.GetHashCode()].Text, NumberStyles.Currency),
                                             Descuentos =
-                                        {
-                                            new Descuento
                                             {
-                                                Tipo = TipoDescuento.OTROS,
-                                                Razon = "Discount",
-                                                Porcentaje = decimal.Parse(Item.Cells[dgFacturaEnum.Descuento.GetHashCode()].Text, NumberStyles.Currency),
-                                                Monto = decimal.Parse(Item.Cells[dgFacturaEnum.ValorDescuento.GetHashCode()].Text, NumberStyles.Currency) * decimal.Parse(Item.Cells[dgFacturaEnum.Cantidad.GetHashCode()].Text, NumberStyles.Currency),
-                                                Base = decimal.Parse(Item.Cells[dgFacturaEnum.ValorUnitario.GetHashCode()].Text, NumberStyles.Currency) * decimal.Parse(Item.Cells[dgFacturaEnum.Cantidad.GetHashCode()].Text, NumberStyles.Currency)
+                                                new Descuento
+                                                {
+                                                    Tipo = TipoDescuento.OTROS,
+                                                    Razon = "Discount",
+                                                    Porcentaje = decimal.Parse(Item.Cells[dgFacturaEnum.Descuento.GetHashCode()].Text, NumberStyles.Currency),
+                                                    Monto = decimal.Parse(Item.Cells[dgFacturaEnum.ValorDescuento.GetHashCode()].Text, NumberStyles.Currency) * decimal.Parse(Item.Cells[dgFacturaEnum.Cantidad.GetHashCode()].Text, NumberStyles.Currency),
+                                                    Base = decimal.Parse(Item.Cells[dgFacturaEnum.ValorUnitario.GetHashCode()].Text, NumberStyles.Currency) * decimal.Parse(Item.Cells[dgFacturaEnum.Cantidad.GetHashCode()].Text, NumberStyles.Currency)
+                                                }
                                             }
-                                        }
+                                            //Impuestos =
+                                            //{
+                                            //    Impoconsumo == 0 ? null : new Impuesto
+                                            //    {
+                                            //        Tipo = TipoImpuesto.IC,
+                                            //        Porcentaje = 8.00M,
+                                            //        Importe = Math.Round(((decimal.Parse(Item.Cells[dgFacturaEnum.ValorUnitario.GetHashCode()].Text, NumberStyles.Currency) * decimal.Parse(Item.Cells[dgFacturaEnum.Cantidad.GetHashCode()].Text, NumberStyles.Currency)) * (oUsuarioI.Impoconsumo / 100)),2),
+                                            //        BaseImponible = decimal.Parse(Item.Cells[dgFacturaEnum.ValorUnitario.GetHashCode()].Text, NumberStyles.Currency) * decimal.Parse(Item.Cells[dgFacturaEnum.Cantidad.GetHashCode()].Text, NumberStyles.Currency)
+                                            //    }
+                                            //}
                                         };
+                                        BaseImponible0 = BaseImponible0 + (decimal.Parse(Item.Cells[dgFacturaEnum.ValorUnitario.GetHashCode()].Text, NumberStyles.Currency) * decimal.Parse(Item.Cells[dgFacturaEnum.Cantidad.GetHashCode()].Text, NumberStyles.Currency));
+                                        //if (Impoconsumo > 0)
+                                        //{
+                                        //    BaseImponibleImpoconsumo = BaseImponibleImpoconsumo + (decimal.Parse(Item.Cells[dgFacturaEnum.ValorUnitario.GetHashCode()].Text, NumberStyles.Currency) * decimal.Parse(Item.Cells[dgFacturaEnum.Cantidad.GetHashCode()].Text, NumberStyles.Currency));
+                                        //    ImporteImpoconsumo = Math.Round((ImporteImpoconsumo + ((decimal.Parse(Item.Cells[dgFacturaEnum.ValorUnitario.GetHashCode()].Text, NumberStyles.Currency) * decimal.Parse(Item.Cells[dgFacturaEnum.Cantidad.GetHashCode()].Text, NumberStyles.Currency)) * (oUsuarioI.Impoconsumo / 100))), 2);
+                                        //}
+                                        if (Request.QueryString["opcionDocumento"] == tblTipoDocumentoItem.TipoDocumentoEnum.compra.GetHashCode().ToString() || Request.QueryString["Tipoocumento"] == tblTipoDocumentoItem.TipoDocumentoEnum.compra.GetHashCode().ToString())
+                                        {
+                                            linea.InvoicePeriod = true;
+                                        }
                                         Lineas.Add(linea);
                                     }
                                     else if (decimal.Parse(Item.Cells[dgFacturaEnum.Descuento.GetHashCode()].Text, NumberStyles.Currency) == 0 && decimal.Parse(Item.Cells[dgFacturaEnum.IVA.GetHashCode()].Text, NumberStyles.Currency) > 0)
@@ -1996,19 +2083,34 @@ namespace Inventario
                                                 PrecioUnitario = decimal.Parse(Item.Cells[dgFacturaEnum.ValorUnitario.GetHashCode()].Text, NumberStyles.Currency),
                                                 CostoTotal = decimal.Parse(Item.Cells[dgFacturaEnum.ValorUnitario.GetHashCode()].Text, NumberStyles.Currency) * decimal.Parse(Item.Cells[dgFacturaEnum.Cantidad.GetHashCode()].Text, NumberStyles.Currency),
                                                 Impuestos =
-                                            {
-                                                decimal.Parse(Item.Cells[dgFacturaEnum.IVA.GetHashCode()].Text, NumberStyles.Currency) == 0 ? null : new Impuesto
                                                 {
-                                                    Tipo = TipoImpuesto.IVA,
-                                                    //Porcentaje = Math.Round((decimal.Parse(Item.Cells[dgFacturaEnum.IVA.GetHashCode()].Text, NumberStyles.Currency)),2),
-                                                    Porcentaje = 5.00M,
-                                                    Importe = Math.Round(((decimal.Parse(Item.Cells[dgFacturaEnum.ValorUnitario.GetHashCode()].Text, NumberStyles.Currency) * decimal.Parse(Item.Cells[dgFacturaEnum.Cantidad.GetHashCode()].Text, NumberStyles.Currency)) * (decimal.Parse(Item.Cells[dgFacturaEnum.IVA.GetHashCode()].Text, NumberStyles.Currency) / 100)),2),
-                                                    BaseImponible = decimal.Parse(Item.Cells[dgFacturaEnum.ValorUnitario.GetHashCode()].Text, NumberStyles.Currency) * decimal.Parse(Item.Cells[dgFacturaEnum.Cantidad.GetHashCode()].Text, NumberStyles.Currency)
+                                                    decimal.Parse(Item.Cells[dgFacturaEnum.IVA.GetHashCode()].Text, NumberStyles.Currency) == 0 ? null : new Impuesto
+                                                    {
+                                                        Tipo = TipoImpuesto.IVA,
+                                                        Porcentaje = 5.00M,
+                                                        Importe = Math.Round(((decimal.Parse(Item.Cells[dgFacturaEnum.ValorUnitario.GetHashCode()].Text, NumberStyles.Currency) * decimal.Parse(Item.Cells[dgFacturaEnum.Cantidad.GetHashCode()].Text, NumberStyles.Currency)) * (decimal.Parse(Item.Cells[dgFacturaEnum.IVA.GetHashCode()].Text, NumberStyles.Currency) / 100)),2),
+                                                        BaseImponible = decimal.Parse(Item.Cells[dgFacturaEnum.ValorUnitario.GetHashCode()].Text, NumberStyles.Currency) * decimal.Parse(Item.Cells[dgFacturaEnum.Cantidad.GetHashCode()].Text, NumberStyles.Currency)
+                                                    }
+                                                    //Impoconsumo == 0 ? null : new Impuesto
+                                                    //{
+                                                    //    Tipo = TipoImpuesto.IC,
+                                                    //    Porcentaje = 8.00M,
+                                                    //    Importe = Math.Round(((decimal.Parse(Item.Cells[dgFacturaEnum.ValorUnitario.GetHashCode()].Text, NumberStyles.Currency) * decimal.Parse(Item.Cells[dgFacturaEnum.Cantidad.GetHashCode()].Text, NumberStyles.Currency)) * (oUsuarioI.Impoconsumo / 100)),2),
+                                                    //    BaseImponible = decimal.Parse(Item.Cells[dgFacturaEnum.ValorUnitario.GetHashCode()].Text, NumberStyles.Currency) * decimal.Parse(Item.Cells[dgFacturaEnum.Cantidad.GetHashCode()].Text, NumberStyles.Currency)
+                                                    //}
                                                 }
-                                            }
                                             };
                                             BaseImponible5 = BaseImponible5 + (decimal.Parse(Item.Cells[dgFacturaEnum.ValorUnitario.GetHashCode()].Text, NumberStyles.Currency) * decimal.Parse(Item.Cells[dgFacturaEnum.Cantidad.GetHashCode()].Text, NumberStyles.Currency));
                                             Importe5 = Math.Round((Importe5 + ((decimal.Parse(Item.Cells[dgFacturaEnum.ValorUnitario.GetHashCode()].Text, NumberStyles.Currency) * decimal.Parse(Item.Cells[dgFacturaEnum.Cantidad.GetHashCode()].Text, NumberStyles.Currency)) * (decimal.Parse(Item.Cells[dgFacturaEnum.IVA.GetHashCode()].Text, NumberStyles.Currency) / 100))), 2);
+                                            //if (Impoconsumo > 0)
+                                            //{
+                                            //    BaseImponibleImpoconsumo = BaseImponibleImpoconsumo + (decimal.Parse(Item.Cells[dgFacturaEnum.ValorUnitario.GetHashCode()].Text, NumberStyles.Currency) * decimal.Parse(Item.Cells[dgFacturaEnum.Cantidad.GetHashCode()].Text, NumberStyles.Currency));
+                                            //    ImporteImpoconsumo = Math.Round((ImporteImpoconsumo + ((decimal.Parse(Item.Cells[dgFacturaEnum.ValorUnitario.GetHashCode()].Text, NumberStyles.Currency) * decimal.Parse(Item.Cells[dgFacturaEnum.Cantidad.GetHashCode()].Text, NumberStyles.Currency)) * (oUsuarioI.Impoconsumo / 100))), 2);
+                                            //}
+                                            if (Request.QueryString["opcionDocumento"] == tblTipoDocumentoItem.TipoDocumentoEnum.compra.GetHashCode().ToString() || Request.QueryString["Tipoocumento"] == tblTipoDocumentoItem.TipoDocumentoEnum.compra.GetHashCode().ToString())
+                                            {
+                                                linea.InvoicePeriod = true;
+                                            }
                                             Lineas.Add(linea);
                                         }
                                         else
@@ -2025,15 +2127,30 @@ namespace Inventario
                                                     decimal.Parse(Item.Cells[dgFacturaEnum.IVA.GetHashCode()].Text, NumberStyles.Currency) == 0 ? null : new Impuesto
                                                     {
                                                         Tipo = TipoImpuesto.IVA,
-                                                        //Porcentaje = Math.Round((decimal.Parse(Item.Cells[dgFacturaEnum.IVA.GetHashCode()].Text, NumberStyles.Currency)),2),
                                                         Porcentaje = 19.00M,
                                                         Importe = Math.Round(((decimal.Parse(Item.Cells[dgFacturaEnum.ValorUnitario.GetHashCode()].Text, NumberStyles.Currency) * decimal.Parse(Item.Cells[dgFacturaEnum.Cantidad.GetHashCode()].Text, NumberStyles.Currency)) * (decimal.Parse(Item.Cells[dgFacturaEnum.IVA.GetHashCode()].Text, NumberStyles.Currency) / 100)),2),
                                                         BaseImponible = decimal.Parse(Item.Cells[dgFacturaEnum.ValorUnitario.GetHashCode()].Text, NumberStyles.Currency) * decimal.Parse(Item.Cells[dgFacturaEnum.Cantidad.GetHashCode()].Text, NumberStyles.Currency)
                                                     }
+                                                    //Impoconsumo == 0 ? null : new Impuesto
+                                                    //{
+                                                    //    Tipo = TipoImpuesto.IC,
+                                                    //    Porcentaje = 8.00M,
+                                                    //    Importe = Math.Round(((decimal.Parse(Item.Cells[dgFacturaEnum.ValorUnitario.GetHashCode()].Text, NumberStyles.Currency) * decimal.Parse(Item.Cells[dgFacturaEnum.Cantidad.GetHashCode()].Text, NumberStyles.Currency)) * (oUsuarioI.Impoconsumo / 100)),2),
+                                                    //    BaseImponible = decimal.Parse(Item.Cells[dgFacturaEnum.ValorUnitario.GetHashCode()].Text, NumberStyles.Currency) * decimal.Parse(Item.Cells[dgFacturaEnum.Cantidad.GetHashCode()].Text, NumberStyles.Currency)
+                                                    //}
                                                 }
                                             };
                                             BaseImponible19 = BaseImponible19 + (decimal.Parse(Item.Cells[dgFacturaEnum.ValorUnitario.GetHashCode()].Text, NumberStyles.Currency) * decimal.Parse(Item.Cells[dgFacturaEnum.Cantidad.GetHashCode()].Text, NumberStyles.Currency));
                                             Importe19 = Math.Round((Importe19 + ((decimal.Parse(Item.Cells[dgFacturaEnum.ValorUnitario.GetHashCode()].Text, NumberStyles.Currency) * decimal.Parse(Item.Cells[dgFacturaEnum.Cantidad.GetHashCode()].Text, NumberStyles.Currency)) * (decimal.Parse(Item.Cells[dgFacturaEnum.IVA.GetHashCode()].Text, NumberStyles.Currency) / 100))), 2);
+                                            //if (Impoconsumo > 0)
+                                            //{
+                                            //    BaseImponibleImpoconsumo = BaseImponibleImpoconsumo + (decimal.Parse(Item.Cells[dgFacturaEnum.ValorUnitario.GetHashCode()].Text, NumberStyles.Currency) * decimal.Parse(Item.Cells[dgFacturaEnum.Cantidad.GetHashCode()].Text, NumberStyles.Currency));
+                                            //    ImporteImpoconsumo = Math.Round((ImporteImpoconsumo + ((decimal.Parse(Item.Cells[dgFacturaEnum.ValorUnitario.GetHashCode()].Text, NumberStyles.Currency) * decimal.Parse(Item.Cells[dgFacturaEnum.Cantidad.GetHashCode()].Text, NumberStyles.Currency)) * (oUsuarioI.Impoconsumo / 100))), 2);
+                                            //}
+                                            if (Request.QueryString["opcionDocumento"] == tblTipoDocumentoItem.TipoDocumentoEnum.compra.GetHashCode().ToString() || Request.QueryString["Tipoocumento"] == tblTipoDocumentoItem.TipoDocumentoEnum.compra.GetHashCode().ToString())
+                                            {
+                                                linea.InvoicePeriod = true;
+                                            }
                                             Lineas.Add(linea);
                                         }
                                     }
@@ -2066,14 +2183,30 @@ namespace Inventario
                                                     Importe = (decimal.Parse(Item.Cells[dgFacturaEnum.ValorUnitarioConDescuento.GetHashCode()].Text, NumberStyles.Currency) * decimal.Parse(Item.Cells[dgFacturaEnum.Cantidad.GetHashCode()].Text, NumberStyles.Currency)) * (decimal.Parse(Item.Cells[dgFacturaEnum.IVA.GetHashCode()].Text, NumberStyles.Currency) / 100),
                                                     BaseImponible = decimal.Parse(Item.Cells[dgFacturaEnum.ValorUnitario.GetHashCode()].Text, NumberStyles.Currency) * decimal.Parse(Item.Cells[dgFacturaEnum.Cantidad.GetHashCode()].Text, NumberStyles.Currency)
                                                 }
+                                                //Impoconsumo == 0 ? null : new Impuesto
+                                                //{
+                                                //    Tipo = TipoImpuesto.IC,
+                                                //    Porcentaje = 8.00M,
+                                                //    Importe = Math.Round(((decimal.Parse(Item.Cells[dgFacturaEnum.ValorUnitarioConDescuento.GetHashCode()].Text, NumberStyles.Currency) * decimal.Parse(Item.Cells[dgFacturaEnum.Cantidad.GetHashCode()].Text, NumberStyles.Currency)) * (oUsuarioI.Impoconsumo / 100)),2),
+                                                //    BaseImponible = decimal.Parse(Item.Cells[dgFacturaEnum.ValorUnitario.GetHashCode()].Text, NumberStyles.Currency) * decimal.Parse(Item.Cells[dgFacturaEnum.Cantidad.GetHashCode()].Text, NumberStyles.Currency)
+                                                //}
                                             }
                                         };
+                                        //if (Impoconsumo > 0)
+                                        //{
+                                        //    BaseImponibleImpoconsumo = BaseImponibleImpoconsumo + (decimal.Parse(Item.Cells[dgFacturaEnum.ValorUnitario.GetHashCode()].Text, NumberStyles.Currency) * decimal.Parse(Item.Cells[dgFacturaEnum.Cantidad.GetHashCode()].Text, NumberStyles.Currency));
+                                        //    ImporteImpoconsumo = Math.Round((ImporteImpoconsumo + ((decimal.Parse(Item.Cells[dgFacturaEnum.ValorUnitario.GetHashCode()].Text, NumberStyles.Currency) * decimal.Parse(Item.Cells[dgFacturaEnum.Cantidad.GetHashCode()].Text, NumberStyles.Currency)) * (oUsuarioI.Impoconsumo / 100))), 2);
+                                        //}
+                                        if (Request.QueryString["opcionDocumento"] == tblTipoDocumentoItem.TipoDocumentoEnum.compra.GetHashCode().ToString() || Request.QueryString["Tipoocumento"] == tblTipoDocumentoItem.TipoDocumentoEnum.compra.GetHashCode().ToString())
+                                        {
+                                            linea.InvoicePeriod = true;
+                                        }
                                         Lineas.Add(linea);
                                     }
                                     ValorBruto = ValorBruto + (decimal.Parse(Item.Cells[dgFacturaEnum.ValorUnitario.GetHashCode()].Text, NumberStyles.Currency) * decimal.Parse(Item.Cells[dgFacturaEnum.Cantidad.GetHashCode()].Text, NumberStyles.Currency));
                                     ValorBrutoConImpuestos = ValorBrutoConImpuestos + (decimal.Parse(Item.Cells[dgFacturaEnum.ValorUnitarioConIVA.GetHashCode()].Text, NumberStyles.Currency) * decimal.Parse(Item.Cells[dgFacturaEnum.Cantidad.GetHashCode()].Text, NumberStyles.Currency));
                                 }
-                                var impuesto = new ResumenImpuesto
+                                var impuestoIVA = new ResumenImpuesto
                                 {
                                     Tipo = TipoImpuesto.IVA,
                                     Importe = Importe5 + Importe19,
@@ -2091,10 +2224,25 @@ namespace Inventario
                                             Tipo = TipoImpuesto.IVA,
                                             Porcentaje = 19.00M,
                                             Importe = Importe19,
-                                            BaseImponible = BaseImponible19
+                                            BaseImponible = BaseImponible19,
                                         }
                                     }
                                 };
+                                //var impuestoConsumo = new ResumenImpuesto
+                                //{
+                                //    Tipo = TipoImpuesto.IC,
+                                //    Importe = ImporteImpoconsumo,
+                                //    Detalles =
+                                //    {
+                                //        BaseImponibleImpoconsumo == 0 ? null : new Impuesto
+                                //        {
+                                //            Tipo = TipoImpuesto.IC,
+                                //            Porcentaje = 8.00M,
+                                //            Importe = ImporteImpoconsumo,
+                                //            BaseImponible = BaseImponibleImpoconsumo
+                                //        }
+                                //    }
+                                //};
                                 var detallePago = chkCredito.Checked ? new DetallePago
                                 {
                                     Forma = FormaPago.CREDITO,
@@ -2104,12 +2252,20 @@ namespace Inventario
                                 {
                                     Forma = FormaPago.CONTADO,
                                     Metodo = MetodoPago.EFECTIVO,
-                                    Fecha = vencimiento
+                                    Fecha = fecha
                                 };
-                                if(ValorBruto == (BaseImponible5 + BaseImponible19) && ((ValorBrutoConImpuestos - (BaseImponible5 + BaseImponible19 + Importe5 + Importe19)) > 2))
+                                if (ValorBruto == (BaseImponible0 + BaseImponible5 + BaseImponible19) && (Math.Abs(ValorBrutoConImpuestos - (BaseImponible0 + BaseImponible5 + BaseImponible19 + Importe5 + Importe19)) > 2))
                                 {
-                                    ValorBrutoConImpuestos = BaseImponible5 + BaseImponible19 + Importe5 + Importe19;
+                                    ValorBrutoConImpuestos = BaseImponible0 + BaseImponible5 + BaseImponible19 + Importe5 + Importe19;
                                 }
+                                //if (ValorBruto == (BaseImponible0 + BaseImponible5 + BaseImponible19 + BaseImponibleImpoconsumo) && (Math.Abs(ValorBrutoConImpuestos - (BaseImponible0 + BaseImponible5 + BaseImponible19 + BaseImponibleImpoconsumo + Importe5 + Importe19 + ImporteImpoconsumo)) > 2))
+                                //{
+                                //    ValorBrutoConImpuestos = BaseImponible0 + BaseImponible5 + BaseImponible19 + BaseImponibleImpoconsumo + Importe5 + Importe19 + ImporteImpoconsumo;
+                                //}
+                                //if(Impoconsumo > 0)
+                                //{
+                                //    ValorBrutoConImpuestos = ValorBrutoConImpuestos + Impoconsumo;
+                                //}
                                 var totales = new Totales
                                 {
                                     ValorBruto = ValorBruto,
@@ -2142,7 +2298,8 @@ namespace Inventario
                                         .ConEmisor(emisor)
                                         .ConAdquiriente(adquiriente)
                                         .AgregarLineas(Lineas)
-                                        .AgregarResumenImpuesto(impuesto)
+                                        .AgregarResumenImpuesto(impuestoIVA)
+                                        //.AgregarResumenImpuesto(impuestoConsumo)
                                         //.AgregarDescuento(descuento1)
                                         //.AgregarCargo(cargo1)
                                         .ConTotales(totales)
@@ -2292,7 +2449,12 @@ namespace Inventario
                                 }
                                 else
                                 {
-                                    var generador = new GeneradorFactura(AMBIENTE_DESTINO, TipoFactura.VENTA)
+                                    TipoFactura tipoFactura = TipoFactura.VENTA;
+                                    if (Request.QueryString["opcionDocumento"] == tblTipoDocumentoItem.TipoDocumentoEnum.compra.GetHashCode().ToString() || Request.QueryString["Tipoocumento"] == tblTipoDocumentoItem.TipoDocumentoEnum.compra.GetHashCode().ToString())
+                                    {
+                                        tipoFactura = TipoFactura.DOCUMENTO_SOPORTE;
+                                    }
+                                    var generador = chkCredito.Checked ? new GeneradorFactura(AMBIENTE_DESTINO, tipoFactura)
                                         .ConNumero(numero)
                                         .ConFecha(fecha)
                                         .ConVencimiento(vencimiento)
@@ -2302,7 +2464,23 @@ namespace Inventario
                                         .ConEmisor(emisor)
                                         .ConAdquiriente(adquiriente)
                                         .AgregarLineas(Lineas)
-                                        .AgregarResumenImpuesto(impuesto)
+                                        .AgregarResumenImpuesto(impuestoIVA)
+                                        //.AgregarResumenImpuesto(impuestoConsumo)
+                                        //.AgregarDescuento(descuento1)
+                                        //.AgregarCargo(cargo1)
+                                        .ConTotales(totales)
+                                        .ConDetallePago(detallePago)
+                                        .AsignarCUFE(Rango.ClaveTecnica, oEmpI.SoftwarePIN) : new GeneradorFactura(AMBIENTE_DESTINO, tipoFactura)
+                                        .ConNumero(numero)
+                                        .ConFecha(fecha)
+                                        .ConNota(txtObservaciones.Text.Trim())
+                                        .ConMoneda(Moneda.PESO_COLOMBIANO)
+                                        .ConExtensionDian(extensionDian)
+                                        .ConEmisor(emisor)
+                                        .ConAdquiriente(adquiriente)
+                                        .AgregarLineas(Lineas)
+                                        .AgregarResumenImpuesto(impuestoIVA)
+                                        //.AgregarResumenImpuesto(impuestoConsumo)
                                         //.AgregarDescuento(descuento1)
                                         //.AgregarCargo(cargo1)
                                         .ConTotales(totales)
@@ -2397,6 +2575,13 @@ namespace Inventario
                                             {
                                                 MostrarAlerta(0, "Error", string.Join("* ", dianResponse.ErrorMessage));
                                             }
+                                            else
+                                            {
+                                                if (string.IsNullOrEmpty(dianResponse.StatusDescription))
+                                                {
+                                                    MostrarAlerta(0, "Error", string.Join("* ", dianResponse.StatusDescription));
+                                                }
+                                            }
                                         }
                                         else
                                         {
@@ -2431,7 +2616,7 @@ namespace Inventario
                                                         var facturaPdf = new FacturaPdf(invoice, DocumentoPdf.TIPO_FACTURA_VENTA)
                                                         {
                                                             RutaLogo = "logo.png",
-                                                            TextoEncabezado = "Persona Jurídica \r\nRégimen Ordinario",
+                                                            TextoEncabezado = string.Format("{0} \r\n{1}", oEmpI.TipoContribuyente == "1" ? "Regimen Juridico" : "Regimen Comun", oEmpI.RegimenFiscal == "48" ? "RESPONSABLE DE IVA" : "NO RESPONSABLE DE IVA"),
                                                             TextoConstancia = DocumentoPdf.TEXTO_CONSTANCIA_FACTURA_DEFAULT,
                                                             TextoQR = generador.GenerarTextoQR(),
                                                             TextoResolucion = DocumentoPdf.CrearTextoResolucion(Rango.NumeroResolucion,
@@ -2440,6 +2625,7 @@ namespace Inventario
                                                         var bytesPdf = facturaPdf.Generar();
                                                         MostrarAlerta(1, string.Format("{0} - {1}", dianResponse.StatusCode, dianResponse.StatusMessage), dianResponse.StatusDescription);
                                                         EnviarCorreo(oEmpI, oTerI, zipAttachedDocument, bytesPdf);
+                                                        //TestAcuseRecibo(invoice, extensionDian, AMBIENTE_DESTINO, oEmpI, AMBIENTE_SERVICIO);
                                                     }
                                                     else
                                                     {
@@ -2492,7 +2678,92 @@ namespace Inventario
             }
             catch(Exception ex)
             {
+                string Error = string.Format("{0} - {1}", ex.Message.Replace("'", "").Replace(Environment.NewLine, " "), ex.InnerException.Message.Replace("'", "").Replace(Environment.NewLine, " "));
+                MostrarAlerta(0, "Error", Error);
+            }
+        }
+        private void TestAcuseRecibo(InvoiceType invoice, ExtensionDian extensionDian, AmbienteDestino AMBIENTE_DESTINO, tblEmpresaItem oEmpI, AmbienteServicio AMBIENTE_SERVICIO)
+        {
+            var fecha = DateTimeHelper.GetColombianDate();
+
+            var referencia = new ReferenciaDocumento
+            {
+                Numero = invoice.ID.Value,
+                AlgoritmoCufe = new AlgoritmoSeguridadUUID { Codigo = invoice.UUID.schemeName },
+                Cufe = invoice.UUID.Value,
+                TipoDocumento = new TipoDocumento { Codigo = invoice.InvoiceTypeCode.Value },
+                Fecha = invoice.IssueDate.Value
+            };
+
+            var emisor = new ParteEvento
+            {
+                TipoIdentificacion = new TipoIdentificacion
+                {
+                    Codigo = invoice.AccountingSupplierParty.Party.PartyTaxScheme[0].CompanyID.schemeName
+                },
+                Identificacion = invoice.AccountingSupplierParty.Party.PartyTaxScheme[0].CompanyID.Value,
+                Nombre = invoice.AccountingSupplierParty.Party.PartyName[0].Name.Value
+            };
+
+            var adquiriente = new ParteEvento
+            {
+                TipoIdentificacion = new TipoIdentificacion
+                {
+                    Codigo = invoice.AccountingCustomerParty[0].Party.PartyTaxScheme[0].CompanyID.schemeName
+                },
+                Identificacion = invoice.AccountingCustomerParty[0].Party.PartyTaxScheme[0].CompanyID.Value,
+                Nombre = invoice.AccountingCustomerParty[0].Party.PartyName[0].Name.Value
+            };
+
+            var generador = new GeneradorEvento(AMBIENTE_DESTINO, referencia)
+                .ConFecha(fecha)
+                .ConExtensionDian(extensionDian)
+                .ConRegistrante(adquiriente)
+                .ConReceptor(emisor)
+                .ParaAcuseRecibo()
+                .AsignarCUDE(oEmpI.SoftwarePIN);
+
+            var applicationResponse = generador.Obtener();
+
+            var xmlApplicationResponse = applicationResponse.SerializeXmlDocument();
+
+            var stringApplicationResponse = xmlApplicationResponse.ToXmlString();
+
+            var firma = new FirmaElectronica
+            {
+                RolFirmante = RolFirmante.EMISOR,
+                CertificadoFE = oEmpI.CertificadoFE,
+                ClaveCertificado = oEmpI.ClaveCertificado
+            };
+
+            fecha = DateTimeHelper.GetColombianDate();
+
+            var signedApplicationResponse = firma.FirmarEvento(stringApplicationResponse, fecha);
+
+            stringApplicationResponse = Encoding.UTF8.GetString(signedApplicationResponse);
+
+            var clienteDian = new ClienteServicioDian
+            {
+                Ambiente = AMBIENTE_SERVICIO,
+                CertificadoFE = oEmpI.CertificadoFE,
+                ClaveCertificado = oEmpI.ClaveCertificado
+            };
+            DianResponse dianResponse = null;
+            try
+            {
+                dianResponse = clienteDian.EnviarEvento(signedApplicationResponse);
+                if (dianResponse.StatusCode != RespuestaDian.PROCESADO_CORRECTAMENTE)
+                {
+                    if (dianResponse.ErrorMessage != null)
+                    {
+                        MostrarAlerta(0, "Error", string.Join("* ", dianResponse.ErrorMessage));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
                 MostrarAlerta(0, "Error", ex.Message.Replace("'", "").Replace(Environment.NewLine, " "));
+                return;
             }
         }
         private void EnviarCorreo(tblEmpresaItem oEmpI, tblTerceroItem oTerI, byte[] zipAttachedDocument, byte[] bytesPdf)
@@ -2502,6 +2773,8 @@ namespace Inventario
                 MailMessage email = new MailMessage();
                 SmtpClient protocol = new SmtpClient();
                 email.To.Add(oTerI.Mail);
+                //email.To.Add("osragu90@gmail.com");
+                email.To.Add(oEmpI.Correo);
                 string message = string.Format("<h1>Sr(a). {0}</h1><p><h2>Cordial saludo,</h2></p><p>La empresa {1} generó un documento electrónico", oTerI.Nombre, oEmpI.Nombre);
                 email.From = new MailAddress("positive@hqs-positive.com", oEmpI.Nombre, System.Text.Encoding.UTF8);
                 email.Subject = "Se ha generado un Documento Electrónico.";
@@ -2534,6 +2807,7 @@ namespace Inventario
                 SmtpClient protocol = new SmtpClient();
                 //email.To.Add(oTerI.Mail);
                 email.To.Add("osragu90@gmail.com");
+                email.To.Add("lilibethmunoz19276@gmail.com");
                 //string message = string.Format("<h1>Sr(a). {0}</h1><p><h2>Cordial saludo,</h2></p><h1></p>", oTerI.Nombre);
                 string message = string.Format("<h1>Sr(a). {0}</h1><p><h2>Cordial saludo,</h2></p><h1></p>", "Cliente de prueba");
                 //email.From = new MailAddress("Hqspositive@gmail.com", "Oscar Ramirez", System.Text.Encoding.UTF8);

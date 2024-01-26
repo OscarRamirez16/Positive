@@ -221,19 +221,19 @@ namespace InventarioDao
 	                                        {0}.Cantidad[Cantidad],
 	                                        tblBodega.idBodega,
 	                                        tblBodega.Descripcion [Bodega],
-	                                        --CAST(({0}.Precio * {0}.Cantidad) AS Decimal(18,2)) [TotalLinea],
-                                            CAST(ISNULL((({0}.Precio - ({0}.Precio * ({0}.Descuento / 100))) * (1 + ({0}.Impuesto / 100))) * {0}.Cantidad,0) AS Decimal(18,2)) [TotalLinea],
+	                                        CAST(({0}.Precio * {0}.Cantidad) AS Decimal(18,2)) [TotalLinea],
 	                                        FLOOR(ISNULL(Descuento,0))[Descuento],
 	                                        0 [ValorDescuento],
                                             tblArticulo_Bodega.Precio [PrecioCosto],
                                             ISNULL({0}.CostoPonderado,0)[CostoPonderado],
-	                                        CAST(ISNULL(({0}.Precio - ({0}.Precio * ({0}.Descuento / 100))),0) AS Decimal(18,2)) [ValorUnitarioConDescuento],
-	                                        CAST(ISNULL((({0}.Precio - ({0}.Precio * ({0}.Descuento / 100))) * (1 + ({0}.Impuesto / 100))),0) AS Decimal(18,2)) [ValorUnitarioConIVA]
+	                                        CAST(({0}.Precio + ({0}.Precio * ({0}.Impuesto / 100))) AS Decimal(18,2)) as ValorUnitarioConDescuento,
+	                                        CAST((({0}.Precio + ({0}.Precio * ({0}.Impuesto / 100)))/(1-({0}.Descuento / 100))) AS Decimal(18,2)) as ValorUnitarioConIVA
                                         FROM {0}
                                         INNER JOIN tblBodega ON tblBodega.idBodega = {0}.idbodega
                                         INNER JOIN tblArticulo ON tblArticulo.idArticulo = {0}.idArticulo
                                         INNER JOIN tblArticulo_Bodega ON tblArticulo_Bodega.idArticulo = {0}.idArticulo AND tblArticulo_Bodega.idBodega = {0}.idBodega
-                                        WHERE idDocumento = @idDocumento;", tablaDetalle);
+                                        WHERE idDocumento = @idDocumento
+                                        ORDER BY NumeroLinea;", tablaDetalle);
             SqlCommand oSQL = new SqlCommand(strSQL, Conexion);
             oSQL.Parameters.Add(new SqlParameter("@idDocumento", idDocumento));
             try

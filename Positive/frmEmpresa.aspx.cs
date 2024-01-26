@@ -67,12 +67,10 @@ namespace Inventario
                 MostrarAlerta(0, "Error", ex.Message.Replace("'", "").Replace(Environment.NewLine, " "));
             }
         }
-
         private void InicializarControles() {
             fluImage.Style.Add("display", "none");
             fluImage.Style.Add("visibility", "hidden");
         }
-
         private void ConfiguracionIdioma()
         {
             try
@@ -190,7 +188,6 @@ namespace Inventario
                 throw ex;
             }
         }
-
         private void CargarDatosGuardar(ref tblEmpresaItem empresa)
         {
             try
@@ -237,13 +234,15 @@ namespace Inventario
                 empresa.TestSetId = txtTestSetId.Text.Trim();
                 empresa.ClaveTecnica = txtClaveTecnica.Text.Trim();
                 empresa.ClaveCertificado = txtClaveCertificado.Text.Trim();
+                empresa.Correo = txtCorreo.Text.Trim();
+                empresa.ConsecutivoDocumentoSoporte = int.Parse(txtConsecutivoDocumentoSoporte.Text.Trim());
+                empresa.Prefijo = txtPrefijo.Text.Trim();
             }
             catch(Exception ex)
             {
                 throw ex;
             }
         }
-
         private void CargarDatosEmpresa(tblEmpresaItem empresa)
         {
             try
@@ -273,6 +272,9 @@ namespace Inventario
                 txtTestSetId.Text = empresa.TestSetId;
                 txtClaveTecnica.Text = empresa.ClaveTecnica;
                 txtClaveCertificado.Text = empresa.ClaveCertificado;
+                txtCorreo.Text = empresa.Correo;
+                txtConsecutivoDocumentoSoporte.Text = empresa.ConsecutivoDocumentoSoporte.ToString();
+                txtPrefijo.Text = empresa.Prefijo;
                 if (empresa.Logo != null && empresa.Logo.Length > 0)
                 {
                     srcLogo = "frmObtenerLogo.aspx";
@@ -287,12 +289,10 @@ namespace Inventario
                 throw ex;
             }
         }
-
         protected void btnCancelar_Click(object sender, ImageClickEventArgs e)
         {
             Response.Redirect("frmMantenimientos.aspx");
         }
-
         protected void btnGuardar_Click(object sender, ImageClickEventArgs e)
         {
             try

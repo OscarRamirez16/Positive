@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/NumberRangeResponseList" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/NumberRangeResponseList" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://vpfe-hab.dian.gov.co/WcfDianCustomerServices.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/NumberRangeResponse" />
+  <xs:complexType name="NumberRangeResponseList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="OperationCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OperationDescription" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/NumberRangeResponse" minOccurs="0" name="ResponseList" nillable="true" type="q1:ArrayOfNumberRangeResponse" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="NumberRangeResponseList" nillable="true" type="tns:NumberRangeResponseList" />
+</xs:schema>

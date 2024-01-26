@@ -247,6 +247,7 @@
                                     <li><a href="frmConciliacion.aspx"><i class="fa fa-plus-circle fa-fw"></i> <asp:Label ID="lblConciliacion" runat="server"></asp:Label></a></li>
                                     <li><a href="frmVerConciliacion.aspx"><i class="fa fa-search fa-fw"></i> <asp:Label ID="lblConsultarConciliacion" runat="server"></asp:Label></a></li>
                                     <li><a href="frmVerDocumentos.aspx?opcionDocumento=11"><i class="fa fa-search fa-fw"></i> <asp:Label ID="lblConsultarDocumentoElectronico" runat="server"></asp:Label></a></li>
+                                    <li><a href="frmFacturacionTemplateMasiva.aspx"><i class="fa fa-search fa-fw"></i> <asp:Label ID="lblFacturacionMasivaTemplate" runat="server"></asp:Label></a></li>
                                 </ul>
                             </li>
                             <li>
@@ -277,7 +278,9 @@
                                     <li><a href="frmEntradaMasivaMercancia.aspx"><i class="fa fa-plus-circle fa-fw"></i> <asp:Label ID="lblEntradaSalidaMasiva" runat="server"></asp:Label></a></li>
                                     <li><a href="frmListaPrecio.aspx"><i class="fa fa-plus-circle fa-fw"></i> <asp:Label ID="lblListaPrecio" runat="server"></asp:Label></a></li>
                                     <li><a href="frmTrasladoMercancia.aspx"><i class="fa fa-plus-circle fa-fw"></i> <asp:Label ID="lblTrasladoMercancia" runat="server"></asp:Label></a></li>
+                                    <li><a href="frmReporteTrasladoMercancia.aspx"><i class="fa fa-search fa-fw"></i> <asp:Label ID="lblConsultarTrasladoMercancia" runat="server"></asp:Label></a></li>
                                     <li><a href="frmListaMateriales.aspx?ArticuloCompuesto=1"><i class="fa fa-plus-circle fa-fw"></i> <asp:Label ID="lblArticuloCompuesto" runat="server"></asp:Label></a></li>
+                                    <li><a href="frmTrasladoMasivoMercancia.aspx"><i class="fa fa-plus-circle fa-fw"></i> <asp:Label ID="lblTrasladoMasivo" runat="server"></asp:Label></a></li>
                                 </ul>
                                 <!-- /.nav-second-level -->
                             </li>
@@ -332,6 +335,7 @@
                                     <li><a href="frmReporteCompras.aspx"><i class="fa fa-search fa-fw"></i> Reporte Informaci&oacuten Compras</a></li>
                                     <li><a href="frmReporteComisionesVentasPorArticulo.aspx"><i class="fa fa-search fa-fw"></i> Reporte Comisiones Ventas Por Articulo</a></li>
                                     <li><a href="frmReporteCuentaCobro.aspx"><i class="fa fa-search fa-fw"></i> Reporte Cuentas de Cobro</a></li>
+                                    <li><a href="frmReporteDocumentosAgrupadoPorArticulo.aspx"><i class="fa fa-search fa-fw"></i> Reporte Documentos Agrupado</a></li>
                                 </ul>
                                 <!-- /.nav-second-level -->
                             </li>
@@ -341,6 +345,7 @@
                                     <li><a href="frmCuentasPorCobrarPagar.aspx?TipoPago=1"><i class="fa fa-plus-circle fa-fw"></i> Cuentas Por Cobrar</a></li>
                                     <li><a href="frmCuentasPorCobrarPagar.aspx?TipoPago=2"><i class="fa fa-plus-circle fa-fw"></i> Cuentas Por Pagar</a></li>
                                     <li><a href="frmCuentasPorCobrarPagar.aspx?TipoPago=10"><i class="fa fa-plus-circle fa-fw"></i> Cuentas Por Cobrar CC</a></li>
+                                    <li><a href="frmCuentasPorCobrarPagar.aspx?TipoPago=11"><i class="fa fa-plus-circle fa-fw"></i> Cuentas Por Cobrar FE</a></li>
                                     <li><a href="frmTipoTarjetaCredito.aspx"><i class="fa fa-plus-circle fa-fw"></i> Tipos de Tarjetas de Crédito</a></li>
                                     <li><a href="frmCrearEditarConsultarVentaRapida.aspx"><i class="fa fa-plus-circle fa-fw"></i> Administraci&oacuten de Venta Rapida</a></li>
                                     <li><a href="frmRetenciones.aspx"><i class="fa fa-plus-circle fa-fw"></i> Retenciones</a></li>

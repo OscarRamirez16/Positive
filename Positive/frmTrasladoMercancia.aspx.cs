@@ -29,7 +29,6 @@ namespace Inventario
             BodegaDestino = 6,
             Eliminar = 7
         }
-
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -70,10 +69,9 @@ namespace Inventario
             }
             catch (Exception ex)
             {
-                MostrarMensaje("Error", string.Format("No se pudo cargar la pagina. {0}", ex.Message));
+                MostrarAlerta(0, "Error", ex.Message.Replace("'", "").Replace(Environment.NewLine, " "));
             }
         }
-
         private void ConfiguracionIdioma()
         {
             Traductor oCIdioma = new Traductor();
@@ -104,65 +102,94 @@ namespace Inventario
             txtCantidad.Attributes.Add("placeholder", oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.Cantidad));
             txtBodegaOrigen.Attributes.Add("placeholder", oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.BodegaOrigen));
             txtBodegaDestino.Attributes.Add("placeholder", oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.BodegaDestino));
+            lblObservaciones.Text = oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.Observaciones);
         }
-
         protected void btnGuardar_Click(object sender, ImageClickEventArgs e)
         {
             try
             {
                 if (dgTraslados.Items.Count > 0)
                 {
-                    tblTrasladoMercanciaBusiness oTraB = new tblTrasladoMercanciaBusiness(CadenaConexion);
-                    tblTrasladoMercanciaItem oTraI = new tblTrasladoMercanciaItem();
-                    List<tblTrasladoMercanciaDetalle> oListDetI = new List<tblTrasladoMercanciaDetalle>();
-                    oTraI = CargarDatosTraslado();
-                    foreach (DataGridItem Item in dgTraslados.Items)
+                    string Errores = ValidarInventarioSuficiente();
+                    if (string.IsNullOrEmpty(Errores))
                     {
-                        tblTrasladoMercanciaDetalle Detalle = new tblTrasladoMercanciaDetalle();
-                        Detalle.IdArticulo = long.Parse(Item.Cells[dgTrasladosEnum.IdArticulo.GetHashCode()].Text);
-                        Detalle.Cantidad = decimal.Parse(Item.Cells[dgTrasladosEnum.Cantidad.GetHashCode()].Text, NumberStyles.Currency);
-                        Detalle.IdBodegaOrigen = long.Parse(Item.Cells[dgTrasladosEnum.IdBodegaOrigen.GetHashCode()].Text);
-                        Detalle.IdBodegaDestino = long.Parse(Item.Cells[dgTrasladosEnum.IdBodegaDestino.GetHashCode()].Text);
-                        oListDetI.Add(Detalle);
-                    }
-                    if (oTraB.Guardar(oTraI, oListDetI))
-                    {
-                        MostrarMensaje("Exito","El traslado de mercancía se realizó con exito.");
-                        LimpiarControles();
-                        dgTraslados.DataSource = null;
-                        dgTraslados.DataBind();
+                        tblTrasladoMercanciaBusiness oTraB = new tblTrasladoMercanciaBusiness(CadenaConexion);
+                        tblTrasladoMercanciaItem oTraI = new tblTrasladoMercanciaItem();
+                        List<tblTrasladoMercanciaDetalle> oListDetI = new List<tblTrasladoMercanciaDetalle>();
+                        oTraI.Fecha = Util.ObtenerFecha(oUsuarioI.idEmpresa);
+                        oTraI.IdEmpresa = oUsuarioI.idEmpresa;
+                        oTraI.IdUsuario = oUsuarioI.idUsuario;
+                        oTraI.Obervaciones = txtObservaciones.Text;
+                        foreach (DataGridItem Item in dgTraslados.Items)
+                        {
+                            tblTrasladoMercanciaDetalle Detalle = new tblTrasladoMercanciaDetalle();
+                            Detalle.IdArticulo = long.Parse(Item.Cells[dgTrasladosEnum.IdArticulo.GetHashCode()].Text);
+                            Detalle.Cantidad = decimal.Parse(Item.Cells[dgTrasladosEnum.Cantidad.GetHashCode()].Text, NumberStyles.Currency);
+                            Detalle.IdBodegaOrigen = long.Parse(Item.Cells[dgTrasladosEnum.IdBodegaOrigen.GetHashCode()].Text);
+                            Detalle.IdBodegaDestino = long.Parse(Item.Cells[dgTrasladosEnum.IdBodegaDestino.GetHashCode()].Text);
+                            oListDetI.Add(Detalle);
+                        }
+                        if (oTraB.Guardar(oTraI, oListDetI))
+                        {
+                            MostrarAlerta(1, "Exito", "El traslado de mercancía se realizó con exito.");
+                            LimpiarControles();
+                            dgTraslados.DataSource = null;
+                            dgTraslados.DataBind();
+                        }
+                        else
+                        {
+                            MostrarAlerta(0, "Error", "No se pudo realizar el traslado de mercancía.");
+                        }
                     }
                     else
                     {
-                        MostrarMensaje("Error", "No se pudo realizar el traslado de mercancía.");
+                        MostrarAlerta(0, "Error", Errores);
                     }
                 }
                 else
                 {
-                    MostrarMensaje("Error", "No hay artículos para realizar el traslado.");
+                    MostrarAlerta(0, "Error", "No hay artículos para realizar el traslado.");
                 }
             }
             catch (Exception ex)
             {
-                MostrarMensaje("Error", string.Format("No se pudo realizar el traslado. {0}", ex.Message));
+                MostrarAlerta(0, "Error", ex.Message.Replace("'", "").Replace(Environment.NewLine, " "));
             }
         }
-
-        private tblTrasladoMercanciaItem CargarDatosTraslado()
+        private string ValidarInventarioSuficiente()
         {
-            tblTrasladoMercanciaItem Item = new tblTrasladoMercanciaItem();
-            Item.Fecha = Util.ObtenerFecha(oUsuarioI.idEmpresa);
-            Item.IdEmpresa = oUsuarioI.idEmpresa;
-            Item.IdUsuario = oUsuarioI.idUsuario;
-            Item.Obervaciones = txtObservaciones.Text;
-            return Item;
+            string Errores = "";
+            try
+            {
+                tblArticuloItem oArtI = new tblArticuloItem();
+                tblArticuloBusiness oArtB = new tblArticuloBusiness(CadenaConexion);
+                foreach (DataGridItem Item in dgTraslados.Items)
+                {
+                    decimal Disponibles = oArtB.DisponibilidadArticuloEnBodega(long.Parse(Item.Cells[dgTrasladosEnum.IdArticulo.GetHashCode()].Text), long.Parse(Item.Cells[dgTrasladosEnum.IdBodegaOrigen.GetHashCode()].Text));
+                    if (decimal.Parse(Item.Cells[dgTrasladosEnum.Cantidad.GetHashCode()].Text, NumberStyles.Currency) > Disponibles)
+                    {
+                        if (string.IsNullOrEmpty(Errores))
+                        {
+                            Errores = string.Format("El artículo {0} no tiene suficientes existencias. Disponibilidad {1}", oArtI.CodigoArticulo, Disponibles.ToString(Util.ObtenerFormatoDecimal()).Replace("$", ""));
+                        }
+                        else
+                        {
+                            Errores = string.Format("{0}. El artículo {1} no tiene suficientes existencias . Disponibilidad {2}", Errores, oArtI.CodigoArticulo, Disponibles.ToString(Util.ObtenerFormatoDecimal()).Replace("$", ""));
+                        }
+                    }
+                }
+                return Errores;
+            }
+            catch (Exception ex)
+            {
+                Errores = ex.Message;
+                return Errores;
+            }
         }
-
         protected void btnCancelar_Click(object sender, ImageClickEventArgs e)
         {
             Response.Redirect("frmMantenimientos.aspx");
         }
-
         protected void btnAdicionar_Click(object sender, ImageClickEventArgs e)
         {
             try
@@ -208,27 +235,25 @@ namespace Inventario
                 }
                 else
                 {
-                    MostrarMensaje("Error", Errores);
+                    MostrarAlerta(0, "Error", Errores);
                 }
             }
             catch (Exception ex)
             {
-                MostrarMensaje("Error", string.Format("No se pudo adicionar la materia prima. {0}", ex.Message));
+                MostrarAlerta(0, "Error", ex.Message.Replace("'", "").Replace(Environment.NewLine, " "));
             }
         }
-
         private void LimpiarControles()
         {
             hddIdArticulo.Value = "0";
             txtArticulo.Text = "";
             txtCantidad.Text = "0.00";
-            hddIdBodegaOrigen.Value = "0";
-            txtBodegaOrigen.Text = "";
             hddCantidad.Value = "0";
             hddIdBodegaDestino.Value = "0";
             txtBodegaDestino.Text = "";
+            hddIdBodegaOrigen.Value = "0";
+            txtBodegaOrigen.Text = "";
         }
-
         private string ValidacionesTraslado()
         {
             string Errores = "";
@@ -254,7 +279,6 @@ namespace Inventario
             }
             return Errores;
         }
-
         private void CargarColumnasTraslados(ref DataTable dt)
         {
             DataColumn column;
@@ -287,7 +311,6 @@ namespace Inventario
             column.ColumnName = "BodegaDestino";
             dt.Columns.Add(column);
         }
-
         protected void dgTraslados_EditCommand(object source, DataGridCommandEventArgs e)
         {
             try
@@ -315,7 +338,29 @@ namespace Inventario
             }
             catch (Exception ex)
             {
-                MostrarMensaje("Error", string.Format("No se pudo eliminar la metaria prima. {0}", ex.Message));
+                MostrarAlerta(0, "Error", ex.Message.Replace("'", "").Replace(Environment.NewLine, " "));
+            }
+        }
+        protected void txtArticulo_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(hddIdArticulo.Value))
+                {
+                    if(oUsuarioI.idEmpresa == 142)
+                    {
+                        long BodegaPrincipal = 217;
+                        tblArticuloBusiness oArtB = new tblArticuloBusiness(CadenaConexion);
+                        decimal Disponibles = oArtB.DisponibilidadArticuloEnBodega(long.Parse(hddIdArticulo.Value), BodegaPrincipal);
+                        hddIdBodegaOrigen.Value = BodegaPrincipal.ToString();
+                        txtBodegaOrigen.Text = string.Format("BODEGA PRINCIPAL({0} UND)", Disponibles.ToString());
+                        hddCantidad.Value = Disponibles.ToString();
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                MostrarAlerta(0, "Error", ex.Message.Replace("'", "").Replace(Environment.NewLine, " "));
             }
         }
     }

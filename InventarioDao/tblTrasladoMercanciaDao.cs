@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -16,7 +17,46 @@ namespace InventarioDao
         {
             Conexion = new SqlConnection(CadenaConexion);
         }
-
+        public DataTable ObtenerTrasladoMercancia(DateTime FechaInicial, DateTime FechaFinal, long IdUsuario, long IdEmpresa, bool Agrupado)
+        {
+            DataTable dt = new DataTable();
+            string sp = "spObtenerTrasladoMercancia";
+            if (Agrupado)
+            {
+                sp = "spObtenerTrasladoMercanciaAgrupado";
+            }
+            SqlCommand oSQL = new SqlCommand(sp, Conexion);
+            oSQL.CommandType = CommandType.StoredProcedure;
+            oSQL.Parameters.Add(new SqlParameter("@FechaInicial", FechaInicial));
+            oSQL.Parameters.Add(new SqlParameter("@FechaFinal", FechaFinal));
+            if(IdUsuario == 0)
+            {
+                oSQL.Parameters.Add(new SqlParameter("@IdUsuario", DBNull.Value));
+            }
+            else
+            {
+                oSQL.Parameters.Add(new SqlParameter("@IdUsuario", IdUsuario));
+            }
+            oSQL.Parameters.Add(new SqlParameter("@IdEmpresa", IdEmpresa));
+            try
+            {
+                Conexion.Open();
+                SqlDataAdapter oSqlDataAdapter = new SqlDataAdapter(oSQL);
+                oSqlDataAdapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (Conexion.State == System.Data.ConnectionState.Open)
+                {
+                    Conexion.Close();
+                }
+            }
+            return dt;
+        }
         public bool Guardar(tblTrasladoMercanciaItem Item, List<tblTrasladoMercanciaDetalle> oListTras)
         {
             Conexion.Open();

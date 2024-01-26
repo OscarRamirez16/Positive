@@ -82,7 +82,9 @@ namespace InventarioBusiness
             PagoMensualidad = 68,
             Retenciones = 69,
             ReporteComisionPorArticulo = 70,
-            ReporteCuentaCobro = 71
+            ReporteCuentaCobro = 71,
+            FacturacionMasivaTemplate = 72,
+            TrasladoMasivoTemplate = 73
         }
 
         public SeguridadBusiness(string cadenaConexion)

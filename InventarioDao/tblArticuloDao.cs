@@ -395,7 +395,8 @@ namespace InventarioDao
         public DataTable ObtenerArticulosPorBodega(long idEmpresa, long idBodega, string nombre, short idLinea, long idProveedor)
         {
             DataTable dt = new DataTable();
-            SqlCommand oSQL = new SqlCommand("EXEC spObtenerArticuloListaPorBodega @idEmpresa,@idBodega,@nombre,@idLinea,@idProveedor", Conexion);
+            SqlCommand oSQL = new SqlCommand("spObtenerArticuloListaPorBodega", Conexion);
+            oSQL.CommandType = CommandType.StoredProcedure;
             oSQL.Parameters.Add(new SqlParameter("@idEmpresa", idEmpresa));
             oSQL.Parameters.Add(new SqlParameter("@idBodega", idBodega));
             oSQL.Parameters.Add(new SqlParameter("@nombre", nombre));

@@ -17,7 +17,8 @@ namespace Inventario
         private tblUsuarioItem oUsuarioI = new tblUsuarioItem();
         private long IdVentaRapida = 0;
 
-        private enum dgVentaRapidaColumnEnum {
+        private enum dgVentaRapidaColumnEnum
+        {
             idVentaRapida = 0,
             Nombre = 1,
             idArticulo = 2,
@@ -41,6 +42,10 @@ namespace Inventario
                     if (Util.EsEntero(Request.QueryString["IdVentaRapida"]))
                     {
                         IdVentaRapida = long.Parse(Request.QueryString["IdVentaRapida"]);
+                    }
+                    if (Request.QueryString["VentaRapidaActualizada"] == "true")
+                    {
+                        setlocalStorage("VentaRapidaActualizada", "false");
                     }
                     ConfiguracionIdioma();
                     CargarInformacion();
@@ -89,22 +94,26 @@ namespace Inventario
             lblNombreBusqueda.Text = oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.Nombre);
             lblArticuloBusqueda.Text = oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.Articulo);
         }
-        private void CargarInformacion() {
-            if (IdVentaRapida > 0 && !IsPostBack) {
+        private void CargarInformacion()
+        {
+            if (IdVentaRapida > 0 && !IsPostBack)
+            {
                 tblDocumentoBusiness oDBiz = new tblDocumentoBusiness(CadenaConexion);
                 tblVentaRapidaItem oVRItem = oDBiz.ObtenerVentaRapida(IdVentaRapida, oUsuarioI.idEmpresa);
-                if (oVRItem != null && oVRItem.idVentaRapida > 0) {
+                if (oVRItem != null && oVRItem.idVentaRapida > 0)
+                {
                     lblidVentaRapida.Text = oVRItem.idVentaRapida.ToString();
                     txtNombre.Text = oVRItem.Nombre;
                     hddIdArticulo.Value = oVRItem.idArticulo.ToString();
                     txtArticulo.Text = oVRItem.Articulo;
                     txtCantidad.Text = oVRItem.Cantidad.ToString();
                     chkActivo.Checked = oVRItem.Activo;
-                    imgOutput.Src = string.Format("frmMostrarImagen.aspx?IdVentaRapida={0}",IdVentaRapida);
+                    imgOutput.Src = string.Format("frmMostrarImagen.aspx?IdVentaRapida={0}", IdVentaRapida);
                 }
             }
         }
-        private string ValidarInformacion() {
+        private string ValidarInformacion()
+        {
             string MensajeError = "";
             Traductor oCIdioma = new Traductor();
             Idioma.Traductor.IdiomaEnum Idioma = Traductor.IdiomaEnum.Espanol;
@@ -116,16 +125,20 @@ namespace Inventario
             {
                 Idioma = (Traductor.IdiomaEnum)int.Parse(Request.Form["ctl00$ddlIdiomas"]);
             }
-            if (string.IsNullOrEmpty(txtNombre.Text)) {
+            if (string.IsNullOrEmpty(txtNombre.Text))
+            {
                 MensajeError = oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.NombreObligatorio);
             }
-            if (string.IsNullOrEmpty(hddIdArticulo.Value)) {
+            if (string.IsNullOrEmpty(hddIdArticulo.Value))
+            {
                 MensajeError = string.Format("{0}<br/>{1}", MensajeError, oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.ArticuloObligatorio));
             }
-            if (!Util.EsDecimal(txtCantidad.Text)) {
+            if (!Util.EsDecimal(txtCantidad.Text))
+            {
                 MensajeError = string.Format("{0}<br/>{1}", MensajeError, oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.CantidadFormato));
             }
-            if (string.IsNullOrEmpty(fluImagen.Value) && IdVentaRapida == 0) {
+            if (string.IsNullOrEmpty(fluImagen.Value) && IdVentaRapida == 0)
+            {
                 MensajeError = string.Format("{0}<br/>{1}", MensajeError, oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.ImagenObligatorio));
             }
             return MensajeError;
@@ -148,16 +161,19 @@ namespace Inventario
             {
                 tblDocumentoBusiness oDBiz = new tblDocumentoBusiness(CadenaConexion);
                 tblVentaRapidaItem oVRItem;
-                if(IdVentaRapida>0){
+                if (IdVentaRapida > 0)
+                {
                     oVRItem = oDBiz.ObtenerVentaRapida(IdVentaRapida, oUsuarioI.idEmpresa);
                 }
-                else{
+                else
+                {
                     oVRItem = new tblVentaRapidaItem();
-                    oVRItem.Fecha=DateTime.Now;
+                    oVRItem.Fecha = DateTime.Now;
                     oVRItem.idUsuario = oUsuarioI.idUsuario;
                     oVRItem.idEmpresa = oUsuarioI.idEmpresa;
                 }
-                if(!string.IsNullOrEmpty(fluImagen.Value)){
+                if (!string.IsNullOrEmpty(fluImagen.Value))
+                {
                     System.Drawing.Bitmap oBitmap = new System.Drawing.Bitmap(fluImagen.PostedFile.InputStream);
                     System.Drawing.Bitmap ImagenPequeña = oDBiz.CambiarTamanoImagen((System.Drawing.Image)oBitmap, Util.ImagenAncho(), Util.ImagenAlto()); ;
                     using (var stream = new MemoryStream())
@@ -170,15 +186,18 @@ namespace Inventario
                 oVRItem.idArticulo = long.Parse(hddIdArticulo.Value);
                 oVRItem.Cantidad = decimal.Parse(txtCantidad.Text);
                 oVRItem.Activo = chkActivo.Checked;
-                if(oDBiz.Guardar(oVRItem)){
-                    Response.Redirect("frmCrearEditarConsultarVentaRapida.aspx");
+                if (oDBiz.Guardar(oVRItem))
+                {
+                    Response.Redirect("frmCrearEditarConsultarVentaRapida.aspx?VentaRapidaActualizada=true");
                 }
-                else{
-                    MostrarMensaje("Error",oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.VentaRapidaErrorGuardar));
+                else
+                {
+                    MostrarMensaje("Error", oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.VentaRapidaErrorGuardar));
                 }
             }
-            else {
-                MostrarMensaje(oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.Validacion),MensajeError);
+            else
+            {
+                MostrarMensaje(oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.Validacion), MensajeError);
             }
         }
 
@@ -190,7 +209,7 @@ namespace Inventario
         protected void btnBuscar_Click(object sender, ImageClickEventArgs e)
         {
             tblDocumentoBusiness oDBiz = new tblDocumentoBusiness(CadenaConexion);
-            dgVentaRapida.DataSource = oDBiz.ObtenerVentaRapidaBusqueda(oUsuarioI.idEmpresa,long.Parse(hddIdArticuloBusqueda.Value), txtNombreBusqueda.Text);
+            dgVentaRapida.DataSource = oDBiz.ObtenerVentaRapidaBusqueda(oUsuarioI.idEmpresa, long.Parse(hddIdArticuloBusqueda.Value), txtNombreBusqueda.Text);
             dgVentaRapida.DataBind();
             ShowTab("aBuscarVentaRapida", "divBuscarVentaRapida");
         }
@@ -202,7 +221,7 @@ namespace Inventario
 
         protected void dgVentaRapida_ItemCommand(object source, DataGridCommandEventArgs e)
         {
-            Response.Redirect(string.Format("frmCrearEditarConsultarVentaRapida.aspx?idVentaRapida={0}",e.Item.Cells[dgVentaRapidaColumnEnum.idVentaRapida.GetHashCode()].Text));
+            Response.Redirect(string.Format("frmCrearEditarConsultarVentaRapida.aspx?idVentaRapida={0}", e.Item.Cells[dgVentaRapidaColumnEnum.idVentaRapida.GetHashCode()].Text));
         }
     }
 }

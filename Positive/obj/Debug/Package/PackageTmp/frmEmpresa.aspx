@@ -215,6 +215,29 @@
         </div>
     </div>
     <div class="row">
+        <div class="col-md-3">
+            Correo DIAN:
+            <div class="input-group">
+                <asp:TextBox ID="txtCorreo" runat="server" CssClass="form-control"></asp:TextBox>
+                <span class="input-group-addon"><img src="Images/Input/Correo.png" title="Correo DIAN" /></span>
+            </div>
+        </div>
+        <div class="col-md-3">
+            Consecutivo Documento Soporte DIAN:
+            <div class="input-group">
+                <asp:TextBox ID="txtConsecutivoDocumentoSoporte" runat="server" CssClass="form-control"></asp:TextBox>
+                <span class="input-group-addon"><img src="Images/Input/Identificacion.png" title="Consecutivo Documento Soporte DIAN" /></span>
+            </div>
+        </div>
+        <div class="col-md-3">
+            Prefijo Documento Soporte DIAN:
+            <div class="input-group">
+                <asp:TextBox ID="txtPrefijo" runat="server" CssClass="form-control"></asp:TextBox>
+                <span class="input-group-addon"><img src="Images/Input/Identificacion.png" title="Prefijo Documento Soporte DIAN" /></span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-md-6">
             Texto Encabezado Factura:
                 <asp:TextBox ID="txtEncabezado" runat="server" Rows="4" TextMode="MultiLine" CssClass="form-control"></asp:TextBox>

@@ -8,6 +8,8 @@ using Idioma;
 using HQSFramework.Base;
 using System.Text;
 using System.Globalization;
+using System.Web.UI.WebControls;
+using Newtonsoft.Json;
 
 namespace Inventario
 {
@@ -67,6 +69,7 @@ namespace Inventario
                             }
                             strScript = string.Format("{0} menu();", strScript);
                             strScript = string.Format("{0} EstablecerAutoCompleteCliente('{1}','Ashx/Tercero.ashx','{2}','','','');", strScript, txtTercero.ClientID, hddIdCliente.ClientID);
+                            strScript = string.Format("{0} EstablecerAutoCompleteBodega('{1}','Ashx/Bodega.ashx','{2}','{3}','1');", strScript, txtBodega.ClientID, hddIdBodega.ClientID, oUsuarioI.idEmpresa);
                             if (rdbCotizacion.Checked && idDocumento > 0)
                             {
                                 List<CotizacionVentaRapidaItem> items = (new tblDocumentoBusiness(CadenaConexion)).ObtenerCotizacionVentaRapida(idDocumento, oUsuarioI.idEmpresa);
@@ -96,7 +99,7 @@ namespace Inventario
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MostrarAlerta(0, "Error", ex.Message.Replace(Environment.NewLine, " "));
             }
@@ -127,19 +130,20 @@ namespace Inventario
         }
         private void InicializarControles()
         {
-            btnCancelar.Attributes.Add("onclick", string.Format("LimpiarFacturaVentaRapida('{0}');return false;",hddItems.ClientID));
+            btnCancelar.Attributes.Add("onclick", string.Format("LimpiarFacturaVentaRapida('{0}');return false;", hddItems.ClientID));
             btnActualizarPrecios.Style.Add("display", "none");
-            txtTercero.Attributes.Add("onblur", string.Format("ActualizarPreciosVentaRapida('{0}','{1}')",btnActualizarPrecios.ClientID,hddIdCliente.ClientID));
+            txtTercero.Attributes.Add("onblur", string.Format("ActualizarPreciosVentaRapida('{0}','{1}')", btnActualizarPrecios.ClientID, hddIdCliente.ClientID));
             hddIdEmpresa.Value = oUsuarioI.idEmpresa.ToString();
             tblTerceroItem oTerI = new tblTerceroItem();
             tblTerceroBusiness oTerB = new tblTerceroBusiness(CadenaConexion);
-            oTerI = oTerB.ObtenerTerceroPorIdentificacion("123456789",oUsuarioI.idEmpresa);
-            if(!IsPostBack){
+            oTerI = oTerB.ObtenerTerceroPorIdentificacion("123456789", oUsuarioI.idEmpresa);
+            if (!IsPostBack)
+            {
                 hddIdCliente.Value = oTerI.IdTercero.ToString();
                 txtTercero.Text = oTerI.Nombre;
             }
             PintarArticulosCard();
-            
+
         }
         private void ConfiguracionIdioma()
         {
@@ -161,8 +165,10 @@ namespace Inventario
             lblIVA.Text = oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.ValorIVA);
             lblValorTotal.Text = oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.ValorTotal);
             lblFacturaVenta.Text = oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.FacturaVenta);
+            txtBodega.Attributes.Add("placeholder", string.Format("{0} {1}", oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.Seleccione), oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.Bodega)));
         }
-        private void PintarArticulos() {
+        private void PintarArticulos()
+        {
             tblDocumentoBusiness oDBiz = new tblDocumentoBusiness(CadenaConexion);
             List<tblVentaRapidaItem> oVRLista = oDBiz.ObtenerVentaRapidaLista(oUsuarioI.idEmpresa, 0, false, long.Parse(hddIdCliente.Value), oUsuarioI.idBodega);
             string Linea = "";
@@ -246,11 +252,12 @@ namespace Inventario
                 Idioma = (Traductor.IdiomaEnum)int.Parse(Request.Form["ctl00$ddlIdiomas"]);
             }
             StringBuilder sbVRHtml = new StringBuilder(string.Format("<div class = \"thumbnail\" onclick=\"AdicionarVentaRapida({0},'{1}','{2}','{3:0.00}','{4:0.00}','{5:0.00}','{6:0.00}','{7}','{8}');\">", oVRItem.idVentaRapida, oVRItem.idArticulo, oVRItem.Articulo, oVRItem.Cantidad, oVRItem.ValorIVA, oVRItem.Precio, oVRItem.Stock, hddItems.ClientID, oUsuarioI.Impoconsumo));
-            sbVRHtml.AppendLine(string.Format("<img style=\"cursor:pointer;\" src = \"frmMostrarImagen.aspx?IdVentaRapida={0}\" alt = \"{1}\"/>",oVRItem.idVentaRapida,oVRItem.Nombre));
+            sbVRHtml.AppendLine(string.Format("<img id=\"img_{0}\" style=\"cursor:pointer;\" alt = \"{1}\"/>", oVRItem.idVentaRapida, oVRItem.Nombre));
+            //sbVRHtml.AppendLine(string.Format("<img style=\"cursor:pointer;\" src = \"frmMostrarImagen.aspx?IdVentaRapida={0}\" alt = \"{1}\"/>",oVRItem.idVentaRapida,oVRItem.Nombre));
             sbVRHtml.AppendLine("</div>");
             sbVRHtml.AppendLine("<div class = \"caption\">");
-            sbVRHtml.AppendLine(string.Format("<input type='hidden' id='hdd{0}Stock' value='{1}'/>",oVRItem.idVentaRapida, oVRItem.Stock));
-            sbVRHtml.AppendLine(string.Format("<b>{0}</b>",oVRItem.Nombre));
+            sbVRHtml.AppendLine(string.Format("<input type='hidden' id='hdd{0}Stock' value='{1}'/>", oVRItem.idVentaRapida, oVRItem.Stock));
+            sbVRHtml.AppendLine(string.Format("<b>{0}</b>", oVRItem.Nombre));
             sbVRHtml.AppendLine(string.Format("<br/><span>{0}:&nbsp;<b>{1}</b></span>", oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.Disponibles), oVRItem.Stock));
             sbVRHtml.AppendLine(string.Format("<br/><span>{0}:&nbsp;<b id='{2}'>{1:0.00}</b></span><br/>", oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.Cantidad), oVRItem.Cantidad, oVRItem.idVentaRapida));
             sbVRHtml.AppendLine(string.Format("<span>{0}:&nbsp;<b>{1:0.00}</b></span>", oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.Precio), oVRItem.Precio));
@@ -268,8 +275,14 @@ namespace Inventario
             int numItems = 0;
             string navDiv = "<ul class=\"nav nav-pills\">";
             sbHTML.AppendLine("<br/><div class=\"tab-content\">");
+            List<ImageItem> imagesList = new List<ImageItem>();
             foreach (tblVentaRapidaItem oVRItem in oVRLista)
             {
+                imagesList.Add(new ImageItem()
+                {
+                    ControlID = $"img_{oVRItem.idVentaRapida}",
+                    src = $"frmMostrarImagen.aspx?IdVentaRapida={oVRItem.idVentaRapida}"
+                });
                 if (oVRItem.Linea != Linea)
                 {
                     if (!string.IsNullOrEmpty(Linea))
@@ -317,6 +330,7 @@ namespace Inventario
                     numItems++;
                 }
             }
+            hddImageSource.Value = JsonConvert.SerializeObject(imagesList);
             if (!string.IsNullOrEmpty(Linea) && numItems != 0)
             {
                 sbHTML.AppendLine("</div>");
@@ -343,7 +357,8 @@ namespace Inventario
                 Idioma = (Traductor.IdiomaEnum)int.Parse(Request.Form["ctl00$ddlIdiomas"]);
             }
             StringBuilder sbVRHtml = new StringBuilder(string.Format("<div class = \"card\" onclick=\"AdicionarVentaRapida({0},'{1}','{2}','{3:0.00}','{4:0.00}','{5:0.00}','{6:0.00}','{7}','{8}');\">", oVRItem.idVentaRapida, oVRItem.idArticulo, oVRItem.Articulo, oVRItem.Cantidad, oVRItem.ValorIVA, oVRItem.Precio, oVRItem.Stock, hddItems.ClientID, oUsuarioI.Impoconsumo));
-            sbVRHtml.AppendLine(string.Format("<img style=\"cursor:pointer;\" src = \"frmMostrarImagen.aspx?IdVentaRapida={0}\" alt = \"{1}\"/>", oVRItem.idVentaRapida, oVRItem.Nombre));
+            sbVRHtml.AppendLine(string.Format("<img id=\"img_{0}\" style=\"cursor:pointer;\" alt = \"{1}\"/>", oVRItem.idVentaRapida, oVRItem.Nombre));
+            //sbVRHtml.AppendLine(string.Format("<img style=\"cursor:pointer;\" src = \"frmMostrarImagen.aspx?IdVentaRapida={0}\" alt = \"{1}\"/>", oVRItem.idVentaRapida, oVRItem.Nombre));
             sbVRHtml.AppendLine("<div class = \"containerCard\">");
             sbVRHtml.AppendLine(string.Format("<input type='hidden' id='hdd{0}Stock' value='{1}'/>", oVRItem.idVentaRapida, oVRItem.Stock));
             sbVRHtml.AppendLine(string.Format("<p class=\"title\"><b>{0}</b></p>", oVRItem.Nombre));
@@ -364,7 +379,7 @@ namespace Inventario
         {
             try
             {
-                string TipoDocumento = "";
+                //string TipoDocumento = "";
                 tblTerceroItem oTerI = new tblTerceroItem();
                 tblTerceroBusiness oTerB = new tblTerceroBusiness(CadenaConexion);
                 oTerI = oTerB.ObtenerTercero(long.Parse(hddIdCliente.Value), oUsuarioI.idEmpresa);
@@ -388,33 +403,35 @@ namespace Inventario
                 oDocI.idEmpresa = oUsuarioI.idEmpresa;
                 oDocI.idUsuario = oUsuarioI.idUsuario;
                 oDocI.TotalDocumento = decimal.Parse(hddValorTotal.Value.Replace(".", ",").Replace(",", CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator));
-                oDocI.TotalIVA = decimal.Parse(hddValorIVA.Value.Replace(".",",").Replace(",",CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator));
+                oDocI.TotalIVA = decimal.Parse(hddValorIVA.Value.Replace(".", ",").Replace(",", CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator));
                 oDocI.Impoconsumo = decimal.Parse(hddValorImpoconsumo.Value.Replace(".", ",").Replace(",", CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator));
                 oDocI.saldo = oDocI.TotalDocumento;
                 if (rdbRemision.Checked)
                 {
                     oDocI.IdTipoDocumento = tblDocumentoBusiness.TipoDocumentoEnum.Remision.GetHashCode();
-                    TipoDocumento = "Remisión";
+                    //TipoDocumento = "Remisión";
                 }
                 else if (rdbFacturaVenta.Checked)
                 {
                     oDocI.IdTipoDocumento = tblDocumentoBusiness.TipoDocumentoEnum.Venta.GetHashCode();
-                    TipoDocumento = "Factura de venta";
+                    //TipoDocumento = "Factura de venta";
                 }
-                else {
+                else
+                {
                     oDocI.IdTipoDocumento = tblDocumentoBusiness.TipoDocumentoEnum.Cotizaciones.GetHashCode();
                     oDocI.TipoDocumento = tblTipoDocumentoItem.TipoDocumentoEnum.cotizacion;
-                    TipoDocumento = "Cotización";
+                    //TipoDocumento = "Cotización";
                 }
                 oDocI.EnCuadre = false;
                 oDocI.Devuelta = 0;
                 oDocI.IdEstado = tblDocumentoBusiness.EstadoDocumentoEnum.Abierto.GetHashCode();
                 oDocI.FechaVencimiento = Util.ObtenerFecha(oUsuarioI.idEmpresa);
-                if (!oDocB.GuardarVentaRapida(oDocI, hddItems.Value))
+                if (!oDocB.GuardarVentaRapida(oDocI, hddItems.Value, long.Parse(hddIdBodega.Value)))
                 {
                     MostrarMensaje("Error", "No se pudo guardar la venta rapida.");
                 }
-                else {
+                else
+                {
                     Response.Redirect($"frmImprimirPOS.aspx?idDocumento={oDocI.idDocumento}&IdTipoDocumento={oDocI.IdTipoDocumento}");
                     //Response.Write($"<script>window.open('frmImprimirPOS.aspx?idDocumento={oDocI.idDocumento}&IdTipoDocumento={oDocI.IdTipoDocumento}','_blank');</script>");
                     hddItems.Value = "";
@@ -422,9 +439,9 @@ namespace Inventario
                     hddValorIVA.Value = "0";
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                MostrarMensaje("Error", string.Format("No se pudo registrar la venta rapida. {0}", ex.Message.Replace("'","")));
+                MostrarMensaje("Error", string.Format("No se pudo registrar la venta rapida. {0}", ex.Message.Replace("'", "")));
             }
         }
         protected void btnActualizarPrecios_Click(object sender, EventArgs e)

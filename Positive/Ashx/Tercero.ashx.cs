@@ -28,7 +28,8 @@ namespace Inventario.Ashx
             notaCreditoCompra = 7,
             remision = 8,
             ordenFabricacion = 9,
-            CuentaCobro = 10
+            CuentaCobro = 10,
+            FacturaElectronica = 11
         }
 
         public void ProcessRequest(HttpContext context)
@@ -37,7 +38,7 @@ namespace Inventario.Ashx
             string ValorBusqueda = context.Request.QueryString["ValorBusqueda"];
             idEmpresa = long.Parse(context.Request.QueryString["i_e"]);
             string tipoFactura = context.Request.QueryString["tipoFactura"];
-            if (tipoFactura == tipoDocumento.venta.GetHashCode().ToString() || tipoFactura == tipoDocumento.cotizacion.GetHashCode().ToString() || tipoFactura == tipoDocumento.notaCreditoVenta.GetHashCode().ToString() || tipoFactura == tipoDocumento.remision.GetHashCode().ToString() || tipoFactura == tipoDocumento.CuentaCobro.GetHashCode().ToString())
+            if (tipoFactura == tipoDocumento.venta.GetHashCode().ToString() || tipoFactura == tipoDocumento.cotizacion.GetHashCode().ToString() || tipoFactura == tipoDocumento.notaCreditoVenta.GetHashCode().ToString() || tipoFactura == tipoDocumento.remision.GetHashCode().ToString() || tipoFactura == tipoDocumento.CuentaCobro.GetHashCode().ToString() || tipoFactura == tipoDocumento.FacturaElectronica.GetHashCode().ToString())
             {
                 context.Response.Write(obternerClienteListaNombre(ValorBusqueda, context, CadenaConexion));
             }

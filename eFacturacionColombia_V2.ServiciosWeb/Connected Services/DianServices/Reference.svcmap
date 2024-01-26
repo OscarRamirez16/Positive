@@ -21,21 +21,21 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="https://vpfe.dian.gov.co/WcfDianCustomerServices.svc?wsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="https://vpfe-hab.dian.gov.co/WcfDianCustomerServices.svc?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="WcfDianCustomerServices.xsd" MetadataType="Schema" ID="0ecfb361-91b3-4c12-9d0e-4e593321154f" SourceId="1" SourceUrl="https://vpfe.dian.gov.co/WcfDianCustomerServices.svc?xsd=xsd8" />
-    <MetadataFile FileName="WcfDianCustomerServices1.xsd" MetadataType="Schema" ID="bac0dd2c-df95-4975-af89-aabbec49f6c9" SourceId="1" SourceUrl="https://vpfe.dian.gov.co/WcfDianCustomerServices.svc?xsd=xsd9" />
-    <MetadataFile FileName="WcfDianCustomerServices2.xsd" MetadataType="Schema" ID="e0422a46-c23d-4506-9bde-a656f8c7f44f" SourceId="1" SourceUrl="https://vpfe.dian.gov.co/WcfDianCustomerServices.svc?xsd=xsd10" />
-    <MetadataFile FileName="WcfDianCustomerServices.wsdl" MetadataType="Wsdl" ID="74ce1af4-b362-46cb-8ec6-65ad9a2c931e" SourceId="1" SourceUrl="https://vpfe.dian.gov.co/WcfDianCustomerServices.svc?wsdl" />
-    <MetadataFile FileName="WcfDianCustomerServices3.xsd" MetadataType="Schema" ID="476dff0b-3f82-430f-9d36-431eb7d175dd" SourceId="1" SourceUrl="https://vpfe.dian.gov.co/WcfDianCustomerServices.svc?xsd=xsd6" />
-    <MetadataFile FileName="WcfDianCustomerServices4.xsd" MetadataType="Schema" ID="3a095cfa-bb07-4ebd-9b74-c6819bf36e39" SourceId="1" SourceUrl="https://vpfe.dian.gov.co/WcfDianCustomerServices.svc?xsd=xsd7" />
-    <MetadataFile FileName="WcfDianCustomerServices5.xsd" MetadataType="Schema" ID="282f0a3e-27ea-4e60-89ed-a600ed3abcc7" SourceId="1" SourceUrl="https://vpfe.dian.gov.co/WcfDianCustomerServices.svc?xsd=xsd4" />
-    <MetadataFile FileName="WcfDianCustomerServices6.xsd" MetadataType="Schema" ID="36e56308-392a-4f4d-ba10-023c8007e6dc" SourceId="1" SourceUrl="https://vpfe.dian.gov.co/WcfDianCustomerServices.svc?xsd=xsd5" />
-    <MetadataFile FileName="WcfDianCustomerServices7.xsd" MetadataType="Schema" ID="cfa66e70-c317-459b-9989-0f217b775579" SourceId="1" SourceUrl="https://vpfe.dian.gov.co/WcfDianCustomerServices.svc?xsd=xsd2" />
-    <MetadataFile FileName="WcfDianCustomerServices8.xsd" MetadataType="Schema" ID="9c5f9030-edab-4a6a-a31e-965f2eacfe98" SourceId="1" SourceUrl="https://vpfe.dian.gov.co/WcfDianCustomerServices.svc?xsd=xsd3" />
-    <MetadataFile FileName="WcfDianCustomerServices9.xsd" MetadataType="Schema" ID="143b0c32-f572-4135-9668-cf8bc42afb5a" SourceId="1" SourceUrl="https://vpfe.dian.gov.co/WcfDianCustomerServices.svc?xsd=xsd0" />
-    <MetadataFile FileName="WcfDianCustomerServices10.xsd" MetadataType="Schema" ID="066eae2b-1ea8-4e29-955e-28740f5ff968" SourceId="1" SourceUrl="https://vpfe.dian.gov.co/WcfDianCustomerServices.svc?xsd=xsd1" />
+    <MetadataFile FileName="WcfDianCustomerServices11.xsd" MetadataType="Schema" ID="1d7e4535-f64e-4bdf-bb14-73ded9ee98e3" SourceId="1" SourceUrl="https://vpfe-hab.dian.gov.co/WcfDianCustomerServices.svc?xsd=xsd3" />
+    <MetadataFile FileName="WcfDianCustomerServices111.xsd" MetadataType="Schema" ID="eee498cf-ec87-4a72-8df8-e0bd8f99033c" SourceId="1" SourceUrl="https://vpfe-hab.dian.gov.co/WcfDianCustomerServices.svc?xsd=xsd2" />
+    <MetadataFile FileName="WcfDianCustomerServices112.xsd" MetadataType="Schema" ID="8cefe154-0532-4a3c-b32a-51275b446b3e" SourceId="1" SourceUrl="https://vpfe-hab.dian.gov.co/WcfDianCustomerServices.svc?xsd=xsd5" />
+    <MetadataFile FileName="WcfDianCustomerServices113.xsd" MetadataType="Schema" ID="586f2376-677f-4ad8-878b-5315885f1c50" SourceId="1" SourceUrl="https://vpfe-hab.dian.gov.co/WcfDianCustomerServices.svc?xsd=xsd4" />
+    <MetadataFile FileName="WcfDianCustomerServices114.xsd" MetadataType="Schema" ID="ea8310f1-8f5b-448e-b6d3-7f32935ccd11" SourceId="1" SourceUrl="https://vpfe-hab.dian.gov.co/WcfDianCustomerServices.svc?xsd=xsd7" />
+    <MetadataFile FileName="WcfDianCustomerServices115.xsd" MetadataType="Schema" ID="47947c24-cc85-4ac2-a0c3-e92838b45a32" SourceId="1" SourceUrl="https://vpfe-hab.dian.gov.co/WcfDianCustomerServices.svc?xsd=xsd6" />
+    <MetadataFile FileName="WcfDianCustomerServices1.wsdl" MetadataType="Wsdl" ID="cd67bf34-6d27-44d7-99c6-d60b9f2d059c" SourceId="1" SourceUrl="https://vpfe-hab.dian.gov.co/WcfDianCustomerServices.svc?wsdl" />
+    <MetadataFile FileName="WcfDianCustomerServices116.xsd" MetadataType="Schema" ID="aa0f1a14-0b8d-460f-883e-5bbe022277f1" SourceId="1" SourceUrl="https://vpfe-hab.dian.gov.co/WcfDianCustomerServices.svc?xsd=xsd10" />
+    <MetadataFile FileName="WcfDianCustomerServices117.xsd" MetadataType="Schema" ID="e740658f-1a36-4f13-baaa-f3e4139a735d" SourceId="1" SourceUrl="https://vpfe-hab.dian.gov.co/WcfDianCustomerServices.svc?xsd=xsd9" />
+    <MetadataFile FileName="WcfDianCustomerServices118.xsd" MetadataType="Schema" ID="c2ee2005-5dec-4f93-b1df-c6ed4fae72fe" SourceId="1" SourceUrl="https://vpfe-hab.dian.gov.co/WcfDianCustomerServices.svc?xsd=xsd8" />
+    <MetadataFile FileName="WcfDianCustomerServices119.xsd" MetadataType="Schema" ID="4c6015b7-ebb1-48c7-aa6b-b5f8d1a547df" SourceId="1" SourceUrl="https://vpfe-hab.dian.gov.co/WcfDianCustomerServices.svc?xsd=xsd1" />
+    <MetadataFile FileName="WcfDianCustomerServices1110.xsd" MetadataType="Schema" ID="5a944e7c-7100-405d-a868-6e481a5d7dfa" SourceId="1" SourceUrl="https://vpfe-hab.dian.gov.co/WcfDianCustomerServices.svc?xsd=xsd0" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

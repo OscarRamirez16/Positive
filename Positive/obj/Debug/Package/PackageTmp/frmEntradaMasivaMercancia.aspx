@@ -1,8 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="frmEntradaMasivaMercancia.aspx.cs" Inherits="Inventario.frmEntradaMasivaMercancia" %>
-<asp:Content ID="Content2" ContentPlaceHolderID="cphContenido" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="cphContenido" runat="server">
     <div class="row">
         <div class="col-lg-12">
-            <br />
             <br />
         </div>
     </div>

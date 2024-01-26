@@ -897,6 +897,9 @@ namespace eFacturacionColombia_V2.ServiciosWeb.DianServices {
         [System.ServiceModel.OperationContractAttribute(Action="http://wcf.dian.colombia/IWcfDianCustomerServices/GetDocIdentifierWithEvents", ReplyAction="http://wcf.dian.colombia/IWcfDianCustomerServices/GetDocIdentifierWithEventsRespo" +
             "nse")]
         eFacturacionColombia_V2.ServiciosWeb.DianServices.DocIdentifierWithEventsResponse GetDocIdentifierWithEvents(string contributorCode, string dateNumber);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://wcf.dian.colombia/IWcfDianCustomerServices/GetReferenceNotes", ReplyAction="http://wcf.dian.colombia/IWcfDianCustomerServices/GetReferenceNotesResponse")]
+        eFacturacionColombia_V2.ServiciosWeb.DianServices.DianResponse GetReferenceNotes(string trackId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -976,6 +979,10 @@ namespace eFacturacionColombia_V2.ServiciosWeb.DianServices {
         
         public eFacturacionColombia_V2.ServiciosWeb.DianServices.DocIdentifierWithEventsResponse GetDocIdentifierWithEvents(string contributorCode, string dateNumber) {
             return base.Channel.GetDocIdentifierWithEvents(contributorCode, dateNumber);
+        }
+        
+        public eFacturacionColombia_V2.ServiciosWeb.DianServices.DianResponse GetReferenceNotes(string trackId) {
+            return base.Channel.GetReferenceNotes(trackId);
         }
     }
 }

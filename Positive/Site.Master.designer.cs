@@ -204,6 +204,15 @@ namespace Positive
         protected global::System.Web.UI.WebControls.Label lblConsultarDocumentoElectronico;
 
         /// <summary>
+        /// Control lblFacturacionMasivaTemplate.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFacturacionMasivaTemplate;
+
+        /// <summary>
         /// Control lblCajas.
         /// </summary>
         /// <remarks>
@@ -393,6 +402,15 @@ namespace Positive
         protected global::System.Web.UI.WebControls.Label lblTrasladoMercancia;
 
         /// <summary>
+        /// Control lblConsultarTrasladoMercancia.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblConsultarTrasladoMercancia;
+
+        /// <summary>
         /// Control lblArticuloCompuesto.
         /// </summary>
         /// <remarks>
@@ -400,6 +418,15 @@ namespace Positive
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblArticuloCompuesto;
+
+        /// <summary>
+        /// Control lblTrasladoMasivo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTrasladoMasivo;
 
         /// <summary>
         /// Control lblCompras.

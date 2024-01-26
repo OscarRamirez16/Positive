@@ -78,38 +78,38 @@
     <None Include="Connected Services\DianServices\eFacturacionColombia_V2.ServiciosWeb.DianServices.UploadDocumentResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\DianServices\WcfDianCustomerServices.wsdl" />
-    <None Include="Connected Services\DianServices\WcfDianCustomerServices.xsd">
+    <None Include="Connected Services\DianServices\WcfDianCustomerServices1.wsdl" />
+    <None Include="Connected Services\DianServices\WcfDianCustomerServices11.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\DianServices\WcfDianCustomerServices1.xsd">
+    <None Include="Connected Services\DianServices\WcfDianCustomerServices111.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\DianServices\WcfDianCustomerServices10.xsd">
+    <None Include="Connected Services\DianServices\WcfDianCustomerServices1110.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\DianServices\WcfDianCustomerServices2.xsd">
+    <None Include="Connected Services\DianServices\WcfDianCustomerServices112.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\DianServices\WcfDianCustomerServices3.xsd">
+    <None Include="Connected Services\DianServices\WcfDianCustomerServices113.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\DianServices\WcfDianCustomerServices4.xsd">
+    <None Include="Connected Services\DianServices\WcfDianCustomerServices114.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\DianServices\WcfDianCustomerServices5.xsd">
+    <None Include="Connected Services\DianServices\WcfDianCustomerServices115.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\DianServices\WcfDianCustomerServices6.xsd">
+    <None Include="Connected Services\DianServices\WcfDianCustomerServices116.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\DianServices\WcfDianCustomerServices7.xsd">
+    <None Include="Connected Services\DianServices\WcfDianCustomerServices117.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\DianServices\WcfDianCustomerServices8.xsd">
+    <None Include="Connected Services\DianServices\WcfDianCustomerServices118.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\DianServices\WcfDianCustomerServices9.xsd">
+    <None Include="Connected Services\DianServices\WcfDianCustomerServices119.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>

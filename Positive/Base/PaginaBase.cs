@@ -4,7 +4,8 @@ namespace HQSFramework.Base
 {
     public class PaginaBase : System.Web.UI.Page
     {
-        public void MostrarMensaje(string Titulo, string Mensaje) {
+        public void MostrarMensaje(string Titulo, string Mensaje)
+        {
             MostrarAlerta(1, Titulo, Mensaje);
         }
 
@@ -12,16 +13,17 @@ namespace HQSFramework.Base
         {
             var Titulo = Request.QueryString["Titulo"];
             var Mensaje = Request.QueryString["Mensaje"];
-            var TipoMensaje = 1; 
-            int.TryParse(Request.QueryString["TipoMensaje"],out TipoMensaje);
-            if (!string.IsNullOrEmpty(Titulo) && !string.IsNullOrEmpty(Mensaje)) {
+            var TipoMensaje = 1;
+            int.TryParse(Request.QueryString["TipoMensaje"], out TipoMensaje);
+            if (!string.IsNullOrEmpty(Titulo) && !string.IsNullOrEmpty(Mensaje))
+            {
                 MostrarAlerta(TipoMensaje, Titulo, Mensaje);
             }
         }
 
         public void MostrarAlerta(int Tipo, string Titulo, string Mensaje)
         {
-            if(Tipo == 0)
+            if (Tipo == 0)
             {
                 if (!Page.ClientScript.IsClientScriptBlockRegistered("scriptRegistrarMensaje"))
                 {
@@ -44,7 +46,16 @@ namespace HQSFramework.Base
             }
         }
 
-        public void SeleccionarTab(string IdTab,int Index)
+        public void setlocalStorage(string key, string value)
+        {
+            if (!this.Page.ClientScript.IsClientScriptBlockRegistered("setlocalStorage"))
+            {
+                string strJS = string.Format("$(document).ready(function(){{localStorage.setItem('{0}','{1}');}});", key, value);
+                Page.ClientScript.RegisterClientScriptBlock(Page.GetType(), "setlocalStorage", strJS, true);
+            }
+        }
+
+        public void SeleccionarTab(string IdTab, int Index)
         {
             if (!this.Page.ClientScript.IsClientScriptBlockRegistered("SeleccionarTabScript"))
             {

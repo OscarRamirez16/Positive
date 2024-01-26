@@ -58,7 +58,6 @@ $(document).ready(function () {
             var nuevoEstado = true;
         }
         $("." + elementos + " input").prop('checked', nuevoEstado);
-
     });
 });
 
@@ -1589,7 +1588,6 @@ function EstablecerAutoCompleteTercero(_ControlID, _Url, _hddID) {
                     debugger;
                 }
             });
-
         },
         select: function (event, ui) {
             var datos = ui.item.value.split('@');
@@ -1739,7 +1737,6 @@ function traerArticuloPorCodigoOCodigoBarra(_ControlID, _Url, _hddID, _codigoID,
         });
     }
 }
-
 function EstablecerAutoCompleteArticulo(_ControlID, _Url, _hddID, _codigoID, _precioID, _ivaID, _opcion, _cantBodega, _idBodega, _txtBodega, _EsInventario, _hddCostoPonderado, _PrecioCosto) {
     $("#" + _ControlID).autocomplete({
         source: function (request, response) {
@@ -1803,7 +1800,6 @@ function EstablecerAutoCompleteArticulo(_ControlID, _Url, _hddID, _codigoID, _pr
         }
     });
 }
-
 function EstablecerAutoCompleteArticuloSencillo(_ControlID, _Url, _hddID, _IdEmpresa, _opcion) {
     $("#" + _ControlID).autocomplete({
         source: function (request, response) {
@@ -1843,7 +1839,6 @@ function EstablecerAutoCompleteArticuloSencillo(_ControlID, _Url, _hddID, _IdEmp
         }
     });
 }
-
 function EstablecerAutoCompleteBodega(_ControlID, _Url, _hddID, idEmpresa, opcion, idArticulo, _CantBodega, _EsInventario) {
     $("#" + _ControlID).autocomplete({
         source: function (request, response) {
@@ -2002,7 +1997,6 @@ function EliminarVentaRapida(idVentaRapida, Control, hddItemsID, ValorIVA, Preci
     $("#cphContenido_hddValorTotal").val(ValorTotal.toFixed(numDecimales));
     $("#hdd" + idVentaRapida + "Stock").val(parseFloat($("#hdd" + idVentaRapida + "Stock").val()) + parseFloat(Cantidad));
 }
-
 function LimpiarFacturaVentaRapida(hddItemsID) {
     $("#" + hddItemsID).val("");
     $(".FacturaRapidaBody").html("");
@@ -2012,50 +2006,11 @@ function LimpiarFacturaVentaRapida(hddItemsID) {
     $("#tdValorTotal").html("0");
     $("#cphContenido_hddValorTotal").html(ValorTotal);
 }
-
 function ActualizarPreciosVentaRapida(tnActulizarPreciosID, hddIdClienteID) {
     if ($("#" + hddIdClienteID).val() != "") {
         $("#" + tnActulizarPreciosID).click();
     }
 }
-
-//function ImprimirDocumentoVentaRapida(CuerpoImpresion) {
-//    var oldPage = document.body.innerHTML;
-//    document.body.innerHTML = "<html>" +
-//        "<head>" +
-//        "<title>" +
-//        "</title>" +
-//        "<style type='text/css'>" +
-//        "</style>" +
-//        "</head>" +
-//        "<body style='margin:0px;'>" + CuerpoImpresion +
-//        "</body></html>";
-//    window.print();
-//    window.setTimeout(function () {
-//        RedireccionarBusqueda(oldPage);
-//    }, 1000);
-//}
-
-//function ImprimirDocumentoVentaRapida(CuerpoImpresion) {
-//    var IdTipoDocumento = getParameterByName('IdTipoDocumento');
-//    if (IdTipoDocumento == null) {
-//        IdTipoDocumento = 1;
-//    }
-//    var innerHTML = "<html>" +
-//        "<head>" +
-//        "<title>" +
-//        "</title>" +
-//        "<style type='text/css'>" +
-//        "</style>" +
-//        "</head>" +
-//        "<body onload='window.print()' onafterprint='window.location.href = `frmVentaRapida.aspx?IdTipoDocumento=" + IdTipoDocumento + "`;' style='margin:0px;'>" + CuerpoImpresion +
-//        "</body></html>";
-//    document.open("text/html", "replace");
-//    document.write(innerHTML);
-//    document.close();
-
-//}
-
 function CargarVentaRapida(oldPage) {
     document.body.innerHTML = oldPage;
     var IdTipoDocumento = getParameterByName('IdTipoDocumento');
@@ -2069,7 +2024,6 @@ function CargarVentaRapida(oldPage) {
         window.location.href = "frmVentaRapida.aspx?IdTipoDocumento=8";
     }
 }
-
 function getParameterByName(name, url = window.location.href) {
     name = name.replace(/[\[\]]/g, '\\$&');
     var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),

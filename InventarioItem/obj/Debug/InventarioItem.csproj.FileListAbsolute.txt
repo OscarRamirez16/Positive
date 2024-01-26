@@ -323,4 +323,5 @@ C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\Inve
 C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\InventarioItem\obj\Debug\InventarioItem.csproj.CoreCompileInputs.cache
 C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\InventarioItem\obj\Debug\InventarioItem.dll
 C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\InventarioItem\obj\Debug\InventarioItem.pdb
-C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\InventarioItem\obj\Debug\InventarioItem.csproj.AssemblyReference.cache
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\InventarioItem\obj\Debug\InventarioItem.csprojAssemblyReference.cache
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\InventarioItem\obj\Debug\InventarioItem.csproj.CopyComplete

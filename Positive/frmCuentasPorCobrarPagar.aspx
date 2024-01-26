@@ -242,9 +242,9 @@
                                     <asp:DataGrid ID="dgDocumentos" runat="server" Width="100%" AutoGenerateColumns="False" HeaderStyle-HorizontalAlign="Center"  OnItemDataBound="dgDocumentos_ItemDataBound">
                                         <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
                                         <Columns>
-                                            <asp:TemplateColumn HeaderText="Sel" ItemStyle-HorizontalAlign="Center">
+                                            <asp:TemplateColumn ItemStyle-HorizontalAlign="Center">
                                                 <ItemTemplate>
-                                                    <asp:CheckBox ID="chkSeleccionar" runat="server" AutoPostBack="true" OnCheckedChanged="CalcularPagoTotal" />
+                                                    <asp:CheckBox ID="chkSeleccionar" CssClass="chkSeleccionar" runat="server" AutoPostBack="true" OnCheckedChanged="CalcularPagoTotal" />
                                                 </ItemTemplate>
                                             </asp:TemplateColumn>
                                             <asp:BoundColumn DataField="Tipo" Visible="false"></asp:BoundColumn>

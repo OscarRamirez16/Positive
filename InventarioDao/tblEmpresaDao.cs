@@ -90,7 +90,6 @@ namespace InventarioDao
             }
             return Lista;
         }
-
         public List<Servidor> ObtenerServidorLista()
         {
             List<Servidor> Lista = new List<Servidor>();
@@ -213,9 +212,10 @@ namespace InventarioDao
             {
                 Item.MostrarComisionesArticulo = bool.Parse(reader["MostrarComisionesArticulo"].ToString());
             }
+            Item.ConsecutivoDocumentoSoporte = int.Parse(reader["ConsecutivoDocumentoSoporte"].ToString());
+            Item.Prefijo = reader["Prefijo"].ToString();
             return Item;
         }
-
         private bool Insertar(tblEmpresaItem Item, EmpresaUsuario usuario)
         {
             SqlCommand oSQL = new SqlCommand("spInsertarEmpresa", Conexion);
@@ -237,7 +237,6 @@ namespace InventarioDao
             oSQL.Parameters.Add(new SqlParameter("@SegundoApellido", usuario.SegundoApellido));
             oSQL.Parameters.Add(new SqlParameter("@Email", usuario.Email));
             oSQL.Parameters.Add(new SqlParameter("@IdServidor", Item.IdServidor));
-
             try
             {
                 Conexion.Open();
@@ -256,7 +255,6 @@ namespace InventarioDao
             }
             return true;
         }
-
         private bool Actualizar(tblEmpresaItem Item)
         {
             SqlCommand oSQL;
@@ -311,6 +309,9 @@ namespace InventarioDao
             oSQL.Parameters.Add(new SqlParameter("@ClaveTecnica", Item.ClaveTecnica));
             oSQL.Parameters.Add(new SqlParameter("@ClaveCertificado", Item.ClaveCertificado));
             oSQL.Parameters.Add(new SqlParameter("@Consecutivo", Item.Consecutivo));
+            oSQL.Parameters.Add(new SqlParameter("@Correo", Item.Correo));
+            oSQL.Parameters.Add(new SqlParameter("@ConsecutivoDocumentoSoporte", Item.ConsecutivoDocumentoSoporte));
+            oSQL.Parameters.Add(new SqlParameter("@Prefijo", Item.Prefijo));
             try
             {
                 Conexion.Open();
@@ -329,7 +330,6 @@ namespace InventarioDao
             }
             return true;
         }
-
         public bool Guardar(tblEmpresaItem Item, EmpresaUsuario OEUItem)
         {
             if (Item.idEmpresa > 0)

@@ -3,6 +3,20 @@
     <%--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />--%>
     <%--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>--%>
     <style>
+        #cphContenido_divItems li, #cphContenido_divItems a {
+                height: 30px;
+                max-width: 150px;
+                /*max-height: 50px;
+                min-height: 50px;*/
+                font-size: 11px;
+                text-align: center;
+                font-weight: bolder;
+                border-radius: 3px;
+                min-width: 100px;
+                white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+        }
         .active {
             background-color:white;
         }
@@ -138,18 +152,28 @@
     <input type="hidden" runat="server" id="hddIdEmpresa" value="" />
     <input type="hidden" id="hddValorTotalAntesImpoConsumo" value="0" />
     <input type="hidden" runat="server" id="hddTipoDocumento" value="1" />
+    <input type="hidden" runat="server" id="hddImageSource" value="" />
     <div class="container-fluid">
         <div>
             <div class="row">
                 <div class="col-md-4">
-                    <div class = "input-group">
+                    <div class="input-group">
                         <asp:TextBox ID="txtTercero" CssClass="form-control" runat="server"></asp:TextBox>
-                        <span class = "input-group-addon"><img src="Images/Input/SocioNegocio.png" title="Socio de Negocio" /></span>
+                        <span class="input-group-addon"><img src="Images/Input/SocioNegocio.png" title="Socio de Negocio" /></span>
                     </div>
                     <input type="hidden" id="hddIdCliente" runat="server" /><asp:Button ID="btnActualizarPrecios" runat="server" OnClick="btnActualizarPrecios_Click" />
                 </div>
                 <div class="col-md-3">
                     <asp:RadioButton ID="rdbFacturaVenta" GroupName="TipoDocumento" runat="server" Text="Factura de Venta" />&nbsp;&nbsp;&nbsp;<asp:RadioButton ID="rdbRemision" GroupName="TipoDocumento" runat="server" Text="Remision" />&nbsp;&nbsp;&nbsp;<asp:RadioButton ID="rdbCotizacion" GroupName="TipoDocumento" runat="server" Text="Cotizacion" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <asp:TextBox ID="txtBodega" runat="server" CssClass="form-control"></asp:TextBox>
+                        <input type="hidden" id="hddIdBodega" runat="server" value="0" />
+                        <span class="input-group-addon"><img src="Images/Input/Direccion.png" title="Bodega" /></span>
+                    </div>
                 </div>
             </div>
             <div class="row">
@@ -267,14 +291,63 @@
             </div>
         </div>
     </div>
+    <script>
+        $(document).ready(function () {
+            $("#divItemCantidad").dialog({ "autoOpen": false, "width": 350 });
+            loadVentaRapidaImages();
+        });
+        function loadVentaRapidaImages() {
+            if ($("#<%=hddImageSource.ClientID%>").val() !== "") {
+                var VentaRapidaActualizada = localStorage.getItem('VentaRapidaActualizada');
+                var sourceImagesList = JSON.parse($("#<%=hddImageSource.ClientID%>").val());
+                var localImagesList = JSON.parse(localStorage.getItem('localImagesList'));
+                console.log("VentaRapidaActualizada:" + VentaRapidaActualizada);
+                if ((localImagesList != undefined && localImagesList != null) && VentaRapidaActualizada == "true") {
+                    for (var i = 0; i < localImagesList.length; i++) {
+                        var img = localImagesList[i];
+                        $("#" + img.ControlID).attr("src", "data:image/png;base64," + img.Data);
+                    }
+                }
+                else {
+                    for (var i = 0; i < sourceImagesList.length; i++) {
+                        var img = sourceImagesList[i];
+                        $("#" + img.ControlID).attr("src", img.src);
+                    }
+                }
+            }
+        }
+
+        function getBase64Image(img) {
+            var canvas = document.createElement("canvas");
+            canvas.width = img.width;
+            canvas.height = img.height;
+
+            var ctx = canvas.getContext("2d");
+            ctx.drawImage(img, 0, 0);
+
+            var dataURL = canvas.toDataURL("image/png");
+
+            return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
+        }
+
+        window.addEventListener('load', function () {
+            var VentaRapidaActualizada = localStorage.getItem('VentaRapidaActualizada');
+            if (localImagesList == undefined || localImagesList == null || VentaRapidaActualizada != "true") {
+                var localImagesList = [];
+                var sourceImagesList = JSON.parse($("#<%=hddImageSource.ClientID%>").val());
+                for (var i = 0; i < sourceImagesList.length; i++) {
+                    var s = sourceImagesList[i];
+                    var img = $("#" + s.ControlID).get(0);
+                    var imgData = getBase64Image(img);
+                    var l = {
+                        ControlID: s.ControlID,
+                        Data: imgData
+                    };
+                    localImagesList.push(l);
+                }
+                localStorage.setItem('localImagesList', JSON.stringify(localImagesList));
+                localStorage.setItem('VentaRapidaActualizada', "true");
+            }
+        })
+    </script>
 </asp:Content>
-
-
-
-
-
-
-
-
-
-

@@ -1,19 +1,19 @@
 <%@ Page Title="Articulos" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="frmCrearEditarConsultarArticulos.aspx.cs" Inherits="Inventario.frmCrearEditarArticulos" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphContenido" runat="server">
     <script>
-        var pintarBodegas = true;
+        //var pintarBodegas = true;
         $(document).ready(function () {
             PintarTabla("cphContenido_dgArticulos");
-            $("#pestana1").unbind("click");
-            $("#pestana1").click(function () {
-                if (pintarBodegas) {
-                    pintarBodegas = false;
-                    PintarTabla("cphContenido_dgBodegas");
-                }
-                else {
-                    PintarTabla("cphContenido_dgBodegas");
-                }
-            });
+            //$("#pestana1").unbind("click");
+            //$("#pestana1").click(function () {
+            //    if (pintarBodegas) {
+            //        pintarBodegas = false;
+            //        PintarTabla("cphContenido_dgBodegas");
+            //    }
+            //    else {
+            //        PintarTabla("cphContenido_dgBodegas");
+            //    }
+            //});
         });
     </script>
     <div id="contenido" style="width: 100%">
@@ -186,7 +186,7 @@
                                         <div class="panel-body">
                                             <div class="row">
                                                 <div class="col-lg-12">
-                                                    <asp:DataGrid ID="dgBodegas" runat="server" Width="100%" AutoGenerateColumns="False" OnItemDataBound="dgBodegas_ItemDataBound" OnEditCommand="dgBodegas_EditCommand">
+                                                    <asp:DataGrid ID="dgBodegas" runat="server" Width="100%" AutoGenerateColumns="False" HeaderStyle-HorizontalAlign="Center" OnItemDataBound="dgBodegas_ItemDataBound" OnEditCommand="dgBodegas_EditCommand">
                                                         <Columns>
                                                             <asp:BoundColumn DataField="idBodega" HeaderText="ID" Visible="false"></asp:BoundColumn>
                                                             <asp:BoundColumn DataField="Descripcion" HeaderText="Bodega"></asp:BoundColumn>
@@ -212,7 +212,7 @@
                                                             </asp:TemplateColumn>
                                                             <asp:TemplateColumn ItemStyle-HorizontalAlign="Center">
                                                                 <ItemTemplate>
-                                                                    <asp:CheckBox ID="chkBodega" runat="server"  AutoPostBack="true" OnCheckedChanged="ValidarCantidadBodega" />
+                                                                    <asp:CheckBox ID="chkSeleccionar" CssClass="chkSeleccionar" runat="server"  AutoPostBack="true" OnCheckedChanged="ValidarCantidadBodega" />
                                                                 </ItemTemplate>
                                                             </asp:TemplateColumn>
                                                             <asp:EditCommandColumn ItemStyle-HorizontalAlign="Center" EditText="<img src='Images/editar.jpg' Width='18' Height='18' title='Fijar Precios Alternos' />" HeaderText="Editar"></asp:EditCommandColumn>

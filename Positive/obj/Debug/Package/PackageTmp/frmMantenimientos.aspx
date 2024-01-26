@@ -17,6 +17,8 @@
                 <a href="frmEntradaMasivaMercancia.aspx" class="list-group-item"><img src="Images/Menu/EntradaMasiva.png" title="Entrada Masiva de Mercancia" />&nbsp;<asp:Label ID="lblSubEntradaMasivaMercancia" runat="server"></asp:Label></a>
                 <a href="frmListaPrecio.aspx" class="list-group-item"><img src="Images/Menu/ListaPrecios.png" title="Lista de Precios" />&nbsp;<asp:Label ID="lblSubListaPrecio" runat="server"></asp:Label></a>
                 <a href="frmTrasladoMercancia.aspx" class="list-group-item"><img src="Images/Menu/Traslado.png" title="Traslado de Mercancia" />&nbsp;<asp:Label ID="lblSubTrasladoMercancia" runat="server"></asp:Label></a>
+                <a href="frmReporteTrasladoMercancia.aspx" class="list-group-item"><img src="Images/Menu/Buscar.png" title="Buscar Traslado de Mercancia" />&nbsp;Consultar Traslado de Mercancia</a>
+                <a href="frmTrasladoMasivoMercancia.aspx" class="list-group-item"><img src="Images/Menu/Traslado.png" title="Traslado Masivo de Mercancia" />&nbsp;Traslado Masivo de Mercancia</a>
             </div>
         </div>
         <div class="col-lg-3">
@@ -47,6 +49,7 @@
                 <a href="frmFacturacionMasiva.aspx" class="list-group-item"><img src="Images/Menu/Factura.png" title="Facturación Masiva" />&nbsp;Facturación Masiva</a>
                 <a href="frmCuentaCobro.aspx" class="list-group-item"><img src="Images/Menu/Factura.png" title="Cuenta de Cobro" />&nbsp;Cuenta de Cobro</a>
                 <a href="frmCuentaCobroMasivo.aspx" class="list-group-item"><img src="Images/Menu/Factura.png" title="Cuenta de Cobro Masivo" />&nbsp;Cuenta de Cobro Masivo</a>
+                <a href="frmFacturacionTemplateMasiva.aspx" class="list-group-item"><img src="Images/Menu/Factura.png" title="Facturación Masiva Por Template" />&nbsp;Facturación Masiva Por Template</a>
             </div>
             <div class = "list-group">
                 <a href="#" style="text-align:center" class="list-group-item active"><b style="font-size:medium;"><asp:Label ID="lblCompras" runat="server"></asp:Label></b></a>
@@ -82,6 +85,7 @@
                 <a href="frmReporteMovimientosDiarios.aspx" class="list-group-item"><img src="Images/Menu/ReporteVerde.png" title="Movimientos de Retiro e Ingreso" />&nbsp;<asp:Label ID="lblSubMovRetirosIngresos" runat="server"></asp:Label></a>
                 <a href="frmImprimirCuadreDiario.aspx" class="list-group-item"><img src="Images/Menu/ReporteFucsia.png" title="Imprimir Cuadre Diario" />&nbsp;<asp:Label ID="lblSubImprimirCuadreDiario" runat="server"></asp:Label></a>
                 <a href="frmReporteComisionesVentasPorArticulo.aspx" class="list-group-item"><img src="Images/Menu/ReporteVerde.png" title="Reporte Comisiones Ventas Por Articulo" />&nbsp;<asp:Label ID="lblSubReporteComisionesVentasPorArticulo" runat="server"></asp:Label></a>
+                <a href="frmReporteDocumentosAgrupadoPorArticulo.aspx" class="list-group-item"><img src="Images/Menu/ReporteVerde.png" title="Reporte Documentos Agrupado" />&nbsp;Reporte Documentos Agrupado</a>
             </div>
         </div>
     </div>

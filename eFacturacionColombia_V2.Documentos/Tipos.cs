@@ -48,6 +48,7 @@ namespace eFacturacionColombia_V2.Documentos
         public static TipoFactura EXPORTACION => new TipoFactura { Codigo = "02" };
         public static TipoFactura CONTINGENCIA_FACTURADOR => new TipoFactura { Codigo = "03" };
         public static TipoFactura CONTINGENCIA_DIAN => new TipoFactura { Codigo = "04" };
+        public static TipoFactura DOCUMENTO_SOPORTE => new TipoFactura { Codigo = "05" };
     }
 
     public class OperacionFactura
@@ -2093,6 +2094,10 @@ namespace eFacturacionColombia_V2.Documentos
         /// Anotaciones opcionales. Obligatorio para facturas AIU.
         /// </summary>
         public string Anotacion { get; set; }
+        /// <summary>
+        /// Adicionar InvoicePeriod para documento soporte
+        /// </summary>
+        public bool InvoicePeriod { get; set; }
     }
 
     public class ParteEvento

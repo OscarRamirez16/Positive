@@ -104,7 +104,7 @@ namespace Positive
                 "<div style='font-size: 12px;font-weight: bold; padding-top: 2px; width: 300px;'>{16}</div>" +
                 "</div>", oEmpI.Nombre, oEmpI.Identificacion, oEmpI.Direccion, oEmpI.Telefono, TipoDocumento, oEmpI.TextoEncabezadoFactura,
                 oDocI.NumeroDocumento, oDocI.Fecha, oDocI.NombreTercero, oTItem.Identificacion,
-                Detalles, (oDocI.TotalDocumento - oDocI.TotalIVA).ToString(Util.ObtenerFormatoDecimal()),
+                Detalles, oDocI.TotalAntesIVA.ToString(Util.ObtenerFormatoDecimal()),
                 oDocI.TotalIVA.ToString(Util.ObtenerFormatoDecimal()), oDocI.TotalDocumento.ToString(Util.ObtenerFormatoDecimal()),
                 oUsuarioI.Usuario, oDocI.Observaciones, oEmpI.TextoPieFactura, FormaPago, oDocI.Devuelta.ToString(Util.ObtenerFormatoDecimal()),
                 oDocI.Impoconsumo.ToString(Util.ObtenerFormatoDecimal()));

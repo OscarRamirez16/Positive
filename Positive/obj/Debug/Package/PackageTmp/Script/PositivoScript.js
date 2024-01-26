@@ -233,16 +233,6 @@ function Redireccionar(oldPage) {
     window.location = "frmDocumentos.aspx?opcionDocumento=" + $('#cphContenido_hddTipoDocumento').val();
 }
 
-function RedireccionarPagos(oldPage) {
-    document.body.innerHTML = oldPage;
-    window.location = "frmCuentasPorCobrarPagar.aspx?TipoPago=" + $('#cphContenido_hddTipoDocumento').val();
-}
-
-function RedireccionarAnticipo(oldPage) {
-    document.body.innerHTML = oldPage;
-    window.location = "frmAnticipo.aspx";
-}
-
 function ImprimirComprobanteAnticipo(CuerpoImpresion) {
     var oldPage = document.body.innerHTML;
     document.body.innerHTML = "<html>" +
@@ -260,6 +250,11 @@ function ImprimirComprobanteAnticipo(CuerpoImpresion) {
     }, 1000);
 }
 
+function RedireccionarAnticipo(oldPage) {
+    document.body.innerHTML = oldPage;
+    window.location = "frmAnticipo.aspx";
+}
+
 function ImprimirComprobantePago(CuerpoImpresion) {
     var oldPage = document.body.innerHTML;
     document.body.innerHTML = "<html>" +
@@ -275,6 +270,11 @@ function ImprimirComprobantePago(CuerpoImpresion) {
     window.setTimeout(function () {
         RedireccionarPagos(oldPage);
     }, 1000);
+}
+
+function RedireccionarPagos(oldPage) {
+    document.body.innerHTML = oldPage;
+    window.location = "frmCuentasPorCobrarPagar.aspx?TipoPago=" + $('#cphContenido_hddTipoDocumento').val();
 }
 
 function MostrarPrecios() {
@@ -1962,6 +1962,7 @@ function FaturarVentaRapida(idVentaRapida, Articulo, Descripcion, Cantidad, Valo
 
 function AdicionarVentaRapida(idVentaRapida, Articulo, Descripcion, Cantidad, ValorIVA, Precio, Stock, hddItemsID, Impoconsumo, hideDelete) {
     var numDecimales = 2;
+    var Adicionar = true;
     if ((parseFloat($("#hdd" + idVentaRapida + "Stock").val()) - parseFloat(Cantidad)) >= 0) {
         var ValorIVATotal = parseFloat($("#tdValorIVA").html()) + parseFloat(ValorIVA);
         var ValorTotalAntesImpoconsumo = parseFloat($("#hddValorTotalAntesImpoConsumo").val()) + parseFloat(Precio);
@@ -1986,13 +1987,24 @@ function AdicionarVentaRapida(idVentaRapida, Articulo, Descripcion, Cantidad, Va
         else {
             $("#" + hddItemsID).val($("#" + hddItemsID).val() + "," + idVentaRapida);
         }
-        var deleteHTML = "<td></td>";
-        if (hideDelete == false || hideDelete == undefined || hideDelete == "") {
-            deleteHTML = "<td style=\"cursor:pointer;\" onclick=\"EliminarVentaRapida(" + idVentaRapida + ",this,'" + hddItemsID + "','" + ValorIVA + "','" + Precio + "','" + Cantidad + "','" + Impoconsumo + "');\"><img src='Images/Input/Eliminar.png' title='" + Descripcion + "'/></td>";
-        }
         $("#hdd" + idVentaRapida + "Stock").val(parseFloat($("#hdd" + idVentaRapida + "Stock").val()) - parseFloat(Cantidad));
-        var trVentaRapida = "<tr><td>" + Articulo + "</td><td>" + Descripcion + "</td><td>" + Cantidad + "</td><td style=\"text-align:right;\">" + Precio + "</td>" + deleteHTML + "</tr>"
-        $(".FacturaRapidaBody").append(trVentaRapida);
+        //if ($(".FacturaRapidaBody")[0].rows[0] != undefined) {
+        //    for (var i = 0, row; row = $(".FacturaRapidaBody")[0].rows[i]; i++) {
+        //        if (row.cells[0].innerText == Articulo) {
+        //            row.cells[2].innerText = (parseFloat(row.cells[2].innerText) + parseFloat(Cantidad)).toFixed(numDecimales);
+        //            Adicionar = false;
+        //            row.cells[4].innerText = "<td style=\"cursor:pointer;\" onclick=\"EliminarVentaRapida(" + idVentaRapida + ",this,'" + hddItemsID + "','" + ValorIVA + "','" + Precio + "','" + row.cells[2].innerText + "','" + Impoconsumo + "');\"><img src='Images/Input/Eliminar.png' title='" + Descripcion + "'/></td>";
+        //        }
+        //    }
+        //}
+        if (Adicionar) {
+            var deleteHTML = "<td></td>";
+            if (hideDelete == false || hideDelete == undefined || hideDelete == "") {
+                deleteHTML = "<td style=\"cursor:pointer;\" onclick=\"EliminarVentaRapida(" + idVentaRapida + ",this,'" + hddItemsID + "','" + ValorIVA + "','" + Precio + "','" + Cantidad + "','" + Impoconsumo + "');\"><img src='Images/Input/Eliminar.png' title='" + Descripcion + "'/></td>";
+            }
+            var trVentaRapida = "<tr><td>" + Articulo + "</td><td>" + Descripcion + "</td><td>" + Cantidad + "</td><td style=\"text-align:right;\">" + Precio + "</td>" + deleteHTML + "</tr>"
+            $(".FacturaRapidaBody").append(trVentaRapida);
+        }
     }
     else {
         alert("El articulo " + Descripcion + " no tiene stock...");

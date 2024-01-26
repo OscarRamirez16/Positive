@@ -218,7 +218,7 @@ namespace Positive
                     Error = oTerB.CreacionMasivaTerceros(oListTerI);
                     if (string.IsNullOrEmpty(Error))
                     {
-                        MostrarAlerta(0, "Creación de Terceros", "Los terceros se crearon con exito.");
+                        MostrarAlerta(1, "Creación de Terceros", "Los terceros se crearon con exito.");
                         LimpiarControles();
                     }
                     else
@@ -240,7 +240,7 @@ namespace Positive
         {
             Response.Redirect("frmMantenimientos.aspx");
         }
-        protected void dgArticulosMasivo_ItemDataBound1(object sender, DataGridItemEventArgs e)
+        protected void dgTerceros_ItemDataBound(object sender, DataGridItemEventArgs e)
         {
             try
             {
@@ -262,7 +262,7 @@ namespace Positive
                     }
 
                     //Realiza la busqueda de la lista de precio por ID
-                    if (e.Item.Cells[dgTercerosColumnsEnum.ListaPrecio.GetHashCode()].Text != "" && e.Item.Cells[dgTercerosColumnsEnum.ListaPrecio.GetHashCode()].Text != "&nbsp;")
+                    if (e.Item.Cells[dgTercerosColumnsEnum.ListaPrecio.GetHashCode()].Text != "" && e.Item.Cells[dgTercerosColumnsEnum.ListaPrecio.GetHashCode()].Text != "&nbsp;" && e.Item.Cells[dgTercerosColumnsEnum.ListaPrecio.GetHashCode()].Text != "0")
                     {
                         tblListaPrecioBusiness oLisPrecioB = new tblListaPrecioBusiness(CadenaConexion);
                         tblListaPrecioItem oLisPrecioI = new tblListaPrecioItem();
@@ -278,7 +278,7 @@ namespace Positive
                     }
 
                     //Realiza la busqueda del grupo por ID
-                    if (e.Item.Cells[dgTercerosColumnsEnum.GrupoCliente.GetHashCode()].Text != "" && e.Item.Cells[dgTercerosColumnsEnum.GrupoCliente.GetHashCode()].Text != "&nbsp;")
+                    if (e.Item.Cells[dgTercerosColumnsEnum.GrupoCliente.GetHashCode()].Text != "" && e.Item.Cells[dgTercerosColumnsEnum.GrupoCliente.GetHashCode()].Text != "&nbsp;" && e.Item.Cells[dgTercerosColumnsEnum.GrupoCliente.GetHashCode()].Text != "0")
                     {
                         tblGrupoClienteItem oGrupoI = new tblGrupoClienteItem();
                         oGrupoI = oTerB.ObtenerGrupoCliente(long.Parse(e.Item.Cells[dgTercerosColumnsEnum.GrupoCliente.GetHashCode()].Text), oUsuarioI.idEmpresa);

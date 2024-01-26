@@ -43,7 +43,7 @@ namespace Inventario
                         ConfiguracionIdioma();
                         if (!IsPostBack)
                         {
-                            txtFechaInicial.Text = DateTime.Now.AddDays(-8).ToShortDateString();
+                            txtFechaInicial.Text = DateTime.Now.ToShortDateString();
                             txtFechaFinal.Text = DateTime.Now.ToShortDateString();
                             CargarOrdenesFabricacion();
                         }

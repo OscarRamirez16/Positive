@@ -134,6 +134,9 @@ namespace Positive
             lblGrupoSocioNegocio.Text = oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.GrupoSocioNegocio);
             lblVendedor.Text = oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.Vendedor);
             lblConsultarDocumentoElectronico.Text = "Documento Electronico";
+            lblConsultarTrasladoMercancia.Text = string.Format("{0} {1}", oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.Buscar), oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.TrasladoMercancia));
+            lblFacturacionMasivaTemplate.Text = "Facturación Masiva Por Template";
+            lblTrasladoMasivo.Text = "Traslado Masivo Por Template";
         }
     }
 }

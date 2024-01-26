@@ -23,6 +23,14 @@ namespace Inventario
             Total = 2,
             Comision = 3
         }
+        private enum ImpuestosEnum
+        {
+            IVA = 0,
+            Descripcion = 1,
+            Base = 2,
+            TotalConIVA = 3,
+            Valor = 4
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -264,6 +272,8 @@ namespace Inventario
                         {
                             divComisionesPorArticulos.Visible = false;
                         }
+                        dgImpuestos.DataSource = oCuaB.ObtenerValoresImpuestosAgrupados(oCuaI.idUsuarioCaja, oUsuarioI.idEmpresa);
+                        dgImpuestos.DataBind();
                     }
                     else
                     {
@@ -339,6 +349,10 @@ namespace Inventario
                 if (oCuaI.idCuadreCaja != 0)
                 {
                     CargarDatosGuardar(oCuaI);
+                    string Impuestos = "";
+                    Impuestos = "<table border='1' style='width:100%'><tr><td colspan='3' style='text-align:center;'>DETALLE IMPUESTOS</td></tr>";
+                    Impuestos += "<tr><td style='text-align: center;'>Descripción</td><td style='text-align: center;'>Valor</td><td style='text-align: center;'>Base</td></tr>";
+                    DataTable ValoresImpuestosAgrupados = oCuaB.ObtenerValoresImpuestosAgrupados(oCuaI.idUsuarioCaja, oUsuarioI.idEmpresa);
                     if (oCuaB.Guardar(oCuaI))
                     {
                         if (oUsuarioI.VerCuadreCaja)
@@ -365,7 +379,7 @@ namespace Inventario
                             string DetallesComisionesArticulo = "";
                             if (oEmpI.MostrarComisionesArticulo)
                             {
-                                DetallesComisionesArticulo = "<tr><td colspan='3' style='text-align:center;'>COMISIONES</td></tr>";
+                                DetallesComisionesArticulo = "<table border='1' style='width:100%'><tr><td colspan='3' style='text-align:center;'>COMISIONES</td></tr>";
                                 tblDocumentoBusiness oDocB = new tblDocumentoBusiness(CadenaConexion);
                                 DataTable oListComisiones = oDocB.ObtenerComisionesVentasPorArticuloAgrupadoPorVendedor(oCuaI.Fecha, oCuaI.FechaCierre, oUsuarioI.idEmpresa);
                                 foreach (DataRow row in oListComisiones.Rows)
@@ -376,6 +390,15 @@ namespace Inventario
                                         decimal.Parse(row[ComisionesEnum.Total.GetHashCode()].ToString()).ToString(Util.ObtenerFormatoDecimal()));
                                 }
                             }
+                            DetallesComisionesArticulo += "</table>";
+                            foreach (DataRow row in ValoresImpuestosAgrupados.Rows)
+                            {
+                                Impuestos += string.Format("<tr><td style='text-align: center;'>{0}</td><td style='text-align: right;'>{1}</td><td style='text-align: right;'>{2}</td></tr>",
+                                    row[ImpuestosEnum.Descripcion.GetHashCode()],
+                                    decimal.Parse(row[ImpuestosEnum.Valor.GetHashCode()].ToString()).ToString(Util.ObtenerFormatoDecimal()),
+                                    decimal.Parse(row[ImpuestosEnum.Base.GetHashCode()].ToString()).ToString(Util.ObtenerFormatoDecimal()));
+                            }
+                            Impuestos += "</table>";
                             string Mensaje = "";
                             Mensaje = string.Format("<div style='position:relative;font-family:arial;'>" +
                             "<div style='font-size: 18px; font-weight: bold; width: 300px; padding-top: 20px; text-align: center;'>{0}</div>" +
@@ -410,6 +433,7 @@ namespace Inventario
                             "<tr><td>Creditos:</td><td style='text-align: right;'>{21}</td></tr>" +
                             "<tr><td>Pagos de Creditos:</td><td style='text-align: right;'>{22}</td></tr></table>" +
                             DetallesComisionesArticulo +
+                            Impuestos +
                             "<div style='font-size: 12px;font-weight: bold; padding-top: 5px; width: 300px;'>Observaciones: {16}</div>" +
                             "</div>", oEmpI.Nombre, oEmpI.Identificacion, oEmpI.Direccion, oEmpI.Telefono, oCuaI.SaldoInicial.ToString(Util.ObtenerFormatoDecimal()),
                             oCuaI.TotalIngresos.ToString(Util.ObtenerFormatoDecimal()), oCuaI.Efectivo.ToString(Util.ObtenerFormatoDecimal()),

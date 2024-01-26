@@ -27,93 +27,112 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="panel panel-success">
-                                <div class="panel-heading">
-                                    Entradas
-                                </div>
-                                <div class="panel-body">
-                                    <div class="row">
-                                        <div class="col-lg-4"><asp:Label ID="lblSaldoInicial" runat="server" AssociatedControlID="txtSaldoInicial"></asp:Label></div>
-                                        <div class="col-lg-8">
-                                            <div class = "input-group">
-                                                <asp:TextBox ID="txtSaldoInicial" CssClass="form-control BoxValor" Enabled="false" runat="server"></asp:TextBox>
-                                                <span class = "input-group-addon"><img src="Images/Input/DolarAzul.png" title="Saldo inicial" /></span>
-                                            </div>
+                                        <div class="panel-heading">
+                                            Entradas
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-lg-4"><asp:Label ID="lblIngresos" runat="server" AssociatedControlID="txtIngresos"></asp:Label></div>
-                                        <div class="col-lg-8">
-                                            <div class = "input-group">
-                                                <asp:TextBox ID="txtIngresos" CssClass="form-control BoxValor" Enabled="false" runat="server"></asp:TextBox>
-                                                <span class = "input-group-addon"><img src="Images/Input/DolarAzul.png" title="Ingresos" /></span>
+                                        <div class="panel-body">
+                                            <div class="row">
+                                                <div class="col-lg-4"><asp:Label ID="lblSaldoInicial" runat="server" AssociatedControlID="txtSaldoInicial"></asp:Label></div>
+                                                <div class="col-lg-8">
+                                                    <div class = "input-group">
+                                                        <asp:TextBox ID="txtSaldoInicial" CssClass="form-control BoxValor" Enabled="false" runat="server"></asp:TextBox>
+                                                        <span class = "input-group-addon"><img src="Images/Input/DolarAzul.png" title="Saldo inicial" /></span>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-lg-4"><asp:Label ID="lblEfectivo" runat="server" AssociatedControlID="txtEfectivo">Efectivo</asp:Label></div>
-                                        <div class="col-lg-8">
-                                            <div class = "input-group">
-                                                <asp:TextBox ID="txtEfectivo" CssClass="form-control BoxValor" Enabled="false" runat="server"></asp:TextBox>
-                                                <span class = "input-group-addon"><img src="Images/Input/DolarAzul.png" title="Efectivo" /></span>
+                                            <div class="row">
+                                                <div class="col-lg-4"><asp:Label ID="lblIngresos" runat="server" AssociatedControlID="txtIngresos"></asp:Label></div>
+                                                <div class="col-lg-8">
+                                                    <div class = "input-group">
+                                                        <asp:TextBox ID="txtIngresos" CssClass="form-control BoxValor" Enabled="false" runat="server"></asp:TextBox>
+                                                        <span class = "input-group-addon"><img src="Images/Input/DolarAzul.png" title="Ingresos" /></span>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-lg-4"><asp:Label ID="lblTarjetaCredito" runat="server" AssociatedControlID="txtTarjetaCredito">Tarjeta Credito</asp:Label></div>
-                                        <div class="col-lg-8">
-                                            <div class = "input-group">
-                                                <asp:TextBox ID="txtTarjetaCredito" CssClass="form-control BoxValor" Enabled="false" runat="server"></asp:TextBox>
-                                                <span class = "input-group-addon"><img src="Images/Input/DolarAzul.png" title="Tarjeta Credito" /></span>
+                                            <div class="row">
+                                                <div class="col-lg-4"><asp:Label ID="lblEfectivo" runat="server" AssociatedControlID="txtEfectivo">Efectivo</asp:Label></div>
+                                                <div class="col-lg-8">
+                                                    <div class = "input-group">
+                                                        <asp:TextBox ID="txtEfectivo" CssClass="form-control BoxValor" Enabled="false" runat="server"></asp:TextBox>
+                                                        <span class = "input-group-addon"><img src="Images/Input/DolarAzul.png" title="Efectivo" /></span>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-lg-4"><asp:Label ID="lblTarjetaDebito" runat="server" AssociatedControlID="txtTarjetaDebito">Tarjeta Debito</asp:Label></div>
-                                        <div class="col-lg-8">
-                                            <div class = "input-group">
-                                                <asp:TextBox ID="txtTarjetaDebito" CssClass="form-control BoxValor" Enabled="false" runat="server"></asp:TextBox>
-                                                <span class = "input-group-addon"><img src="Images/Input/DolarAzul.png" title="Tarjeta Debito" /></span>
+                                            <div class="row">
+                                                <div class="col-lg-4"><asp:Label ID="lblTarjetaCredito" runat="server" AssociatedControlID="txtTarjetaCredito">Tarjeta Credito</asp:Label></div>
+                                                <div class="col-lg-8">
+                                                    <div class = "input-group">
+                                                        <asp:TextBox ID="txtTarjetaCredito" CssClass="form-control BoxValor" Enabled="false" runat="server"></asp:TextBox>
+                                                        <span class = "input-group-addon"><img src="Images/Input/DolarAzul.png" title="Tarjeta Credito" /></span>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-lg-4"><asp:Label ID="lblCheque" runat="server" AssociatedControlID="txtCheque">Cheque</asp:Label></div>
-                                        <div class="col-lg-8">
-                                            <div class = "input-group">
-                                                <asp:TextBox ID="txtCheque" CssClass="form-control BoxValor" Enabled="false" runat="server"></asp:TextBox>
-                                                <span class = "input-group-addon"><img src="Images/Input/DolarAzul.png" title="Cheque" /></span>
+                                            <div class="row">
+                                                <div class="col-lg-4"><asp:Label ID="lblTarjetaDebito" runat="server" AssociatedControlID="txtTarjetaDebito">Tarjeta Debito</asp:Label></div>
+                                                <div class="col-lg-8">
+                                                    <div class = "input-group">
+                                                        <asp:TextBox ID="txtTarjetaDebito" CssClass="form-control BoxValor" Enabled="false" runat="server"></asp:TextBox>
+                                                        <span class = "input-group-addon"><img src="Images/Input/DolarAzul.png" title="Tarjeta Debito" /></span>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-lg-4"><asp:Label ID="lblBonos" runat="server" AssociatedControlID="txtBonos">Bonos</asp:Label></div>
-                                        <div class="col-lg-8">
-                                            <div class = "input-group">
-                                                <asp:TextBox ID="txtBonos" CssClass="form-control BoxValor" Enabled="false" runat="server"></asp:TextBox>
-                                                <span class = "input-group-addon"><img src="Images/Input/DolarAzul.png" title="Cheque" /></span>
+                                            <div class="row">
+                                                <div class="col-lg-4"><asp:Label ID="lblCheque" runat="server" AssociatedControlID="txtCheque">Cheque</asp:Label></div>
+                                                <div class="col-lg-8">
+                                                    <div class = "input-group">
+                                                        <asp:TextBox ID="txtCheque" CssClass="form-control BoxValor" Enabled="false" runat="server"></asp:TextBox>
+                                                        <span class = "input-group-addon"><img src="Images/Input/DolarAzul.png" title="Cheque" /></span>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-lg-4"><asp:Label ID="lblConsignacion" runat="server" AssociatedControlID="txtConsignacion">Consignación</asp:Label></div>
-                                        <div class="col-lg-8">
-                                            <div class = "input-group">
-                                                <asp:TextBox ID="txtConsignacion" CssClass="form-control BoxValor" Enabled="false" runat="server"></asp:TextBox>
-                                                <span class = "input-group-addon"><img src="Images/Input/DolarAzul.png" title="Cheque" /></span>
+                                            <div class="row">
+                                                <div class="col-lg-4"><asp:Label ID="lblBonos" runat="server" AssociatedControlID="txtBonos">Bonos</asp:Label></div>
+                                                <div class="col-lg-8">
+                                                    <div class = "input-group">
+                                                        <asp:TextBox ID="txtBonos" CssClass="form-control BoxValor" Enabled="false" runat="server"></asp:TextBox>
+                                                        <span class = "input-group-addon"><img src="Images/Input/DolarAzul.png" title="Cheque" /></span>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-lg-4"><asp:Label ID="lblNomina" runat="server" AssociatedControlID="txtNomina">Descuento Nomina</asp:Label></div>
-                                        <div class="col-lg-8">
-                                            <div class = "input-group">
-                                                <asp:TextBox ID="txtNomina" CssClass="form-control BoxValor" Enabled="false" runat="server"></asp:TextBox>
-                                                <span class = "input-group-addon"><img src="Images/Input/DolarAzul.png" title="Nomina" /></span>
+                                            <div class="row">
+                                                <div class="col-lg-4"><asp:Label ID="lblConsignacion" runat="server" AssociatedControlID="txtConsignacion">Consignación</asp:Label></div>
+                                                <div class="col-lg-8">
+                                                    <div class = "input-group">
+                                                        <asp:TextBox ID="txtConsignacion" CssClass="form-control BoxValor" Enabled="false" runat="server"></asp:TextBox>
+                                                        <span class = "input-group-addon"><img src="Images/Input/DolarAzul.png" title="Cheque" /></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-4"><asp:Label ID="lblNomina" runat="server" AssociatedControlID="txtNomina">Descuento Nomina</asp:Label></div>
+                                                <div class="col-lg-8">
+                                                    <div class = "input-group">
+                                                        <asp:TextBox ID="txtNomina" CssClass="form-control BoxValor" Enabled="false" runat="server"></asp:TextBox>
+                                                        <span class = "input-group-addon"><img src="Images/Input/DolarAzul.png" title="Nomina" /></span>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">
+                                            Detalle Impuestos
+                                        </div>
+                                        <div class="panel-body">
+                                            <asp:DataGrid ID="dgImpuestos" runat="server" Width="100%" AutoGenerateColumns="False" HeaderStyle-HorizontalAlign="Center">
+                                                <Columns>
+                                                    <asp:BoundColumn DataField="Descripcion" HeaderText="Descripcion" ItemStyle-HorizontalAlign="Center"></asp:BoundColumn>
+                                                    <asp:BoundColumn DataField="IVA" HeaderText="%" ItemStyle-HorizontalAlign="Center"></asp:BoundColumn>
+                                                    <asp:BoundColumn DataField="Valor" HeaderText="Impuesto" ItemStyle-HorizontalAlign="Right" ItemStyle-CssClass="Entero"></asp:BoundColumn>
+                                                    <asp:BoundColumn DataField="Base" HeaderText="Base" ItemStyle-HorizontalAlign="Right" ItemStyle-CssClass="Entero"></asp:BoundColumn>
+                                                </Columns>
+                                            </asp:DataGrid>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="row" id="divComisionesPorArticulos" runat="server" visible="false">

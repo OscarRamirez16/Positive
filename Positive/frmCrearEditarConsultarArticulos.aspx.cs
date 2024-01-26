@@ -203,7 +203,7 @@ namespace Inventario
                 dgBodegas.Columns[dgBodegasColumnsEnum.TipoManejoPrecio.GetHashCode()].HeaderText = oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.TipoManejo);
                 dgBodegas.Columns[dgBodegasColumnsEnum.Costo.GetHashCode()].HeaderText = oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.Costo);
                 dgBodegas.Columns[dgBodegasColumnsEnum.Precio.GetHashCode()].HeaderText = oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.Precio);
-                dgBodegas.Columns[dgBodegasColumnsEnum.Seleccionar.GetHashCode()].HeaderText = oCIdioma.TraducirPalabra(Idioma, Traductor.IdiomaPalabraEnum.Seleccione);
+                dgBodegas.Columns[dgBodegasColumnsEnum.Seleccionar.GetHashCode()].HeaderText = string.Format("{0} <input type='checkbox' id='chkSelTod' data-elementos='chkSeleccionar' class='_selecionar' />", "Sel");
             }
             catch (Exception ex)
             {
@@ -274,7 +274,7 @@ namespace Inventario
                         oBodB.EliminarBodegasArticulos(oArticuloI.IdArticulo);
                         foreach (DataGridItem item in dgBodegas.Items)
                         {
-                            if (((CheckBox)(item.Cells[dgBodegasColumnsEnum.Seleccionar.GetHashCode()].FindControl("chkBodega"))).Checked == true)
+                            if (((CheckBox)(item.Cells[dgBodegasColumnsEnum.Seleccionar.GetHashCode()].FindControl("chkSeleccionar"))).Checked == true)
                             {
                                 tblArticulo_BodegaItem oArtBodI = new tblArticulo_BodegaItem();
                                 oArtBodI.IdBodega = short.Parse(item.Cells[dgBodegasColumnsEnum.IdBodega.GetHashCode()].Text);
@@ -304,7 +304,7 @@ namespace Inventario
                             oBodB.EliminarBodegasArticulos(oArticuloI.IdArticulo);
                             foreach (DataGridItem item in dgBodegas.Items)
                             {
-                                if (((CheckBox)(item.Cells[dgBodegasColumnsEnum.Seleccionar.GetHashCode()].FindControl("chkBodega"))).Checked == true)
+                                if (((CheckBox)(item.Cells[dgBodegasColumnsEnum.Seleccionar.GetHashCode()].FindControl("chkSeleccionar"))).Checked == true)
                                 {
                                     tblArticulo_BodegaItem oArtBodI = new tblArticulo_BodegaItem();
                                     oArtBodI.IdBodega = short.Parse(item.Cells[dgBodegasColumnsEnum.IdBodega.GetHashCode()].Text);
@@ -343,7 +343,7 @@ namespace Inventario
                 bool validador = false;
                 foreach (DataGridItem item in dgBodegas.Items)
                 {
-                    if (((CheckBox)(item.Cells[dgBodegasColumnsEnum.Seleccionar.GetHashCode()].FindControl("chkBodega"))).Checked == true)
+                    if (((CheckBox)(item.Cells[dgBodegasColumnsEnum.Seleccionar.GetHashCode()].FindControl("chkSeleccionar"))).Checked == true)
                     {
                         validador = true;
                     }
@@ -469,7 +469,7 @@ namespace Inventario
                         ((DropDownList)(e.Item.Cells[dgBodegasColumnsEnum.TipoManejoPrecio.GetHashCode()].FindControl("ddlTipoManejo"))).SelectedValue = oArtBodI.IdTipoManejoPrecio.ToString();
                         ((TextBox)(e.Item.Cells[dgBodegasColumnsEnum.Precio.GetHashCode()].FindControl("txtPrecio"))).Text = oArtBodI.Precio.ToString();
                         ((TextBox)(e.Item.Cells[dgBodegasColumnsEnum.Costo.GetHashCode()].FindControl("txtCosto"))).Text = oArtBodI.Costo.ToString();
-                        ((CheckBox)(e.Item.Cells[dgBodegasColumnsEnum.Seleccionar.GetHashCode()].FindControl("chkBodega"))).Checked = true;
+                        ((CheckBox)(e.Item.Cells[dgBodegasColumnsEnum.Seleccionar.GetHashCode()].FindControl("chkSeleccionar"))).Checked = true;
                     }
                     else
                     {
@@ -639,7 +639,7 @@ namespace Inventario
                         bool BodSel = false;
                         foreach (DataGridItem Row in dgBodegas.Items)
                         {
-                            if (((CheckBox)(Row.Cells[dgBodegasColumnsEnum.Seleccionar.GetHashCode()].FindControl("chkBodega"))).Checked == true)
+                            if (((CheckBox)(Row.Cells[dgBodegasColumnsEnum.Seleccionar.GetHashCode()].FindControl("chkSeleccionar"))).Checked == true)
                             {
                                 if (Item.IdBodega.ToString() == Row.Cells[dgBodegasColumnsEnum.IdBodega.GetHashCode()].Text)
                                 {

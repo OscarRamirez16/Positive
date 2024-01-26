@@ -68,23 +68,23 @@ namespace Inventario
                     if (string.IsNullOrEmpty(Error))
                     {
                         MostrarMensaje("Exito", "La cuenta de cobro se generó con éxito.");
+                        txtNumero.Text = oCuenB.ObtenerNumeroCuentaCobro(oUsuarioI.idEmpresa);
+                        txtFecha.Text = DateTime.Now.ToShortDateString();
+                        hddIdCiudad.Value = "";
+                        hddIdCliente.Value = "";
+                        hddIdCiudad.Value = "";
+                        txtTercero.Text = "";
+                        txtTelefono.Text = "";
+                        txtDireccion.Text = "";
+                        txtConcepto.Value = "";
+                        txtTotal.Text = "";
+                        txtIdentificacion.Text = "";
+                        txtCiudad.Text = "";
                     }
                     else
                     {
                         MostrarMensaje("Error", Error);
                     }
-                    txtNumero.Text = oCuenB.ObtenerNumeroCuentaCobro(oUsuarioI.idEmpresa);
-                    txtFecha.Text = DateTime.Now.ToShortDateString();
-                    hddIdCiudad.Value = "";
-                    hddIdCliente.Value = "";
-                    hddIdCiudad.Value = "";
-                    txtTercero.Text = "";
-                    txtTelefono.Text = "";
-                    txtDireccion.Text = "";
-                    txtConcepto.Value = "";
-                    txtTotal.Text = "";
-                    txtIdentificacion.Text = "";
-                    txtCiudad.Text = "";
                 }
                 else
                 {

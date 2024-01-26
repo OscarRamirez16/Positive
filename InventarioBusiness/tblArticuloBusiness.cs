@@ -5,6 +5,8 @@ using InventarioItem;
 using InventarioDao;
 using System.IO;
 using System.Data;
+using Microsoft.Office.Interop.Excel;
+using OfficeOpenXml;
 
 namespace InventarioBusiness
 {
@@ -58,7 +60,6 @@ namespace InventarioBusiness
             Precio = 4,
             Existencias = 5,
         }
-
         public enum PlantillaColumnasEnum
         {
             CodigoArticulo = 0,
@@ -82,6 +83,21 @@ namespace InventarioBusiness
             PorcentajeComision = 18,
             Costo = 19,
             Precio = 20
+        }
+        public enum FacturacionMasivaExcelEnum
+        {
+            CodigoArticulo = 1,
+            Nombre = 2,
+            Cantidad = 3,
+            IdBodega = 4
+        }
+        public enum TrasladoMasivoExcelEnum
+        {
+            CodigoArticulo = 1,
+            Nombre = 2,
+            Cantidad = 3,
+            IdBodegaOrigen = 4,
+            IdBodegaDestino = 5
         }
         public string ActualizarDatosArticulosMasivo(List<tblArticuloItem> oList)
         {
@@ -107,7 +123,6 @@ namespace InventarioBusiness
                 throw ex;
             }
         }
-
         public decimal ValidarDisponibilidadDV(long IdArticulo, long IdBodega, decimal Cantidad, string Referencia)
         {
             try
@@ -120,8 +135,7 @@ namespace InventarioBusiness
                 throw ex;
             }
         }
-
-        public DataTable ObtenerArticuloListaPorNombreCodigo(string Busqueda, long IdEmpresa)
+        public System.Data.DataTable ObtenerArticuloListaPorNombreCodigo(string Busqueda, long IdEmpresa)
         {
             try
             {
@@ -133,13 +147,11 @@ namespace InventarioBusiness
                 throw ex;
             }
         }
-
         public string ArticuloObtenerUltimoCodigo(long IdEmpresa) {
             tblArticuloDao oArtD = new tblArticuloDao(cadenaConexion);
             return oArtD.ArticuloObtenerUltimoCodigo(IdEmpresa);
         }
-
-        public DataTable ObtenerHistoricoMovimientosArticulo(DateTime FechaInicial, DateTime FechaFinal, long IdEmpresa, string CodigoArticulo)
+        public System.Data.DataTable ObtenerHistoricoMovimientosArticulo(DateTime FechaInicial, DateTime FechaFinal, long IdEmpresa, string CodigoArticulo)
         {
             try
             {
@@ -151,8 +163,7 @@ namespace InventarioBusiness
                 throw ex;
             }
         }
-
-        public DataTable ObtenerAuditoriaStock(DateTime FechaInicial, DateTime FechaFinal, long IdEmpresa, string CodigoArticulo, long IdBodega)
+        public System.Data.DataTable ObtenerAuditoriaStock(DateTime FechaInicial, DateTime FechaFinal, long IdEmpresa, string CodigoArticulo, long IdBodega)
         {
             try
             {
@@ -164,8 +175,7 @@ namespace InventarioBusiness
                 throw ex;
             }
         }
-
-        public DataTable ObtenerMovimientosAritculos(DateTime FechaInicial, DateTime FechaFinal, long IdEmpresa, string CodigoArticulo, string NitTercero)
+        public System.Data.DataTable ObtenerMovimientosAritculos(DateTime FechaInicial, DateTime FechaFinal, long IdEmpresa, string CodigoArticulo, string NitTercero)
         {
             try
             {
@@ -177,7 +187,6 @@ namespace InventarioBusiness
                 throw ex;
             }
         }
-
         public decimal DisponibilidadArticuloEnBodega(long IdArticulo, long IdBodega)
         {
             try
@@ -190,7 +199,6 @@ namespace InventarioBusiness
                 throw ex;
             }
         }
-
         public bool GuardarCodigosBarra(tblArticuloCodigoBarraItem Item)
         {
             try
@@ -203,7 +211,6 @@ namespace InventarioBusiness
                 throw ex;
             }
         }
-
         public List<tblArticuloCodigoBarraItem> ObtenerCodigosBarra(long IdArticulo)
         {
             try
@@ -216,7 +223,6 @@ namespace InventarioBusiness
                 throw ex;
             }
         }
-
         public bool TrasladarMercancia(long IdArticulo, long IdBodegaOrigen, long IdBodegaDestino, decimal Cantidad)
         {
             try
@@ -229,7 +235,6 @@ namespace InventarioBusiness
                 throw ex;
             }
         }
-
         public bool GuardarArticulosPorBodegaExistencia(List<tblArticulo_BodegaItem> oListArtBod)
         {
             try
@@ -539,6 +544,254 @@ namespace InventarioBusiness
                 throw ex;
             }
         }
+        public string LeerArticulosParaFacturacionMasivaTemplate(Stream fileStream, List<tblArticuloItem> Articulos, long IdEmpresa)
+        {
+            try
+            {
+                string Error = "";
+                ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+                using (var package = new ExcelPackage(fileStream))
+                {
+                    var worksheet = package.Workbook.Worksheets["Hoja1"];
+                    var rowCount = worksheet.Dimension.Rows;
+                    var columns = worksheet.Dimension.Columns;
+                    if (columns == 4)
+                    {
+                        for (int row = 2; row <= rowCount; row++)
+                        {
+                            string CodigoArticulo = worksheet.Cells[row, FacturacionMasivaExcelEnum.CodigoArticulo.GetHashCode()].Value.ToString();
+                            decimal Cantidad = decimal.Parse(worksheet.Cells[row, FacturacionMasivaExcelEnum.Cantidad.GetHashCode()].Value.ToString(), System.Globalization.NumberStyles.Currency);
+                            long IdBodega = long.Parse(worksheet.Cells[row, FacturacionMasivaExcelEnum.IdBodega.GetHashCode()].Value.ToString());
+                            if(Cantidad > 0)
+                            {
+                                tblArticuloBusiness oArtB = new tblArticuloBusiness(cadenaConexion);
+                                tblArticuloItem oArtI = new tblArticuloItem();
+                                tblBodegaBusiness oBodB = new tblBodegaBusiness(cadenaConexion);
+                                tblBodegaItem oBodI = new tblBodegaItem();
+                                oArtI = oArtB.ObtenerArticuloPorCodigo(CodigoArticulo, IdEmpresa);
+                                if (oArtI.IdArticulo > 0)
+                                {
+                                    if (oArtI.EsInventario && !oArtI.EsHijo && !oArtI.EsCompuesto)
+                                    {
+                                        oBodI = oBodB.ObtenerBodega(IdBodega, IdEmpresa);
+                                        if (oBodI.IdBodega > 0)
+                                        {
+                                            oArtI.IdBodega = oBodI.IdBodega;
+                                            oArtI.Bodega = oBodI.Descripcion;
+                                        }
+                                        else
+                                        {
+                                            Error = string.Format("La bodega {0} no existe en el sistema. <br>", IdBodega);
+                                        }
+                                        oArtI.Cantidad = Cantidad;
+                                        tblArticulo_BodegaItem oArtBod = new tblArticulo_BodegaItem();
+                                        oArtBod = oBodB.ConsultarArticulosBodegaPorID(oArtI.IdArticulo, oArtI.IdBodega);
+                                        if (oArtBod.IdArticulo > 0)
+                                        {
+                                            oArtI.Costo = oArtBod.Costo;
+                                            oArtI.Precio = oArtBod.Precio;
+                                            oArtI.StockBodega = oArtBod.Cantidad;
+                                        }
+                                        else
+                                        {
+                                            Error = string.Format("El artículo no se registra en la bodega {0}. <br>", oArtI.Bodega);
+                                        }
+                                        if (string.IsNullOrEmpty(Error))
+                                        {
+                                            Articulos.Add(oArtI);
+                                        }
+                                    }
+                                    else
+                                    {
+                                        Error = string.Format("El código {0} debe ser de inventario y no debe ser hijo ni compuesto. <br>", CodigoArticulo);
+                                    }
+                                }
+                                else
+                                {
+                                    Error = string.Format("El código {0} no existe en el sistema. <br>", CodigoArticulo);
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Error = "Numero de columnas no valido, por favor validar";
+                    }
+                }
+                //using (StreamReader sr = new StreamReader(fileStream, Encoding.UTF7))
+                //{
+                //    string linea = null;
+                //    bool PrimeraLinea = true;
+                //    bool blnError = false;
+                //    int IdLinea = 2;
+                //    while (((linea = sr.ReadLine()) != null) && !blnError)
+                //    {
+                //        if (PrimeraLinea)
+                //        {
+                //            if (linea.Split(Delimitador).Length != 3)
+                //            {
+                //                blnError = true;
+                //                Error = "El numero de columnas del archivo no es valido...";
+                //            }
+                //            PrimeraLinea = false;
+                //        }
+                //        else
+                //        {
+                //            if (linea.Split(Delimitador)[PlantillaEntradaSalidaMasivaMercanciaEnum.CodigoArticulo.GetHashCode()] != "" && linea.Split(Delimitador)[PlantillaEntradaSalidaMasivaMercanciaEnum.CodigoArticulo.GetHashCode()] != "")
+                //            {
+                //                tblArticuloBusiness oArtB = new tblArticuloBusiness(cadenaConexion);
+                //                tblArticuloItem oArtI = new tblArticuloItem();
+                //                tblBodegaBusiness oBodB = new tblBodegaBusiness(cadenaConexion);
+                //                tblBodegaItem oBodI = new tblBodegaItem();
+                //                oArtI = oArtB.ObtenerArticuloPorCodigo(linea.Split(Delimitador)[PlantillaEntradaSalidaMasivaMercanciaEnum.CodigoArticulo.GetHashCode()], IdEmpresa);
+                //                if (oArtI.IdArticulo > 0)
+                //                {
+                //                    if (oArtI.EsInventario && !oArtI.EsHijo && !oArtI.EsCompuesto)
+                //                    {
+                //                        oBodI = oBodB.ObtenerBodega(long.Parse(linea.Split(Delimitador)[PlantillaEntradaSalidaMasivaMercanciaEnum.IdBodega.GetHashCode()]), IdEmpresa);
+                //                        if (oBodI.IdBodega > 0)
+                //                        {
+                //                            oArtI.IdBodega = oBodI.IdBodega;
+                //                            oArtI.Bodega = oBodI.Descripcion;
+                //                        }
+                //                        else
+                //                        {
+                //                            Error = string.Format("La bodega {0} no existe en el sistema. <br>", linea.Split(Delimitador)[PlantillaEntradaSalidaMasivaMercanciaEnum.IdBodega.GetHashCode()]);
+                //                        }
+                //                        oArtI.Cantidad = decimal.Parse(linea.Split(Delimitador)[PlantillaEntradaSalidaMasivaMercanciaEnum.Cantidad.GetHashCode()]);
+                //                        tblArticulo_BodegaItem oArtBod = new tblArticulo_BodegaItem();
+                //                        oArtBod = oBodB.ConsultarArticulosBodegaPorID(oArtI.IdArticulo, oArtI.IdBodega);
+                //                        if(oArtBod.IdArticulo > 0)
+                //                        {
+                //                            oArtI.Costo = oArtBod.Costo;
+                //                            oArtI.Precio = oArtBod.Precio;
+                //                        }
+                //                        else
+                //                        {
+                //                            Error = string.Format("El artículo no se registra en la bodega {0}. <br>", oArtI.Bodega);
+                //                        }
+                //                        if (string.IsNullOrEmpty(Error))
+                //                        {
+                //                            Articulos.Add(oArtI);
+                //                        }
+                //                    }
+                //                    else
+                //                    {
+                //                        Error = string.Format("El código {0} debe ser de inventario y no debe ser hijo ni compuesto. <br>", linea.Split(Delimitador)[PlantillaEntradaSalidaMasivaMercanciaEnum.CodigoArticulo.GetHashCode()]);
+                //                    }
+                //                }
+                //                else
+                //                {
+                //                    Error = string.Format("El código {0} no existe en el sistema. <br>", linea.Split(Delimitador)[PlantillaEntradaSalidaMasivaMercanciaEnum.CodigoArticulo.GetHashCode()]);
+                //                }
+                //                IdLinea++;
+                //            }
+                //            else
+                //            {
+                //                blnError = true;
+                //            }
+                //        }
+                //    }
+                //}
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public string LeerArticulosParaTrasladoMasivoTemplate(Stream fileStream, List<tblArticuloItem> Articulos, long IdEmpresa)
+        {
+            try
+            {
+                string Error = "";
+                ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+                using (var package = new ExcelPackage(fileStream))
+                {
+                    var worksheet = package.Workbook.Worksheets["Hoja1"];
+                    var rowCount = worksheet.Dimension.Rows;
+                    var columns = worksheet.Dimension.Columns;
+                    if (columns == 5)
+                    {
+                        for (int row = 2; row <= rowCount; row++)
+                        {
+                            string CodigoArticulo = worksheet.Cells[row, TrasladoMasivoExcelEnum.CodigoArticulo.GetHashCode()].Value.ToString();
+                            decimal Cantidad = decimal.Parse(worksheet.Cells[row, TrasladoMasivoExcelEnum.Cantidad.GetHashCode()].Value.ToString(), System.Globalization.NumberStyles.Currency);
+                            long IdBodegaOrigen = long.Parse(worksheet.Cells[row, TrasladoMasivoExcelEnum.IdBodegaOrigen.GetHashCode()].Value.ToString());
+                            long IdBodegaDestino = long.Parse(worksheet.Cells[row, TrasladoMasivoExcelEnum.IdBodegaDestino.GetHashCode()].Value.ToString());
+                            if(Cantidad > 0)
+                            {
+                                tblArticuloBusiness oArtB = new tblArticuloBusiness(cadenaConexion);
+                                tblArticuloItem oArtI = new tblArticuloItem();
+                                tblBodegaBusiness oBodB = new tblBodegaBusiness(cadenaConexion);
+                                tblBodegaItem oBodI = new tblBodegaItem();
+                                oArtI = oArtB.ObtenerArticuloPorCodigo(CodigoArticulo, IdEmpresa);
+                                if (oArtI.IdArticulo > 0)
+                                {
+                                    if (oArtI.EsInventario && !oArtI.EsHijo && !oArtI.EsCompuesto)
+                                    {
+                                        oBodI = oBodB.ObtenerBodega(IdBodegaOrigen, IdEmpresa);
+                                        if (oBodI.IdBodega > 0)
+                                        {
+                                            oArtI.IdBodegaOrigen = oBodI.IdBodega;
+                                            oArtI.BodegaOrigen = oBodI.Descripcion;
+                                            tblArticulo_BodegaItem oArtBod = new tblArticulo_BodegaItem();
+                                            oArtBod = oBodB.ConsultarArticulosBodegaPorID(oArtI.IdArticulo, IdBodegaOrigen);
+                                            if (oArtBod.IdArticulo > 0)
+                                            {
+                                                oArtI.Costo = oArtBod.Costo;
+                                                oArtI.Precio = oArtBod.Precio;
+                                                oArtI.StockBodega = oArtBod.Cantidad;
+                                            }
+                                            else
+                                            {
+                                                Error = string.Format("El artículo no se registra en la bodega origen {0}. <br>", oArtI.Bodega);
+                                            }
+                                        }
+                                        else
+                                        {
+                                            Error = string.Format("La bodega origen {0} no existe en el sistema. <br>", IdBodegaOrigen);
+                                        }
+                                        oBodI = oBodB.ObtenerBodega(IdBodegaDestino, IdEmpresa);
+                                        if (oBodI.IdBodega > 0)
+                                        {
+                                            oArtI.IdBodegaDestino = oBodI.IdBodega;
+                                            oArtI.BodegaDestino = oBodI.Descripcion;
+                                        }
+                                        else
+                                        {
+                                            Error = string.Format("La bodega destino {0} no existe en el sistema. <br>", IdBodegaDestino);
+                                        }
+                                        oArtI.Cantidad = Cantidad;
+                                        if (string.IsNullOrEmpty(Error))
+                                        {
+                                            Articulos.Add(oArtI);
+                                        }
+                                    }
+                                    else
+                                    {
+                                        Error = string.Format("El código {0} debe ser de inventario y no debe ser hijo ni compuesto. <br>", CodigoArticulo);
+                                    }
+                                }
+                                else
+                                {
+                                    Error = string.Format("El código {0} no existe en el sistema. <br>", CodigoArticulo);
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Error = "Numero de columnas no valido, por favor validar";
+                    }
+                }
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
         public bool insertar(tblArticuloItem articulo)
         {
@@ -552,7 +805,6 @@ namespace InventarioBusiness
                 throw ex;
             }
         }
-
         public List<tblArticuloItem> ObtenerArticuloListaPorFiltrosNombreLineaProveedorEmpresa(string nombre, short idLinea, long idProveedor, long idEmpresa)
         {
             try
@@ -565,8 +817,7 @@ namespace InventarioBusiness
                 throw ex;
             }
         }
-
-        public DataTable ObtenerArticulosPorBodega(long idEmpresa, long idBodega, string nombre, short idLinea, long idProveedor)
+        public System.Data.DataTable ObtenerArticulosPorBodega(long idEmpresa, long idBodega, string nombre, short idLinea, long idProveedor)
         {
             try
             {
@@ -578,7 +829,6 @@ namespace InventarioBusiness
                 throw ex;
             }
         }
-
         public tblArticuloItem ObtenerArticuloPorID(long idArticulo, long idEmpresa)
         {
             try
@@ -591,7 +841,6 @@ namespace InventarioBusiness
                 throw ex;
             }
         }
-
         public tblArticuloItem ObtenerArticuloPorCodigo(string Codigo, long idEmpresa)
         {
             try
@@ -604,7 +853,6 @@ namespace InventarioBusiness
                 throw ex;
             }
         }
-
         public tblArticuloItem ObtenerArticulo(long idArticulo, long tipoDocumento)
         {
             try
@@ -617,7 +865,6 @@ namespace InventarioBusiness
                 throw ex;
             }
         }
-
         public List<JSONItem> ObtenerArticuloListaPorNombreSencillo(string nombre, long idEmpresa, int Tipo)
         {
             try
@@ -631,7 +878,6 @@ namespace InventarioBusiness
             }
 
         }
-
         public List<JSONItem> ObtenerArticuloListaPorNombre(string nombre, long idEmpresa, long tipoDocumento, long idBodega, long idTercero)
         {
             try
@@ -644,7 +890,6 @@ namespace InventarioBusiness
                 throw ex;
             }   
         }
-
         public List<JSONItem> ObtenerArticuloListaPorCodigoOCodigoBarras(string codigo, long idEmpresa, long tipoDocumento, long idBodega, long idTercero)
         {
             try
@@ -662,7 +907,7 @@ namespace InventarioBusiness
             tblCampanaDao oCDao = new tblCampanaDao(cadenaConexion);
             return oCDao.ObtenerCampana(Id,idEmpresa);
         }
-        public DataTable ObtenerCampanaLista(string IdCampana, string Nombre, int Estado, string IdArticulo, long idEmpresa)
+        public System.Data.DataTable ObtenerCampanaLista(string IdCampana, string Nombre, int Estado, string IdArticulo, long idEmpresa)
         {
             tblCampanaDao oCDao = new tblCampanaDao(cadenaConexion);
             return oCDao.ObtenerCampanaLista(IdCampana, Nombre, Estado, IdArticulo, idEmpresa);

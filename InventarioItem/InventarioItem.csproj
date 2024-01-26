@@ -55,6 +55,7 @@
     <Compile Include="CotizacionCocinaItem.cs" />
     <Compile Include="CotizacionVentaRapidaItem.cs" />
     <Compile Include="CuadreCajaItem.cs" />
+    <Compile Include="ImageItem.cs" />
     <Compile Include="JSONItem.cs" />
     <Compile Include="tblArticuloCodigoBarraItem.cs" />
     <Compile Include="tblArticuloItem.cs" />

@@ -52,6 +52,18 @@ namespace InventarioBusiness
         {
             this.cadenaConexion = cadenaConexion;
         }
+        public DataTable ObtenerDocumentosAgrupadoPorArticulo(DateTime FechaInicial, DateTime FechaFinal, long IdUsuario, long IdEmpresa, int TipoDocumento, long IdBodega)
+        {
+            try
+            {
+                tblDocumentoDao oDocD = new tblDocumentoDao(cadenaConexion);
+                return oDocD.ObtenerDocumentosAgrupadoPorArticulo(FechaInicial, FechaFinal, IdUsuario, IdEmpresa, TipoDocumento, IdBodega);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public DataTable ObtenerCuentaCobro(DateTime FechaInicial, DateTime FechaFinal, long IdUsuario, long IdTercero, long IdEmpresa)
         {
             try
@@ -374,12 +386,12 @@ namespace InventarioBusiness
             }
         }
 
-        public bool GuardarVentaRapida(tblDocumentoItem Item, string Articulos)
+        public bool GuardarVentaRapida(tblDocumentoItem Item, string Articulos, long IdBodega)
         {
             try
             {
                 tblDocumentoDao oDocD = new tblDocumentoDao(cadenaConexion);
-                if (oDocD.GuardarVentaRapida(Item, Articulos))
+                if (oDocD.GuardarVentaRapida(Item, Articulos, IdBodega))
                 {
                     return true;
                 }

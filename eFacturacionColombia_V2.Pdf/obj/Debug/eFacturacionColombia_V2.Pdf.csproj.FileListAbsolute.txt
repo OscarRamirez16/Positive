@@ -48,7 +48,8 @@ C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\eFac
 C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Pdf\bin\Debug\itextsharp.dll
 C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Pdf\bin\Debug\eFacturacionColombia_V2.Tipos.pdb
 C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Pdf\bin\Debug\itextsharp.xml
-C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Pdf\obj\Debug\eFacturacionColombia_V2.Pdf.csproj.AssemblyReference.cache
 C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Pdf\obj\Debug\eFacturacionColombia_V2.Pdf.csproj.CoreCompileInputs.cache
 C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Pdf\obj\Debug\eFacturacionColombia_V2.Pdf.dll
 C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Pdf\obj\Debug\eFacturacionColombia_V2.Pdf.pdb
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Pdf\obj\Debug\eFacturacionColombia_V2.Pdf.csprojAssemblyReference.cache
+C:\Users\Oscar\Desktop\Importantes\HQS-Software\PositiveResponsive\Positive\eFacturacionColombia_V2.Pdf\obj\Debug\eFacturacionColombia_V2.Pdf.csproj.CopyComplete
